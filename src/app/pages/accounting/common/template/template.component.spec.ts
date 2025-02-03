@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TemplateComponent } from 'src/app/pages/accounting/common/template/template.component';
+import { AccountingTemplateComponent  as TemplateComponent } from 'src/app/pages/accounting/common/template/template.component';
 
 describe('TemplateComponent', () => {
   let component: TemplateComponent;
