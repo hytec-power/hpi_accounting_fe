@@ -21,7 +21,7 @@ export class SidebarComponent {
 
     this.items.push({name: 'Budget Request',
                      link: '/accounting/budget-requests' ,
-                     bi_icon: 'bi-wallet-fill' });
-
+                     bi_icon: 'bi-wallet2',
+                     bi_icon_active: 'bi-wallet-fill' });
   }
 }
