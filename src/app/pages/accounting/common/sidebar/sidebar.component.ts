@@ -20,7 +20,7 @@ export class SidebarComponent {
                      bi_icon_active: 'bi-house-door-fill' });
 
     this.items.push({name: 'Budget Request',
-                     link: '' ,
+                     link: '/accounting/budget-requests' ,
                      bi_icon: 'bi-wallet-fill' });
 
   }
