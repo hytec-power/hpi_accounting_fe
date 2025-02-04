@@ -11,13 +11,16 @@
 a.item{
   padding: 10px 15px;
   box-sizing: border-box;
-  color:#FFF;
+  color:#757575;
   text-decoration: none;
   font-size: 14px;
   margin: 2px;
   border-radius: 10px;
   .bi{
     margin-right: 20px;
+  }
+  &.active{
+    color: #EEEEEE;
   }
   &.active, &:hover{
     background-color: #424242;
