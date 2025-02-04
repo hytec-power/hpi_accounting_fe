@@ -1,3 +1,7 @@
 <div class="root-container">
-    <a class="item" href="">Dashboard</a>
+    @for (i of items;track $index){
+        <a [routerLink]="i.link" class="item" >
+            @if (i.bi_icon) { <i [class]="['bi',i.bi_icon]"  ></i>  } {{ i.name }}
+        </a>
+    }
 </div>
