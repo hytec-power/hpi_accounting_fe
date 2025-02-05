@@ -1,0 +1,41 @@
+@import "colors";
+
+table{
+  table-layout: fixed;
+  width: 100%;
+  caption-side: top;
+  padding: 10px;
+  color-scheme: light;
+}
+caption{
+  font-size: 20px;
+  font-weight: bold;
+  color: $light-text-bold-color;
+  padding: 20px 5px;
+}
+th{
+  color: light-dark($light-text-bold-color,$dark-text-bold-color);
+  padding: 10px;
+}
+td{
+  padding: 10px;
+  color: light-dark($light-text-normal-color,$dark-text-normal-color);
+}
+tbody tr:hover{
+  background-color: rgba(0,0,0,.05);
+}
+.table-wrapper{
+  padding: 30px;
+  border-radius: 20px;
+  background-color: light-dark(#FFF,$dark-bg-foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+
+  tbody tr:hover{
+    background-color: rgba(255,255,255,.05);
+  }
+  caption{
+    color: $dark-text-bold-color ;
+  }
+}

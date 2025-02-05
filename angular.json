@@ -41,7 +41,7 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "public/styles"
+                "public/assets/styles"
               ]
             }
           },
