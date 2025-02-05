@@ -9,4 +9,5 @@ import {Component, input} from '@angular/core';
 })
 export class PageTitleComponent {
   text = input<string>();
+  bi_icon = input<string>('');
 }
