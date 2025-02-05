@@ -1,16 +1,15 @@
 @import "colors";
-
 table{
   table-layout: fixed;
   width: 100%;
   caption-side: top;
   padding: 10px;
-  color-scheme: light !important;
+  transition: all 1s;
 }
 caption{
   font-size: 20px;
   font-weight: bold;
-  color: $light-text-bold-color;
+  color: light-dark($light-text-bold-color,$dark-text-bold-color);
   padding: 20px 5px;
 }
 th{
@@ -28,14 +27,4 @@ tbody tr:hover{
   padding: 30px;
   border-radius: 20px;
   background-color: light-dark(#FFF,$dark-bg-foreground);
-}
-
-@media (prefers-color-scheme: dark) {
-
-  tbody tr:hover{
-    background-color: rgba(255,255,255,.05);
-  }
-  caption{
-    color: $dark-text-bold-color ;
-  }
 }
