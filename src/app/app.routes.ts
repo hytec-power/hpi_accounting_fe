@@ -10,5 +10,6 @@ export const routes: Routes = [
         path: 'accounting',
         loadChildren: () => import('./pages/accounting/accounting.module').then(m=>m.AccountingModule),
         component: AccountingTemplateComponent
-    }
+    },
+
 ];

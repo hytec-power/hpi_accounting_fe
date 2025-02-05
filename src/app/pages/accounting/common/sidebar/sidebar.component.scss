@@ -1,17 +1,18 @@
+@import "colors";
+
 .root-container{
   width: 200px;
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #212121;
+  background-color: light-dark($light-bg-background,$dark-bg-background);
   box-sizing: border-box;
   padding: 20px 3px 2px 3px;
 }
-
 a.item{
   padding: 10px 15px;
   box-sizing: border-box;
-  color:#757575;
+  color: light-dark($light-text-normal-color,$dark-text-normal-color);
   text-decoration: none;
   font-size: 14px;
   margin: 2px;
@@ -20,10 +21,10 @@ a.item{
     margin-right: 20px;
   }
   &.active{
-    color: #EEEEEE;
+    color: light-dark($light-text-bold-color,$dark-text-bold-color);
   }
   &.active, &:hover{
-    background-color: #424242;
+    background-color: light-dark($light-bg-foreground,$dark-bg-foreground);
   }
   &.active .icon-active{
     display: inline-block;
