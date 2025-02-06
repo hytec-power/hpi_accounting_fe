@@ -9,5 +9,23 @@
 .section-title{
   color: light-dark($light-text-bold-color,$dark-text-bold-color);
   font-weight: bold;
-  margin: 3px 0;
+  margin: 5px 0;
+}
+.data{
+  color: light-dark($light-text-normal-color,$dark-text-normal-color);
+  &-label{
+    text-align: right;
+    opacity: 0.5;
+  }
+  &-value{
+    text-align: left;
+
+  }
+}
+table{
+  table-layout: auto;
+  width: 100%;
+  td{
+    padding: 5px;
+  }
 }
