@@ -28,6 +28,6 @@ export class SidebarComponent {
   }
   test(){
       this.toggle_temp = !this.toggle_temp;
-      this.theme.setRootTheme(this.toggle_temp?'light':'dark');
+      this.theme.setTheme(this.toggle_temp?'light':'dark');
   }
 }
