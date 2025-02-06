@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {AppStateService} from "src/app/services/app-state/app-state.service";
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,6 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'hpi_accounting_fe';
+  constructor(private appState: AppStateService) {
+  }
 }
