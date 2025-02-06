@@ -21,11 +21,11 @@
   box-sizing: border-box;
   border: 4px solid light-dark($light-text-normal-color,$dark-text-normal-color);
   &.active{
-    border: 4px solid tomato;
-    background-color: tomato;
+    border: 4px solid $primary-color;
+    background-color: $primary-color;
   }
   &.current{
-    border: 4px solid tomato;
+    border: 4px solid $primary-color;
   }
   &-title{
     white-space: nowrap;
@@ -47,6 +47,6 @@
   height: 4px;
   background-color: light-dark($light-text-normal-color,$dark-text-normal-color);
   &.active{
-    background-color: tomato;
+    background-color: $primary-color;
   }
 }
