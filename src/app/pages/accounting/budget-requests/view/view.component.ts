@@ -3,6 +3,8 @@ import {PageTitleComponent} from "src/app/common/page-title/page-title.component
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
 import {UserDetailsComponent} from "src/app/pages/accounting/budget-requests/view/user-details/user-details.component";
 import {ObjectivesComponent} from "src/app/pages/accounting/budget-requests/view/objectives/objectives.component";
+import {RequestDateComponent} from "src/app/pages/accounting/budget-requests/view/request-date/request-date.component";
+import {RequestTypeComponent} from "src/app/pages/accounting/budget-requests/view/request-type/request-type.component";
 
 @Component({
   selector: 'view-request',
@@ -11,7 +13,9 @@ import {ObjectivesComponent} from "src/app/pages/accounting/budget-requests/view
     PageTitleComponent,
     StepperComponent,
     UserDetailsComponent,
-    ObjectivesComponent
+    ObjectivesComponent,
+    RequestDateComponent,
+    RequestTypeComponent
   ],
   templateUrl: './view.component.html',
   styleUrl: './view.component.scss'

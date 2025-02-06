@@ -4,12 +4,14 @@
   background-color: light-dark($light-bg-foreground,$dark-bg-foreground);
   color: light-dark($light-text-normal-color,$dark-text-normal-color);
   padding: 20px;
+  box-sizing: border-box;
   border-radius: 20px;
+  margin: 10px;
 }
 .section-title{
   color: light-dark($light-text-bold-color,$dark-text-bold-color);
   font-weight: bold;
-  margin: 5px 0;
+  margin-bottom: 5px;
 }
 .data{
   color: light-dark($light-text-normal-color,$dark-text-normal-color);
@@ -24,7 +26,6 @@
 }
 table{
   table-layout: auto;
-  width: 100%;
   td{
     padding: 5px;
   }
