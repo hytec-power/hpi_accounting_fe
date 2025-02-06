@@ -1,9 +1,10 @@
-
+@import "colors";
 .root-container{
   font-size: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: light-dark($light-text-normal-color,$dark-text-normal-color);
 }
 .bi{
   margin: 10px;
