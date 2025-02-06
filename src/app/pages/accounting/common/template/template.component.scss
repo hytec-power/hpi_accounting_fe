@@ -1,14 +1,14 @@
-
+@import "colors";
 .root-container{
   display: flex;
   flex-direction: column;
   height: 100vh;
+  background-color: light-dark($light-bg-background,$dark-bg-background);
 }
 .content{
   display: flex;
   flex-direction: row;
   flex:1;
-  background-color: #EEEEEE;
 }
 .main{
   flex: 1;
