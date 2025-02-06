@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {RouterLink, RouterLinkActive} from "@angular/router";
+import {ThemeService} from "src/app/services/service/theme/theme.service";
 
 @Component({
   selector: 'accounting-sidebar',
@@ -13,7 +14,8 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
 })
 export class SidebarComponent {
   items:{ name: string,link: string, bi_icon?: string , bi_icon_active?: string }[] = [];
-  constructor() {
+  toggle_temp: boolean = true;
+  constructor(private theme: ThemeService) {
     this.items.push({name: 'Dashboard',
                      link: '/accounting',
                      bi_icon: 'bi-house',
@@ -23,5 +25,9 @@ export class SidebarComponent {
                      link: '/accounting/budget-requests' ,
                      bi_icon: 'bi-wallet2',
                      bi_icon_active: 'bi-wallet-fill' });
+  }
+  test(){
+      this.toggle_temp = !this.toggle_temp;
+      this.theme.setRootTheme(this.toggle_temp?'light':'dark');
   }
 }

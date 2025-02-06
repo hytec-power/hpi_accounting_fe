@@ -12,11 +12,5 @@ import {ThemeService} from "src/app/services/service/theme/theme.service";
   styleUrl: './index.component.scss'
 })
 export class IndexComponent {
-  toggle: boolean = true;
-  constructor(private theme: ThemeService) {
-  }
-  test(){
-    this.toggle = !this.toggle;
-    this.theme.setRootTheme(this.toggle? 'light':'dark');
-  }
+  constructor(private theme: ThemeService) {}
 }
