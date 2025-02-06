@@ -1,0 +1,13 @@
+@import "colors";
+
+.root-container{
+  background-color: light-dark($light-bg-foreground,$dark-bg-foreground);
+  color: light-dark($light-text-normal-color,$dark-text-normal-color);
+  padding: 20px;
+  border-radius: 20px;
+}
+.section-title{
+  color: light-dark($light-text-bold-color,$dark-text-bold-color);
+  font-weight: bold;
+  margin: 3px 0;
+}

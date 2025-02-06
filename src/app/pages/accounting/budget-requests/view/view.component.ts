@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import {PageTitleComponent} from "src/app/common/page-title/page-title.component";
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
-import {
-  RequestUserDetailsComponent
-} from "src/app/pages/accounting/budget-requests/view/request-user-details/request-user-details.component";
+import {UserDetailsComponent} from "src/app/pages/accounting/budget-requests/view/user-details/user-details.component";
 
 @Component({
   selector: 'view-request',
@@ -11,7 +9,7 @@ import {
   imports: [
     PageTitleComponent,
     StepperComponent,
-    RequestUserDetailsComponent
+    UserDetailsComponent
   ],
   templateUrl: './view.component.html',
   styleUrl: './view.component.scss'
