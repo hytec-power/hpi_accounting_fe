@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {PageTitleComponent} from "src/app/common/page-title/page-title.component";
-import {ThemeService} from "src/app/services/service/theme/theme.service";
+import {ThemeService} from "src/app/services/theme/theme.service";
 
 @Component({
   selector: 'app-index',

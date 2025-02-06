@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {RouterLink, RouterLinkActive} from "@angular/router";
-import {ThemeService} from "src/app/services/service/theme/theme.service";
+import {ThemeService} from "src/app/services/theme/theme.service";
 
 @Component({
   selector: 'accounting-sidebar',
