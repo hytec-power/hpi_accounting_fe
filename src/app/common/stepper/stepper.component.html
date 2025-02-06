@@ -1,0 +1,12 @@
+<div class="root-container">
+    <div class="steps-container">
+        @for (i of items();track $index){
+            <div class="node">
+                <div class="node-title">{{ i.name }}</div>
+            </div>
+            @if (!$last){
+                <div class="connector"></div>
+            }
+        }
+    </div>
+</div>

@@ -1,0 +1,52 @@
+@import "colors";
+
+.root-container{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.steps-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.node{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  border: 4px solid light-dark($light-text-normal-color,$dark-text-normal-color);
+  &.active{
+    border: 4px solid tomato;
+    background-color: tomato;
+  }
+  &.current{
+    border: 4px solid tomato;
+  }
+  &-title{
+    white-space: nowrap;
+    position: relative;
+    bottom: -40px;
+    color:light-dark($light-text-normal-color,$dark-text-normal-color);
+    opacity: 0.5;
+  }
+  &.active &-title{
+    opacity: 1;
+  }
+  &.current &-title{
+    opacity: 1;
+    font-weight: bold;
+  }
+}
+.connector{
+  flex: 1;
+  height: 4px;
+  background-color: light-dark($light-text-normal-color,$dark-text-normal-color);
+  &.active{
+    background-color: tomato;
+  }
+}
