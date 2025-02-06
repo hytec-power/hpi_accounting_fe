@@ -1,6 +1,6 @@
 <div class="root-container">
     @for (i of items;track $index){
-        <a [routerLink]="i.link"  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="item" >
+        <a [routerLink]="i.link"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: i.exact}" class="item" >
             @if (i.bi_icon) { <i [class]="['bi',i.bi_icon,'icon']"  ></i>  }
             @if (i.bi_icon_active) { <i [class]="['bi',i.bi_icon_active,'icon-active']"></i>  }
             {{ i.name }}
