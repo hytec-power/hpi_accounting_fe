@@ -5,6 +5,9 @@ import {UserDetailsComponent} from "src/app/pages/accounting/budget-requests/vie
 import {ObjectivesComponent} from "src/app/pages/accounting/budget-requests/view/objectives/objectives.component";
 import {RequestDateComponent} from "src/app/pages/accounting/budget-requests/view/request-date/request-date.component";
 import {RequestTypeComponent} from "src/app/pages/accounting/budget-requests/view/request-type/request-type.component";
+import {
+  RequestPurposeComponent
+} from "src/app/pages/accounting/budget-requests/view/request-purpose/request-purpose.component";
 
 @Component({
   selector: 'view-request',
@@ -15,7 +18,8 @@ import {RequestTypeComponent} from "src/app/pages/accounting/budget-requests/vie
     UserDetailsComponent,
     ObjectivesComponent,
     RequestDateComponent,
-    RequestTypeComponent
+    RequestTypeComponent,
+    RequestPurposeComponent
   ],
   templateUrl: './view.component.html',
   styleUrl: './view.component.scss'
