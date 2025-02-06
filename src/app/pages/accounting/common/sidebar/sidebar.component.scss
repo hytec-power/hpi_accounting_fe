@@ -8,6 +8,7 @@
   background-color: light-dark($light-bg-background,$dark-bg-background);
   box-sizing: border-box;
   padding: 20px 3px 2px 3px;
+  z-index: 5;
 }
 a.item{
   padding: 10px 15px;
