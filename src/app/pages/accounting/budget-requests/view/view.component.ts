@@ -8,6 +8,9 @@ import {RequestTypeComponent} from "src/app/pages/accounting/budget-requests/vie
 import {
   RequestPurposeComponent
 } from "src/app/pages/accounting/budget-requests/view/request-purpose/request-purpose.component";
+import {
+  RequestAmountComponent
+} from "src/app/pages/accounting/budget-requests/view/request-amount/request-amount.component";
 
 @Component({
   selector: 'view-request',
@@ -19,7 +22,8 @@ import {
     ObjectivesComponent,
     RequestDateComponent,
     RequestTypeComponent,
-    RequestPurposeComponent
+    RequestPurposeComponent,
+    RequestAmountComponent
   ],
   templateUrl: './view.component.html',
   styleUrl: './view.component.scss'
