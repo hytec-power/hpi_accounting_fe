@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 
 @Component({
@@ -11,5 +11,10 @@ import {NgOptimizedImage} from "@angular/common";
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  @ViewChild('user_container',{ static: true}) user_container !: ElementRef;
 
+  test(){
+    console.log('wee');
+    this.user_container.nativeElement.blur();
+  }
 }

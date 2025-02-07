@@ -1,12 +1,15 @@
 <header class="root-container">
     <img priority ngSrc="/assets/images/common/company_logo.png"  width="100" height="50" alt="company_logo">
     <div style="flex: 1;"></div>
-    <div class="user">
-        <img class="user-image" ngSrc="/assets/images/common/defaults/default_user.png" width="40" height="40" alt="user_image">
-        <div class="user-name">John Smith</div>
-        <i class="bi bi-caret-down-fill"></i>
-    </div>
-    <div class="user-menu">
-        <div>asda</div>
+    <div class="user-container" tabindex="1" #user_container>
+        <div class="user">
+            <img class="user-image" ngSrc="/assets/images/common/defaults/default_user.png" width="40" height="40" alt="user_image">
+            <div class="user-name">John Smith</div>
+            <i class="bi bi-caret-down-fill"></i>
+        </div>
+        <div class="user-menu" >
+            <div class="item" (click)="test()">Profile Settings</div>
+            <div class="item">Logout</div>
+        </div>
     </div>
 </header>

@@ -8,6 +8,7 @@
   box-shadow: 0 0 5px 2px rgba(0,0,0,.2);
   z-index: 10;
   transition: all 1s;
+  position: relative;
   color: light-dark($light-text-normal-color,$dark-text-normal-color);
 }
 .user{
@@ -29,7 +30,34 @@
     margin: 0 5px;
   }
 }
-
 .user-menu{
+  display: none;
+  position: absolute;
+  top: 70px;
+  right:20px;
+  background-color: light-dark($light-bg-foreground,$dark-bg-foreground);
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 2px rgba(0,0,0,.2);
+  .item{
+    padding: 5px 10px;
+    min-width: 200px;
+    cursor: pointer;
+    &:hover{
+      color:$primary-color;
+    }
+  }
+}
+.user:focus + .user-menu {
+  display: block;
 
+}
+.user-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.user-container:focus .user-menu{
+  display: block;
 }
