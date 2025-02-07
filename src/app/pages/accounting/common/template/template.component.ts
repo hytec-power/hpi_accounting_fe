@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import {HeaderComponent} from "src/app/pages/accounting/common/header/header.component";
 import {SidebarComponent} from "src/app/pages/accounting/common/sidebar/sidebar.component";
 import {RouterOutlet} from "@angular/router";
+import {HeaderComponent} from "src/app/common/templates/header/header.component";
 
 @Component({
   selector: 'app-template',
   standalone: true,
-  imports: [
-    HeaderComponent,
-    SidebarComponent,
-    RouterOutlet
-  ],
+    imports: [
+        SidebarComponent,
+        RouterOutlet,
+        HeaderComponent
+    ],
   templateUrl: './template.component.html',
   styleUrl: './template.component.scss'
 })
