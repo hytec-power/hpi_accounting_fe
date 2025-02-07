@@ -21,13 +21,13 @@ export class EmployeeTemplateComponent {
   }
   initSidebar(){
     this.sidebar_items.push({name: 'Dashboard',
-      link: '/accounting',
+      link: '/employee',
       bi_icon: 'bi-house',
       bi_icon_active: 'bi-house-door-fill',
       exact: true });
 
     this.sidebar_items.push({name: 'Budget Request',
-      link: '/accounting/budget-requests' ,
+      link: '/employee/budget-requests' ,
       bi_icon: 'bi-wallet2',
       bi_icon_active: 'bi-wallet-fill',
       exact: false });
