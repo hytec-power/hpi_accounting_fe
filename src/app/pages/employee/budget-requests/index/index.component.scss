@@ -1,0 +1,19 @@
+@import "tables";
+
+.row-controls{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  .bi{
+    margin: 2px 5px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+}
+tbody tr{
+  cursor: pointer;
+}
+a{
+  text-decoration: none;
+  color: royalblue;
+}

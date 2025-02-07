@@ -1,16 +1,7 @@
 import { Component } from '@angular/core';
 import {PageTitleComponent} from "src/app/common/page-title/page-title.component";
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
-import {UserDetailsComponent} from "src/app/pages/accounting/budget-requests/view/user-details/user-details.component";
-import {ObjectivesComponent} from "src/app/pages/accounting/budget-requests/view/objectives/objectives.component";
-import {RequestDateComponent} from "src/app/pages/accounting/budget-requests/view/request-date/request-date.component";
-import {RequestTypeComponent} from "src/app/pages/accounting/budget-requests/view/request-type/request-type.component";
-import {
-  RequestPurposeComponent
-} from "src/app/pages/accounting/budget-requests/view/request-purpose/request-purpose.component";
-import {
-  RequestAmountComponent
-} from "src/app/pages/accounting/budget-requests/view/request-amount/request-amount.component";
+
 import {BudgetRequestViewComponent} from "src/app/shared/budget-request/view/view.component";
 
 
@@ -20,12 +11,6 @@ import {BudgetRequestViewComponent} from "src/app/shared/budget-request/view/vie
   imports: [
     PageTitleComponent,
     StepperComponent,
-    UserDetailsComponent,
-    ObjectivesComponent,
-    RequestDateComponent,
-    RequestTypeComponent,
-    RequestPurposeComponent,
-    RequestAmountComponent,
     BudgetRequestViewComponent,
 
   ],
