@@ -33,3 +33,10 @@ export class SidebarComponent {
     this.theme.setTheme(this.toggle_temp?'light':'dark');
   }
 }
+export interface SidebarItem {
+  name: string,
+  link: string,
+  bi_icon?: string ,
+  bi_icon_active?: string ;
+  exact: boolean;
+}
