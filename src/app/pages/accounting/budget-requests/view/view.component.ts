@@ -11,6 +11,8 @@ import {
 import {
   RequestAmountComponent
 } from "src/app/pages/accounting/budget-requests/view/request-amount/request-amount.component";
+import {BudgetRequestViewComponent} from "src/app/shared/budget-request/view/view.component";
+
 
 @Component({
   selector: 'view-request',
@@ -23,7 +25,9 @@ import {
     RequestDateComponent,
     RequestTypeComponent,
     RequestPurposeComponent,
-    RequestAmountComponent
+    RequestAmountComponent,
+    BudgetRequestViewComponent,
+
   ],
   templateUrl: './view.component.html',
   styleUrl: './view.component.scss'
