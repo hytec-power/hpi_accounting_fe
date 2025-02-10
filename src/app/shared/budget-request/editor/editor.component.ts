@@ -23,7 +23,7 @@ import {
 export class EditorComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(0);
+  page:WritableSignal<number> = signal(1);
   constructor() {
     this.initSteps();
   }
@@ -41,5 +41,8 @@ export class EditorComponent {
   }
   next(){
     this.page.update(el=> el+1);
+  }
+  back(){
+    this.page.update(p=> p > 0 ? p-1:0);
   }
 }

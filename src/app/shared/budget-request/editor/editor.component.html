@@ -1,5 +1,5 @@
 <div class="root-container">
-    <stepper-component [items]="steps"/>
+    <stepper-component [items]="steps" [current_index]="page()"/>
     @switch (page()){
         @case(0) {  <requester-details />  }
         @case(1) {  <request-objectives/>  }
@@ -8,7 +8,7 @@
 
 
     <div class="d-flex flex-row justify-content-between">
-        <button-component (click)="next()" text="Back" type="default" bi_icon="bi-caret-left-fill" />
+        <button-component (click)="back()" text="Back" type="default" bi_icon="bi-caret-left-fill" />
         <button-component (click)="next()"
                           text="Next"
                           type="primary"
