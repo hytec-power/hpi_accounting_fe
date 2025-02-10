@@ -1,7 +1,7 @@
 <div class="root-container">
     <div class="group">
         <div class="group-title">How will the Budget be used? charging of expenses?</div>
-        <button-component text="Add Item" type="primary" bi_icon="bi-plus-lg"/>
+        <button-component (click)="onAdd()" text="Add Item" type="primary" bi_icon="bi-plus-lg"/>
         <div class="list">
             <div class="p-2 text-center" >No Items</div>
         </div>
@@ -9,4 +9,5 @@
             {{ 500000 | currency: 'PHP':'symbol':'1.2-2' }}
         </div>
     </div>
+    <particulars-modal #modal/>
 </div>

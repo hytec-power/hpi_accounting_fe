@@ -1,5 +1,7 @@
 @import "colors";
 @import "forms";
 .root-container{
-
+  &::backdrop{
+    background-color: rgba(0,0,0,.6);
+  }
 }
