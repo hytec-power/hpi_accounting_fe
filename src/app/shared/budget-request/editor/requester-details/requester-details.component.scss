@@ -3,6 +3,9 @@
   margin: 20px 0;
   color: light-dark($light-text-normal-color,$dark-text-normal-color);
 }
+.title{
+  margin: 10px 0;
+}
 .list{
   display: flex;
   flex-direction: row;
