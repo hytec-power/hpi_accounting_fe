@@ -31,10 +31,8 @@ export class EditorComponent {
     this.steps = [
       {name: 'Requester Details'},
       {name: 'Objectives'},
-      {name: 'Date'},
-      {name: 'Location'},
+      {name: 'Date & Location'},
       {name: 'Particulars'},
-      {name: 'Location'},
       {name: 'Documents / Attachments'},
       {name: 'Review'},
     ];
