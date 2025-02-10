@@ -1,7 +1,18 @@
 @import "colors";
 @import "forms";
 .root-container{
+  border: none;
+  padding: 20px;
+  background-color: light-dark($light-bg-foreground,$dark-bg-foreground);
+  color: light-dark($light-text-normal-color,$dark-text-normal-color);
+  border-radius: 20px;
+  box-sizing: border-box;
+  outline: none;
   &::backdrop{
     background-color: rgba(0,0,0,.6);
   }
+}
+.title{
+  color: light-dark($light-text-bold-color,$dark-text-bold-color);
+  font-weight: bold;
 }
