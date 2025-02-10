@@ -7,6 +7,7 @@ import {ButtonComponent} from "src/app/common/button/button.component";
 import {
   RequestObjectivesComponent
 } from "src/app/shared/budget-request/editor/request-objectives/request-objectives.component";
+import {DateLocationComponent} from "src/app/shared/budget-request/editor/date-location/date-location.component";
 
 @Component({
   selector: 'budget-request-editor',
@@ -15,7 +16,8 @@ import {
     StepperComponent,
     RequesterDetailsComponent,
     RequestObjectivesComponent,
-    ButtonComponent
+    ButtonComponent,
+    DateLocationComponent
   ],
   templateUrl: './editor.component.html',
   styleUrl: './editor.component.scss'
@@ -23,7 +25,7 @@ import {
 export class EditorComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(1);
+  page:WritableSignal<number> = signal(2);
   constructor() {
     this.initSteps();
   }
