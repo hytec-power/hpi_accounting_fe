@@ -1,9 +1,12 @@
-import {Component, input} from '@angular/core';
+import {Component, input, signal, WritableSignal} from '@angular/core';
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
 import {
   RequesterDetailsComponent
 } from "src/app/shared/budget-request/editor/requester-details/requester-details.component";
 import {ButtonComponent} from "src/app/common/button/button.component";
+import {
+  RequestObjectivesComponent
+} from "src/app/shared/budget-request/editor/request-objectives/request-objectives.component";
 
 @Component({
   selector: 'budget-request-editor',
@@ -11,6 +14,7 @@ import {ButtonComponent} from "src/app/common/button/button.component";
   imports: [
     StepperComponent,
     RequesterDetailsComponent,
+    RequestObjectivesComponent,
     ButtonComponent
   ],
   templateUrl: './editor.component.html',
@@ -19,6 +23,7 @@ import {ButtonComponent} from "src/app/common/button/button.component";
 export class EditorComponent {
   item = input();
   steps: StepperItem[]=[];
+  page:WritableSignal<number> = signal(0);
   constructor() {
     this.initSteps();
   }
@@ -33,5 +38,8 @@ export class EditorComponent {
       {name: 'Documents / Attachments'},
       {name: 'Review'},
     ];
+  }
+  next(){
+    this.page.update(el=> el+1);
   }
 }
