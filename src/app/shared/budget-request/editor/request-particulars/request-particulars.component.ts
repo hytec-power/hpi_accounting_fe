@@ -3,11 +3,14 @@ import {ButtonComponent} from "src/app/common/button/button.component";
 import {CurrencyPipe, TitleCasePipe} from "@angular/common";
 import {
   ParticularsModalComponent
-} from "src/app/shared/budget-request/editor/request-particulars/particulars-modal/particulars-modal.component";
+} from "src/app/shared/budget-request/editor/request-particulars/expense-items/particulars-modal/particulars-modal.component";
 import {ExpenseItem} from "src/app/interfaces/expense-item";
 import {
   ChargeToComponent
 } from "src/app/shared/budget-request/editor/request-particulars/charge-to/charge-to.component";
+import {
+  ExpenseItemsComponent
+} from "src/app/shared/budget-request/editor/request-particulars/expense-items/expense-items.component";
 
 @Component({
   selector: 'request-particulars',
@@ -17,23 +20,12 @@ import {
     CurrencyPipe,
     ParticularsModalComponent,
     TitleCasePipe,
-    ChargeToComponent
+    ChargeToComponent,
+    ExpenseItemsComponent
   ],
   templateUrl: './request-particulars.component.html',
   styleUrl: './request-particulars.component.scss'
 })
 export class RequestParticularsComponent {
-  @ViewChild('modal',{static: true , read: ParticularsModalComponent}) modal!: ParticularsModalComponent;
-  items: WritableSignal<ExpenseItem[]>=signal([]);
-  total: Signal<number> = computed(()=> this.items().reduce((sum,item)=> sum+item.amount ,0) )
-  ngOnInit(){}
-  addItem(){
-    this.modal.open();
-  }
-  onAdd(item: ExpenseItem){
-    this.items.update(e=>([...e,item]));
-  }
-  removeItem(item: ExpenseItem){
-    this.items.update(e=>([...e.filter(i=> i!=item)]));
-  }
+
 }

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ParticularsModalComponent } from './particulars-modal.component';
+import { ParticularsModalComponent } from 'src/app/shared/budget-request/editor/request-particulars/expense-items/particulars-modal/particulars-modal.component';
 
 describe('ParticularsModalComponent', () => {
   let component: ParticularsModalComponent;
