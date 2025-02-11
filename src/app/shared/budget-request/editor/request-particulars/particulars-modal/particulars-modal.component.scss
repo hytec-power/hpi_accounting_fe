@@ -8,6 +8,7 @@
   border-radius: 20px;
   box-sizing: border-box;
   outline: none;
+  width: 500px;
   &::backdrop{
     background-color: rgba(0,0,0,.6);
   }
@@ -15,4 +16,10 @@
 .title{
   color: light-dark($light-text-bold-color,$dark-text-bold-color);
   font-weight: bold;
+}
+label{
+  margin: 5px 0;
+}
+select,label,input{
+  width: 100%;
 }

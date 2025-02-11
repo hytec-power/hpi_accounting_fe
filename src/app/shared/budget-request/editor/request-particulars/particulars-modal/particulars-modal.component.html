@@ -1,7 +1,38 @@
 <dialog class="root-container" #modal >
     <div class="d-flex flex-row justify-content-between" style="margin-bottom: 20px;">
-        <div class="title">aaa</div>
-        <i class="bi bi-x-lg"></i>
+        <div class="title">Expense Details</div>
+        <i (click)="close()" class="bi bi-x-lg" role="button"></i>
     </div>
-    particulars-modal works!
+    <div>
+        <form [formGroup]="form">
+            <label>
+                <div>Expense Type :</div>
+                <select formControlName="type">
+                    <option value="meals">Meals</option>
+                    <option value="hotel">Hotel Accomodation</option>
+                    <option value="toll">Toll fee</option>
+                    <option value="gas">Gas</option>
+                    <option value="sponsorship">Sponsorship</option>
+                    <option value="client_representation">Client Representation</option>
+                    <option value="other">Other Expenses</option>
+                </select>
+            </label>
+            @if(form.get('type')?.value == 'other'){
+                <label>
+                    <div>Specify:</div>
+                    <input type="text" name="" id="">
+                </label>
+            }
+            <label>
+                <div>Amount</div>
+                <input formControlName="amount"
+                       type="number"
+                       max="999999999"
+                       step="1">
+            </label>
+        </form>
+    </div>
+    <div class="my-2 text-center">
+        <button-component text="Add Item" type="primary"/>
+    </div>
 </dialog>
