@@ -5,6 +5,9 @@ import {
   ParticularsModalComponent
 } from "src/app/shared/budget-request/editor/request-particulars/particulars-modal/particulars-modal.component";
 import {ExpenseItem} from "src/app/interfaces/expense-item";
+import {
+  ChargeToComponent
+} from "src/app/shared/budget-request/editor/request-particulars/charge-to/charge-to.component";
 
 @Component({
   selector: 'request-particulars',
@@ -13,7 +16,8 @@ import {ExpenseItem} from "src/app/interfaces/expense-item";
     ButtonComponent,
     CurrencyPipe,
     ParticularsModalComponent,
-    TitleCasePipe
+    TitleCasePipe,
+    ChargeToComponent
   ],
   templateUrl: './request-particulars.component.html',
   styleUrl: './request-particulars.component.scss'

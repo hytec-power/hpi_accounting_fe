@@ -1,4 +1,4 @@
-<div class="root-container">
+<div class="root-container d-flex flex-row align-items-start">
     <div class="group">
         <div class="group-title">How will the Budget be used? charging of expenses?</div>
         <div class="list">
@@ -17,5 +17,6 @@
             {{ total() | currency: 'PHP':'symbol':'1.2-2' }}
         </div>
     </div>
+    <charge-to/>
     <particulars-modal #modal (onAdd)="onAdd($event)"/>
 </div>
