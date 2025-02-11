@@ -38,7 +38,7 @@ export class EditorComponent {
       {name: 'Requester Details'},
       {name: 'Objectives'},
       {name: 'Date & Location'},
-      {name: 'Particulars'},
+      {name: 'Items'},
       {name: 'Documents / Attachments'},
       {name: 'Review'},
     ];
