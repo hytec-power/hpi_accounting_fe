@@ -20,5 +20,28 @@
             <label><input type="radio" formControlName="release_type" value="deposit_client" /> Direct deposit to client  </label>
             <label><input type="radio" formControlName="release_type" value="others" /> Others </label>
         </div>
+        @let release_type = form.get('release_type')?.value ;
+        @if(release_type == 'deposit_bank' || release_type== 'deposit_client'  ){
+
+            <label>
+                <div>Account Name</div>
+                <input type="text" name="" >
+            </label>
+            <label>
+                <div>Account Number</div>
+                <input type="text" name="">
+            </label>
+            <label>
+                <div>Bank Name</div>
+                <input type="text" name="" >
+            </label>
+        }
+        @if(release_type == 'others' ){
+            <label>
+                <div>Specify Details</div>
+                <textarea rows="10"></textarea>
+            </label>
+        }
     </form>
+
 </div>
