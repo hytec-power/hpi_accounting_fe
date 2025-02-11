@@ -11,6 +11,9 @@ import {DateLocationComponent} from "src/app/shared/budget-request/editor/date-l
 import {
   RequestParticularsComponent
 } from "src/app/shared/budget-request/editor/request-particulars/request-particulars.component";
+import {
+  RequestAttachmentsComponent
+} from "src/app/shared/budget-request/editor/request-attachments/request-attachments.component";
 
 @Component({
   selector: 'budget-request-editor',
@@ -21,7 +24,8 @@ import {
     RequestObjectivesComponent,
     ButtonComponent,
     DateLocationComponent,
-    RequestParticularsComponent
+    RequestParticularsComponent,
+    RequestAttachmentsComponent
   ],
   templateUrl: './editor.component.html',
   styleUrl: './editor.component.scss'
