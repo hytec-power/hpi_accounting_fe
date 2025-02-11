@@ -7,11 +7,16 @@
   transition: all 1s;
 }
 .content{
+  position: relative;
   display: flex;
   flex-direction: row;
+  align-items: start;
   flex:1;
+  overflow: hidden;
 }
 .main{
   flex: 1;
-  padding-top: 20px;
+  max-height: 100%;
+  padding: 20px 0;
+  overflow-y: scroll;
 }

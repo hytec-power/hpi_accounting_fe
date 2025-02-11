@@ -2,8 +2,10 @@
     <common-header style="z-index: 10"/>
     <div class="content">
         <common-sidebar [items]="sidebar_items" />
-        <div class="main container">
-            <router-outlet />
+        <div class="main">
+            <div class="container">
+                <router-outlet />
+            </div>
         </div>
     </div>
 </div>
