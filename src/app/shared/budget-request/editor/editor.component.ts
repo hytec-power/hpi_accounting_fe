@@ -33,7 +33,7 @@ import {
 export class EditorComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(3);
+  page:WritableSignal<number> = signal(4);
   constructor() {
     this.initSteps();
   }
