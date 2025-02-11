@@ -1,6 +1,7 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, output, ViewChild} from '@angular/core';
 import {ButtonComponent} from "src/app/common/button/button.component";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {ExpenseItem} from "src/app/interfaces/expense-item";
 
 @Component({
   selector: 'particulars-modal',
@@ -14,6 +15,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 })
 export class ParticularsModalComponent {
   @ViewChild('modal',{static: true}) modal!: ElementRef;
+  onAdd = output<ExpenseItem>();
   form!: FormGroup;
   constructor(private fb: FormBuilder) {
     this.initForm();
@@ -24,7 +26,7 @@ export class ParticularsModalComponent {
     this.form = this.fb.group({
         type: ['',[Validators.required]],
         amount: [0,[Validators.required,
-                    Validators.min(0),
+                    Validators.min(1),
                     Validators.pattern('^\\d+$'),
                     Validators.max(999999999)]],
     });
@@ -34,5 +36,13 @@ export class ParticularsModalComponent {
   }
   close(){
     this.modal.nativeElement.close();
+  }
+  addItem(){
+    const item: ExpenseItem = {
+        type: this.form.get('type')?.value,
+        amount: this.form.get('amount')?.value
+    }
+    this.onAdd.emit(item);
+    this.close();
   }
 }

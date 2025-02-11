@@ -1,6 +1,6 @@
 export interface ExpenseItem {
     type: string,
-    details: string,
+    details?: string,
     amount: number
 
 }
