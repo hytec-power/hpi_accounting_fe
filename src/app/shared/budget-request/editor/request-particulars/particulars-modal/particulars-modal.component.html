@@ -33,6 +33,9 @@
         </form>
     </div>
     <div class="my-2 text-center">
-        <button-component text="Add Item" type="primary" [disabled]="form.invalid"/>
+        <button-component (click)="addItem()"
+                          text="Add Item"
+                          type="primary"
+                          [disabled]="form.invalid"/>
     </div>
 </dialog>
