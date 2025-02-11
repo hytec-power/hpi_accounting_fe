@@ -1,22 +1,24 @@
 <div class="root-container group">
     <div class="group-title">Charge to : </div>
-    <label>
-        <div>Client Name:</div>
-        <div><input type="text" name="" ></div>
-    </label>
-    <label>
-        <div>PO number / Quotation Reference </div>
-        <div><input type="text" name=""></div>
-    </label>
-    <label>
-        <div>Remaining Contingency as of date of request:</div>
-        <div><input type="text" name="" id=""></div>
-    </label>
-    <div>Releasing Instructions</div>
-    <div>
-        <label><input type="radio" name="" /> Cash </label>
-        <label><input type="radio" name="" /> Deposit to my bank account </label>
-        <label><input type="radio" name="" /> Direct deposit to client  </label>
-        <label><input type="radio" name="" /> Others </label>
-    </div>
+    <form [formGroup]="form">
+        <label>
+            <div class="data-label">Client Name:</div>
+            <div><input type="text" formControlName="client_name" ></div>
+        </label>
+        <label>
+            <div class="data-label">PO number / Quotation Reference </div>
+            <div><input type="text" formControlName="po_quotation_reference" ></div>
+        </label>
+        <label>
+            <div class="data-label">Remaining Contingency as of date of request:</div>
+            <div><input type="text" formControlName="remaining_contingency"></div>
+        </label>
+        <div class="data-label">Releasing Instructions</div>
+        <div>
+            <label><input type="radio" formControlName="release_type" value="cash" /> Cash </label>
+            <label><input type="radio" formControlName="release_type" value="deposit_bank" /> Deposit to my bank account </label>
+            <label><input type="radio" formControlName="release_type" value="deposit_client" /> Direct deposit to client  </label>
+            <label><input type="radio" formControlName="release_type" value="others" /> Others </label>
+        </div>
+    </form>
 </div>
