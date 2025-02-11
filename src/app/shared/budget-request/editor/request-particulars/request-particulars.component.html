@@ -1,18 +1,18 @@
 <div class="root-container">
     <div class="group">
         <div class="group-title">How will the Budget be used? charging of expenses?</div>
-        <button-component (click)="addItem()" text="Add Item" type="primary" bi_icon="bi-plus-lg"/>
         <div class="list">
             @for (i of items(); track $index){
                 <div class="item">
                     <div class="type">{{ i.type | titlecase }}</div>
                     <div class="amount">{{ i.amount | currency: 'PHP':'symbol':'1.2-2' }}</div>
-                    <i class="bi bi-trash3-fill" role="button"></i>
+                    <i (click)="removeItem(i)" class="bi bi-trash3-fill" role="button"></i>
                 </div>
             } @empty {
                 <div class="p-2 text-center" >No Items</div>
             }
         </div>
+        <div class="text-end"><button-component (click)="addItem()" text="Add Item" type="primary" bi_icon="bi-plus-lg"/></div>
         <div class="total">
             {{ total() | currency: 'PHP':'symbol':'1.2-2' }}
         </div>

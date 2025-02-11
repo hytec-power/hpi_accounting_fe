@@ -29,4 +29,7 @@ export class RequestParticularsComponent {
   onAdd(item: ExpenseItem){
     this.items.update(e=>([...e,item]));
   }
+  removeItem(item: ExpenseItem){
+    this.items.update(e=>([...e.filter(i=> i!=item)]));
+  }
 }
