@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, computed, Signal, signal, ViewChild, WritableSignal} from '@angular/core';
 import {ButtonComponent} from "src/app/common/button/button.component";
 import {CurrencyPipe, TitleCasePipe} from "@angular/common";
 import {
@@ -20,10 +20,13 @@ import {ExpenseItem} from "src/app/interfaces/expense-item";
 })
 export class RequestParticularsComponent {
   @ViewChild('modal',{static: true , read: ParticularsModalComponent}) modal!: ParticularsModalComponent;
-  items: ExpenseItem[]=[];
+  items: WritableSignal<ExpenseItem[]>=signal([]);
+  total: Signal<number> = computed(()=> this.items().reduce((sum,item)=> sum+item.amount ,0) )
   ngOnInit(){}
   addItem(){
     this.modal.open();
   }
-
+  onAdd(item: ExpenseItem){
+    this.items.update(e=>([...e,item]));
+  }
 }
