@@ -22,12 +22,12 @@ export class ViewComponent {
   }
   initSteps(){
     this.steps.push(...[
-      {name: 'Request Form'},
-      {name: 'Requirements Checking'},
-      {name: 'Documents Validation'},
-      {name: 'Approval'},
-      {name: 'Receipt'},
-      {name: 'Confirmation'},
+      {name: 'Request Form', bi_icon: 'bi-card-checklist' },
+      {name: 'Requirements Checking', bi_icon: 'bi-card-checklist'},
+      {name: 'Documents Validation', bi_icon: 'bi-card-checklist'},
+      {name: 'Approval', bi_icon: 'bi-card-checklist'},
+      {name: 'Receipt', bi_icon: 'bi-card-checklist'},
+      {name: 'Confirmation', bi_icon: 'bi-card-checklist'},
     ])
   }
 }

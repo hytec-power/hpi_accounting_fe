@@ -15,4 +15,5 @@ export class StepperComponent {
 }
 export interface StepperItem{
   name: string,
+  bi_icon: string
 }

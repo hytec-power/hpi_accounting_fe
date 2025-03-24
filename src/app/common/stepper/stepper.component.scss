@@ -1,4 +1,4 @@
-@import "colors";
+@use "colors";
 
 .root-container{
   display: flex;
@@ -13,6 +13,7 @@
 }
 .node{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -20,38 +21,47 @@
   height: 40px;
   border-radius: 20px;
   box-sizing: border-box;
-  border: 4px solid light-dark($light-text-normal-color,$dark-text-normal-color);
-  opacity: 0.5;
+  border: 1px solid light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+
   &.active{
-    border: 4px solid $primary-color;
-    background-color: $primary-color;
+    border-color: colors.$primary-color;
+    background-color:  colors.$primary-color;
+    border-color: colors.$primary-color;
+    color: #FFF;
     opacity: 1;
   }
   &.current{
-    border: 4px solid $primary-color;
+    border-color: colors.$primary-active;
+    color: colors.$primary-active;
     opacity: 1;
   }
   &-title{
     white-space: nowrap;
-    position: relative;
+    position: absolute;
     bottom: -40px;
-    color:light-dark($light-text-normal-color,$dark-text-normal-color);
+    color:light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+    font-weight: bold;
+
   }
   &.active &-title{
     opacity: 1;
+    color: light-dark(colors.$primary-color,#FFF);
   }
   &.current &-title{
     opacity: 1;
-    font-weight: bold;
+    color: colors.$primary-active;
+  }
+  .bi{
+    font-size: 20px;
   }
 }
 .connector{
   flex: 1;
   height: 4px;
-  background-color: light-dark($light-text-normal-color,$dark-text-normal-color);
+  background-color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
   opacity: 0.5;
   &.active{
-    background-color: $primary-color;
+    background-color: colors.$primary-color;
     opacity: 1;
   }
 }

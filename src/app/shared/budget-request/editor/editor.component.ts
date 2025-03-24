@@ -32,18 +32,19 @@ import {
 export class EditorComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(0);
+  page:WritableSignal<number> = signal(1);
   constructor() {
     this.initSteps();
   }
   initSteps(){
     this.steps = [
-      {name: 'Requester Details'},
-      {name: 'Objectives'},
-      {name: 'Date & Location'},
-      {name: 'Items'},
-      {name: 'Documents / Attachments'},
-      {name: 'Review'},
+      {name: 'Request', bi_icon: 'bi-card-checklist'},
+      {name: 'Date & Time', bi_icon: 'bi-calendar3'},
+      {name: 'Charging Details', bi_icon: 'bi-clipboard'},
+      {name: 'Budget', bi_icon: 'bi-cash'},
+      {name: 'Manpower', bi_icon: 'bi-people'},
+      {name: 'Attachments', bi_icon: 'bi-link-45deg'},
+      {name: 'Review', bi_icon: 'bi-check-all'},
     ];
   }
   next(){
