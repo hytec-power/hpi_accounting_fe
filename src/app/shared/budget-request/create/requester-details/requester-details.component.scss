@@ -1,0 +1,28 @@
+@import "colors";
+.root-container{
+  margin: 20px 0;
+  color: light-dark($light-text-normal-color,$dark-text-normal-color);
+}
+.title{
+  margin: 10px 0;
+  font-weight: bold;
+}
+.list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.user{
+  background-color: light-dark($light-bg-foreground,$dark-bg-foreground);
+  padding: 20px;
+  border-radius: 20px;
+  transition: all 1s;
+  min-width: 400px;
+  margin: 5px;
+  img{
+    width: 100px;
+    height: 100px;
+    margin: 0 10px;
+  }
+}
