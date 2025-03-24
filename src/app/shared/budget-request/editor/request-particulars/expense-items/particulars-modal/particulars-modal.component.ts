@@ -4,14 +4,13 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {ExpenseItem} from "src/app/interfaces/expense-item";
 
 @Component({
-  selector: 'particulars-modal',
-  standalone: true,
-  imports: [
-    ButtonComponent,
-    ReactiveFormsModule
-  ],
-  templateUrl: './particulars-modal.component.html',
-  styleUrl: './particulars-modal.component.scss'
+    selector: 'particulars-modal',
+    imports: [
+        ButtonComponent,
+        ReactiveFormsModule
+    ],
+    templateUrl: './particulars-modal.component.html',
+    styleUrl: './particulars-modal.component.scss'
 })
 export class ParticularsModalComponent {
   @ViewChild('modal',{static: true}) modal!: ElementRef;

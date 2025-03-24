@@ -3,14 +3,13 @@ import {EditorComponent} from "src/app/shared/budget-request/editor/editor.compo
 import {PageTitleComponent} from "src/app/common/page-title/page-title.component";
 
 @Component({
-  selector: 'app-create',
-  standalone: true,
-  imports: [
-    EditorComponent,
-    PageTitleComponent
-  ],
-  templateUrl: './create.component.html',
-  styleUrl: './create.component.scss'
+    selector: 'app-create',
+    imports: [
+        EditorComponent,
+        PageTitleComponent
+    ],
+    templateUrl: './create.component.html',
+    styleUrl: './create.component.scss'
 })
 export class CreateComponent {
 

@@ -13,18 +13,17 @@ import {
 } from "src/app/shared/budget-request/editor/request-particulars/expense-items/expense-items.component";
 
 @Component({
-  selector: 'request-particulars',
-  standalone: true,
-  imports: [
-    ButtonComponent,
-    CurrencyPipe,
-    ParticularsModalComponent,
-    TitleCasePipe,
-    ChargeToComponent,
-    ExpenseItemsComponent
-  ],
-  templateUrl: './request-particulars.component.html',
-  styleUrl: './request-particulars.component.scss'
+    selector: 'request-particulars',
+    imports: [
+        ButtonComponent,
+        CurrencyPipe,
+        ParticularsModalComponent,
+        TitleCasePipe,
+        ChargeToComponent,
+        ExpenseItemsComponent
+    ],
+    templateUrl: './request-particulars.component.html',
+    styleUrl: './request-particulars.component.scss'
 })
 export class RequestParticularsComponent {
 

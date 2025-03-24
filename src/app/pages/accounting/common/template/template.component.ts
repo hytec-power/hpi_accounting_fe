@@ -4,15 +4,14 @@ import {HeaderComponent} from "src/app/common/templates/header/header.component"
 import {SidebarComponent, SidebarItem} from "src/app/common/templates/sidebar/sidebar.component";
 
 @Component({
-  selector: 'app-template',
-  standalone: true,
+    selector: 'app-template',
     imports: [
         RouterOutlet,
         HeaderComponent,
         SidebarComponent
     ],
-  templateUrl: './template.component.html',
-  styleUrl: './template.component.scss'
+    templateUrl: './template.component.html',
+    styleUrl: './template.component.scss'
 })
 export class AccountingTemplateComponent {
     sidebar_items: SidebarItem[]=[];

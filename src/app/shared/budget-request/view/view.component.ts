@@ -12,21 +12,20 @@ import {ObjectivesComponent} from "src/app/shared/budget-request/view/objectives
 
 
 @Component({
-  selector: 'budget-request-viewer',
-  standalone: true,
-  imports: [
-    PageTitleComponent,
-    StepperComponent,
-    UserDetailsComponent,
-    ObjectivesComponent,
-    RequestAmountComponent,
-    RequestDateComponent,
-    RequestPurposeComponent,
-    RequestTypeComponent,
-    UserDetailsComponent
-  ],
-  templateUrl: './view.component.html',
-  styleUrl: './view.component.scss'
+    selector: 'budget-request-viewer',
+    imports: [
+        PageTitleComponent,
+        StepperComponent,
+        UserDetailsComponent,
+        ObjectivesComponent,
+        RequestAmountComponent,
+        RequestDateComponent,
+        RequestPurposeComponent,
+        RequestTypeComponent,
+        UserDetailsComponent
+    ],
+    templateUrl: './view.component.html',
+    styleUrl: './view.component.scss'
 })
 export class BudgetRequestViewComponent {
   steps: StepperItem[]=[];

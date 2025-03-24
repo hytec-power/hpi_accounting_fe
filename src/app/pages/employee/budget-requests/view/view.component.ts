@@ -3,14 +3,13 @@ import {BudgetRequestViewComponent} from "src/app/shared/budget-request/view/vie
 import {PageTitleComponent} from "src/app/common/page-title/page-title.component";
 
 @Component({
-  selector: 'app-view',
-  standalone: true,
-  imports: [
-    BudgetRequestViewComponent,
-    PageTitleComponent
-  ],
-  templateUrl: './view.component.html',
-  styleUrl: './view.component.scss'
+    selector: 'app-view',
+    imports: [
+        BudgetRequestViewComponent,
+        PageTitleComponent
+    ],
+    templateUrl: './view.component.html',
+    styleUrl: './view.component.scss'
 })
 export class ViewComponent {
 

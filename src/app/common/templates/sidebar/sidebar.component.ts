@@ -3,14 +3,13 @@ import {ThemeService} from "src/app/services/theme/theme.service";
 import {RouterLink, RouterLinkActive} from "@angular/router";
 
 @Component({
-  selector: 'common-sidebar',
-  standalone: true,
-  imports: [
-    RouterLinkActive,
-    RouterLink
-  ],
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss'
+    selector: 'common-sidebar',
+    imports: [
+        RouterLinkActive,
+        RouterLink
+    ],
+    templateUrl: './sidebar.component.html',
+    styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
   items = input<SidebarItem[]>([]);

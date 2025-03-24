@@ -6,16 +6,14 @@ import {BudgetRequestViewComponent} from "src/app/shared/budget-request/view/vie
 
 
 @Component({
-  selector: 'view-request',
-  standalone: true,
-  imports: [
-    PageTitleComponent,
-    StepperComponent,
-    BudgetRequestViewComponent,
-
-  ],
-  templateUrl: './view.component.html',
-  styleUrl: './view.component.scss'
+    selector: 'view-request',
+    imports: [
+        PageTitleComponent,
+        StepperComponent,
+        BudgetRequestViewComponent,
+    ],
+    templateUrl: './view.component.html',
+    styleUrl: './view.component.scss'
 })
 export class ViewComponent {
   steps: StepperItem[]=[];

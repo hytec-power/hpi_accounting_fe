@@ -7,16 +7,15 @@ import {ButtonComponent} from "src/app/common/button/button.component";
 import {CurrencyPipe, TitleCasePipe} from "@angular/common";
 
 @Component({
-  selector: 'expense-items',
-  standalone: true,
-  imports: [
-    ButtonComponent,
-    CurrencyPipe,
-    TitleCasePipe,
-    ParticularsModalComponent
-  ],
-  templateUrl: './expense-items.component.html',
-  styleUrl: './expense-items.component.scss'
+    selector: 'expense-items',
+    imports: [
+        ButtonComponent,
+        CurrencyPipe,
+        TitleCasePipe,
+        ParticularsModalComponent
+    ],
+    templateUrl: './expense-items.component.html',
+    styleUrl: './expense-items.component.scss'
 })
 export class ExpenseItemsComponent {
   @ViewChild('modal',{static: true , read: ParticularsModalComponent}) modal!: ParticularsModalComponent;

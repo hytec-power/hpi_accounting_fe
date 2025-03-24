@@ -16,19 +16,18 @@ import {
 } from "src/app/shared/budget-request/editor/request-attachments/request-attachments.component";
 
 @Component({
-  selector: 'budget-request-editor',
-  standalone: true,
-  imports: [
-    StepperComponent,
-    RequesterDetailsComponent,
-    RequestObjectivesComponent,
-    ButtonComponent,
-    DateLocationComponent,
-    RequestParticularsComponent,
-    RequestAttachmentsComponent
-  ],
-  templateUrl: './editor.component.html',
-  styleUrl: './editor.component.scss'
+    selector: 'budget-request-editor',
+    imports: [
+        StepperComponent,
+        RequesterDetailsComponent,
+        RequestObjectivesComponent,
+        ButtonComponent,
+        DateLocationComponent,
+        RequestParticularsComponent,
+        RequestAttachmentsComponent
+    ],
+    templateUrl: './editor.component.html',
+    styleUrl: './editor.component.scss'
 })
 export class EditorComponent {
   item = input();

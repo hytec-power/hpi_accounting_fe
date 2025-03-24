@@ -2,13 +2,12 @@ import {Component, Input} from '@angular/core';
 import {NgIf} from "@angular/common";
 
 @Component({
-  selector: 'button-component',
-  standalone: true,
-  imports: [
-    NgIf
-  ],
-  templateUrl: './button.component.html',
-  styleUrl: './button.component.scss'
+    selector: 'button-component',
+    imports: [
+        NgIf
+    ],
+    templateUrl: './button.component.html',
+    styleUrl: './button.component.scss'
 })
 export class ButtonComponent {
   @Input() text: string = 'button text';

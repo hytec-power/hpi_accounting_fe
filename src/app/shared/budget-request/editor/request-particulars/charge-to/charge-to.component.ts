@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 
 @Component({
-  selector: 'charge-to',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule
-  ],
-  templateUrl: './charge-to.component.html',
-  styleUrl: './charge-to.component.scss'
+    selector: 'charge-to',
+    imports: [
+        ReactiveFormsModule
+    ],
+    templateUrl: './charge-to.component.html',
+    styleUrl: './charge-to.component.scss'
 })
 export class ChargeToComponent {
   form !: FormGroup;

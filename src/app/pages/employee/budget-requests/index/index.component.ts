@@ -5,16 +5,15 @@ import {RouterLink} from "@angular/router";
 import {ButtonComponent} from "src/app/common/button/button.component";
 
 @Component({
-  selector: 'app-index',
-  standalone: true,
-  imports: [
-    BudgetRequestViewComponent,
-    PageTitleComponent,
-    RouterLink,
-    ButtonComponent
-  ],
-  templateUrl: './index.component.html',
-  styleUrl: './index.component.scss'
+    selector: 'app-index',
+    imports: [
+        BudgetRequestViewComponent,
+        PageTitleComponent,
+        RouterLink,
+        ButtonComponent
+    ],
+    templateUrl: './index.component.html',
+    styleUrl: './index.component.scss'
 })
 export class IndexComponent {
 

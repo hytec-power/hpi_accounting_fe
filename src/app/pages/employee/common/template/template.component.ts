@@ -4,15 +4,14 @@ import {HeaderComponent} from "src/app/common/templates/header/header.component"
 import {RouterOutlet} from "@angular/router";
 
 @Component({
-  selector: 'employee-template',
-  standalone: true,
-  imports: [
-    HeaderComponent,
-    RouterOutlet,
-    SidebarComponent
-  ],
-  templateUrl: './template.component.html',
-  styleUrl: './template.component.scss'
+    selector: 'employee-template',
+    imports: [
+        HeaderComponent,
+        RouterOutlet,
+        SidebarComponent
+    ],
+    templateUrl: './template.component.html',
+    styleUrl: './template.component.scss'
 })
 export class EmployeeTemplateComponent {
   sidebar_items: SidebarItem[]=[];
