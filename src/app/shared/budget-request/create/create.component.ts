@@ -6,6 +6,7 @@ import {RequestAttachmentsComponent} from "../editor/request-attachments/request
 import {RequestObjectivesComponent} from "../editor/request-objectives/request-objectives.component";
 import {RequestParticularsComponent} from "../editor/request-particulars/request-particulars.component";
 import {RequesterDetailsComponent} from "../editor/requester-details/requester-details.component";
+import {RequestDetailsComponent} from "src/app/shared/budget-request/create/request-details/request-details.component";
 
 @Component({
   selector: 'create-budget-request',
@@ -16,7 +17,8 @@ import {RequesterDetailsComponent} from "../editor/requester-details/requester-d
     RequestAttachmentsComponent,
     RequestObjectivesComponent,
     RequestParticularsComponent,
-    RequesterDetailsComponent
+    RequesterDetailsComponent,
+    RequestDetailsComponent
   ],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
@@ -24,7 +26,7 @@ import {RequesterDetailsComponent} from "../editor/requester-details/requester-d
 export class CreateComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(1);
+  page:WritableSignal<number> = signal(0);
   constructor() {
     this.initSteps();
   }
