@@ -7,6 +7,7 @@ import {RequestObjectivesComponent} from "../editor/request-objectives/request-o
 import {RequestParticularsComponent} from "../editor/request-particulars/request-particulars.component";
 import {RequesterDetailsComponent} from "../editor/requester-details/requester-details.component";
 import {RequestDetailsComponent} from "src/app/shared/budget-request/create/request-details/request-details.component";
+import {DateTimeComponent} from "src/app/shared/budget-request/create/date-time/date-time.component";
 
 @Component({
   selector: 'create-budget-request',
@@ -18,7 +19,8 @@ import {RequestDetailsComponent} from "src/app/shared/budget-request/create/requ
     RequestObjectivesComponent,
     RequestParticularsComponent,
     RequesterDetailsComponent,
-    RequestDetailsComponent
+    RequestDetailsComponent,
+    DateTimeComponent
   ],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-date-time',
+  selector: 'request-date-time',
   imports: [],
   templateUrl: './date-time.component.html',
   styleUrl: './date-time.component.scss'
