@@ -1,20 +1,20 @@
-@import "colors";
+@use "colors";
 
 .root-container{
-  background-color: light-dark($light-bg-foreground,$dark-bg-foreground);
-  color: light-dark($light-text-normal-color,$dark-text-normal-color);
+  background-color: light-dark( colors.$light-bg-foreground,colors.$dark-bg-foreground);
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
   padding: 20px;
   box-sizing: border-box;
   border-radius: 20px;
   margin: 10px;
 }
 .section-title{
-  color: light-dark($light-text-bold-color,$dark-text-bold-color);
+  color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
   font-weight: bold;
   margin-bottom: 5px;
 }
 .data{
-  color: light-dark($light-text-normal-color,$dark-text-normal-color);
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
   &-label{
     text-align: right;
     opacity: 0.5;

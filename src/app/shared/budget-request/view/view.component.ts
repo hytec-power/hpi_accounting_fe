@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
-import {PageTitleComponent} from "src/app/common/page-title/page-title.component";
 import {UserDetailsComponent} from "src/app/shared/budget-request/view/user-details/user-details.component";
 import { RequestPurposeComponent } from "src/app/shared/budget-request/view/request-purpose/request-purpose.component";
 import {RequestTypeComponent} from "src/app/shared/budget-request/view/request-type/request-type.component";
@@ -14,7 +13,6 @@ import {ObjectivesComponent} from "src/app/shared/budget-request/view/objectives
 @Component({
     selector: 'budget-request-viewer',
     imports: [
-        PageTitleComponent,
         StepperComponent,
         UserDetailsComponent,
         ObjectivesComponent,
