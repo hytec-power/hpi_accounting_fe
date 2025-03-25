@@ -3,9 +3,10 @@
   @switch (page()){
     @case(0) {  <request-details />  }
     @case(1) {  <request-date-time/>  }
-    @case(2) {  <request-date-location/>  }
+    @case(2) {  <app-charging-details/>  }
     @case(3) {  <request-particulars/>  }
     @case(4) {  <request-attachments/>  }
+    @case(5) {  <app-attachments/>  }
   }
   <div class="d-flex flex-row justify-content-between">
     <button-component (click)="back()" text="Back" type="default" bi_icon="bi-caret-left-fill" />
