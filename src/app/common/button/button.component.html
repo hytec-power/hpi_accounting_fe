@@ -2,10 +2,10 @@
         [style.width.px]="width"
         [disabled]="disabled">
     @if (bi_icon && bi_position == 'left'){
-        <i [class]="['bi', bi_icon]"></i>
+        <i [class]="['bi','bi-left',bi_icon]"></i>
     }
     {{ text }}
     @if (bi_icon && bi_position == 'right'){
-        <i [class]="['bi', bi_icon]"></i>
+        <i [class]="['bi','bi-right',bi_icon]"></i>
     }
 </button>

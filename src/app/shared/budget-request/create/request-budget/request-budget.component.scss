@@ -1,0 +1,36 @@
+@use "colors";
+.root-container{
+  display: inline-block;
+  margin: 20px 0;
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+  width: 999px;
+}
+.title{
+  font-weight: bold;
+  font-size: 18px;
+  color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
+}
+.step{
+  font-size: 16px;
+  color:gray;
+}
+table{
+  border-collapse: separate;
+  border-spacing: 10px;
+  width: 100%;
+  th{
+    font-weight: normal;
+  }
+  td{
+
+    margin: 2px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #E6E6E6;
+    color: colors.$primary-color;
+  }
+}

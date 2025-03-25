@@ -3,7 +3,7 @@
 .root-container {
   outline: none;
   border: none;
-  padding: 10px 35px;
+  padding: 7px 30px;
   border-radius: 5px;
   font-size: 12px;
   margin: 2px;
@@ -20,7 +20,12 @@
 }
 .bi {
   font-size: 10px;
-  margin: 0 5px;
+}
+.bi-left{
+  margin-right: 10px;
+}
+.bi-right{
+  margin-left: 10px;
 }
 .primary {
   background-color: colors.$primary-color;

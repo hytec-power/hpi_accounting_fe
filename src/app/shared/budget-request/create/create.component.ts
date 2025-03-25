@@ -8,6 +8,7 @@ import {RequestParticularsComponent} from "../editor/request-particulars/request
 import {RequesterDetailsComponent} from "../editor/requester-details/requester-details.component";
 import {RequestDetailsComponent} from "src/app/shared/budget-request/create/request-details/request-details.component";
 import {DateTimeComponent} from "src/app/shared/budget-request/create/date-time/date-time.component";
+import {RequestBudgetComponent} from "src/app/shared/budget-request/create/request-budget/request-budget.component";
 
 @Component({
   selector: 'create-budget-request',
@@ -20,7 +21,8 @@ import {DateTimeComponent} from "src/app/shared/budget-request/create/date-time/
     RequestParticularsComponent,
     RequesterDetailsComponent,
     RequestDetailsComponent,
-    DateTimeComponent
+    DateTimeComponent,
+    RequestBudgetComponent
   ],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
@@ -28,7 +30,7 @@ import {DateTimeComponent} from "src/app/shared/budget-request/create/date-time/
 export class CreateComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(0);
+  page:WritableSignal<number> = signal(3);
   constructor() {
     this.initSteps();
   }
