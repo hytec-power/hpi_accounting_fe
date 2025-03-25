@@ -1,0 +1,64 @@
+@use "colors";
+@import "colors";
+@import "forms";
+
+.root-container{
+  display: inline-block;
+  margin: 20px 0;
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+  width: 1150px;
+}
+
+.title{
+  font-weight: bold;
+  font-size: 18px;
+  color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
+  margin-bottom: 20px;
+}
+
+.container{
+  margin: 20px 0;
+}
+
+.group{ 
+  border-radius: 20px;
+  min-width: 555px;
+  .columnLeft{
+    border-radius: 20px;
+    background-color: #A0CBB0;
+    height: 100%;
+    vertical-align: center;
+    label{
+      color: $dark-text-bold-color;
+    }
+  }
+}
+
+
+
+
+label{
+  margin: 5px 10px;
+  select{
+    width: 100%;
+    background-color: $light-bg-background;
+    border-color: $primary-active;
+    border-width: .75px;
+    border-radius: 5px;
+  }
+}
+
+
+
+input[type=text]{
+  width: 100%;
+  background-color: $light-bg-background;
+  border-color: $primary-active;
+  border-width: .75px;
+  border-radius: 5px;
+}
+
