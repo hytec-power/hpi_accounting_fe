@@ -1,4 +1,4 @@
-@import "colors";
+@use "colors";
 
 .root-container{
   background-color: light-dark(#FFF,#000);
@@ -9,7 +9,7 @@
   z-index: 10;
   transition: all 1s;
   position: relative;
-  color: light-dark($light-text-normal-color,$dark-text-normal-color);
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
 }
 .user{
   display: flex;
@@ -35,7 +35,7 @@
   position: absolute;
   top: 70px;
   right:20px;
-  background-color: light-dark($light-bg-foreground,$dark-bg-foreground);
+  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
   padding: 10px;
   box-sizing: border-box;
   border-radius: 10px;
@@ -45,7 +45,7 @@
     min-width: 200px;
     cursor: pointer;
     &:hover{
-      color:$primary-color;
+      color: colors.$primary-color;
     }
   }
 }

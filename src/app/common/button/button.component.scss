@@ -1,4 +1,4 @@
-@import "colors";
+@use "colors";
 
 .root-container {
   outline: none;
@@ -23,7 +23,7 @@
   margin: 0 5px;
 }
 .primary {
-  background-color: $primary-color;
+  background-color: colors.$primary-color;
   color: #fff;
 
 }

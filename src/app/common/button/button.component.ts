@@ -1,11 +1,8 @@
 import {Component, Input} from '@angular/core';
-import {NgIf} from "@angular/common";
 
 @Component({
     selector: 'button-component',
-    imports: [
-        NgIf
-    ],
+    imports: [],
     templateUrl: './button.component.html',
     styleUrl: './button.component.scss'
 })
