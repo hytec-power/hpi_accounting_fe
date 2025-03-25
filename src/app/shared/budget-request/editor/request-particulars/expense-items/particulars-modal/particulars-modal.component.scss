@@ -1,10 +1,10 @@
-@import "../../../../../../../../public/assets/styles/colors";
-@import "../../../../../../../../public/assets/styles/forms";
+@use "colors";
+@use "forms";
 .root-container{
   border: none;
   padding: 20px;
-  background-color: light-dark($light-bg-foreground,$dark-bg-foreground);
-  color: light-dark($light-text-normal-color,$dark-text-normal-color);
+  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
   border-radius: 20px;
   box-sizing: border-box;
   outline: none;
@@ -14,7 +14,7 @@
   }
 }
 .title{
-  color: light-dark($light-text-bold-color,$dark-text-bold-color);
+  color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
   font-weight: bold;
 }
 label{
