@@ -12,6 +12,7 @@ import { ChargingDetailsComponent } from './charging-details/charging-details.co
 import { AttachmentsComponent } from './attachments/attachments.component';
 
 import {RequestBudgetComponent} from "src/app/shared/budget-request/create/request-budget/request-budget.component";
+import { RequestManpowerComponent } from "./request-manpower/request-manpower.component";
 
 @Component({
   selector: 'create-budget-request',
@@ -28,15 +29,17 @@ import {RequestBudgetComponent} from "src/app/shared/budget-request/create/reque
     ChargingDetailsComponent,
     AttachmentsComponent,
     DateTimeComponent,
-    RequestBudgetComponent
-  ],
+    RequestBudgetComponent,
+    RequestManpowerComponent
+    
+],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
 })
 export class CreateComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(3);
+  page:WritableSignal<number> = signal(5);
   constructor() {
     this.initSteps();
   }
