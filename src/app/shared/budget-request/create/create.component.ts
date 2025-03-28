@@ -10,7 +10,6 @@ import {RequestDetailsComponent} from "src/app/shared/budget-request/create/requ
 import {DateTimeComponent} from "src/app/shared/budget-request/create/date-time/date-time.component";
 import { ChargingDetailsComponent } from './charging-details/charging-details.component';
 import { AttachmentsComponent } from './attachments/attachments.component';
-
 import {RequestBudgetComponent} from "src/app/shared/budget-request/create/request-budget/request-budget.component";
 import { RequestManpowerComponent } from "./request-manpower/request-manpower.component";
 
@@ -39,7 +38,7 @@ import { RequestManpowerComponent } from "./request-manpower/request-manpower.co
 export class CreateComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(5);
+  page:WritableSignal<number> = signal(4);
   constructor() {
     this.initSteps();
   }

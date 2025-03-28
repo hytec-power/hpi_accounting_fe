@@ -17,6 +17,9 @@ label{
   margin: 5px 10px;
 }
 
+
+
+
 input[type=text],input[type=date],input[type=time]{
   width: 100%;
   background-color: $light-bg-background;
@@ -25,12 +28,20 @@ input[type=text],input[type=date],input[type=time]{
   border-radius: 5px;
 }
 
+.ng-invalid.ng-touched, .ng-invalid.ng-dirty {
+  border-color: red !important;
+  
+}
+
+input[type="date"].ng-invalid.ng-touched::-webkit-calendar-picker-indicator,
+input[type="time"].ng-invalid.ng-touched::-webkit-calendar-picker-indicator{
+  filter: brightness(0) saturate(100%) invert(18%) sepia(100%) saturate(7450%) hue-rotate(-10deg) brightness(100%) contrast(100%);
+}
+
 input[type=date]::-webkit-calendar-picker-indicator,
 input[type=time]::-webkit-calendar-picker-indicator{
     filter: brightness(0) saturate(100%) invert(42%) sepia(76%) saturate(419%) hue-rotate(89deg) brightness(100%) contrast(94%);
+    width: 15px;
+    height: 15px;
 }
 
-input[type=date]:not(:focus),
-input[type=time]:not(:focus) { 
-    color: transparent; 
-}
