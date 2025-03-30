@@ -62,36 +62,45 @@
                 <div>
                     <div class="d-flex flex-column mx-1 pt-4">
                         <div class="format">
-                            <div class="py-2">
+                            <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
+                            <div class="py-2 ty pointer " type="button" (click)="fileInput.click()">
                                 <i style="font-size: 20px;" class="bi bi-cloud-upload-fill"></i>
                                 <div style="opacity: .7;"> 
                                 Drag and drop to upload or 
                                 <a style="text-decoration: none; cursor: pointer;" class="active">
                                     Browse Files
                                 </a>
+                            
                                 </div>
+
                             </div>
                         </div>
                         <div class="format">
-                            <div class="py-2">
+                            <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
+                            <div class="py-2 ty pointer " type="button" (click)="fileInput.click()">
                                 <i style="font-size: 20px;" class="bi bi-cloud-upload-fill"></i>
                                 <div style="opacity: .7;"> 
                                 Drag and drop to upload or 
                                 <a style="text-decoration: none; cursor: pointer;" class="active">
                                     Browse Files
                                 </a>
+                            
                                 </div>
+
                             </div>
                         </div>
                         <div class="format">
-                            <div class="py-2">
+                            <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
+                            <div class="py-2 ty pointer " type="button" (click)="fileInput.click()">
                                 <i style="font-size: 20px;" class="bi bi-cloud-upload-fill"></i>
                                 <div style="opacity: .7;"> 
                                 Drag and drop to upload or 
                                 <a style="text-decoration: none; cursor: pointer;" class="active">
                                     Browse Files
                                 </a>
+                            
                                 </div>
+
                             </div>
                         </div>
                     </div>
