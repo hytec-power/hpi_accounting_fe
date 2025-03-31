@@ -1,65 +1,89 @@
-<div class="root-container">
-    <div class="title">Project Details</div>
-    <div class="container d-flex flex-row">
-        <div class="group">
-            <div class="columnLeft">
-                <div class="d-flex flex-column p-5">
-                    <label class="my-2">
-                        <div>Title</div>
-                        <input type="text" name="" id="" maxlength="30">
-                    </label>
-                    <label class="my-2">
-                        <div>School/Company</div>
-                        <select>
-                            <option value="" disabled selected hidden></option>
-                            <option>company</option>
-                            <option>school</option>
-                        </select>
-                    </label>
-                    <label class="my-2">
-                        <div>Address</div>
-                        <input type="text" name="" id="" maxlength="30">
-                    </label>
+<form action="" [formGroup]="myForm">
+    <div class="root-container">
+        <div class="title">Project Details</div>
+        <div class="container d-flex flex-row">
+            <div class="group">
+                <div class="columnLeft">
+                    <div class="d-flex flex-column p-5">
+                        <label class="my-4">
+                            <div style="font-size: 20px;">Title</div>
+                            <input  type="text" name=""  formControlName="title">
+                            <div class="text-danger" *ngIf="myForm.controls['title'].touched && myForm.controls['title'].invalid">
+                                <span *ngIf="myForm.controls['title'].errors?.['minlength']">Minimum of 5 character</span>
+                                <span *ngIf="myForm.controls['title'].errors?.['required']">This is required</span>
+                            </div>
+                        </label>
+                        <label class="my-4">
+                            <div style="font-size: 20px;">School/Company</div>
+                            <select  formControlName="school">
+                                <option value="" disabled selected hidden></option>
+                                <option>company</option>
+                                <option>school</option>
+                            </select>
+                            <div class="text-danger" *ngIf="myForm.controls['school'].touched && myForm.controls['school'].invalid">
+                                <span *ngIf="myForm.controls['school'].errors?.['required']">This is required</span>
+                            </div>
+                            
+                        </label>
+                        <label class="my-4">
+                            <div style="font-size: 20px;">Address</div>
+                            <input  type="text" name="" id="" maxlength="30" formControlName="address">
+                            <div class="text-danger" *ngIf="myForm.controls['address'].touched && myForm.controls['address'].invalid">
+                                <span *ngIf="myForm.controls['address'].errors?.['minlength']">Minimum of 5 character</span>
+                                <span *ngIf="myForm.controls['address'].errors?.['required']">This is required</span>
+                            </div>
+                        </label>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="group">
-            <div>
-                <div class="d-flex flex-column px-5">
-                    <label>
-                        <div>P.O. Number/Quotation Reference</div>
-                        <input type="text" name="" />
-                    </label>
-                    <label class="my-2">
-                        <div>P.O Amount</div>
-                        <input type="text" name="" />
-                    </label>
-                    <label class="my-2">
-                        <div>Confidence Level</div>
-                        <input type="text" name="" />
-                    </label>
-                    <label class="my-2">
-                        <div>Expected Release of P.O.</div>
-                        <select style="width: 48%; float: left;">
-                            <option value="" disabled selected hidden>Select Quarter</option>
-                            <option>insert</option>
-                            <option>insert</option>
-                            <option>inser</option>
-                        </select>
-                        <select style="width: 48%; float: right;">
-                            <option value="" disabled selected hidden>Select Year</option>
-                            <option>insert</option>
-                            <option>insert</option>
-                            <option>insert</option>
-                        </select>
-                    </label>
+            <div class="group">
+                <div>
+                    <div class="d-flex flex-column px-5">
+                        <label class="my-4"> 
+                            <div style="font-size: 20px;">P.O. Number/Quotation Reference</div>
+                            <input type="text" name="" formControlName="ponumber"/>
+                            <div class="text-danger" *ngIf="myForm.controls['ponumber'].touched && myForm.controls['ponumber'].invalid">
+                                <span *ngIf="myForm.controls['ponumber'].errors?.['required']">This is required</span>
+                            </div>
+                        </label>
+                        <label class="my-4">
+                            <div style="font-size: 20px;">P.O Amount</div>
+                            <input type="text" name="" formControlName="poamount" />
+                            <div class="text-danger" *ngIf="myForm.controls['poamount'].touched && myForm.controls['poamount'].invalid">
+                                <span *ngIf="myForm.controls['poamount'].errors?.['required']">This is required</span>
+                            </div>
+                        </label>
+                        <label class="my-4">
+                            <div style="font-size: 20px;">Confidence Level</div>
+                            <input type="text" name="" formControlName="confilevel" />
+                            <div class="text-danger" *ngIf="myForm.controls['confilevel'].touched && myForm.controls['confilevel'].invalid">
+                                <span *ngIf="myForm.controls['confilevel'].errors?.['required']">This is required</span>
+                            </div>
+                        </label>
+                        <label class="my-4">
+                            <div style="font-size: 20px;">Expected Release of P.O.</div>
+                            <select style="width: 48%; float: left;" formControlName="address">
+                                <option value="" disabled selected hidden>Select Quarter</option>
+                                <option>insert</option>
+                                <option>insert</option>
+                                <option>inser</option>
+                            </select>
+                            <select style="width: 48%; float: right;">
+                                <option value="" disabled selected hidden>Select Year</option>
+                                <option>insert</option>
+                                <option>insert</option>
+                                <option>insert</option>
+                            </select>
+                        </label>
+                    </div>
                 </div>
+                
             </div>
-            
+        </div>
+        <div class="d-flex flex-row justify-content-end my-3">
+            <button-component text="Back" type="default"  /> 
+            <button-component text="Next" type="primary" (click)="onsubmit()" [disabled]="!isFormFilled()"/>
+
         </div>
     </div>
-    <div class="d-flex flex-row justify-content-end my-3">
-        <button-component text="Back" type="default" />
-        <button-component text="Next" type="primary" />
-    </div>
-</div>
+</form>

@@ -1,39 +1,122 @@
 <div class="root-container">
-    <div class="title">Attach the files needed</div>
-    <div>
-        <p style="font-size: 14px;">
-            <span class="active">NOTE:</span>
-            <span style="opacity: .7;"> Set the file name based on the required files.</span>
-        </p>
+    <div style="display: flex; flex-direction: column;">
+        <div class="title">Attach the files needed</div>
+        <div>
+            <div style="font-size: 14px;">
+                <span class="active">NOTE:</span>
+                <span style="opacity: .7;"> Set the file name based on the required files.</span>
+            </div>
+        </div>
+
     </div>
     <div class="container d-flex flex-row">
         <div class="group">
             <div class="columnLeft">
-                <div style="border-top-left-radius: 5px;" class="title py-2">Upload these necessary files</div>
-                <div class="d-flex flex-column py-5 mx-1 my-1">
-                    <div class="format">
-                        test
-                    </div>
-                    <div class="format">
-                        test
-                    </div>
-                    <div class="format">
-                        test
+                <div style="border-top-left-radius: 9px;" class="title py-2">Upload these necessary files</div>
+                
+                <div>
+                    <div class="d-flex flex-column mx-1 py-4">
+                        <div class="format">
+                            <div class="image">
+                                <i style="font-size:30px;" class="bi bi-file-earmark-image"></i>
+                            </div>
+                            <div class="text">
+                                <div class="courseOutline">Course Outine</div>
+                                <div class="fileFormat">
+                                    <span class="active">File format: </span>
+                                    <span style="opacity: .7;">jpg, jpeg, or png only.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="format">
+                            <div class="image">
+                                <i style="font-size:30px;" class="bi bi-file-earmark-image"></i>
+                            </div>
+                            <div class="text">
+                                <div class="courseOutline">Course Outine</div>
+                                <div class="fileFormat">
+                                    <span class="active">File format: </span>
+                                    <span style="opacity: .7;">Mp4 only.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="format">
+                            <div class="image">
+                                <i style="font-size:30px;" class="bi bi-file-earmark-image"></i>
+                            </div>
+                            <div class="text">
+                                <div class="courseOutline">Course Outine</div>
+                                <div class="fileFormat">
+                                    <span class="active">File format: </span>
+                                    <span style="opacity: .7;"> any type is allowed.</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="group">
             <div class="columnRight">
-                <div style="border-top-right-radius: 5px; float: right;" class="title py-2">Upload these necessary files</div>
-                <div class="d-flex flex-column px-5">
+                <div style="border-top-right-radius: 9px; float: right;" class="title py-2">Attached files</div>
+                <div>
+                    <div class="d-flex flex-column mx-1 pt-4">
+                        <div class="format">
+                            <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
+                            <div class="py-2 ty pointer " type="button" (click)="fileInput.click()">
+                                <i style="font-size: 20px;" class="bi bi-cloud-upload-fill"></i>
+                                <div style="opacity: .7;"> 
+                                Drag and drop to upload or 
+                                <a style="text-decoration: none; cursor: pointer;" class="active">
+                                    Browse Files
+                                </a>
+                            
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="format">
+                            <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
+                            <div class="py-2 ty pointer " type="button" (click)="fileInput.click()">
+                                <i style="font-size: 20px;" class="bi bi-cloud-upload-fill"></i>
+                                <div style="opacity: .7;"> 
+                                Drag and drop to upload or 
+                                <a style="text-decoration: none; cursor: pointer;" class="active">
+                                    Browse Files
+                                </a>
+                            
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="format">
+                            <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
+                            <div class="py-2 ty pointer " type="button" (click)="fileInput.click()">
+                                <i style="font-size: 20px;" class="bi bi-cloud-upload-fill"></i>
+                                <div style="opacity: .7;"> 
+                                Drag and drop to upload or 
+                                <a style="text-decoration: none; cursor: pointer;" class="active">
+                                    Browse Files
+                                </a>
+                            
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
         </div>
     </div>
-    <div class="d-flex flex-row justify-content-end my-3">
-        <button-component text="Back" type="default" />
-        <button-component text="Next" type="primary" />
+    <div style="padding-bottom: 10px; display: flex; justify-content: space-between;"> 
+        <div style="font-style: italic; max-width: 518px; font-size: 15px;" class="active">
+            By proceeding, I certify that I have checked the necessary preparations
+            for this request and take full accountability for the output it will produce.
+        </div>
+        <div class="d-flex flex-row justify-content-end my-3">
+            <button-component text="Back" type="default" />
+            <button-component text="Next" type="primary" />
+        </div>
     </div>
 </div>

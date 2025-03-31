@@ -1,24 +1,42 @@
-<div class="root-container d-flex flex-row">
-    <div class="group">
-        <div class="group-title">When is the Budget needed?</div>
-        <div class="d-flex flex-column">
-            <label class="my-2">
-                <div>Date Needed</div>
-                <input type="date" name="" text=""/>
-            </label>
-            <label class="my-2">
-                <div>Time Needed</div>
-                <input type="time" name="" />
-            </label>
 
-            <label class="my-2">
-                <div>Expected Utilization</div>
-                <input type="text" name="" />
-            </label>
-        </div>
-        <div class="d-flex flex-row justify-content-end my-5">
-            <button-component text="Back" type="default" />
-            <button-component text="Next" type="primary" />
+    <div class="root-container d-flex flex-row">
+        <div class="group">
+            <div class="group-title">When is the Budget needed?</div>
+            <form [formGroup]="dateForm" (ngSubmit)="onSubmit()">
+                <div class="d-flex flex-column">
+                    <label class="my-2">
+                        <div>Date Needed</div>
+                        <input onkeydown="return false" type="date" placeholder=" " name="" value="" min="2024-01-01" max="2030-12-31" formControlName="date" />
+                        <div class="text-danger" *ngIf="dateForm.controls['date'].invalid && 
+                            (dateForm.controls['date'].touched ||
+                            dateForm.controls['date'].dirty)">
+                                <span *ngIf="dateForm.controls['date'].errors?.['required']">This is required</span>
+                        </div>
+                    </label>
+                    <label class="my-2">
+                        <div>Time Needed</div>
+                        <input onkeydown="return false" type="time" name="" formControlName="time"/>
+                        <div class="text-danger" *ngIf="dateForm.controls['time'].invalid && 
+                            (dateForm.controls['time'].touched ||
+                            dateForm.controls['time'].dirty)">
+                                <span *ngIf="dateForm.controls['time'].errors?.['required']">This is required</span>
+                        </div>
+                    </label>
+
+                    <label class="my-2">
+                        <div>Expected Utilization</div>
+                        <input type="text" name="" formControlName="util" />
+                        <div class="text-danger" *ngIf="dateForm.controls['util'].invalid && 
+                            (dateForm.controls['util'].touched ||
+                            dateForm.controls['util'].dirty)">
+                                <span *ngIf="dateForm.controls['util'].errors?.['required']">This is required</span>
+                        </div>
+                    </label>
+                </div>
+                <div class="d-flex flex-row justify-content-end my-5">
+                    <button-component text="Back" type="default" />
+                    <button-component text="Next" type="primary" [disabled]="dateForm.invalid || !dateForm.touched" />
+                </div>
+            </form> 
         </div>
     </div>
-</div>

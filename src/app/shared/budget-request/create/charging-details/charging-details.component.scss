@@ -10,7 +10,8 @@
   padding: 30px 40px;
   border-radius: 20px;
   box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
-  width: 1150px;
+  width: 1312px;
+  height: 629px;
 }
 
 .title{
@@ -30,10 +31,10 @@
   .columnLeft{
     border-radius: 20px;
     background-color: #A0CBB0;
-    height: 100%;
-    vertical-align: center;
+    width: 627px;
+    height: 436px;  
     label{
-      color: $dark-text-bold-color;
+      color: $light-bg-background;
     }
   }
 }
@@ -43,10 +44,12 @@
 
 label{
   margin: 5px 10px;
+  width: 487px;
+  height: 50px;
   select{
     width: 100%;
     background-color: $light-bg-background;
-    border-color: $primary-active;
+    border-color: $primary-color;
     border-width: .75px;
     border-radius: 5px;
   }
@@ -57,7 +60,7 @@ label{
 input[type=text]{
   width: 100%;
   background-color: $light-bg-background;
-  border-color: $primary-active;
+  border-color: $primary-color;
   border-width: .75px;
   border-radius: 5px;
 }
