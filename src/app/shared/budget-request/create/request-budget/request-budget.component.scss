@@ -26,11 +26,25 @@ table{
     font-weight: normal;
   }
   td{
-
+    text-align: end;
     margin: 2px;
     padding: 10px;
     border-radius: 10px;
     background-color: #E6E6E6;
     color: colors.$primary-color;
   }
+  td.name{
+    text-align: start;
+  }
+}
+.total-text{
+  background-color: unset !important;
+  text-align: right;
+  color: inherit !important;
+  font-weight: bold;
+}
+.total-number{
+  background-color: colors.$primary-color !important ;
+  opacity: 50%;
+  color: #FFF !important;
 }
