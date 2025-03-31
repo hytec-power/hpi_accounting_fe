@@ -28,7 +28,6 @@ export class ChargingDetailsComponent {
       console.log("Form Submitted", this.myForm.value);
     } else {
       console.log("Form Invalid");
-      this.myForm.markAllAsTouched(); // Ensures all errors are displayed
     }
   }
   isFormFilled(): boolean {

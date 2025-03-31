@@ -1,6 +1,5 @@
 @use "colors";
 .root-container{
-  display: inline-block;
   margin: 20px 0;
   color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
   background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
@@ -13,12 +12,16 @@
   font-weight: bold;
   font-size: 18px;
   color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
-  margin-bottom: 20px;
+
 }
 table{
-  table-layout: fixed;
   width: 100%;
-  td{
-    padding: 6px 0;
-  }
 }
+input{
+  margin: 10px;
+}
+select{
+  border:2px solid #037354;
+  color: #037354;
+}
+

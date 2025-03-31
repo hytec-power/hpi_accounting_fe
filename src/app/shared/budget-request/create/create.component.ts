@@ -29,8 +29,7 @@ import { RequestManpowerComponent } from "./request-manpower/request-manpower.co
     AttachmentsComponent,
     DateTimeComponent,
     RequestBudgetComponent,
-    RequestManpowerComponent
-    
+    RequestManpowerComponent,
 ],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
