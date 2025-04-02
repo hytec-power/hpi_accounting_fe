@@ -1,5 +1,5 @@
 @use "colors";
-@import "colors";
+@use "forms";
 
 .root-container{
   display: inline-block;
@@ -42,6 +42,6 @@ table{
 }
 
 .active{
-    color: $primary-active;
+    color: colors.$primary-active;
 }
 

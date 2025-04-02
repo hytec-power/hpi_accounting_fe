@@ -1,6 +1,6 @@
-@import "colors";
+@use "colors";
 
 .root-container{
-  color: light-dark($light-text-normal-color,$dark-text-normal-color);
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
   transition: all 1s;
 }
