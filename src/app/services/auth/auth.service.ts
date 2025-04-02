@@ -17,4 +17,10 @@ export class AuthService {
   getOauthKey(){
     return environment.oauth_client_key
   }
+  getAuthState(){
+    return this.auth_authenticated;
+  }
+  isAuthenticated(){
+    return this.auth_authenticated();
+  }
 }
