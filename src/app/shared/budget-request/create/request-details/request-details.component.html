@@ -5,9 +5,10 @@
       <div class="col-md-6">
         <label>Type of Budget Request</label>
       </div>
+      
       <div  class="col-md-6">
         <select class="form-select form-select-sm" formControlName="budgetreq" (change)="budgetreqs($event)">
-          <option value="" disabled selected>Open to select</option>
+          <option value="" disabled selected>Select type of request</option>
           <option value="" *ngFor="let option of option" [value]="option">{{option}}</option>
         </select>
         <div class="text-danger" *ngIf="requestForm.controls['budgetreq'].touched && requestForm.controls['budgetreq'].invalid">
@@ -16,21 +17,20 @@
       </div>
     </div>
     <div>
+      
       <label>Purpose of Budget Request</label>
+      <p class="text-muted">Select one or more</p>
       <div class="row justify-content-start">
-        <!-- First Half -->
         <div class="col-md-6" *ngFor="let item of checkarray.slice(1, checkarray.length / 2)">
           <label>
             <input type="checkbox" [formControlName]="item" (change)="onaddvalue($event, item)">
-            {{ formatlabel(item) }}
+            {{ formatLabel(item) }}
           </label>
         </div>
-      
-        <!-- Second Half -->
         <div class="col-md-6" *ngFor="let item of checkarray.slice(checkarray.length / 2, checkarray.length)">
           <label>
             <input type="checkbox" [formControlName]="item" (change)="onaddvalue($event, item)">
-            {{ formatlabel(item) }}
+            {{ formatLabel(item) }}
           </label>
         </div>
       </div>

@@ -26,18 +26,21 @@ export class RequestDetailsComponent {
   'proposalDiscussion',
   'bidding',
   'optimizationSurvey',
-  'commissioning',
+  'commissioningAndInstallationASI',
   'clientProspecting',
-  'eventExhibit',
-  'facultyimmersion',
+  'eventExhibitConvention',
+  'facultyImmersion',
  ]
 Math: any;
- formatlabel(field: string){
+formatLabel(field: string): string {
   return field
-  .replace(/(A-Z)/g, '$1')
-  .replace(/^./, str => str.toUpperCase())
-  .trim();
- }
+    .replace(/([a-z])([A-Z])/g, '$1 $2') 
+    .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2') 
+    .replace(/^./, str => str.toUpperCase()) 
+    .split(" ") 
+    .join(" "); 
+}
+
  option: any[] = [
   'Bidding',
   'Training',
@@ -58,10 +61,10 @@ Math: any;
       proposalDiscussion: [false],
       bidding: [false],
       optimizationSurvey: [false],
-      commissioning: [false],
+      commissioningAndInstallationASI: [false],
       clientProspecting: [false],
-      eventExhibit: [false],
-      facultyimmersion:[false],
+      eventExhibitConvention: [false],
+      facultyImmersion:[false],
     });
   }
   onaddvalue(event: any, name: string) {
