@@ -11,8 +11,13 @@ import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls
   styleUrl: './oauth.component.scss'
 })
 export class OauthComponent {
-
+  token: string = '';
   constructor(private ac: ActivatedRoute) {
+    this.token = this.ac.snapshot.queryParamMap.get('token')?? '';
+
+  }
+  ngOnInit() {
+
   }
 
 }
