@@ -16,3 +16,8 @@ $primary-color: #377161;
 $primary-active:#259B50;
 $primary-disabled:#259B50;
 
+$border-color: light-dark(rgba(0,0,0,0.1),rgba(255,255,255,0.1));
+$bg-background : ligth-dark(#EEEEEE,#212121);
+$bg-foreground : ligth-dark(#FFF,#424242);
+$text-normal : ligth-dark(#424242,#9E9E9E);
+$text-bold : ligth-dark(#212121,#010101);
