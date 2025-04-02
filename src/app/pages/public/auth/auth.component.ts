@@ -15,5 +15,7 @@ export class AuthComponent {
   ngOnInit(){
 
   }
-
+  oauthLogin(){
+    window.location.href = this.auth.getOauthUrl();
+  }
 }
