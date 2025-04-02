@@ -15,9 +15,6 @@ import { ButtonComponent } from 'src/app/common/button/button.component';
 })
 export class DateTimeComponent {
 
-
-
-  
   dateForm: FormGroup;
 
   constructor(){
@@ -34,5 +31,4 @@ export class DateTimeComponent {
       console.log('Stored Data:', formData);
     }
   }
-
 }
