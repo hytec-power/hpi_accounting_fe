@@ -1,6 +1,5 @@
 @use "colors";
-@import "colors";
-@import "forms";
+@use "forms";
 
 .root-container{
   display: inline-block;
@@ -25,16 +24,16 @@
   margin: 20px 0;
 }
 
-.group{ 
+.group{
   border-radius: 20px;
   min-width: 555px;
   .columnLeft{
     border-radius: 20px;
     background-color: #A0CBB0;
     width: 627px;
-    height: 436px;  
+    height: 436px;
     label{
-      color: $light-bg-background;
+      color: colors.$light-bg-background;
     }
   }
 }
@@ -48,8 +47,8 @@ label{
   height: 50px;
   select{
     width: 100%;
-    background-color: $light-bg-background;
-    border-color: $primary-color;
+    background-color: colors.$light-bg-background;
+    border-color: colors.$primary-color;
     border-width: .75px;
     border-radius: 5px;
   }
@@ -59,8 +58,8 @@ label{
 
 input[type=text]{
   width: 100%;
-  background-color: $light-bg-background;
-  border-color: $primary-color;
+  background-color: colors.$light-bg-background;
+  border-color: colors.$primary-color;
   border-width: .75px;
   border-radius: 5px;
 }

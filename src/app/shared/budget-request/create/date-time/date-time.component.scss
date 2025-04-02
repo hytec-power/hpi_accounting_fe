@@ -1,8 +1,8 @@
-@import "colors";
-@import "forms";
+@use "colors";
+@use "forms";
 
 .group{
-  background-color: light-dark($light-bg-foreground,$dark-bg-foreground);;
+  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);;
   padding: 20px;
   border-radius: 20px;
   margin: auto;
@@ -17,20 +17,17 @@ label{
   margin: 5px 10px;
 }
 
-
-
-
 input[type=text],input[type=date],input[type=time]{
   width: 100%;
-  background-color: $light-bg-background;
-  border-color: $primary-active;
+  background-color: colors.$light-bg-background;
+  border-color: colors.$primary-active;
   border-width: .75px;
   border-radius: 5px;
 }
 
 .ng-invalid.ng-touched, .ng-invalid.ng-dirty {
   border-color: red !important;
-  
+
 }
 
 input[type="date"].ng-invalid.ng-touched::-webkit-calendar-picker-indicator,
