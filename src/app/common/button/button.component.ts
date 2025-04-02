@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, input, Input} from '@angular/core';
 
 
 @Component({
@@ -14,6 +14,7 @@ export class ButtonComponent {
   @Input() bi_position: 'left'|'right' = 'left';
   @Input() disabled: boolean = false;
   @Input() width: number|null = null;
+  @Input() borderRadius: string = '5px';
   constructor() {
 
   }

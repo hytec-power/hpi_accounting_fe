@@ -1,5 +1,6 @@
 @use "colors";
 @use "forms";
+@import "colors";
 
 .root-container{
   display: inline-block;
@@ -19,29 +20,71 @@
   color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
   margin-bottom: 20px;
 }
-table{
-  table-layout: fixed;
-  width: 100%;
-  td{
-    padding: 6px 0;
-  }
-}
 
 .createManpower{
     text-align: center;
 }
 
+.profile{
+    width: 60px;
+    height: 60px;
+}
+
 .people {
-    flex: 1 1 calc(33.33% - 10px); /* Each item takes 1/3 of the row */
-    background:none;
+    display: grid;
+    grid-template-columns: repeat(3);
     text-align: center;
     padding: 20px;
-    box-sizing: border-box;
-    border: 1px solid #000;
     height: 120px;
+    width: 153px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color .3s ease-in-out;
+    img{
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+    }
 }
+.people.active{
+    background-color: $primary-active;
+    color:white;
+}
+
+.roles {
+    display: grid;
+    grid-template-columns: repeat(5);
+    text-align: center;
+    font-size: 15px;
+    height: 120px;
+    width: 141px;
+    .powerImage{
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+    }
+}
+
+.search{
+    border: 1px solid $primary-active;
+    color: rgb(55,113,97);
+    padding: 10px;
+    border-radius: 50px;
+    width: 332px; 
+    height: 32px;
+    background-color: $light-bg-background;
+}
+
+.search::placeholder{
+    color: rgb(55,113,97)
+}
+
 
 .active{
     color: colors.$primary-active;
+}
+
+.light{
+    color: $light-text-bold-color;
 }
 
