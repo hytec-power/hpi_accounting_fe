@@ -1,0 +1,27 @@
+@use "colors";
+@use "forms";
+
+.root-container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  background-color: light-dark(colors.$light-bg-background,colors.$dark-bg-background);
+}
+.section{
+  width: 400px;
+  padding: 10px 20px;
+  border: 1px solid light-dark(rgba(0,0,0,0.1),rgba(255,255,255,0.1));
+  display: inline-block;
+  border-radius: 10px;
+}
+.button-hpi-connect{
+  color: #FFF;
+  padding: 2px 5px;
+  font-weight: bold;
+  background-color: #d32f2f;
+  border-radius: 10px;
+}
