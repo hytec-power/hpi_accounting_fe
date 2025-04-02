@@ -1,6 +1,8 @@
 @use "colors";
 @use "forms";
 
+
+
 .root-container{
   width: 100vw;
   height: 100vh;
@@ -8,20 +10,50 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
-  background-color: light-dark(colors.$light-bg-background,colors.$dark-bg-background);
+  color: colors.$text-normal;
+  background-color: colors.$bg-background;
 }
 .section{
-  width: 400px;
-  padding: 10px 20px;
-  border: 1px solid light-dark(rgba(0,0,0,0.1),rgba(255,255,255,0.1));
-  display: inline-block;
+  width: 500px;
+  box-sizing: border-box;
+  padding: 40px 30px;
+  border: 1px solid colors.$border-color;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: stretch;
+  background-color: colors.$bg-foreground;
+}
+.title{
+  margin: 20px 0;
+  font-size: 18px;
 }
 .button-hpi-connect{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   color: #FFF;
-  padding: 2px 5px;
-  font-weight: bold;
-  background-color: #d32f2f;
-  border-radius: 10px;
+  padding: 5px 10px;
+  background-color: #757575;
+  cursor: pointer;
+  transition: 1s all;
+  width: 100%;
+  &:hover{
+    background-color: #000;
+  }
+  img{
+    height: 15px;
+  }
+  .text{
+    padding: 0 10px;
+    text-align: center;
+  }
+}
+.hero-logo{
+  width: 200px;
+  height: 100px;
+  object-fit: contain;
+  object-position: center;
 }
