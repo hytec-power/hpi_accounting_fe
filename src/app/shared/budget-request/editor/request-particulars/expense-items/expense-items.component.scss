@@ -1,11 +1,11 @@
-@import "colors";
-@import "forms";
+@use "colors";
+@use "forms";
 
 .root-container{
   margin: 20px 0;
 }
 .group{
-  background-color: light-dark($light-bg-foreground,$dark-bg-foreground);;
+  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);;
   padding: 20px;
   border-radius: 20px;
   margin: 10px;
@@ -20,7 +20,7 @@
   border-top: 1px solid gray;
   text-align: end;
   font-weight: bold;
-  color: $primary-color;
+  color: colors.$primary-color;
   font-size: 30px;
 }
 .item{

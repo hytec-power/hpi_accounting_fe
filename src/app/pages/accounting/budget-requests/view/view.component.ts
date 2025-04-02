@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {PageTitleComponent} from "src/app/common/page-title/page-title.component";
-import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
+import {StepperItem} from "src/app/common/stepper/stepper.component";
 
 import {BudgetRequestViewComponent} from "src/app/shared/budget-request/view/view.component";
 
@@ -9,7 +9,6 @@ import {BudgetRequestViewComponent} from "src/app/shared/budget-request/view/vie
     selector: 'view-request',
     imports: [
         PageTitleComponent,
-        StepperComponent,
         BudgetRequestViewComponent,
     ],
     templateUrl: './view.component.html',

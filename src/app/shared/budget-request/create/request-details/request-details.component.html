@@ -1,44 +1,46 @@
-<div class="root-container d-flex justify-content-end">
+<div class="root-container">
   <div class="title">Request Details</div>
-  <form [formGroup]="requestForm">
-    <table>
-      <tr>
-        <td>Type of budget Request</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Purpose of Budget Request</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><label><input type="checkbox" formControlName="clientVisit"> Client Visit</label></td>
-        <td><label><input type="checkbox" formControlName="ocularVisit"> Occular Visit</label></td>
-      </tr>
-      <tr>
-        <td><label><input type="checkbox" formControlName="clientMeeting"> Client Meeting</label></td>
-        <td><label><input type="checkbox" formControlName="deliveryLocation"> Delivery Location</label></td>
-      </tr>
-      <tr>
-        <td><label><input type="checkbox" formControlName="sdpPresentation"> SDP/Product Presentation</label></td>
-        <td><label><input type="checkbox" formControlName="repair"> Repair</label></td>
-      </tr>
-      <tr>
-        <td><label><input type="checkbox" formControlName="proposalDiscussion"> Proposal Discussion and Submission</label></td>
-        <td><label><input type="checkbox" formControlName="bidding"> Bidding</label></td>
-      </tr>
-      <tr>
-        <td><label><input type="checkbox" formControlName="optimizationSurvey"> Optimization Survey</label></td>
-        <td><label><input type="checkbox" formControlName="commissioning"> Commissioning and Installation/AST</label></td>
-      </tr>
-      <tr>
-        <td><label><input type="checkbox" formControlName="clientProspecting"> Client Prospecting</label></td>
-        <td><label><input type="checkbox" formControlName="eventExhibit"> Event/Exhibit/Convention</label></td>
-      </tr>
-    </table>
+  <form [formGroup]="requestForm" (ngSubmit)="Submit()">
+    <div class=" row d-flex">
+      <div class="col-md-6">
+        <label>Type of Budget Request</label>
+      </div>
+      
+      <div  class="col-md-6">
+        <select class="form-select form-select-sm" formControlName="budgetreq" (change)="budgetreqs($event)">
+          <option value="" disabled selected>Select type of request</option>
+          <option value="" *ngFor="let option of option" [value]="option">{{option}}</option>
+        </select>
+        <div class="text-danger" *ngIf="requestForm.controls['budgetreq'].touched && requestForm.controls['budgetreq'].invalid">
+          Budget request selection is required.
+        </div>
+      </div>
+    </div>
+    <div>
+      
+      <label>Purpose of Budget Request</label>
+      <p class="text-muted">Select one or more</p>
+      <div class="row justify-content-start">
+        <div class="col-md-6" *ngFor="let item of checkarray.slice(1, checkarray.length / 2)">
+          <label>
+            <input type="checkbox" [formControlName]="item" (change)="onaddvalue($event, item)">
+            {{ formatLabel(item) }}
+          </label>
+        </div>
+        <div class="col-md-6" *ngFor="let item of checkarray.slice(checkarray.length / 2, checkarray.length)">
+          <label>
+            <input type="checkbox" [formControlName]="item" (change)="onaddvalue($event, item)">
+            {{ formatLabel(item) }}
+          </label>
+        </div>
+      </div>
+      
+    </div>
 
     <div class="d-flex flex-row justify-content-end my-3">
       <button-component text="Back" type="default"></button-component>
-      <button-component text="Next" type="primary" [disabled]="!isAnyCheckboxChecked()"></button-component>
+      <button-component text="Next" type="primary" [disabled]="!canProceed()"></button-component>
     </div>
+
   </form>
 </div>

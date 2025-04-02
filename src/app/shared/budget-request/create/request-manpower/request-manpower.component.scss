@@ -1,4 +1,5 @@
 @use "colors";
+@use "forms";
 @import "colors";
 
 .root-container{
@@ -80,7 +81,7 @@
 
 
 .active{
-    color: $primary-active;
+    color: colors.$primary-active;
 }
 
 .light{

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthService} from "src/app/services/auth/auth.service";
 
 @Component({
     selector: 'app-auth',
@@ -8,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AuthComponent {
 
+  constructor(private auth: AuthService) {
+    console.log(this.auth.getOauthUrl());
+  }
+  ngOnInit(){
+
+  }
+  oauthLogin(){
+    window.location.href = this.auth.getOauthUrl();
+  }
 }
