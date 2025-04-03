@@ -1,8 +1,9 @@
 import { Component,computed, signal, WritableSignal } from '@angular/core';
-import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators, FormBuilder, AbstractControl } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators, FormBuilder, AbstractControl, NgModel, FormsModule } from '@angular/forms';
 import { ButtonComponent } from 'src/app/common/button/button.component';
 import { ModalComponent } from 'src/app/common/modal/modal.component';
 import { CommonModule, NgStyle } from '@angular/common';
+import { filter } from 'rxjs';
 
 
 @Component({
@@ -12,11 +13,15 @@ import { CommonModule, NgStyle } from '@angular/common';
     ModalComponent,
     ReactiveFormsModule,
     CommonModule,
+    FormsModule
   ],
   templateUrl: './request-manpower.component.html',
   styleUrl: './request-manpower.component.scss'
 })
 export class RequestManpowerComponent {
+
+  search: string = '';
+  search2: string = '';
 
   manForm: FormGroup;
 
@@ -36,7 +41,6 @@ export class RequestManpowerComponent {
     {name: "Ed Neddard", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Manager'},
     {name: "James Baxter", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Manager'},
   ]
-
   activeManpower:{
     name:string
     img:string
@@ -50,24 +54,63 @@ export class RequestManpowerComponent {
     active:boolean
     role:string
   }[] = [];
-
+  
   constructor(private fb: FormBuilder) {
     this.manForm = this.fb.group({
       activeArray: [this.activeManpower, [this.validateActiveArray]]
     });
-    this.updateActiveSkills();
+    this.updateActiveManpower();
   }
+
+
+  filteredManpower = [...this.manpowerList];
+  filteredManpower2 = [...this.activeManpower];
+
+
+
+  filterManpower() {
+    if (!this.search || this.search.trim().length === 0) {
+      this.filteredManpower2 = [...this.activeManpower];
+      return
+    } else {
+      this.filteredManpower = this.manpowerList.filter(p =>
+        p.name.toLowerCase().includes(this.search.toLowerCase())
+      );
+    }
+  }
+
+  filterManpower2() {
+    if (!this.search2 || this.search2.trim().length === 0) {
+      this.filteredManpower2 = [...this.manForm.controls['activeArray'].value];
+    } else {
+      this.filteredManpower2 = this.manForm.controls['activeArray'].value.filter((p: { name: string; }) =>
+        p.name.toLowerCase().includes(this.search2.toLowerCase())
+      );
+    }
+  }
+
+  onKeydown(event: KeyboardEvent) {
+    if (event.key === 'Backspace' || event.key === 'Delete') {
+      this.filteredManpower = this.manpowerList.filter(p =>
+        p.name.toLowerCase().includes(this.search.toLowerCase())
+      );
+    }
+  }
+
 
   validateActiveArray(control: AbstractControl) {
     return control.value.length > 0 ? null : { noActiveArray: true };
   }
 
-  toggleSkill(index: number) {
-    this.manpowerList[index].active = !this.manpowerList[index].active;
+  toggleActive(name: string) { 
+    const item = this.manpowerList.find(p => p.name === name);
+    if (item) {
+      item.active = !item.active;
     this.activeCount = this.manpowerList.filter(skill => skill.active);
+    }
   }
 
-  updateActiveSkills() {
+  updateActiveManpower() {
     this.activeManpower = this.manpowerList.filter(skill => skill.active);
     this.manForm.controls['activeArray'].setValue(this.activeManpower);
     this.manForm.controls['activeArray'].updateValueAndValidity();
@@ -81,11 +124,16 @@ export class RequestManpowerComponent {
 
   closeModal() {
     this.showModal = false;
+    this.search = ''
+    this.filteredManpower = [...this.manpowerList]; 
   }
 
-  closeModal2(){
-    this.updateActiveSkills();
-    this.showModal = false
+  save(){
+    this.updateActiveManpower();
+    this.showModal = false;
+    this.search = ''
+    this.filteredManpower = [...this.manpowerList]; 
+    this.filterManpower2()
   }
 
   onSubmit(){
