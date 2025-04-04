@@ -29,7 +29,7 @@ import { RequestReviewComponent } from "./request-review/request-review.componen
 export class CreateComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(6);
+  page:WritableSignal<number> = signal(4);
   constructor() {
     this.initSteps();
   }

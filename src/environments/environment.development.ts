@@ -3,6 +3,6 @@ import {Environment} from "src/app/interfaces/environment";
 export const environment: Environment = {
   oauth_login_url: "https://oauth.hpi-connect.e-hytec.dev/oauth",
   apiUrl: "",
-  oauth_client_key: "f6a357234b3dbcd160662d44a2874c141bc155dac6142e3ecf6ac36c7510e470",
+  oauth_client_key: "08893f848d766cd9c04dd0e479da7a0c81b8efc61af61058be8b4398e0183994",
   production: false
 };

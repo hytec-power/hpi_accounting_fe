@@ -26,7 +26,6 @@ export class RequestManpowerComponent {
   manForm: FormGroup;
 
   manpowerList = [
-    // {name: "Jericho", img:'https://cdn.japan-forward.com/wp-content/uploads/2023/05/1453855_s.jpg'},
     {name: "James Richard Gomez", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Manager'},
     {name: "Ricardo De Leon ", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Front-end Developer'},
     {name: "Arthur Lionheart", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Back-end Developer'},
