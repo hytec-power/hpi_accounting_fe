@@ -1,6 +1,5 @@
 @use "colors";
-@use "forms";
-@import "colors";
+
 
 .root-container{
   display: inline-block;
@@ -47,7 +46,7 @@
     }
 }
 .people.active{
-    background-color: $primary-active;
+    background-color: colors.$primary-active;
     color:white;
 }
 
@@ -66,13 +65,13 @@
 }
 
 .search{
-    border: 1px solid $primary-active;
+    border: 1px solid colors.$primary-active;
     color: rgb(55,113,97);
     padding: 10px;
     border-radius: 50px;
-    width: 332px; 
+    width: 332px;
     height: 32px;
-    background-color: $light-bg-background;
+    background-color: colors.$light-bg-background;
 }
 
 .search::placeholder{
@@ -85,6 +84,6 @@
 }
 
 .light{
-    color: $light-text-bold-color;
+    color: colors.$light-text-bold-color;
 }
 
