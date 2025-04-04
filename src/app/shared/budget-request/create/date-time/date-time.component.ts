@@ -20,7 +20,7 @@ export class DateTimeComponent {
   constructor(){
     this.dateForm = new FormGroup({
       date: new FormControl('',[Validators.required]),
-      time: new FormControl('',[Validators.required, Validators.minLength(5)]),
+      time: new FormControl('',[Validators.required]),
       util: new FormControl('',[Validators.required, Validators.minLength(4)])
     })
   }

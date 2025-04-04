@@ -7,6 +7,7 @@ import { ChargingDetailsComponent } from './charging-details/charging-details.co
 import { AttachmentsComponent } from './attachments/attachments.component';
 import {RequestBudgetComponent} from "src/app/shared/budget-request/create/request-budget/request-budget.component";
 import { RequestManpowerComponent } from "./request-manpower/request-manpower.component";
+import { RequestReviewComponent } from "./request-review/request-review.component";
 
 @Component({
   selector: 'create-budget-request',
@@ -20,6 +21,7 @@ import { RequestManpowerComponent } from "./request-manpower/request-manpower.co
     DateTimeComponent,
     RequestBudgetComponent,
     RequestManpowerComponent,
+    RequestReviewComponent
 ],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
@@ -43,7 +45,7 @@ export class CreateComponent {
     ];
   }
   next(){
-    this.page.update(el=> el+1);
+    this.page.update(el=> el <6 ? el +1 :el);
   }
   back(){
     this.page.update(p=> p > 0 ? p-1:0);
