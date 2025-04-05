@@ -30,11 +30,12 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class CreateComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(1);
+  page:WritableSignal<number> = signal(2);
   //FORMS & DATA
   form_request_details!: FormGroup;
   purpose: string[] = [];
   form_date_time!: FormGroup;
+  form_project_details!: FormGroup;
   constructor(private fb: FormBuilder) {
     this.initSteps();
     this.initForms();
@@ -53,6 +54,7 @@ export class CreateComponent {
   initForms(){
     this.initRequestDetails();
     this.initDateTime();
+    this.initProjectDetails();
   }
   initRequestDetails(){
     this.form_request_details = this.fb.group({
@@ -65,6 +67,20 @@ export class CreateComponent {
       time_needed: ['',Validators.required],
       expected_utilization: ['',Validators.required]
     })
+  }
+  initProjectDetails(){
+    this.form_project_details = this.fb.group({
+      project_name: ['',Validators.required],
+      project_client: ['',Validators.required],
+      project_address: ['',Validators.required],
+      quotation_reference: ['',Validators.required],
+      po_number: ['',Validators.required],
+      po_amount: ['',Validators.required],
+      future_project: ['',Validators.required],
+      confidence_level: ['',Validators.required],
+      expected_release_quarter: ['',Validators.required],
+      expected_release_year: ['',Validators.required],
+    });
   }
   next(){
     this.page.update(el=> el <6 ? el +1 :el);
