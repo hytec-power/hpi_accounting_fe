@@ -8,10 +8,11 @@ import {HttpClient} from "@angular/common/http";
 })
 export class AuthService {
    api: string = `${environment.apiUrl}/auth`;
-   auth_authenticated: WritableSignal<boolean> = signal(false);
+   authenticated: WritableSignal<boolean> = signal(false);
+   current_user: WritableSignal<boolean> = signal(true);
   constructor(private appState: AppStateService,
               private http: HttpClient) {
-    this.appState.registerState('auth_authenticated',this.auth_authenticated,false);
+    this.appState.registerState('auth_state',this.authenticated,false);
   }
   getOauthUrl(){
     return `${environment.oauth_login_url}?client_key=${this.getOauthKey()}`
@@ -23,9 +24,9 @@ export class AuthService {
     return this.http.post(`${this.api}/login`,{token: token},{ observe: 'response' })
   }
   getAuthState(){
-    return this.auth_authenticated;
+    return this.authenticated;
   }
   isAuthenticated(){
-    return this.auth_authenticated();
+    return this.authenticated();
   }
 }
