@@ -1,46 +1,40 @@
 <div class="root-container">
   <div class="title">Request Details</div>
-  <form [formGroup]="requestForm" (ngSubmit)="Submit()">
-    <div class=" row d-flex">
+  <div class=" row d-flex">
+    <div class="col-md-6">
+      <label>Type of Budget Request</label>
+    </div>
+    <div  class="col-md-6">
+      <select style="width: 100%">
+        <option value="" disabled selected>Select type of request</option>
+        @for (type of request_types; track $index) {
+          <option [value]="type">{{ type }}</option>
+        }
+      </select>
+    </div>
+  </div>
+  <div>
+    <label>Purpose of Budget Request</label>
+    <p class="text-muted">Select one or more</p>
+    <div class="row justify-content-start">
+      <div class="flex flex-column col-md-6">
+        @for (item of purpose.slice(0,purpose.length/2); track $index) {
+          <div>
+            <label>
+              <input type="checkbox">
+              {{ item }}
+            </label>
+          </div>
+        }
+      </div>
       <div class="col-md-6">
-        <label>Type of Budget Request</label>
-      </div>
-      
-      <div  class="col-md-6">
-        <select class="form-select form-select-sm" formControlName="budgetreq" (change)="budgetreqs($event)">
-          <option value="" disabled selected>Select type of request</option>
-          <option value="" *ngFor="let option of option" [value]="option">{{option}}</option>
-        </select>
-        <div class="text-danger" *ngIf="requestForm.controls['budgetreq'].touched && requestForm.controls['budgetreq'].invalid">
-          Budget request selection is required.
-        </div>
+        @for (item of purpose.slice(purpose.length/2); track $index) {
+          <div><label><input type="checkbox">{{ item }}</label></div>
+        }
       </div>
     </div>
-    <div>
-      
-      <label>Purpose of Budget Request</label>
-      <p class="text-muted">Select one or more</p>
-      <div class="row justify-content-start">
-        <div class="col-md-6" *ngFor="let item of checkarray.slice(1, checkarray.length / 2)">
-          <label>
-            <input type="checkbox" [formControlName]="item" (change)="onaddvalue($event, item)">
-            {{ formatLabel(item) }}
-          </label>
-        </div>
-        <div class="col-md-6" *ngFor="let item of checkarray.slice(checkarray.length / 2, checkarray.length)">
-          <label>
-            <input type="checkbox" [formControlName]="item" (change)="onaddvalue($event, item)">
-            {{ formatLabel(item) }}
-          </label>
-        </div>
-      </div>
-      
-    </div>
-
-    <div class="d-flex flex-row justify-content-end my-3">
-      <button-component text="Back" type="default"></button-component>
-      <button-component text="Next" type="primary" [disabled]="!canProceed()"></button-component>
-    </div>
-
-  </form>
+  </div>
+  <div class="d-flex flex-row justify-content-end my-3">
+    <button-component text="Next" type="primary"></button-component>
+  </div>
 </div>

@@ -1,14 +1,17 @@
 <div class="root-container">
   <stepper-component [items]="steps" [current_index]="page()"/>
-  @switch (page()){
-    @case(0) {  <request-details />  }
-    @case(1) {  <request-date-time/>  }
-    @case(2) {  <app-charging-details/>  }
-    @case(3) {  <request-budget />  }
-    @case(4) {  <request-manpower />  }
-    @case(5) {  <app-attachments/>  }
-    @case(6) {  <app-request-review/>  }
-  }
+  <div class="d-flex justify-content-center">
+    @switch (page()){
+      @case(0) {  <request-details />  }
+      @case(1) {  <request-date-time/>  }
+      @case(2) {  <app-charging-details/>  }
+      @case(3) {  <request-budget />  }
+      @case(4) {  <request-manpower />  }
+      @case(5) {  <app-attachments/>  }
+      @case(6) {  <app-request-review/>  }
+    }
+  </div>
+
   <div class="d-flex flex-row justify-content-between">
     <button-component (click)="back()" text="Back" type="default" bi_icon="bi-caret-left-fill" />
     <button-component (click)="next()"

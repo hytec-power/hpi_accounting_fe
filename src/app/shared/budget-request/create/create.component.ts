@@ -8,6 +8,7 @@ import { AttachmentsComponent } from './attachments/attachments.component';
 import {RequestBudgetComponent} from "src/app/shared/budget-request/create/request-budget/request-budget.component";
 import { RequestManpowerComponent } from "./request-manpower/request-manpower.component";
 import { RequestReviewComponent } from "./request-review/request-review.component";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'create-budget-request',
@@ -29,9 +30,13 @@ import { RequestReviewComponent } from "./request-review/request-review.componen
 export class CreateComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(1);
-  constructor() {
+  page:WritableSignal<number> = signal(0);
+  //FORMS & DATA
+  form_request_details!: FormGroup;
+  purpose: string[] = [];
+  constructor(private fb: FormBuilder) {
     this.initSteps();
+    this.initForms();
   }
   initSteps(){
     this.steps = [
@@ -43,6 +48,14 @@ export class CreateComponent {
       {name: 'Attachments', bi_icon: 'bi-link-45deg'},
       {name: 'Review', bi_icon: 'bi-check-all'},
     ];
+  }
+  initForms(){
+    this.initRequestDetails();
+  }
+  initRequestDetails(){
+    this.form_request_details = this.fb.group({
+        type: ['',Validators.required]
+    });
   }
   next(){
     this.page.update(el=> el <6 ? el +1 :el);

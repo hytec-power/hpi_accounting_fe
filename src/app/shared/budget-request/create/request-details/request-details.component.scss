@@ -2,8 +2,8 @@
 @use "forms";
 .root-container{
   margin: 20px 0;
-  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
-  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
+  color: colors.$text-normal;
+  background-color: colors.$bg-foreground;
   padding: 30px 40px;
   border-radius: 20px;
   box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
@@ -12,8 +12,8 @@
 .title{
   font-weight: bold;
   font-size: 18px;
-  color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
-
+  color: colors.$text-bold;
+  margin-bottom: 10px;
 }
 table{
   width: 100%;
