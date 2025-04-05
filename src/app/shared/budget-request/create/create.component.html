@@ -2,7 +2,9 @@
   <stepper-component [items]="steps" [current_index]="page()"/>
   <div class="d-flex justify-content-center">
     @switch (page()){
-      @case(0) {  <request-details />  }
+      @case(0) {  <request-details [form]="form_request_details"
+                                   (onNext)="next()"
+                                   [(purpose)]="purpose"/>  }
       @case(1) {  <request-date-time/>  }
       @case(2) {  <app-charging-details/>  }
       @case(3) {  <request-budget />  }
