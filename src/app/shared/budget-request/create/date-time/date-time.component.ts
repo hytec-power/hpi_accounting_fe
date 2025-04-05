@@ -1,6 +1,6 @@
 import { CommonModule, formatCurrency } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {Component, input, output} from '@angular/core';
+import {Form, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { ButtonComponent } from 'src/app/common/button/button.component';
 
 @Component({
@@ -14,21 +14,9 @@ import { ButtonComponent } from 'src/app/common/button/button.component';
   styleUrl: './date-time.component.scss'
 })
 export class DateTimeComponent {
+  form = input.required<FormGroup>();
+  onNext = output();
+  onBack = output();
+  constructor(){}
 
-  dateForm: FormGroup;
-
-  constructor(){
-    this.dateForm = new FormGroup({
-      date: new FormControl('',[Validators.required]),
-      time: new FormControl('',[Validators.required]),
-      util: new FormControl('',[Validators.required, Validators.minLength(4)])
-    })
-  }
-
-  onSubmit(){
-    if(this.dateForm.valid){
-      const formData = this.dateForm.value;
-      console.log('Stored Data:', formData);
-    }
-  }
 }
