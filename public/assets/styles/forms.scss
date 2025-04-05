@@ -17,7 +17,7 @@ textarea{
   color: colors.$text-normal;
   &:focus{
     outline: none;
-    //border: 1px solid $outline-focus;
+    border:1px solid colors.$primary-color;
   }
   &.ng-invalid.ng-dirty,&.input-invalid{
     border: 1px solid #EF9A9A;
@@ -43,7 +43,6 @@ select{
     border:1px solid colors.$primary-color;
     box-shadow: none;
   }
-  border:1px solid colors.$primary-color;
   color: colors.$text-normal;
   padding: 10px;
   border-radius: 10px;
