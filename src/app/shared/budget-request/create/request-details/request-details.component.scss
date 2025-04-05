@@ -1,4 +1,5 @@
 @use "colors";
+@use "forms";
 .root-container{
   margin: 20px 0;
   color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
@@ -20,9 +21,3 @@ table{
 input{
   margin: 10px;
 }
-select{
-  border:1px solid #037354;
-  color: #037354;
-  padding: 10px;
-}
-

@@ -37,5 +37,13 @@ textarea{
 }
 
 select{
-  padding: 10px 15px;
+  &:focus{
+    outline: none;
+    box-shadow: none;
+  }
+  border:1px solid colors.$primary-color;
+  color: colors.$text-normal;
+  padding: 10px;
 }
+
+
