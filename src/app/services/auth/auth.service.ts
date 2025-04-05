@@ -1,4 +1,4 @@
-import {Injectable, signal, WritableSignal} from '@angular/core';
+import {computed, Injectable, Signal, signal, WritableSignal} from '@angular/core';
 import {environment} from "src/environments/environment";
 import {AppStateService} from "src/app/services/app-state/app-state.service";
 import {HttpClient} from "@angular/common/http";
@@ -10,11 +10,11 @@ import {CurrentUser} from "src/app/interfaces/current-user";
 })
 export class AuthService {
    api: string = `${environment.apiUrl}/auth`;
-   authenticated: WritableSignal<boolean> = signal(false);
    current_user: WritableSignal<CurrentUser|null> = signal(null);
+   authenticated: Signal<boolean> = computed(()=> !!this.current_user());
   constructor(private appState: AppStateService,
               private http: HttpClient) {
-    this.appState.registerState('auth_state',this.authenticated,false);
+    this.appState.registerState('auth_current_user',this.current_user,false);
   }
   getOauthUrl(){
     return `${environment.oauth_login_url}?client_key=${this.getOauthKey()}`
