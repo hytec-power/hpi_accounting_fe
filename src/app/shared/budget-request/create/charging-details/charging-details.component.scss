@@ -4,63 +4,39 @@
 .root-container{
   display: inline-block;
   margin: 20px 0;
-  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
-  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
+  color: colors.$text-normal;
+  background-color: colors.$bg-foreground;
   padding: 30px 40px;
   border-radius: 20px;
   box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
-  width: 1312px;
-  height: 629px;
 }
-
 .title{
   font-weight: bold;
   font-size: 18px;
-  color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
+  color: colors.$text-bold;
   margin-bottom: 20px;
 }
-
-.container{
-  margin: 20px 0;
-}
-
 .group{
+  display: flex;
+  flex-direction: column;
+  margin: 10px 30px;
+  padding: 60px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid colors.$border-color;
   border-radius: 20px;
-  min-width: 555px;
-  .columnLeft{
-    border-radius: 20px;
-    background-color: #A0CBB0;
-    width: 627px;
-    height: 436px;
-    label{
-      color: colors.$light-bg-background;
-    }
-  }
 }
-
-
-
-
-label{
-  margin: 5px 10px;
-  width: 487px;
-  height: 50px;
-  select{
-    width: 100%;
-    background-color: colors.$light-bg-background;
-    border-color: colors.$primary-color;
-    border-width: .75px;
-    border-radius: 5px;
-  }
+.data-item{
+  margin:10px 0;
 }
-
-
-
-input[type=text]{
+input[type=text],input[type=number]{
+  width: 400px;
+}
+input[type=checkbox]{
+  margin: 5px;
+}
+select{
   width: 100%;
-  background-color: colors.$light-bg-background;
-  border-color: colors.$primary-color;
-  border-width: .75px;
-  border-radius: 5px;
 }
+
 

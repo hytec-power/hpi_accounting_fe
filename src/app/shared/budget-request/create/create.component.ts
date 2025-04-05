@@ -76,7 +76,7 @@ export class CreateComponent {
       quotation_reference: ['',Validators.required],
       po_number: ['',Validators.required],
       po_amount: ['',Validators.required],
-      future_project: ['',Validators.required],
+      future_project: [false,Validators.required],
       confidence_level: ['',Validators.required],
       expected_release_quarter: ['',Validators.required],
       expected_release_year: ['',Validators.required],
