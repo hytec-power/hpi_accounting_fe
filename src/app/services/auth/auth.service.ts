@@ -33,6 +33,13 @@ export class AuthService {
   getCurrentUser(){
     return this.current_user();
   }
+  getRedirectUrl(){
+    switch(this.current_user()?.role.name){
+      case 'employee': return '/employee';
+      case 'accountant': return '/accounting';
+      default: return '/login';
+    }
+  }
   isAuthenticated(){
     return this.authenticated();
   }

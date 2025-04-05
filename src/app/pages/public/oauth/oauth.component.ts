@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
 import {AuthService} from "src/app/services/auth/auth.service";
 
@@ -14,6 +14,7 @@ import {AuthService} from "src/app/services/auth/auth.service";
 export class OauthComponent {
   token: string = '';
   constructor(private ac: ActivatedRoute,
+              private router: Router,
               private auth: AuthService) {
     this.token = this.ac.snapshot.queryParamMap.get('token')?? '';
 
@@ -29,6 +30,10 @@ export class OauthComponent {
     this.auth.oauthLogin(token).subscribe({
       next: data => console.log(data),
       error: error => console.log(error),
+      complete: () => this.redirect()
     });
+  }
+  redirect(){
+    this.router.navigate([this.auth.getRedirectUrl()]);
   }
 }
