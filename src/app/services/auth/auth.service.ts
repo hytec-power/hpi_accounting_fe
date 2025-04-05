@@ -1,4 +1,4 @@
-import {computed, Injectable, Signal, signal, WritableSignal} from '@angular/core';
+import {computed, effect, Injectable, Signal, signal, WritableSignal} from '@angular/core';
 import {environment} from "src/environments/environment";
 import {AppStateService} from "src/app/services/app-state/app-state.service";
 import {HttpClient} from "@angular/common/http";
@@ -15,6 +15,7 @@ export class AuthService {
   constructor(private appState: AppStateService,
               private http: HttpClient) {
     this.appState.registerState('auth_current_user',this.current_user,false);
+    effect(() => this.appState.storeKey('auth_current_user',this.current_user));
   }
   getOauthUrl(){
     return `${environment.oauth_login_url}?client_key=${this.getOauthKey()}`

@@ -21,5 +21,6 @@ export class IndexComponent {
      if(!this.auth.isAuthenticated()){
        this.router.navigate(['/login']);
      }
+     this.router.navigate([this.auth.getRedirectUrl()]);
   }
 }
