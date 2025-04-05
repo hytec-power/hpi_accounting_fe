@@ -5,21 +5,21 @@
         <div class="group">
           <label class="data-item">
             <div class="data-label">Project Title</div>
-            <input  type="text" name=""  formControlName="project_name">
+            <input  type="text" formControlName="project_name">
           </label>
           <label class="data-item">
             <div class="data-label">School Company</div>
-            <input  type="text" name=""  formControlName="project_name">
+            <input  type="text" formControlName="project_client">
           </label>
           <label class="data-item">
             <div class="data-label">Address</div>
-            <input type="text" maxlength="30" formControlName="project_address">
+            <input type="text" formControlName="project_address">
           </label>
         </div>
         <div class="d-flex flex-column">
           <label class="data-item">
             <div class="data-label">Quotation Reference</div>
-            <input  type="text" name=""  formControlName="project_name">
+            <input  type="text" formControlName="quotation_reference">
           </label>
           <label class="data-item">
             <div class="data-label">P.O. Number</div>
@@ -27,7 +27,7 @@
           </label>
           <label class="data-item">
             <div class="data-label">P.O. Amount</div>
-            <input type="number" />
+            <input type="number" formControlName="po_amount" />
           </label>
           <label class="data-item">
             <input type="checkbox" formControlName="future_project"/>
@@ -36,18 +36,18 @@
           @if (form().get('future_project')?.value ?? false) {
             <label class="data-item">
               <div class="data-label">Confidence Level</div>
-              <input type="number" />
+              <input type="number" formControlName="confidence_level" />
             </label>
             <div class="data-item">
               <div class="data-label">Expected Release of P.O.</div>
               <div class="d-flex flex-row">
                 <div style="flex:1;margin-right: 10px;" >
-                  <select>
+                  <select formControlName="expected_release_quarter">
                     <option></option>
                   </select>
                 </div>
                 <div style="flex:1;">
-                  <select>
+                  <select formControlName="expected_release_year">
                     <option></option>
                   </select>
                 </div>
