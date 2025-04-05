@@ -1,4 +1,4 @@
-import {Component, input, signal, WritableSignal} from '@angular/core';
+import {ChangeDetectorRef, Component, input, signal, WritableSignal} from '@angular/core';
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
 import {ButtonComponent} from "src/app/common/button/button.component";
 import {RequestDetailsComponent} from "src/app/shared/budget-request/create/request-details/request-details.component";
@@ -36,7 +36,8 @@ export class CreateComponent {
   purpose: string[] = [];
   form_date_time!: FormGroup;
   form_project_details!: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private cd: ChangeDetectorRef) {
     this.initSteps();
     this.initForms();
   }
@@ -77,10 +78,21 @@ export class CreateComponent {
       po_number: ['',Validators.required],
       po_amount: ['',Validators.required],
       future_project: [false,Validators.required],
-      confidence_level: ['',Validators.required],
-      expected_release_quarter: ['',Validators.required],
-      expected_release_year: ['',Validators.required],
+      confidence_level: [''],
+      expected_release_quarter: [''],
+      expected_release_year: [''],
     });
+
+    this.form_project_details.get('future_project')?.valueChanges
+        .subscribe((checked) => {
+            const controls = ['confidence_level','expected_release_quarter','expected_release_year'];
+            controls.forEach(control => this.form_project_details.get(control)?.clearValidators());
+            controls.forEach(control => this.form_project_details.get(control)?.setValue(''));
+            checked && controls.forEach(control => this.form_project_details.get(control)?.setValidators([Validators.required]));
+            this.form_project_details.updateValueAndValidity();
+            this.cd.detectChanges();
+        });
+
   }
   next(){
     this.page.update(el=> el <6 ? el +1 :el);
