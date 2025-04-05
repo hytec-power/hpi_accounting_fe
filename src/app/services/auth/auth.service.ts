@@ -33,6 +33,9 @@ export class AuthService {
   getCurrentUser(){
     return this.current_user();
   }
+  getCurrentRole(){
+    return this.current_user()?.role.name?? null;
+  }
   getRedirectUrl(){
     switch(this.current_user()?.role.name){
       case 'employee': return '/employee';
@@ -46,4 +49,5 @@ export class AuthService {
   setCurrentUser(user: CurrentUser){
     this.current_user.set(user);
   }
+
 }
