@@ -22,6 +22,7 @@ export class RequestBudgetComponent {
   onBack = output();
   //DATA
   form_budget = input.required<FormGroup>();
+  form_release = input.required<FormGroup>();
   total: number = 0;
   particulars!: FormArray<FormGroup>;
   others!: FormArray<FormGroup>;
@@ -82,6 +83,7 @@ export class RequestBudgetComponent {
   }
   isPageValid(){
     if(this.page() == 0) return this.form_budget().valid  && this.total > 0 && (this.particulars.length > 0 || this.others.length > 0);
+    if(this.page()==1) return this.form_release().valid;
     return false;
   }
 }

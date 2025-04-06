@@ -37,6 +37,7 @@ export class CreateComponent {
   form_date_time!: FormGroup;
   form_project_details!: FormGroup;
   form_request_allocation!: FormGroup;
+  form_release_details!:FormGroup;
 
   constructor(private fb: FormBuilder,
               private cd: ChangeDetectorRef) {
@@ -59,6 +60,7 @@ export class CreateComponent {
     this.initDateTime();
     this.initProjectDetails();
     this.initAllocation();
+    this.initReleaseForm();
   }
   initRequestDetails(){
     this.form_request_details = this.fb.group({
@@ -102,6 +104,28 @@ export class CreateComponent {
         particulars: this.fb.array([]),
         others: this.fb.array([]),
       });
+  }
+  initReleaseForm(){
+    this.form_release_details = this.fb.group({
+        release_type: ['cash',Validators.required],
+        release_bank: [''],
+        release_account_name: [''],
+        release_account_number: [''],
+    });
+    const controls = ['release_bank','release_account_name','release_account_number']
+    this.form_release_details
+        .get('release_type')?.valueChanges
+        .subscribe((value) => {
+            controls.forEach(name => this.form_release_details.get(name)?.clearValidators());
+            controls.forEach(name => this.form_release_details.get(name)?.setValue(''));
+            if(value!='cash'){
+                controls.forEach(name => this.form_release_details.get(name)?.setValidators([Validators.required]));
+            }
+            controls.forEach(name => this.form_release_details.get(name)?.updateValueAndValidity());
+            this.cd.detectChanges();
+    });
+
+
   }
   next(){
     this.page.update(el=> el <6 ? el +1 :el);
