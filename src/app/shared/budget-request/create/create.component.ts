@@ -30,12 +30,14 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class CreateComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(2);
+  page:WritableSignal<number> = signal(3);
   //FORMS & DATA
   form_request_details!: FormGroup;
   purpose: string[] = [];
   form_date_time!: FormGroup;
   form_project_details!: FormGroup;
+  form_request_allocation!: FormGroup;
+
   constructor(private fb: FormBuilder,
               private cd: ChangeDetectorRef) {
     this.initSteps();
@@ -56,6 +58,7 @@ export class CreateComponent {
     this.initRequestDetails();
     this.initDateTime();
     this.initProjectDetails();
+    this.initAllocation();
   }
   initRequestDetails(){
     this.form_request_details = this.fb.group({
@@ -93,6 +96,12 @@ export class CreateComponent {
             this.cd.detectChanges();
         });
 
+  }
+  initAllocation(){
+      this.form_request_allocation = this.fb.group({
+        particulars: this.fb.array([]),
+        others: this.fb.array([]),
+      });
   }
   next(){
     this.page.update(el=> el <6 ? el +1 :el);

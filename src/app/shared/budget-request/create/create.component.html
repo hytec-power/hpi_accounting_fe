@@ -5,7 +5,7 @@
       @case(0) {  <request-details      [form]="form_request_details" (onNext)="next()" [(purpose)]="purpose"/>  }
       @case(1) {  <request-date-time    [form]="form_date_time" (onNext)="next()" (onBack)="back()" />  }
       @case(2) {  <charging-details     [form]="form_project_details" (onNext)="next()" (onBack)="back()" />  }
-      @case(3) {  <request-budget />  }
+      @case(3) {  <request-budget       [form_budget]="form_request_allocation" (onBack)="back()"/>  }
       @case(4) {  <request-manpower />  }
       @case(5) {  <app-attachments/>  }
       @case(6) {  <app-request-review/>  }
