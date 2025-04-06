@@ -15,25 +15,29 @@
           <th>Qty</th>
           <th>Days</th>
           <th>Amount</th>
+          <th></th>
         </tr>
         </thead>
         <tbody>
+          @for (i of particulars.controls;track $index){
+            <tr>
+              <td>
+                  <select [formControl]="getFormControlByName(i,'name')">
+                    <option value="" disabled selected>Select Particular</option>
+                    @for (p of particular_names;track $index){
+                      <option [value]="p">{{ p }}</option>
+                    }
+                  </select>
+              </td>
+              <td><input type="number" [formControl]="getFormControlByName(i,'budget_daily')"></td>
+              <td><input type="number" [formControl]="getFormControlByName(i,'qty')"></td>
+              <td><input type="number" [formControl]="getFormControlByName(i,'days')"></td>
+              <td><input type="number" [formControl]="getFormControlByName(i,'total')"></td>
+              <td class="row-controls"><i (click)="removeParticular($index)" class="bi bi-x-lg remove"></i></td>
+            </tr>
+          }
         <tr>
-          <td class="name">Hotel Accomodation</td>
-          <td>12</td>
-          <td>12</td>
-          <td>12</td>
-          <td>12</td>
-        </tr>
-        <tr>
-          <td class="name">Hotel Accomodation</td>
-          <td>12</td>
-          <td>12</td>
-          <td>12</td>
-          <td>12</td>
-        </tr>
-        <tr>
-          <td colspan="5"><div class="add-item "><i class="bi bi-plus-lg"></i> Add Item</div></td>
+          <td class="add" colspan="5"><div (click)="addParticular()" class="add-button"><i class="bi bi-plus-lg"></i> Add Item</div></td>
         </tr>
         <tr>
           <th colspan="4">Others</th>
@@ -44,7 +48,7 @@
           <td>123</td>
         </tr>
         <tr>
-          <td colspan="5"><div class="add-item "><i class="bi bi-plus-lg"></i> Add Item</div></td>
+          <td class="add" colspan="5"><div (click)="addParticular()" class="add-button"><i class="bi bi-plus-lg"></i> Add Item</div></td>
         </tr>
         <tr>
           <td colspan="4" class="total-text">TOTAL BUDGET</td>
