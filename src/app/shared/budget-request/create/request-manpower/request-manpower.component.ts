@@ -1,4 +1,4 @@
-import { Component,computed, signal, WritableSignal } from '@angular/core';
+import {Component, computed, output, signal, WritableSignal} from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators, FormBuilder, AbstractControl, NgModel, FormsModule } from '@angular/forms';
 import { ButtonComponent } from 'src/app/common/button/button.component';
 import { ModalComponent } from 'src/app/common/modal/modal.component';
@@ -53,7 +53,9 @@ export class RequestManpowerComponent {
     active:boolean
     role:string
   }[] = [];
-  
+  //OUTPUT
+  onNext = output();
+  onBack = output();
   constructor(private fb: FormBuilder) {
     this.manForm = this.fb.group({
       activeArray: [this.activeManpower, [this.validateActiveArray]]
@@ -101,7 +103,7 @@ export class RequestManpowerComponent {
     return control.value.length > 0 ? null : { noActiveArray: true };
   }
 
-  toggleActive(name: string) { 
+  toggleActive(name: string) {
     const item = this.manpowerList.find(p => p.name === name);
     if (item) {
       item.active = !item.active;
@@ -124,14 +126,14 @@ export class RequestManpowerComponent {
   closeModal() {
     this.showModal = false;
     this.search = ''
-    this.filteredManpower = [...this.manpowerList]; 
+    this.filteredManpower = [...this.manpowerList];
   }
 
   save(){
     this.updateActiveManpower();
     this.showModal = false;
     this.search = ''
-    this.filteredManpower = [...this.manpowerList]; 
+    this.filteredManpower = [...this.manpowerList];
     this.filterManpower2()
   }
 

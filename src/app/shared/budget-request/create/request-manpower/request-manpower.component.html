@@ -13,7 +13,7 @@
                     <button-component (click)="openModal()" text="Create Manpower" type="primary" />
                 </div>
             } @else {
-                <div style="height: 300px;">  
+                <div style="height: 300px;">
                     <div>
                         <div style="font-weight: 300;" class="title my-0">Manpower ({{manForm.controls['activeArray'].value.length}})</div>
                     </div>
@@ -32,7 +32,7 @@
                                         <div>
                                             <img class="powerImage" src={{item.img}} alt="">
                                         </div>
-                                        <div style="width: 145px;" class="col-1"> 
+                                        <div style="width: 145px;" class="col-1">
                                             <div style="max-width: 145px; max-height: 22.5px; font-size: 15px; overflow: hidden;"> {{item.name}} </div>
                                             <div style="font-size: 12px;"> {{item.role}} </div>
                                         </div>
@@ -47,13 +47,13 @@
         </div>
 
         <div class="d-flex flex-row justify-content-end my-5">
-            <button-component text="Back" type="default" />
-            <button-component (click)="onSubmit()" text="Next" type="primary" [disabled]="manForm.invalid"/>
+            <button-component (click)="onBack.emit()" text="Back" type="default" />
+            <button-component (click)="onNext.emit()" text="Next" type="primary" />
         </div>
 
-            <app-modal 
-            [showModal]="showModal" 
-            [modalWidth]="'510px'" 
+            <app-modal
+            [showModal]="showModal"
+            [modalWidth]="'510px'"
             [modalHeight]="'492px'"
             (closeModal)="closeModal()"
             [showModal]="showModal" (closeModal)="closeModal()">
