@@ -50,14 +50,14 @@ table{
 }
 .total-text{
   background-color: unset !important;
-  text-align: right;
+  text-align: end;
   color: inherit !important;
   font-weight: bold;
 }
 .total-number{
-  background-color: colors.$primary-color !important ;
-  opacity: 50%;
-  color: #FFF !important;
+  background-color: unset !important;
+  font-weight: bold;
+  color: colors.$primary-color;
 }
 .add{
   background-color: unset !important;
