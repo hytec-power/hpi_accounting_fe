@@ -15,7 +15,7 @@ import {CurrencyPipe} from "@angular/common";
   styleUrl: './request-budget.component.scss'
 })
 export class RequestBudgetComponent {
-  page: WritableSignal<number> = signal(0);
+  page: WritableSignal<number> = signal(1);
 
   //OUTPUT
   onNext = output();
@@ -34,6 +34,7 @@ export class RequestBudgetComponent {
     this.particulars = this.form_budget().get('particulars') as FormArray?? this.fb.array([]);
     this.others = this.form_budget().get('others') as FormArray?? this.fb.array([]);
     this.form_budget().valueChanges.subscribe(i=> this.updateTotal() );
+    this.updateTotal();
   }
   initData(){
     this.particular_names = [

@@ -7,7 +7,6 @@
   padding: 30px 40px;
   border-radius: 20px;
   box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
-  width: 999px;
 }
 .title{
   font-weight: bold;
@@ -22,7 +21,7 @@ table{
   table-layout: auto;
   border-collapse: separate;
   border-spacing: 10px;
-  width: 100%;
+  width: 900px;
   th{
     font-weight: normal;
   }
@@ -96,5 +95,22 @@ select{
   color: inherit !important;
   &:focus{
     outline: none;
+  }
+}
+.release-details{
+  width: 440px;
+  margin: 5px 0;
+  label{
+    width: 100%;
+    margin: 5px 0;
+    div{
+      margin: 2px 0;
+    }
+  }
+  select,input[type=text]{
+    width: 100%;
+    outline: 1px solid colors.$border-color;
+    padding: 10px 15px;
+    border-radius:10px;
   }
 }

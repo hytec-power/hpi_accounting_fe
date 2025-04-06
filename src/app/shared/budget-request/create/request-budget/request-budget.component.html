@@ -67,7 +67,34 @@
       </div>
     }
     @if (page()==1) {
-
+      <div class="release-details">
+        <div class="section-title">Releasing Instructions</div>
+        <div class="my-2">
+          <label><input type="radio" name="release_type" > Cash </label>
+          <label><input type="radio" name="release_type" > Deposit to Client </label>
+          <label><input type="radio" name="release_type" > Deposit to my Bank Account </label>
+        </div>
+        <div class="my-2">
+          <label>
+            <div>Bank</div>
+            <select>
+              <option>aaa</option>
+            </select>
+          </label>
+          <label>
+            <div>Account Name</div>
+            <input type="text" name="">
+          </label>
+          <label>
+            <div>Account Number</div>
+            <input type="text" name="">
+          </label>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-end">
+        <button-component (click)="page.set(0)" text="Back" type="default" />
+        <button-component (click)="onNext.emit()" [disabled]="!isPageValid()" text="Next" type="primary" />
+      </div>
     }
   </div>
 
