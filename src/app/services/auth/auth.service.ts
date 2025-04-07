@@ -4,6 +4,7 @@ import {AppStateService} from "src/app/services/app-state/app-state.service";
 import {HttpClient} from "@angular/common/http";
 import {tap} from "rxjs";
 import {CurrentUser} from "src/app/interfaces/current-user";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class AuthService {
    current_user: WritableSignal<CurrentUser|null> = signal(null);
    authenticated: Signal<boolean> = computed(()=> !!this.current_user());
   constructor(private appState: AppStateService,
-              private http: HttpClient) {
+              private http: HttpClient,
+              private router: Router) {
     this.appState.registerState('auth_current_user',this.current_user,false);
     effect(() => this.appState.storeKey('auth_current_user',this.current_user));
   }
@@ -27,6 +29,11 @@ export class AuthService {
     return this.http
                .post<CurrentUser>(`${this.api}/login`,{token: token},{ observe: 'body' })
                .pipe( tap(data => this.setCurrentUser(data)));
+  }
+  logout(){
+    this.http.get(`${this.api}/logout`,{observe: 'response'}).subscribe();
+    //localStorage.clear();
+    //this.router.navigate(['/login']);
   }
   getAuthState(){
     return this.authenticated;
