@@ -13,7 +13,9 @@ export const routes: Routes = [
     {
         path: 'accounting',
         loadChildren: () => import('./pages/accounting/accounting.module').then(m=>m.AccountingModule),
-        component: AccountingTemplateComponent
+        component: AccountingTemplateComponent,
+        canActivate: [ authGuard, sessionGuard , roleGuard ],
+        data: { roles: ['accountant'] },
     },{
         path: 'employee',
         loadChildren: () => import('./pages/employee/employee.module').then(m=> m.EmployeeModule),
