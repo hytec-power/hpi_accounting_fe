@@ -19,21 +19,24 @@ export class AuthService {
     this.appState.registerState('auth_current_user',this.current_user,false);
     effect(() => this.appState.storeKey('auth_current_user',this.current_user));
   }
+  oauthLogin(token: string){
+    return this.http
+      .post<CurrentUser>(`${this.api}/login`,{token: token},{ observe: 'body' })
+      .pipe( tap(data => this.setCurrentUser(data)));
+  }
+  validateSession(){
+      return this.http.get(`${this.api}/validate`,{observe: 'response'});
+  }
   getOauthUrl(){
     return `${environment.oauth_login_url}?client_key=${this.getOauthKey()}`
   }
   getOauthKey(){
     return environment.oauth_client_key
   }
-  oauthLogin(token: string){
-    return this.http
-               .post<CurrentUser>(`${this.api}/login`,{token: token},{ observe: 'body' })
-               .pipe( tap(data => this.setCurrentUser(data)));
-  }
   logout(){
     this.http.get(`${this.api}/logout`,{observe: 'response'}).subscribe();
-    //localStorage.clear();
-    //this.router.navigate(['/login']);
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
   getAuthState(){
     return this.authenticated;
