@@ -54,6 +54,9 @@ export class AuthService {
   isAuthenticated(){
     return this.authenticated();
   }
+  getAuthToken(){
+    return this.current_user()?.token ?? '';
+  }
   setCurrentUser(user: CurrentUser){
     this.current_user.set(user);
   }
