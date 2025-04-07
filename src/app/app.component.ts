@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {AppStateService} from "src/app/services/app-state/app-state.service";
+import {ThemeService} from "src/app/services/theme/theme.service";
 
 @Component({
     selector: 'app-root',
@@ -10,6 +11,7 @@ import {AppStateService} from "src/app/services/app-state/app-state.service";
 })
 export class AppComponent {
   title = 'hpi_accounting_fe';
-  constructor(private appState: AppStateService) {
+  constructor(private appState: AppStateService,
+              private theme: ThemeService) {
   }
 }
