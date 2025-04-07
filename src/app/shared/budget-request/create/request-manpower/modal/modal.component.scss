@@ -1,0 +1,89 @@
+@use "colors";
+
+.root-container{
+    color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+    background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+    width: 510px;
+    height: 492px;
+    border: none;
+  }
+
+
+.title{
+    font-weight: bold;
+    font-size: 25px;
+    color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
+    margin-bottom: 20px;
+  }
+
+
+.createManpower{
+    text-align: center;
+}
+
+.profile{
+    width: 60px;
+    height: 60px;
+}
+
+.people {
+    display: grid;
+    grid-template-columns: repeat(3);
+    text-align: center;
+    padding: 20px;
+    height: 120px;
+    width: 153px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color .3s ease-in-out;
+    img{
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+    }
+}
+.people.active{
+    background-color: colors.$primary-active;
+    color:white;
+}
+
+.roles {
+    display: grid;
+    grid-template-columns: repeat(5);
+    text-align: center;
+    font-size: 15px;
+    height: 120px;
+    width: 141px;
+    .powerImage{
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+    }
+}
+
+.search{
+    border: 1px solid colors.$primary-active;
+    color: rgb(55,113,97);
+    padding: 10px;
+    border-radius: 50px;
+    width: 332px;
+    height: 32px;
+    background-color: colors.$light-bg-background;
+}
+
+.search::placeholder{
+    color: rgb(55,113,97)
+}
+
+
+.active{
+    color: colors.$primary-active;
+}
+
+.light{
+    color: colors.$light-text-bold-color;
+}
+
