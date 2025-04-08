@@ -1,36 +1,49 @@
 @use "colors";
-@use "forms";
-
 .root-container{
-    display: inline-block;
+  background-color: colors.$bg-foreground;
+}
+.page{
+    display: block;
     margin: 20px 0;
     color: colors.$text-normal;
-    background-color: colors.$bg-foreground;
     padding: 30px 40px;
     border-radius: 20px;
-    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
-    width: 2550px;
-    height: 3300px;
-    margin-left: 125px;
-    zoom: 40%;
-  }
-  .title{
-    font-weight: bold;
-    font-size: 60px;
-    color: colors.$text-normal;
-    margin-bottom: 20px;
-  }
+    width: 1000px;
+    height: auto;
+}
+.title{
+  font-weight: bold;
+  font-size: 20px;
+  color: colors.$text-normal;
+  margin-bottom: 20px;
+}
 
+
+table{
+  width: 100%;
+  table-layout: auto;
+  white-space: nowrap;
+  background-color: #eeeeee;
   caption{
     caption-side: top;
   }
-
   td{
-    padding-left: 80px;
-    background-color: rgba(238, 238, 238, 1);
+    padding: 0 30px;
+    border: 2px solid #FFF;
+    color: black;
   }
-
   th{
-    padding-left: 80px;
-    background-color: rgba(160, 203, 176, 0.5);
+    padding: 0 30px;
+    border: 2px solid #FFF;
   }
+  .section-header{
+    height: 20px;
+    padding: 0;
+    background-color: #358f76;
+    border: 2px solid #358f76;
+  }
+  .data-label{
+    color: gray;
+    background-color: #d0e5d7;
+  }
+}

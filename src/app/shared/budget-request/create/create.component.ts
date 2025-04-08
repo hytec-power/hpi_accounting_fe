@@ -30,7 +30,7 @@ import {AttachmentsComponent} from "src/app/shared/budget-request/create/attachm
 export class CreateComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(5);
+  page:WritableSignal<number> = signal(6);
   //FORMS & DATA
   form_request_details!: FormGroup;
   purpose: string[] = [];
