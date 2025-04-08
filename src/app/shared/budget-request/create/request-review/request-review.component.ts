@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, output} from '@angular/core';
 import {ButtonComponent} from "src/app/common/button/button.component";
 import {CurrencyPipe} from "@angular/common";
 
@@ -12,5 +12,7 @@ import {CurrencyPipe} from "@angular/common";
   styleUrl: './request-review.component.scss'
 })
 export class RequestReviewComponent {
+  onBack = output();
+  onSubmit = output();
 
 }

@@ -1,15 +1,17 @@
 @use "colors";
 .root-container{
   background-color: colors.$bg-foreground;
+  padding: 30px;
+  border-radius: 20px;
 }
 .page{
     display: block;
     margin: 20px 0;
     color: colors.$text-normal;
-    padding: 30px 40px;
     border-radius: 20px;
     width: 1000px;
     height: auto;
+    overflow: hidden;
 }
 .title{
   font-weight: bold;
