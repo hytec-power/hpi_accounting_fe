@@ -1,6 +1,5 @@
 import {ChangeDetectorRef, Component, input, signal, WritableSignal} from '@angular/core';
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
-import {ButtonComponent} from "src/app/common/button/button.component";
 import {RequestDetailsComponent} from "src/app/shared/budget-request/create/request-details/request-details.component";
 import {DateTimeComponent} from "src/app/shared/budget-request/create/date-time/date-time.component";
 import { ChargingDetailsComponent } from './charging-details/charging-details.component';
@@ -9,12 +8,13 @@ import {RequestBudgetComponent} from "src/app/shared/budget-request/create/reque
 import { RequestManpowerComponent } from "./request-manpower/request-manpower.component";
 import { RequestReviewComponent } from "./request-review/request-review.component";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/budget-request.service";
+import {BudgetRequest} from "src/app/interfaces/budget-request";
 
 @Component({
   selector: 'create-budget-request',
   imports: [
     StepperComponent,
-    ButtonComponent,
     RequestDetailsComponent,
     DateTimeComponent,
     ChargingDetailsComponent,
@@ -30,7 +30,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class CreateComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(0);
+  page:WritableSignal<number> = signal(4);
   //FORMS & DATA
   form_request_details!: FormGroup;
   purpose: string[] = [];
@@ -38,9 +38,11 @@ export class CreateComponent {
   form_project_details!: FormGroup;
   form_request_allocation!: FormGroup;
   form_release_details!:FormGroup;
+  preview: BudgetRequest|null = null;
 
   constructor(private fb: FormBuilder,
-              private cd: ChangeDetectorRef) {
+              private cd: ChangeDetectorRef,
+              private br: BudgetRequestService) {
     this.initSteps();
     this.initForms();
   }
@@ -127,10 +129,36 @@ export class CreateComponent {
 
 
   }
+  apiCreate(payload: any){
+    this.br.create(payload);
+  }
   next(){
     this.page.update(el=> el <6 ? el +1 :el);
   }
   back(){
     this.page.update(p=> p > 0 ? p-1:0);
   }
+  showPreview(){
+    this.preview = {
+      ...this.form_release_details.getRawValue(),
+      ...this.form_date_time.getRawValue(),
+      ...this.form_project_details.getRawValue(),
+      ...this.form_request_allocation.getRawValue(),
+      ...this.form_release_details.getRawValue(),
+      purpose: this.purpose
+    };
+    this.next()
+  }
+  submit(){
+    const payload = {
+      ...this.form_release_details.getRawValue(),
+      ...this.form_date_time.getRawValue(),
+      ...this.form_project_details.getRawValue(),
+      ...this.form_request_allocation.getRawValue(),
+      ...this.form_release_details.getRawValue(),
+      purpose: this.purpose
+    };
+    this.apiCreate(payload);
+  }
+
 }
