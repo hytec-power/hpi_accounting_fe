@@ -12,6 +12,7 @@ import {BudgetRequest} from "src/app/interfaces/budget-request";
 import {AttachmentsComponent} from "src/app/shared/budget-request/create/attachments/attachments.component";
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
 import {ModalComponent} from "src/app/shared/budget-request/create/request-manpower/modal/modal.component";
+import {ModalsService} from "src/app/services/common/modals/modals.service";
 
 @Component({
   selector: 'create-budget-request',
@@ -47,9 +48,13 @@ export class CreateComponent {
 
   constructor(private fb: FormBuilder,
               private cd: ChangeDetectorRef,
-              private brApi: BudgetRequestService) {
+              private brApi: BudgetRequestService,
+              private modals: ModalsService) {
     this.initSteps();
     this.initForms();
+  }
+  ngOnInit() {
+
   }
   initSteps(){
     this.steps = [
@@ -164,7 +169,7 @@ export class CreateComponent {
       ...this.form_release_details.getRawValue(),
       purpose: this.purpose
     };
-    //this.apiCreate(payload);
+    this.modals.getInstance()?.showConfirm('Confirm Action','Create Budget Request?','Create','Cancel',()=>this.apiCreate(payload))
   }
 
 }
