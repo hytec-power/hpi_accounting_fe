@@ -30,7 +30,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class CreateComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(4);
+  page:WritableSignal<number> = signal(0);
   //FORMS & DATA
   form_request_details!: FormGroup;
   purpose: string[] = [];

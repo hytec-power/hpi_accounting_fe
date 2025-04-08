@@ -4,7 +4,7 @@
         <div class="title pb-4 my-0">Add People</div>
     </div>
     <div class="my-2">
-        <input class="search" type="text" placeholder="Search employee name" [(ngModel)]="search">
+        <input class="search" type="search" placeholder="Search employee name" [(ngModel)]="search" (input)="onClear($event)">
         <button-component borderRadius="round" style="float: right;"  text="Search" type="primary"  (click)="filterManpower()"></button-component>
     </div>
     <form>

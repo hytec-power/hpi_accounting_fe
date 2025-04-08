@@ -1,7 +1,7 @@
 import { Component,ViewChild,ElementRef, Output, EventEmitter} from '@angular/core';
 import { ButtonComponent } from "../../../../../common/button/button.component";
 import { FormsModule } from '@angular/forms';
-import { manpower } from './manpower';
+import { manpower } from 'src/app/interfaces/request-manpower';
 
 @Component({
   selector: 'app-modal-test',
@@ -52,13 +52,8 @@ export class ModalComponent {
     this.activeManpower = this.manpowerList.filter(skill => skill.active);
   }
   filterManpower() {
-    if (!this.search || this.search.trim() === '') {
-      this.filteredManpower = [...this.manpowerList];
-    } else {
-      this.filteredManpower = this.manpowerList.filter(p =>
-        p.name.toLowerCase().includes(this.search.toLowerCase())
-      );
-    }
+    this.filteredManpower = this.manpowerList.filter(p =>
+      p.name.toLowerCase().includes(this.search.toLowerCase()));
   }
   toggleActive(name: string) {
     const item = this.manpowerList.find(p => p.name === name);
@@ -66,6 +61,12 @@ export class ModalComponent {
       item.active = !item.active;
     this.activeCount = this.manpowerList.filter(skill => skill.active);
     }
+  }
+  onClear(event: Event){
+  const input = event.target as HTMLInputElement;
+  if (input.value === '') {
+    this.filteredManpower = [...this.manpowerList];
+  }
   }
   open(){
     this.search = '';

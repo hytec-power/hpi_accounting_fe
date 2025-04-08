@@ -2,8 +2,8 @@ import {Component, output, ViewChild} from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ButtonComponent } from 'src/app/common/button/button.component';
 import { CommonModule } from '@angular/common';
-import { ModalComponent as Modaltest } from './modal/modal.component';
-import { manpower } from './modal/manpower';
+import { ModalComponent as Modal } from './modal/modal.component';
+import { manpower } from 'src/app/interfaces/request-manpower';
 
 @Component({
   selector: 'request-manpower',
@@ -12,7 +12,7 @@ import { manpower } from './modal/manpower';
     ReactiveFormsModule,
     CommonModule,
     FormsModule,
-    Modaltest],
+    Modal],
   templateUrl: './request-manpower.component.html',
   styleUrl: './request-manpower.component.scss'
 })
@@ -23,9 +23,9 @@ export class RequestManpowerComponent {
   onNext = output();
   onBack = output();
   filteredManpower2 = [...this.receivedUsers];
-  @ViewChild(Modaltest) dialogChild!: Modaltest;
-  showModaltest(){
-    this.dialogChild.open();
+  @ViewChild(Modal) Modal!: Modal;
+  showModal(){
+    this.Modal.open();
   }
   receiveArray(data: manpower[]) {
     this.receivedUsers = data;
@@ -42,11 +42,10 @@ export class RequestManpowerComponent {
       );
     }
   }
-  clearSearch(){
-    this.search2 = '';
-    if(this.search2.trim() === ''){
-      this.filterManpower2;
-      console.log('saerch value', this.search2);
+  clear(event: Event){
+    const input = event.target as HTMLInputElement;
+    if (input.value === '') {
+      this.filteredManpower2 = [...this.receivedUsers];
     }
   }
   test(){

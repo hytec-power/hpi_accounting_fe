@@ -8,41 +8,44 @@
             </div>
         </div>
         <div style="max-height: 360px;">
-            @if (receivedUsers.length === 0 ) {
+            @switch (receivedUsers.length === 0) {
+                @case (true) {
                 <div style="height: 360px;" class="createManpower mt-5">
-                    <button-component (click)="showModaltest()" text="Create Manpower" type="primary" />
+                    <button-component (click)="showModal()" text="Create Manpower" type="primary" />
                 </div>
-            } @else {
-                <div style="height: 300px;">
-                    <div>
-                        <div style="font-weight: 300;" class="title my-0">Manpower({{receivedUsers.length}})</div>
-                    </div>
-                    <div style="display: flex; justify-content: space-between;" class="my-2">
+                }
+                @case (false) {
+                    <div style="height: 300px;">
                         <div>
-                            <input class="search" type="text" placeholder="Search employee name" [(ngModel)]="search2" > 
-                            <button-component [borderRadius]="'round'" style="float: end;"  text="Search" type="primary" (click)="filterManpower2()"></button-component>
+                            <div style="font-weight: 300;" class="title my-0">Manpower({{receivedUsers.length}})</div>
                         </div>
-                        <button-component bi_icon="bi-plus-lg" [borderRadius]="'round'" style="float: right;" (click)="showModaltest()" text="Add People" type="primary" />
-                    </div>
-                    <div style="display: flex; flex-wrap: wrap; overflow: scroll; gap: 5px 43px; max-height: 250px; width: 100%;">
-                        @for (item of filteredManpower2; track item) {
-                            <div class="roles pt-2">
-                                <div>
+                        <div style="display: flex; justify-content: space-between;" class="my-2">
+                            <div>
+                                <input class="search" type="search" placeholder="Search employee name" [(ngModel)]="search2" (input)="clear($event)"> 
+                                <button-component [borderRadius]="'round'" style="float: end;"  text="Search" type="primary" (click)="filterManpower2()"></button-component>
+                            </div>
+                            <button-component bi_icon="bi-plus-lg" [borderRadius]="'round'" style="float: right;" (click)="showModal()" text="Add People" type="primary" />
+                        </div>
+                        <div style="display: flex; flex-wrap: wrap; overflow: scroll; gap: 5px 43px; max-height: 250px; width: 100%;">
+                            @for (item of filteredManpower2; track item) {
+                                <div class="roles pt-2">
                                     <div>
-                                        
                                         <div>
-                                            <img class="powerImage" src={{item.img}} alt="">
-                                        </div>
-                                        <div style="width: 145px;" class="col-1">
-                                            <div style="max-width: 145px; max-height: 22.5px; font-size: 15px; overflow: hidden;"> {{item.name}} </div>
-                                            <div style="font-size: 12px;"> {{item.role}} </div>
+                                            
+                                            <div>
+                                                <img class="powerImage" src={{item.img}} alt="">
+                                            </div>
+                                            <div style="width: 145px;" class="col-1">
+                                                <div style="max-width: 145px; max-height: 22.5px; font-size: 15px; overflow: hidden;"> {{item.name}} </div>
+                                                <div style="font-size: 12px;"> {{item.role}} </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                </div>
-                            }
+                                    </div>
+                                }
+                        </div>
                     </div>
-                </div>
+                }
             }
         </div>
         <div class="d-flex flex-row justify-content-end my-5">

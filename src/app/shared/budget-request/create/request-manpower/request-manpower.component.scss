@@ -74,6 +74,10 @@
     background-color: colors.$light-bg-background;
 }
 
+.search:focus{
+    outline: none;
+}
+
 .search::placeholder{
     color: rgb(55,113,97)
 }
