@@ -7,13 +7,12 @@
                 <span style="opacity: .7;"> Set the file name based on the required files.</span>
             </div>
         </div>
-
     </div>
     <div class="container d-flex flex-row">
         <div class="group">
             <div class="columnLeft">
                 <div style="border-top-left-radius: 9px;" class="title py-2">Upload these necessary files</div>
-                
+
                 <div>
                     <div class="d-flex flex-column mx-1 py-4">
                         <div class="format">
@@ -65,12 +64,12 @@
                             <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
                             <div class="py-2 ty pointer " type="button" (click)="fileInput.click()">
                                 <i style="font-size: 20px;" class="bi bi-cloud-upload-fill"></i>
-                                <div style="opacity: .7;"> 
-                                Drag and drop to upload or 
+                                <div style="opacity: .7;">
+                                Drag and drop to upload or
                                 <a style="text-decoration: none; cursor: pointer;" class="active">
                                     Browse Files
                                 </a>
-                            
+
                                 </div>
 
                             </div>
@@ -79,12 +78,12 @@
                             <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
                             <div class="py-2 ty pointer " type="button" (click)="fileInput.click()">
                                 <i style="font-size: 20px;" class="bi bi-cloud-upload-fill"></i>
-                                <div style="opacity: .7;"> 
-                                Drag and drop to upload or 
+                                <div style="opacity: .7;">
+                                Drag and drop to upload or
                                 <a style="text-decoration: none; cursor: pointer;" class="active">
                                     Browse Files
                                 </a>
-                            
+
                                 </div>
 
                             </div>
@@ -93,12 +92,12 @@
                             <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
                             <div class="py-2 ty pointer " type="button" (click)="fileInput.click()">
                                 <i style="font-size: 20px;" class="bi bi-cloud-upload-fill"></i>
-                                <div style="opacity: .7;"> 
-                                Drag and drop to upload or 
+                                <div style="opacity: .7;">
+                                Drag and drop to upload or
                                 <a style="text-decoration: none; cursor: pointer;" class="active">
                                     Browse Files
                                 </a>
-                            
+
                                 </div>
 
                             </div>
@@ -106,17 +105,17 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
-    <div style="padding-bottom: 10px; display: flex; justify-content: space-between;"> 
+    <div style="padding-bottom: 10px; display: flex; justify-content: space-between;">
         <div style="font-style: italic; max-width: 518px; font-size: 15px;" class="active">
             By proceeding, I certify that I have checked the necessary preparations
             for this request and take full accountability for the output it will produce.
         </div>
         <div class="d-flex flex-row justify-content-end my-3">
-            <button-component text="Back" type="default" />
-            <button-component text="Next" type="primary" />
+            <button-component (click)="onBack.emit()" text="Back" type="default" />
+            <button-component (click)="onNext.emit()" text="Next" type="primary" />
         </div>
     </div>
 </div>

@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, output} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from 'src/app/common/button/button.component';
 
 @Component({
-  selector: 'app-attachments',
+  selector: 'request-attachments',
   imports: [
     ButtonComponent,
     FormsModule,
@@ -12,6 +12,10 @@ import { ButtonComponent } from 'src/app/common/button/button.component';
   styleUrl: './attachments.component.scss'
 })
 export class AttachmentsComponent {
+  onNext = output();
+  onBack = output();
+  
+
   imagePreview: string | undefined;
 
   onFileSelected(event: any) {
@@ -24,5 +28,5 @@ export class AttachmentsComponent {
       reader.readAsDataURL(file);
     }
   }
-  
+
 }

@@ -9,8 +9,8 @@
                                         [form_release]="form_release_details"
                                         (onNext)="next()"
                                         (onBack)="back()"/>  }
-      @case(4) {  <request-manpower (onNext)="next()" (onBack)="back()"/>  }
-      @case(5) {  <app-attachments/>  }
+      @case(4) {  <request-manpower     (onNext)="next()" (onBack)="back()"/>  }
+      @case(5) {  <request-attachments  (onNext)="showPreview()" (onBack)="back()" />  }
       @case(6) {  <app-request-review/>  }
     }
   </div>

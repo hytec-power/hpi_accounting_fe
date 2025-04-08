@@ -3,13 +3,13 @@ import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.comp
 import {RequestDetailsComponent} from "src/app/shared/budget-request/create/request-details/request-details.component";
 import {DateTimeComponent} from "src/app/shared/budget-request/create/date-time/date-time.component";
 import { ChargingDetailsComponent } from './charging-details/charging-details.component';
-import { AttachmentsComponent } from './attachments/attachments.component';
 import {RequestBudgetComponent} from "src/app/shared/budget-request/create/request-budget/request-budget.component";
 import { RequestManpowerComponent } from "./request-manpower/request-manpower.component";
 import { RequestReviewComponent } from "./request-review/request-review.component";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/budget-request.service";
 import {BudgetRequest} from "src/app/interfaces/budget-request";
+import {AttachmentsComponent} from "src/app/shared/budget-request/create/attachments/attachments.component";
 
 @Component({
   selector: 'create-budget-request',
@@ -18,19 +18,19 @@ import {BudgetRequest} from "src/app/interfaces/budget-request";
     RequestDetailsComponent,
     DateTimeComponent,
     ChargingDetailsComponent,
-    AttachmentsComponent,
     DateTimeComponent,
     RequestBudgetComponent,
     RequestManpowerComponent,
-    RequestReviewComponent
-],
+    RequestReviewComponent,
+    AttachmentsComponent,
+  ],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
 })
 export class CreateComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(4);
+  page:WritableSignal<number> = signal(5);
   //FORMS & DATA
   form_request_details!: FormGroup;
   purpose: string[] = [];
