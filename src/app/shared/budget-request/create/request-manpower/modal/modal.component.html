@@ -1,0 +1,32 @@
+<dialog class="root-container" #modal>
+    <button (click)="close()" style="float: right; border: none; background-color: inherit;"><i class="bi bi-x-lg"></i></button>
+    <div>
+        <div class="title pb-4 my-0">Add People</div>
+    </div>
+    <div class="my-2">
+        <input class="search" type="search" placeholder="Search employee name" [(ngModel)]="search" (input)="onClear($event)">
+        <button-component borderRadius="round" style="float: right;"  text="Search" type="primary"  (click)="filterManpower()"></button-component>
+    </div>
+    <form>
+        <div style="display: flex; flex-wrap: wrap; overflow: scroll; gap: 5px; height: 250px; width: 100%;">
+            @for (i of filteredManpower; track i) {
+                <div>
+                    <div (click)="toggleActive(i.name)" [class.active]="i.active" class="people form pt-2 px-0">
+                        <div style="width: 100%;">
+                            <img src={{i.img}} alt="">
+                            <br>
+                            <div>
+                                <div style="max-width: 145px; max-height: 22.5px; font-size: 15px; overflow: hidden;">{{i.name}}</div>
+                                <div style="font-size: 12px;">{{i.role}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="mt-4">
+            <span class="light" style="color: rgb(55,113,97); font-weight: normal;">{{activeCount.length}} Employees selected.</span>
+            <button-component (click)="sendData()" text="Save" style="float: right;" type="primary"></button-component>
+        </div>
+    </form>
+</dialog>
