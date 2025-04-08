@@ -10,6 +10,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/budget-request.service";
 import {BudgetRequest} from "src/app/interfaces/budget-request";
 import {AttachmentsComponent} from "src/app/shared/budget-request/create/attachments/attachments.component";
+import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
+import {ModalComponent} from "src/app/shared/budget-request/create/request-manpower/modal/modal.component";
 
 @Component({
   selector: 'create-budget-request',
@@ -23,6 +25,7 @@ import {AttachmentsComponent} from "src/app/shared/budget-request/create/attachm
     RequestManpowerComponent,
     RequestReviewComponent,
     AttachmentsComponent,
+    LoaderBouncingBallsComponent,
   ],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
@@ -30,7 +33,7 @@ import {AttachmentsComponent} from "src/app/shared/budget-request/create/attachm
 export class CreateComponent {
   item = input();
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(6);
+  page:WritableSignal<number> = signal(0);
   //FORMS & DATA
   form_request_details!: FormGroup;
   purpose: string[] = [];
@@ -39,10 +42,12 @@ export class CreateComponent {
   form_request_allocation!: FormGroup;
   form_release_details!:FormGroup;
   preview: BudgetRequest|null = null;
+  //UI
+  loading: boolean = false;
 
   constructor(private fb: FormBuilder,
               private cd: ChangeDetectorRef,
-              private br: BudgetRequestService) {
+              private brApi: BudgetRequestService) {
     this.initSteps();
     this.initForms();
   }
@@ -130,7 +135,8 @@ export class CreateComponent {
 
   }
   apiCreate(payload: any){
-    this.br.create(payload);
+    this.loading = true;
+    this.brApi.create(payload);
   }
   next(){
     this.page.update(el=> el <6 ? el +1 :el);
@@ -158,7 +164,7 @@ export class CreateComponent {
       ...this.form_release_details.getRawValue(),
       purpose: this.purpose
     };
-    this.apiCreate(payload);
+    //this.apiCreate(payload);
   }
 
 }
