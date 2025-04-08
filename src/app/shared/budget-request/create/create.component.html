@@ -11,7 +11,7 @@
                                         (onBack)="back()"/>  }
       @case(4) {  <request-manpower     (onNext)="next()" (onBack)="back()"/>  }
       @case(5) {  <request-attachments  (onNext)="showPreview()" (onBack)="back()" />  }
-      @case(6) {  <request-review />  }
+      @case(6) {  <request-review       (onSubmit)="submit()" (onBack)="back()" />  }
     }
   </div>
 </div>
