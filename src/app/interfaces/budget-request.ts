@@ -22,7 +22,10 @@ export interface BudgetRequest {
   expected_quarter: number,
   expected_year: number,
   //BUDGET ALLOCATION
-  budget_allocation: any
+  budget_allocation: {
+    particulars: BudgetParticulars[],
+    others: BudgetOthers[],
+  }
   budget_total: number,
   //MANPOWER
   manpower: any
@@ -31,4 +34,17 @@ export interface BudgetRequest {
   deleted_at: string,
   created_at: string,
   updated_at: string,
+}
+
+export interface BudgetParticulars {
+  name: string,
+  budget_daily: number,
+  qty: number,
+  days: number,
+  total: number,
+}
+
+export interface BudgetOthers {
+  name: string,
+  total: number
 }
