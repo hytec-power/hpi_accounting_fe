@@ -158,11 +158,14 @@ export class CreateComponent {
   }
   showPreview(){
     this.preview = {
+      uuid: '',
+      ...this.form_request_details.getRawValue(),
       ...this.form_release_details.getRawValue(),
       ...this.form_date_time.getRawValue(),
       ...this.form_project_details.getRawValue(),
-      ...this.form_request_allocation.getRawValue(),
       ...this.form_release_details.getRawValue(),
+      budget_allocation: this.form_request_allocation.getRawValue(),
+      budget_total: this.budget_total,
       purpose: this.purpose
     };
     this.next()

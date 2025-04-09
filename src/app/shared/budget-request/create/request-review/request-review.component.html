@@ -8,149 +8,160 @@
     <div class="title">
       BUDGET REQUEST
     </div>
-    <div>
-      <table style="table-layout: auto;">
-        <caption>Request</caption>
-        <tr>
-          <td class="section-header" colspan="5"></td>
-        </tr>
-        <tr>
-          <td class="data-label">Type of Request</td>
-          <td colspan="4">TPC</td>
-        </tr>
-        <tr>
-          <td class="data-label">Purpose of the Request</td>
-          <td colspan="4">Client Visit</td>
-        </tr>
-        <tr>
-          <td colspan="6">Date & Time</td>
-        </tr>
-        <tr>
-          <td class="section-header" colspan="5"></td>
-        </tr>
-        <tr>
-          <td class="data-label">Date needed</td>
-          <td  colspan="4">March</td>
-        </tr>
-        <tr>
-          <td class="data-label">Time needed</td>
-          <td colspan="4">5:00</td>
-        </tr>
-        <tr>
-          <td class="data-label">Expected Utilization</td>
-          <td colspan="4">Sample</td>
-        </tr>
-        <tr>
-          <td colspan="5">Charging Information</td>
-        </tr>
-        <tr>
-          <td class="section-header" colspan="5"></td>
-        </tr>
-        <tr>
-          <td class="data-label">Title</td>
-          <td colspan="4">Industrial Engineering</td>
-        </tr>
-        <tr>
-          <td class="data-label">School/Company</td>
-          <td colspan="4">Quezon City Univ</td>
-        </tr>
-        <tr>
-          <td class="data-label">Address</td>
-          <td colspan="4">Novaliches</td>
-        </tr>
-        <tr>
-          <td class="data-label">Quotation Reference</td>
-          <td colspan="4">Sample</td>
-        </tr>
-        <tr>
-          <td class="data-label">P.O. Number</td>
-          <td colspan="4">PO-2025</td>
-        </tr>
-        <tr>
-          <td class="data-label">P.O. Amount</td>
-          <td colspan="4">99</td>
-        </tr>
-        <tr>
-          <td class="data-label">Future Project</td>
-          <td colspan="4">Yes</td>
-        </tr>
-        <tr>
-          <td class="data-label">Confidence level</td>
-          <td olspan="4">70%</td>
-        </tr>
-        <tr>
-          <td class="data-label">Exepcted Release of P.O.</td>
-          <td colspan="4">Q4/2025</td>
-        </tr>
-        <tr>
-          <td colspan="5">Budget</td>
-        </tr>
-        <tr>
-          <td class="section-header" colspan="5"></td>
-        </tr>
-        <tr>
-          <th>Particulars</th>
-          <th>Budget Per Day</th>
-          <th>Qty</th>
-          <th>Days</th>
-          <th>Amount</th>
-        </tr>
-        <tr>
-          <td class="data-label">Hotel Accommodation</td>
-          <td>{{ 2700 | currency:'PHP':'symbol' }}</td>
-          <td>2</td>
-          <td>2</td>
-          <td>{{ 2700*2*2 | currency:'PHP':'symbol' }}</td>
-        </tr>
-        <tr>
-          <th colspan="5">Others</th>
-        </tr>
-        <tr>
-          <td class="data-label">Emergency Funds</td>
-          <td class="data-value text-end" colspan="4">{{ 2700 | currency:'PHP':'symbol' }}</td>
-        </tr>
-        <tr>
-          <th class="text-end" colspan="4">Total</th>
-          <th                                                                                                                                                                                 >{{ 2700 | currency:'PHP':'symbol' }}</th>
-        </tr>
-        <tr>
-          <th colspan="2">Releasing Instructions</th>
-          <th>Bank</th>
-          <th>Account Name</th>
-          <th>Account Number</th>
-        </tr>
-        <tr>
-          <td colspan="2">Direct deposit</td>
-          <td>RCBC</td>
-          <td>Julius Reco</td>
-          <td>231204120</td>
-        </tr>
-        <tr>
-          <td colspan="5">Manpower</td>
-        </tr>
-        <tr>
-          <td class="section-header" colspan="5"></td>
-        </tr>
-        <tr>
-          <th colspan="3">Name/s</th>
-          <th colspan="2">Position</th>
-        </tr>
-        <tr>
-          <td colspan="3">Julius Meor</td>
-          <td colspan="2">Front-end Dev</td>
-        </tr>
-        <tr>
-          <td colspan="5">Attachments</td>
-        </tr>
-        <tr>
-          <td class="section-header" colspan="5"></td>
-        </tr>
-        <tr>
-          <td class="data-label">Document name</td>
-          <td colspan="4">filename.ext</td>
-        </tr>
-  </table>
-    </div>
+    @if (data()) {
+      <div>
+        <table style="table-layout: auto;">
+          <caption>Request</caption>
+          <tr>
+            <td class="section-header" colspan="5"></td>
+          </tr>
+          <tr>
+            <td class="data-label">Type of Request</td>
+            <td colspan="4">{{ data()?.type }}</td>
+          </tr>
+          <tr>
+            <td class="data-label">Purpose of the Request</td>
+            <td colspan="4">
+              <ul>
+                @for (i of data()?.purpose;track $index){
+                  <li>{{ i }}</li>
+                }
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="6">Date & Time</td>
+          </tr>
+          <tr>
+            <td class="section-header" colspan="5"></td>
+          </tr>
+          <tr>
+            <td class="data-label">Date needed</td>
+            <td  colspan="4">{{ data()?.date_needed | date: 'MMMM d, Y' }}</td>
+          </tr>
+          <tr>
+            <td class="data-label">Time needed</td>
+            <td colspan="4">{{ data()?.time_needed   }}</td>
+          </tr>
+          <tr>
+            <td class="data-label">Expected Utilization</td>
+            <td colspan="4">{{ data()?.date_utilization | date: 'MMMM d, Y' }}</td>
+          </tr>
+          <tr>
+            <td colspan="5">Charging Information</td>
+          </tr>
+          <tr>
+            <td class="section-header" colspan="5"></td>
+          </tr>
+          <tr>
+            <td class="data-label">Title</td>
+            <td colspan="4">{{ data()?.project_name }}</td>
+          </tr>
+          <tr>
+            <td class="data-label">School/Company</td>
+            <td colspan="4">--</td>
+          </tr>
+          <tr>
+            <td class="data-label">Address</td>
+            <td colspan="4">--</td>
+          </tr>
+          <tr>
+            <td class="data-label">Quotation Reference</td>
+            <td colspan="4">{{ data()?.quotation_reference }}</td>
+          </tr>
+          <tr>
+            <td class="data-label">P.O. Number</td>
+            <td colspan="4">{{ data()?.po_reference }}</td>
+          </tr>
+          <tr>
+            <td class="data-label">P.O. Amount</td>
+            <td colspan="4"> {{ data()?.po_amount | currency: "PHP":"symbol" }} </td>
+          </tr>
+          <tr>
+            <td class="data-label">Future Project</td>
+            <td colspan="4">{{ data()?.future_project ? 'Yes' : 'No' }}</td>
+          </tr>
+          @if (data()?.future_project){
+            <tr>
+              <td class="data-label">Confidence level</td>
+              <td olspan="4"> {{ data()?.confidence_level }} %</td>
+            </tr>
+            <tr>
+              <td class="data-label">Expected Release of P.O.</td>
+              <td colspan="4"> {{ data()?.expected_quarter }} / {{ data()?.expected_year }} </td>
+            </tr>
+          }
+          <tr>
+            <td colspan="5">Budget</td>
+          </tr>
+          <tr>
+            <td class="section-header" colspan="5"></td>
+          </tr>
+          <tr>
+            <th>Particulars</th>
+            <th>Budget Per Day</th>
+            <th>Qty</th>
+            <th>Days</th>
+            <th>Amount</th>
+          </tr>
+          <tr>
+            <td class="data-label">Hotel Accommodation</td>
+            <td>{{ 2700 | currency:'PHP':'symbol' }}</td>
+            <td>2</td>
+            <td>2</td>
+            <td>{{ 2700*2*2 | currency:'PHP':'symbol' }}</td>
+          </tr>
+          <tr>
+            <th colspan="5">Others</th>
+          </tr>
+          <tr>
+            <td class="data-label">Emergency Funds</td>
+            <td class="data-value text-end" colspan="4">{{ 2700 | currency:'PHP':'symbol' }}</td>
+          </tr>
+          <tr>
+            <th class="text-end" colspan="4">Total</th>
+            <th                                                                                                                                                                                 >{{ 2700 | currency:'PHP':'symbol' }}</th>
+          </tr>
+          <tr>
+            <th colspan="2">Releasing Instructions</th>
+            <th>Bank</th>
+            <th>Account Name</th>
+            <th>Account Number</th>
+          </tr>
+          <tr>
+            <td colspan="2">Direct deposit</td>
+            <td>RCBC</td>
+            <td>Julius Reco</td>
+            <td>231204120</td>
+          </tr>
+          <tr>
+            <td colspan="5">Manpower</td>
+          </tr>
+          <tr>
+            <td class="section-header" colspan="5"></td>
+          </tr>
+          <tr>
+            <th colspan="3">Name/s</th>
+            <th colspan="2">Position</th>
+          </tr>
+          <tr>
+            <td colspan="3">Julius Meor</td>
+            <td colspan="2">Front-end Dev</td>
+          </tr>
+          <tr>
+            <td colspan="5">Attachments</td>
+          </tr>
+          <tr>
+            <td class="section-header" colspan="5"></td>
+          </tr>
+          <tr>
+            <td class="data-label">Document name</td>
+            <td colspan="4">filename.ext</td>
+          </tr>
+        </table>
+      </div>
+    }
+
   </div>
   <div class="d-flex flex-row justify-content-end">
     <button-component (click)="onBack.emit()" text="Back" type="secondary" />
