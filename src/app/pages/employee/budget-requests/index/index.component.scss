@@ -1,4 +1,10 @@
 @use "tables";
+@use "colors";
+
+.root-container{
+
+  color: colors.$text-normal;
+}
 
 .row-controls{
   display: flex;

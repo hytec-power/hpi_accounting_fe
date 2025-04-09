@@ -1,4 +1,4 @@
-@import "colors";
+@use "colors";
 table{
   table-layout: fixed;
   width: 100%;
@@ -9,16 +9,16 @@ table{
 caption{
   font-size: 20px;
   font-weight: bold;
-  color: light-dark($light-text-bold-color,$dark-text-bold-color);
+  color: colors.$text-normal;
   padding: 20px 5px;
 }
 th{
-  color: light-dark($light-text-bold-color,$dark-text-bold-color);
+  color: colors.$text-bold;
   padding: 10px;
 }
 td{
   padding: 10px;
-  color: light-dark($light-text-normal-color,$dark-text-normal-color);
+  color: colors.$text-normal;
 }
 tbody tr:hover{
   background-color: rgba(0,0,0,.05);
@@ -26,5 +26,5 @@ tbody tr:hover{
 .table-wrapper{
   padding: 30px;
   border-radius: 20px;
-  background-color: light-dark(#FFF,$dark-bg-foreground);
+  background-color: colors.$bg-foreground;
 }
