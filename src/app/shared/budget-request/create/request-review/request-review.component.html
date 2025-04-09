@@ -104,21 +104,32 @@
             <th>Days</th>
             <th>Amount</th>
           </tr>
-
-          <tr>
-            <td class="data-label">Hotel Accommodation</td>
-            <td>{{ 2700 | currency:'PHP':'symbol' }}</td>
-            <td>2</td>
-            <td>2</td>
-            <td>{{ 2700*2*2 | currency:'PHP':'symbol' }}</td>
-          </tr>
+          @for (i of (data()?.budget_allocation?.particulars ?? []);track $index){
+            <tr>
+              <td class="data-label">{{ i.name }}</td>
+              <td>{{ i.budget_daily | currency:'PHP':'symbol' }}</td>
+              <td>{{ i.qty }}</td>
+              <td>{{ i.days }}</td>
+              <td>{{ i.total | currency:'PHP':'symbol' }}</td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="5"><div class="text-center">No items</div></td>
+            </tr>
+          }
           <tr>
             <th colspan="5">Others</th>
           </tr>
-          <tr>
-            <td class="data-label">Emergency Funds</td>
-            <td class="data-value text-end" colspan="4">{{ 2700 | currency:'PHP':'symbol' }}</td>
-          </tr>
+          @for (i of data()?.budget_allocation?.others??[];track $index){
+            <tr>
+              <td class="data-label">{{ i.name }}</td>
+              <td class="data-value text-end" colspan="4">{{ i.total | currency:'PHP':'symbol' }}</td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="5 text-"><div class="text-center">No items</div></td>
+            </tr>
+          }
           <tr>
             <th class="text-end" colspan="4">Total</th>
             <th                                                                                                                                                                                 >{{ 2700 | currency:'PHP':'symbol' }}</th>
@@ -145,20 +156,32 @@
             <th colspan="3">Name/s</th>
             <th colspan="2">Position</th>
           </tr>
-          <tr>
-            <td colspan="3">Julius Meor</td>
-            <td colspan="2">Front-end Dev</td>
-          </tr>
+          @for (i of data()?.manpower??[];track $index){
+            <tr>
+              <td colspan="3">--</td>
+              <td colspan="2">--</td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="5"><div class="text-center">No Items</div></td>
+            </tr>
+          }
           <tr>
             <td colspan="5">Attachments</td>
           </tr>
           <tr>
             <td class="section-header" colspan="5"></td>
           </tr>
-          <tr>
-            <td class="data-label">Document name</td>
-            <td colspan="4">filename.ext</td>
-          </tr>
+          @for (i of data()?.manpower??[];track $index){
+            <tr>
+              <td class="data-label">Document name</td>
+              <td colspan="4">filename.ext</td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="5"><div class="text-center">No Items</div></td>
+            </tr>
+          }
         </table>
       </div>
     }
