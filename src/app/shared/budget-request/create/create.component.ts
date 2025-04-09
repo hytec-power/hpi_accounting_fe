@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, input, signal, WritableSignal} from '@angular/core';
+import {ChangeDetectorRef, Component, input, output, signal, WritableSignal} from '@angular/core';
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
 import {RequestDetailsComponent} from "src/app/shared/budget-request/create/request-details/request-details.component";
 import {DateTimeComponent} from "src/app/shared/budget-request/create/date-time/date-time.component";
@@ -33,9 +33,14 @@ import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
   styleUrl: './create.component.scss'
 })
 export class CreateComponent {
+  //INPUT
   item = input();
+  //OUTPUT
+  onCreate = output<void>()
+  //UI
   steps: StepperItem[]=[];
   page:WritableSignal<number> = signal(0);
+  loading: boolean = false;
   //FORMS & DATA
   form_request_details!: FormGroup;
   purpose: string[] = [];
@@ -45,8 +50,6 @@ export class CreateComponent {
   form_release_details!:FormGroup;
   budget_total: number = 0;
   preview: BudgetRequest|null = null;
-  //UI
-  loading: boolean = false;
 
   constructor(private fb: FormBuilder,
               private cd: ChangeDetectorRef,
@@ -147,7 +150,7 @@ export class CreateComponent {
         .subscribe({
           next: res=> console.log(res),
           error: error=> this.loading = false,
-          complete: () =>  this.loading = false
+          complete: () =>  this.onCreate.emit()
         });
   }
   next(){
