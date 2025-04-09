@@ -13,6 +13,7 @@ import {AttachmentsComponent} from "src/app/shared/budget-request/create/attachm
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
 import {ModalComponent} from "src/app/shared/budget-request/create/request-manpower/modal/modal.component";
 import {ModalsService} from "src/app/services/common/modals/modals.service";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'create-budget-request',
@@ -42,6 +43,7 @@ export class CreateComponent {
   form_project_details!: FormGroup;
   form_request_allocation!: FormGroup;
   form_release_details!:FormGroup;
+  budget_total: number = 0;
   preview: BudgetRequest|null = null;
   //UI
   loading: boolean = false;
@@ -83,7 +85,7 @@ export class CreateComponent {
     this.form_date_time = this.fb.group({
       date_needed: ['',Validators.required],
       time_needed: ['',Validators.required],
-      expected_utilization: ['',Validators.required]
+      date_utilization: ['',Validators.required]
     })
   }
   initProjectDetails(){
@@ -92,7 +94,7 @@ export class CreateComponent {
       project_client: ['',Validators.required],
       project_address: ['',Validators.required],
       quotation_reference: ['',Validators.required],
-      po_number: ['',Validators.required],
+      po_reference: ['',Validators.required],
       po_amount: ['',Validators.required],
       future_project: [false,Validators.required],
       confidence_level: [''],
@@ -141,7 +143,12 @@ export class CreateComponent {
   }
   apiCreate(payload: any){
     this.loading = true;
-    this.brApi.create(payload);
+    this.brApi.create(payload)
+        .subscribe({
+          next: res=> console.log(res),
+          error: error=> this.loading = false,
+          complete: () =>  this.loading = false
+        });
   }
   next(){
     this.page.update(el=> el <6 ? el +1 :el);
@@ -162,11 +169,13 @@ export class CreateComponent {
   }
   submit(){
     const payload = {
+      ...this.form_request_details.getRawValue(),
       ...this.form_release_details.getRawValue(),
       ...this.form_date_time.getRawValue(),
       ...this.form_project_details.getRawValue(),
-      ...this.form_request_allocation.getRawValue(),
       ...this.form_release_details.getRawValue(),
+      budget_allocation: this.form_request_allocation.getRawValue(),
+      budget_total: this.budget_total,
       purpose: this.purpose
     };
     this.modals.getInstance()?.showConfirm('Confirm Action','Create Budget Request?','Create','Cancel',()=>this.apiCreate(payload))

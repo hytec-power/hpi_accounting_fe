@@ -1,4 +1,4 @@
-import {Component, input, output, signal, WritableSignal} from '@angular/core';
+import {Component, input, model, output, signal, WritableSignal} from '@angular/core';
 import {ButtonComponent} from "src/app/common/button/button.component";
 import {FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {CurrencyPipe} from "@angular/common";
@@ -15,7 +15,7 @@ import {CurrencyPipe} from "@angular/common";
   styleUrl: './request-budget.component.scss'
 })
 export class RequestBudgetComponent {
-  page: WritableSignal<number> = signal(1);
+  page: WritableSignal<number> = signal(0);
 
   //OUTPUT
   onNext = output();
@@ -23,7 +23,7 @@ export class RequestBudgetComponent {
   //DATA
   form_budget = input.required<FormGroup>();
   form_release = input.required<FormGroup>();
-  total: number = 0;
+  total = model.required<number>();
   particulars!: FormArray<FormGroup>;
   others!: FormArray<FormGroup>;
   particular_names: string[]=[];
@@ -79,10 +79,10 @@ export class RequestBudgetComponent {
     let total = 0;
     total+= this.particulars.controls.reduce((sum,i)=> sum+=i.controls['total'].value ,0);
     total+= this.others.controls.reduce((sum,i)=> sum+=i.controls['total'].value ,0);
-    this.total = total;
+    this.total.set(total);
   }
   isPageValid(){
-    if(this.page() == 0) return this.form_budget().valid  && this.total > 0 && (this.particulars.length > 0 || this.others.length > 0);
+    if(this.page() == 0) return this.form_budget().valid  && this.total() > 0 && (this.particulars.length > 0 || this.others.length > 0);
     if(this.page()==1) return this.form_release().valid;
     return false;
   }

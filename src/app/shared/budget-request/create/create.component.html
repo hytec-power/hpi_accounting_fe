@@ -14,6 +14,7 @@
         @case(2) {  <charging-details     [form]="form_project_details" (onNext)="next()" (onBack)="back()" />  }
         @case(3) {  <request-budget       [form_budget]="form_request_allocation"
                                           [form_release]="form_release_details"
+                                          [(total)]="budget_total"
                                           (onNext)="next()"
                                           (onBack)="back()"/>  }
         @case(4) {  <request-manpower     (onNext)="next()" (onBack)="back()"/>  }
