@@ -2,6 +2,7 @@ import {User} from "src/app/interfaces/user";
 
 export interface BudgetRequest {
   uuid: string,
+  request_reference: string,
   user: User,
   client: any,
   //REQUEST DETAIL
