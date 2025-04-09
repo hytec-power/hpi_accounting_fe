@@ -11,9 +11,7 @@ import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/bud
 import {BudgetRequest} from "src/app/interfaces/budget-request";
 import {AttachmentsComponent} from "src/app/shared/budget-request/create/attachments/attachments.component";
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
-import {ModalComponent} from "src/app/shared/budget-request/create/request-manpower/modal/modal.component";
 import {ModalsService} from "src/app/services/common/modals/modals.service";
-import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'create-budget-request',
