@@ -13,6 +13,7 @@ import {LoaderSpinnerComponent} from "src/app/common/loader-spinner/loader-spinn
 export class FileUploadComponent {
   //UI
   loading: boolean = false;
+  error: boolean = false;
   width_px = input<number>(427);
   height_px = input<number>(81);
   //INPUTS
@@ -26,8 +27,8 @@ export class FileUploadComponent {
 
   constructor(private modals: ModalsService) {
   }
-  apiUpload() {
-
+  apiUpload(file: File) {
+    this.loading = true;
   }
   onFileSelected(event: any) {
     if(!event.target.files.length) {
@@ -35,7 +36,6 @@ export class FileUploadComponent {
     }
     const file = event.target.files[0];
     const ext = file.name.split('.').pop()??'';
-    console.log(ext);
     if(file.size > this.max_size()) {
       this.modals.getInstance()?.showInfo('Error',`File size exceeds maximum size of ${this.max_size_mb()}MB`,'OK');
       return;
@@ -44,8 +44,8 @@ export class FileUploadComponent {
       this.modals.getInstance()?.showInfo('Error',`File format invalid`,'OK');
       return;
     }
-
     this.file = file;
+    this.apiUpload(file)
   }
   onSelect(){
     if(!this.file){
