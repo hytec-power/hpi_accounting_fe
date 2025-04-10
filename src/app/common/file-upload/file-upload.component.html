@@ -1,5 +1,8 @@
 <div class="root-container" [style.height.px]="height_px()" [style.width.px]="width_px()">
   <i class="bi bi-cloud-upload-fill"></i>
   <div><span class="text">Drag and drop to upload or </span> <span (click)="file_input.click()" class="text-button">Browse Files</span></div>
-  <input type="file" style="display: none" #file_input>
+  <input type="file"
+         style="display: none"
+         #file_input
+         [accept]="accept()">
 </div>
