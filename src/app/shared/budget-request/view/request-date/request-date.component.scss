@@ -7,26 +7,48 @@
   box-sizing: border-box;
   border-radius: 20px;
   margin: 10px;
+  height: 311px;
+  width: 253px;
 }
 .section-title{
   color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
   font-weight: bold;
   margin-bottom: 5px;
+  display: inline-block;
+  
 }
+
 .data{
   color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
   &-label{
-    text-align: right;
-    opacity: 0.5;
+    text-align: left;
   }
   &-value{
     text-align: left;
 
   }
 }
+
+input[readonly]{
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+.inactiveEdit{
+  border: none;
+}
+
 table{
-  table-layout: auto;
+  margin-left: 15px;
+  th{
+    font-weight: 500;
+    color: colors.$primary-color;
+  }
   td{
-    padding: 5px;
+    height: 30px;
+  }
+  input{
+    width: 185px;
   }
 }

@@ -6,6 +6,7 @@ import {RequestTypeComponent} from "src/app/shared/budget-request/view/request-t
 import {RequestDateComponent} from "src/app/shared/budget-request/view/request-date/request-date.component";
 import {RequestAmountComponent} from "src/app/shared/budget-request/view/request-amount/request-amount.component";
 import {ObjectivesComponent} from "src/app/shared/budget-request/view/objectives/objectives.component";
+import { RequestManpowerComponent } from './request-manpower/request-manpower.component';
 
 
 
@@ -20,7 +21,8 @@ import {ObjectivesComponent} from "src/app/shared/budget-request/view/objectives
         RequestDateComponent,
         RequestPurposeComponent,
         RequestTypeComponent,
-        UserDetailsComponent
+        UserDetailsComponent,
+        RequestManpowerComponent
     ],
     templateUrl: './view.component.html',
     styleUrl: './view.component.scss'
