@@ -92,12 +92,12 @@ export class CreateComponent {
   }
   initProjectDetails(){
     this.form_project_details = this.fb.group({
-      project_name: ['',Validators.required],
+      project_name: ['',[Validators.required,Validators.maxLength(50)]],
       project_client: ['',Validators.required],
-      project_address: ['',Validators.required],
-      quotation_reference: ['',Validators.required],
-      po_reference: ['',Validators.required],
-      po_amount: ['',Validators.required,Validators.min(1),Validators.max(999999999)],
+      project_address: ['',Validators.required,Validators.maxLength(255)],
+      quotation_reference: ['',Validators.required,Validators.maxLength(50)],
+      po_reference: ['',Validators.required,Validators.maxLength(50)],
+      po_amount: ['',Validators.required,Validators.min(1),Validators.max(999999999999)],
       future_project: [false,Validators.required],
       confidence_level: [''],
       expected_quarter: [''],
