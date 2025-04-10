@@ -7,6 +7,8 @@
   box-sizing: border-box;
   border-radius: 20px;
   margin: 10px;
+  width: 429px;
+  height: 311px;
 }
 .section-title{
   color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
@@ -29,4 +31,13 @@ table{
   td{
     padding: 5px;
   }
+}
+.edit{
+  margin-left: auto;
+}
+body{
+  margin-left: 25px;
+}
+h6{
+  font-size: 15px; color: #377161;
 }

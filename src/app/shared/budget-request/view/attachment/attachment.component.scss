@@ -1,12 +1,14 @@
 @use "colors";
 
 .root-container{
-  background-color: light-dark( colors.$light-bg-foreground,colors.$dark-bg-foreground);
+  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
   color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
   padding: 20px;
   box-sizing: border-box;
   border-radius: 20px;
   margin: 10px;
+
+  height: 275px;
 }
 .section-title{
   color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
@@ -30,3 +32,28 @@ table{
     padding: 5px;
   }
 }
+.edit{
+  margin-left: auto;
+}
+h6{
+  font-size: 15px; color: #377161;
+}
+.container {
+  height: 220px auto;
+  border-radius: 10px;
+  border: 1px solid #E6E6E7;
+  background-color: #E6E6E6;
+}
+.row{
+  padding: 10px;
+}
+tr, th, td{
+  background-color: #E6E6E6;
+}
+tr{
+  border-bottom: 1px solid whitesmoke;
+}
+.container{
+  background-color: #E6E6E7;
+}
+

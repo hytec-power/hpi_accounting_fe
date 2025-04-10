@@ -1,0 +1,85 @@
+<div class="root-container">
+    <div class=" head d-flex mb-2" >
+        <i class="bi bi-cash " style="margin-right: 10px;"></i>
+        <div class="section-title">Budget</div>
+        <div class="edit">
+            <i class=" bi bi-pencil-square"></i>
+        </div>
+    </div>
+    <body>
+        <div class="container mb-3">
+            <table class="table">
+                <thead>
+                  <tr>
+                      <th>Particulars</th>
+                      <th >Budget per day</th>
+                      <th >Qty</th>
+                      <th >Days</th>
+                      <th >Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (item of budget; track $index) {
+                    <tr>
+                      <td>{{item.particular}}</td>
+                      <td>{{item.Budget}}</td>
+                      <td>{{item.Qty}}</td>
+                      <td>{{item.Days}}</td>
+                      <td>{{item.Amount}}</td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+        </div>
+        <div class="container others mb-3">
+            <table class="table">
+                <thead>
+                  <tr>
+                      <th>Particulars</th>
+                      <th >Budget per day</th>
+                      <th >Qty</th>
+                      <th >Days</th>
+                      <th >Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (other of others; track $index) {
+                    <tr>
+                      <td>{{other.particular}}</td>
+                      <td>{{other.Budget}}</td>
+                      <td>{{other.Qty}}</td>
+                      <td>{{other.Days}}</td>
+                      <td>{{other.Amount}}</td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+        </div>
+        <div class="row d-flex edit mb-3" >
+                <div class="col-md-6"> <h6 ></h6></div>
+                <div class="col-md-3"> <h6 >TOTAL BUDGET</h6></div>
+                <div class="col-md-3"><h4 style="font-size: 18px;">₱ 1,250.00</h4></div>   
+        </div>
+       <div class="mb-3">
+        <h6 >Releasing Instructions</h6>
+        <h4 style="font-size: 18px;">Direct Deposit to Client</h4>
+       </div>
+       <div class="row mb-3" >
+        <div class="col-md-3 align-middle "> 
+            <h6>Bank</h6>
+           <div class=" d-flex ">
+            <img style="height: 25px; width: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/f/ff/RCBC_logo.svg" alt="">
+            <h4 style="font-size: 18px;">RCBC</h4>
+           </div>
+        </div>
+        <div class="col-md-5"> 
+            <h6 >Account NameT</h6>
+            <h4 style="font-size: 18px;">Divine Grace G. Papa</h4>
+        </div>
+        <div class="col-md-4">
+            <h6 >Account Number</h6>
+            <h4 style="font-size: 18px;">0123-4567-8901</h4>
+        </div>   
+</div> 
+    </body>     
+</div>

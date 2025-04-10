@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RequestTypeComponent } from './request-type.component';
+import { BudgetComponent } from './budget.component';
 
-describe('RequestTypeComponent', () => {
-  let component: RequestTypeComponent;
-  let fixture: ComponentFixture<RequestTypeComponent>;
+describe('BudgetComponent', () => {
+  let component: BudgetComponent;
+  let fixture: ComponentFixture<BudgetComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RequestTypeComponent]
+      imports: [BudgetComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RequestTypeComponent);
+    fixture = TestBed.createComponent(BudgetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
