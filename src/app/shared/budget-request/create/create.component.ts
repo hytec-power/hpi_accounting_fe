@@ -38,7 +38,7 @@ export class CreateComponent {
   onCreate = output<void>()
   //UI
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(0);
+  page:WritableSignal<number> = signal(5);
   loading: boolean = false;
   //FORMS & DATA
   form_request_details!: FormGroup;

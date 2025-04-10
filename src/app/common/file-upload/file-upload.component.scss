@@ -1,0 +1,23 @@
+@use "colors";
+.root-container{
+  border: 2px dashed colors.$primary-disabled;
+  padding: 10px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.text{
+  opacity: 0.5;
+}
+.bi{
+  font-size: 20px;
+  color:  colors.$primary-disabled;;
+}
+.text-button{
+  opacity: 1;
+  color: colors.$primary-active;
+  cursor: pointer;
+}
