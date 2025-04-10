@@ -5,9 +5,7 @@ import {RequestDateComponent} from "src/app/shared/budget-request/view/request-d
 import { ChargingdetailsComponent } from "./chargingdetails/chargingdetails.component";
 import { BudgetComponent } from "./budget/budget.component";
 import { AttachmentComponent } from "./attachment/attachment.component";
-
-
-
+import {RequestManpowerComponent} from './request-manpower/request-manpower.component'
 
 @Component({
     selector: 'budget-request-viewer',
@@ -17,7 +15,8 @@ import { AttachmentComponent } from "./attachment/attachment.component";
     RequestPurposeComponent,
     ChargingdetailsComponent,
     BudgetComponent,
-    AttachmentComponent
+    AttachmentComponent,
+    RequestManpowerComponent
 ],
     templateUrl: './view.component.html',
     styleUrl: './view.component.scss'

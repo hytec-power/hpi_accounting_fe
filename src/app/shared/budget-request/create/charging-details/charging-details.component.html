@@ -13,21 +13,21 @@
           </label>
           <label class="data-item">
             <div class="data-label">Address</div>
-            <input type="text" formControlName="project_address">
+            <input type="text" formControlName="project_address" maxlength="255">
           </label>
         </div>
         <div class="d-flex flex-column">
           <label class="data-item">
             <div class="data-label">Quotation Reference</div>
-            <input  type="text" formControlName="quotation_reference">
+            <input  type="text" formControlName="quotation_reference" maxlength="50">
           </label>
           <label class="data-item">
             <div class="data-label">P.O. Number</div>
-            <input type="text" formControlName="po_reference"/>
+            <input type="text" formControlName="po_reference" maxlength="50"/>
           </label>
           <label class="data-item">
             <div class="data-label">P.O. Amount</div>
-            <input type="number" formControlName="po_amount" />
+            <input type="number" formControlName="po_amount"  maxlength="12" [max]="999999999"/>
           </label>
           <label class="data-item">
             <input type="checkbox" formControlName="future_project"/>
@@ -35,20 +35,27 @@
           </label>
           @if (form().get('future_project')?.value ?? false) {
             <label class="data-item">
-              <div class="data-label">Confidence Level</div>
-              <input type="number" formControlName="confidence_level" />
+              <div class="data-label">Confidence Level (%)</div>
+              <input type="number" formControlName="confidence_level" max="100" />
             </label>
             <div class="data-item">
               <div class="data-label">Expected Release of P.O.</div>
               <div class="d-flex flex-row">
                 <div style="flex:1;margin-right: 10px;" >
-                  <select formControlName="expected_release_quarter">
-                    <option></option>
+                  <select formControlName="expected_quarter">
+                    <option disabled>Select Quarter</option>
+                    <option value="1">Q1</option>
+                    <option value="2">Q2</option>
+                    <option value="3">Q3</option>
+                    <option value="4">Q4</option>
                   </select>
                 </div>
                 <div style="flex:1;">
-                  <select formControlName="expected_release_year">
-                    <option></option>
+                  <select formControlName="expected_year">
+                    <option disabled selected [value]="null">Select Year</option>
+                    @for (y of list_years;track y){
+                      <option [value]="y">{{ y }}</option>
+                    }
                   </select>
                 </div>
               </div>

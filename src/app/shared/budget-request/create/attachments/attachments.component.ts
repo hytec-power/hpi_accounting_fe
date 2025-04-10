@@ -1,12 +1,14 @@
 import {Component, output} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from 'src/app/common/button/button.component';
+import {FileUploadComponent} from "src/app/common/file-upload/file-upload.component";
 
 @Component({
   selector: 'request-attachments',
   imports: [
     ButtonComponent,
     FormsModule,
+    FileUploadComponent,
   ],
   templateUrl: './attachments.component.html',
   styleUrl: './attachments.component.scss'
@@ -14,7 +16,7 @@ import { ButtonComponent } from 'src/app/common/button/button.component';
 export class AttachmentsComponent {
   onNext = output();
   onBack = output();
-  
+
 
   imagePreview: string | undefined;
 

@@ -12,6 +12,7 @@ import {BudgetRequest} from "src/app/interfaces/budget-request";
 import {AttachmentsComponent} from "src/app/shared/budget-request/create/attachments/attachments.component";
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
 import {ModalsService} from "src/app/services/common/modals/modals.service";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'create-budget-request',
@@ -37,7 +38,7 @@ export class CreateComponent {
   onCreate = output<void>()
   //UI
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(0);
+  page:WritableSignal<number> = signal(5);
   loading: boolean = false;
   //FORMS & DATA
   form_request_details!: FormGroup;
@@ -91,28 +92,41 @@ export class CreateComponent {
   }
   initProjectDetails(){
     this.form_project_details = this.fb.group({
-      project_name: ['',Validators.required],
+      project_name: ['',[Validators.required,Validators.maxLength(50)]],
       project_client: ['',Validators.required],
-      project_address: ['',Validators.required],
-      quotation_reference: ['',Validators.required],
-      po_reference: ['',Validators.required],
-      po_amount: ['',Validators.required],
+      project_address: ['',Validators.required,Validators.maxLength(255)],
+      quotation_reference: ['',Validators.required,Validators.maxLength(50)],
+      po_reference: ['',Validators.required,Validators.maxLength(50)],
+      po_amount: ['',Validators.required,Validators.min(1),Validators.max(999999999999)],
       future_project: [false,Validators.required],
       confidence_level: [''],
-      expected_release_quarter: [''],
-      expected_release_year: [''],
+      expected_quarter: [''],
+      expected_year: [''],
     });
 
     this.form_project_details.get('future_project')?.valueChanges
         .subscribe((checked) => {
-            const controls = ['confidence_level','expected_release_quarter','expected_release_year'];
+            const controls = ['confidence_level','expected_quarter','expected_year'];
             controls.forEach(control => this.form_project_details.get(control)?.clearValidators());
             controls.forEach(control => this.form_project_details.get(control)?.setValue(''));
             checked && controls.forEach(control => this.form_project_details.get(control)?.setValidators([Validators.required]));
-            this.form_project_details.updateValueAndValidity();
+            if(checked){
+              this.form_project_details.get('confidence_level')?.setValidators([Validators.required,
+                                                                                Validators.pattern('^\\d+$'),
+                                                                                Validators.max(100),
+                                                                                Validators.min(1)])
+              this.form_project_details.get('expected_quarter')?.setValidators([Validators.required,
+                                                                                Validators.pattern('^\\d+$'),
+                                                                                Validators.max(4),
+                                                                                Validators.min(1)])
+              this.form_project_details.get('expected_year')?.setValidators([Validators.required,
+                                                                             Validators.pattern('^\\d+$'),
+                                                                             Validators.min(new Date().getFullYear()),
+                                                                             Validators.max(2099)])
+            }
+            controls.forEach(control => this.form_project_details.get(control)?.updateValueAndValidity());
             this.cd.detectChanges();
         });
-
   }
   initAllocation(){
       this.form_request_allocation = this.fb.group({

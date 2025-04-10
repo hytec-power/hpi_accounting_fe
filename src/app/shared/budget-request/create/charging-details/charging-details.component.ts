@@ -15,5 +15,18 @@ export class ChargingDetailsComponent {
   //
   onNext = output();
   onBack = output();
-  constructor(){}
+  list_years: number[]=[];
+  constructor(){
+    this.init();
+  }
+  init(){
+    this.initYears();
+  }
+  initYears(){
+    let year = new Date().getFullYear();
+    for(let i =0 ; i < 10 ; i++ ){
+      this.list_years.push(year);
+      year+=1;
+    }
+  }
 }
