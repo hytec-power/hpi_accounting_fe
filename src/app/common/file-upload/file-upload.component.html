@@ -18,18 +18,18 @@
         @if (loading){
           <div><loader-spinner [size_px]="20"/> Uploading </div>
         }
-        @if (!loading) {
+        @if (!loading && !error) {
           <div class="d-flex align-items-center"><i class="success bi bi-check-circle-fill mx-1"></i>Upload Complete</div>
         }
         @if (!loading && error){
-          <div class="d-flex align-items-center"><i class="error bi bi-x-circle-fill mx-1"></i>Upload Error</div>
+          <div class="d-flex align-items-center"><i class="error bi bi-x-circle-fill mx-1"></i>Error</div>
         }
       </div>
-      @if (!loading){
-        <i class="remove bi bi-x mx-3"></i>
+      @if (!loading && !error){
+        <i (click)="clear()" class="remove bi bi-x mx-3"></i>
       }
       @if (!loading && error) {
-        <i class="remove bi bi-arrow-clockwise"></i>
+        <i (click)="retryUpload()" class="remove bi bi-arrow-clockwise"></i>
       }
     </div>
   }

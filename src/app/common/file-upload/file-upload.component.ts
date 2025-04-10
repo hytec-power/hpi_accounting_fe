@@ -1,6 +1,7 @@
 import {Component, computed, ElementRef, input, viewChild} from '@angular/core';
 import {ModalsService} from "src/app/services/common/modals/modals.service";
 import {LoaderSpinnerComponent} from "src/app/common/loader-spinner/loader-spinner.component";
+import {UploadsService} from "src/app/services/common/uploads/uploads.service";
 
 @Component({
   selector: 'file-upload',
@@ -25,10 +26,16 @@ export class FileUploadComponent {
   file: File|null  = null;
   //
 
-  constructor(private modals: ModalsService) {
+  constructor(private modals: ModalsService,
+              private uploadsApi: UploadsService) {
   }
   apiUpload(file: File) {
     this.loading = true;
+    this.uploadsApi.upload(file)
+        .subscribe({
+          error: error => {this.error = true; this.loading = false;},
+          complete: () => this.loading = false
+        });
   }
   onFileSelected(event: any) {
     if(!event.target.files.length) {
@@ -47,10 +54,10 @@ export class FileUploadComponent {
     this.file = file;
     this.apiUpload(file)
   }
-  onSelect(){
-    if(!this.file){
-      return;
-    }
-
+  retryUpload(){
+    this.apiUpload(this.file!);
+  }
+  clear(){
+    this.file = null;
   }
 }
