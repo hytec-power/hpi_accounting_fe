@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
     styleUrl: './request-purpose.component.scss'
 })
 export class RequestPurposeComponent {
-
+    purpose: any = [
+        'Client Visit',
+        'Occular Visit',
+        'Faculty Immersion',
+        'Delivery',
+       ]
 }

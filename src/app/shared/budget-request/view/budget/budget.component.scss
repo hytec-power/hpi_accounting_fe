@@ -7,6 +7,8 @@
   box-sizing: border-box;
   border-radius: 20px;
   margin: 10px;
+  height: 532px auto;
+
 }
 .section-title{
   color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
@@ -24,10 +26,32 @@
 
   }
 }
-table{
-  table-layout: auto;
-  width: 100%;
-  td{
-    padding: 5px;
-  }
+
+.edit{
+  margin-left: auto;
+}
+
+h6{
+  font-size: 15px; color: #377161;
+}
+.container {
+    height: 220px auto;
+    border-radius: 10px;
+    border: 1px solid #E6E6E7;
+    background-color: #E6E6E6;
+}
+tr, th, td{
+    background-color: #E6E6E6;
+}
+th{
+    color: #377161;
+}
+tr{
+    border-bottom: 1px solid whitesmoke;
+}
+.others{
+    height: 83px auto;
+    border-radius: 10px;
+    border: 1px solid #E6E6E7;
+    background-color: #E6E6E6;
 }

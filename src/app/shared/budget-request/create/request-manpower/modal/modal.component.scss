@@ -6,7 +6,7 @@
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
-    width: 510px;
+    width: 530px;
     height: 492px;
     border: none;
   }
@@ -48,6 +48,18 @@
 .people.active{
     background-color: colors.$primary-active;
     color:white;
+}
+
+.list{
+    display: flex; 
+    flex-wrap: wrap; 
+    overflow: scroll; 
+    gap: 5px; 
+    height: 250px; 
+    width: 100%;
+}
+.list::-webkit-scrollbar{
+    display: none;
 }
 
 .roles {

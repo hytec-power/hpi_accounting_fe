@@ -7,6 +7,9 @@
   box-sizing: border-box;
   border-radius: 20px;
   margin: 10px;
+
+  height: 646px;
+
 }
 .section-title{
   color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
@@ -24,9 +27,19 @@
 
   }
 }
-table{
-  table-layout: auto;
-  td{
-    padding: 5px;
-  }
+.container{
+    height: 220px;
+    border-radius: 10px;
+    border: 1px solid #E6E6E6;
+    background-color: #E6E6E7;
+    padding: 20px;
 }
+.edit{
+    margin-left: auto;
+  }
+  h6{
+    font-size: 15px; color: #377161;
+  }
+  .future{
+    margin-left: 10px;
+  }

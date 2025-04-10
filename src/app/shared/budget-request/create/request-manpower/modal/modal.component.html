@@ -8,7 +8,7 @@
         <button-component borderRadius="round" style="float: right;"  text="Search" type="primary"  (click)="filterManpower()"></button-component>
     </div>
     <form>
-        <div style="display: flex; flex-wrap: wrap; overflow: scroll; gap: 5px; height: 250px; width: 100%;">
+        <div class="list">
             @for (i of filteredManpower; track i) {
                 <div>
                     <div (click)="toggleActive(i.name)" [class.active]="i.active" class="people form pt-2 px-0">

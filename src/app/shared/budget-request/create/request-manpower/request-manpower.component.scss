@@ -9,7 +9,7 @@
   padding: 30px 40px;
   border-radius: 20px;
   box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
-  width: 960px;
+  width: 970px;
   height: 557px;
   margin-left: 125px;
 }
@@ -48,6 +48,19 @@
 .people.active{
     background-color: colors.$primary-active;
     color:white;
+}
+
+.list{
+    display: flex; 
+    flex-wrap: wrap; 
+    overflow: scroll; 
+    gap: 5px 43px; 
+    height: 250px; 
+    width: 100%;
+}
+
+.list::-webkit-scrollbar{
+    display: none;
 }
 
 .roles {

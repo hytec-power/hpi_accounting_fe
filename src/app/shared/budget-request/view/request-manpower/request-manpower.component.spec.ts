@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RequestAmountComponent } from './request-amount.component';
+import { RequestManpowerComponent } from './request-manpower.component';
 
-describe('RequestAmountComponent', () => {
-  let component: RequestAmountComponent;
-  let fixture: ComponentFixture<RequestAmountComponent>;
+describe('RequestManpowerComponent', () => {
+  let component: RequestManpowerComponent;
+  let fixture: ComponentFixture<RequestManpowerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RequestAmountComponent]
+      imports: [RequestManpowerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RequestAmountComponent);
+    fixture = TestBed.createComponent(RequestManpowerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
