@@ -1,7 +1,10 @@
 <div class="root-container"
      [style.height.px]="height_px()"
      [style.width.px]="width_px()">
-  @if (!file){
+  @if (loading) {
+    <div class="d-flex align-items-center"> <loader-spinner class="m-2"/> Uploading </div>
+  }
+  @if (!file && !loading){
     <i (click)="file_input.click()" class="bi bi-cloud-upload-fill"></i>
     <div (click)="file_input.click()" class="pointer"><span class="text">Drag and drop to upload or </span> <span class="text-button">Browse Files</span></div>
     <input type="file"
@@ -10,7 +13,7 @@
            (change)="onFileSelected($event)"
            [accept]="accept()">
   }
-  @if (file){
+  @if (file && !loading){
     <div class="selection">
       <i class="file-icon bi bi-filetype-pdf"></i>
       <span class="name">{{ file.name }}</span>

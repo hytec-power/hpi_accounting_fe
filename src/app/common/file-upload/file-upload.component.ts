@@ -1,9 +1,12 @@
 import {Component, computed, ElementRef, input, viewChild} from '@angular/core';
 import {ModalsService} from "src/app/services/common/modals/modals.service";
+import {LoaderSpinnerComponent} from "src/app/common/loader-spinner/loader-spinner.component";
 
 @Component({
   selector: 'file-upload',
-  imports: [],
+  imports: [
+    LoaderSpinnerComponent
+  ],
   templateUrl: './file-upload.component.html',
   styleUrl: './file-upload.component.scss'
 })
@@ -23,11 +26,24 @@ export class FileUploadComponent {
 
   constructor(private modals: ModalsService) {
   }
+  apiUpload() {
+
+  }
   onFileSelected(event: any) {
     if(!event.target.files.length) {
       return;
     }
     const file = event.target.files[0];
+    const ext = file.name.split('.').pop()??'';
+    console.log(ext);
+    if(file.size > this.max_size()) {
+      this.modals.getInstance()?.showInfo('Error',`File size exceeds maximum size of ${this.max_size_mb()}MB`,'OK');
+      return;
+    }
+    if(this.extensions().length > 0 && !this.extensions().includes(ext)) {
+      this.modals.getInstance()?.showInfo('Error',`File format invalid`,'OK');
+      return;
+    }
 
     this.file = file;
   }
