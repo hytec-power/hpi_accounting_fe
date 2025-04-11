@@ -8,7 +8,7 @@
   border-radius: 20px;
   margin: 10px;
   height: 311px;
-  width: 253px;
+  width: 100%;
 }
 .section-title{
   color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
@@ -49,6 +49,6 @@ table{
     height: 30px;
   }
   input{
-    width: 185px;
+    width: 100%;
   }
 }
