@@ -33,6 +33,11 @@ export class RequestManpowerComponent {
       this.isEditable = !this.isEditable
   }
 
+  addManpower(){
+    this.manpowerList.push()
+    console.log(this.manpowerList)
+    this.toggleEdit()
+  }
 
   
   

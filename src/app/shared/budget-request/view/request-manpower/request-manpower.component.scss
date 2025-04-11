@@ -60,9 +60,15 @@ input[readonly]{
     td{
         background-color: #FFFFFF;
         border-color: rgba(230, 230, 230, 0.5);
-        i{
-          text-align: center;
-          cursor: pointer;
+        i.action{
+          &-del{
+            cursor: pointer;
+            color: red;
+          }
+          &-add{
+            cursor: pointer;
+            color: colors.$primary-active;
+          }
         }
         input{
           border: 1px solid rgba(230, 230, 230, 1);

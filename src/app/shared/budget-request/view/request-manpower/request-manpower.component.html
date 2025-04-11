@@ -21,7 +21,7 @@
                             <div style="display: flex; align-items: center;">
                                 <input style="flex:1; text-align: center;" type="text" value={{i.role}} [readOnly]="!isEditable">
                                 @if (isEditable) {
-                                        <i class="bi bi-trash mx-2"></i>
+                                        <i class="action-del bi bi-trash mx-2"></i>
                                 }
                             </div>
                         </td>
@@ -36,7 +36,7 @@
                             <div style="display: flex; align-items: center;">
                                 <input style="flex:1; text-align: center;" type="text" [readOnly]="!isEditable">
                                 @if (isEditable) {
-                                    <i class="bi bi-plus"></i>
+                                    <i (click)="addManpower()" class="action-add bi bi-plus-square-fill mx-2"></i>
                                 }
                             </div>
                         </td>
@@ -48,7 +48,7 @@
     <div>
         @if (isEditable == true) {
             <div style="text-align: right; margin-top: 10px;" >  
-                <button-component (click)="toggleEdit()" text="Save" type="primary"></button-component>
+                <button-component (click)="addManpower()" text="Save" type="primary"></button-component>
             </div>
         }
     </div>
