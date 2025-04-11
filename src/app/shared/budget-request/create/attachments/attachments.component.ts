@@ -24,9 +24,9 @@ export class AttachmentsComponent {
   requirements: FileRequirement[]=[];
 
   constructor() {
-    this.init();
   }
   ngOnInit() {
+    this.init();
   }
   init(){
     switch (this.request_type()){
