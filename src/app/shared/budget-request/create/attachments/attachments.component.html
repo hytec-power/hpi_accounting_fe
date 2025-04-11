@@ -16,23 +16,29 @@
           <th>Attached Files</th>
         </tr>
         </thead>
-        <tr>
-          <td>
-            <div class="requirement">
-              <div class="requirement-icon">
-                <i class="bi bi-file-earmark-fill"></i>
-              </div>
-              <div class="requirement-details">
-                <div class="requirement-name">Course Outline</div>
-                <div class="format">
-                  <span class="label">File format:</span>
-                  <span class="items"> jpg, jpeg, or png only.</span>
+        @for (i of requirements;track $index){
+          <tr>
+            <td>
+              <div class="requirement">
+                <div class="requirement-icon">
+                  <i class="bi bi-file-earmark-fill"></i>
+                </div>
+                <div class="requirement-details">
+                  <div class="requirement-name">{{ i.name }}</div>
+                  <div class="format">
+                    <span class="label">File format:</span>
+                    <span class="items">
+                      @for (ext of i.extensions;track $index){
+                        {{ ext }}
+                      }
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </td>
-          <td><file-upload/></td>
-        </tr>
+            </td>
+            <td><file-upload/></td>
+          </tr>
+        }
       </table>
     </div>
     <div class="d-flex flex-row justify-content-end my-3">
