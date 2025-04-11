@@ -25,8 +25,6 @@
 
   }
 }
-<<<<<<< HEAD
-=======
 .table-container{
   height: 175px;
   overflow-y: auto;
@@ -37,7 +35,6 @@
   display: none;
 }
 
->>>>>>> 975c2b330a9576f31ea5edac007db0b7f968e2af
 input{
     background-color: inherit;
     border-color: light-dark(colors.$dark-bg-foreground);
@@ -49,13 +46,7 @@ input[readonly]{
     outline: none;
     box-shadow: none;
     border: none;
-<<<<<<< HEAD
-    width: 232px;
-    color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
-    
-=======
     width: 100%;
->>>>>>> 975c2b330a9576f31ea5edac007db0b7f968e2af
   }
   
 .inactiveEdit{
