@@ -2,6 +2,7 @@ import {Component, input, output} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from 'src/app/common/button/button.component';
 import {FileUploadComponent} from "src/app/common/file-upload/file-upload.component";
+import {ModalsService} from "src/app/services/common/modals/modals.service";
 
 @Component({
   selector: 'request-attachments',
@@ -24,7 +25,7 @@ export class AttachmentsComponent {
   requirements: FileRequirement[]=[];
 
 
-  constructor() {
+  constructor(private modals: ModalsService) {
   }
   ngOnInit() {
     // this.init(this.request_type());
@@ -104,14 +105,16 @@ export class AttachmentsComponent {
         break;
     }
   }
+  back(){
+    this.modals.getInstance()?.showConfirm('Confirm Action',
+                                            'Attached files be discarded if you go back to previous page, continue?',
+                                            'Yes',
+                                            'Cancel',()=>this.onBack.emit());
+  }
 }
 interface FileRequirement {
    name: string;
    extensions: string[];
    size: number;
    bi_icon: string;
-}
-interface UploadedFiles {
-  name: string;
-  uuid: string;
 }
