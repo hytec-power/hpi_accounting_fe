@@ -1,4 +1,4 @@
-import {Component, computed, ElementRef, input, output, viewChild} from '@angular/core';
+import {Component, computed, ElementRef, input, model, output, viewChild} from '@angular/core';
 import {ModalsService} from "src/app/services/common/modals/modals.service";
 import {LoaderSpinnerComponent} from "src/app/common/loader-spinner/loader-spinner.component";
 import {UploadsService} from "src/app/services/common/uploads/uploads.service";
@@ -25,10 +25,10 @@ export class FileUploadComponent {
   max_size_mb = computed(()=>this.max_size()/1024/1024);
   file_input = viewChild.required('file_input',{read: ElementRef});
   file: File|null  = null;
-  uploadedFile!: FileUpload;
+  uploadedFile = model<FileUpload|null>(null);
   //OUTPUT
   onUpload = output<FileUpload>();
-  onClear = output<FileUpload>();
+  onClear = output<void>();
 
 
   constructor(private modals: ModalsService,
@@ -64,10 +64,12 @@ export class FileUploadComponent {
   }
   clear(){
     this.file = null;
-    this.onClear.emit(this.uploadedFile);
+    this.uploadedFile.set(null);
+    this.onClear.emit();
   }
   onSuccess(file: FileUpload) {
     this.loading = false;
+    this.uploadedFile.set(file);
     this.onUpload.emit(file);
   }
   onError() {

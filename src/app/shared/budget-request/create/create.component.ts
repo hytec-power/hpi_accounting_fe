@@ -47,6 +47,7 @@ export class CreateComponent {
   form_project_details!: FormGroup;
   form_request_allocation!: FormGroup;
   form_release_details!:FormGroup;
+  attachments: Uploads[]=[];
   budget_total: number = 0;
   preview: BudgetRequest|null = null;
 
@@ -200,4 +201,8 @@ export class CreateComponent {
     return this.form_request_details.get('type')?.value ?? '';
   }
 
+}
+export interface Uploads{
+  name: string
+  uuid: string
 }
