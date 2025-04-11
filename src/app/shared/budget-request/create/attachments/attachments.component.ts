@@ -23,15 +23,25 @@ export class AttachmentsComponent {
   //DATA
   requirements: FileRequirement[]=[];
 
+
   constructor() {
   }
   ngOnInit() {
-    this.init();
+    // this.init(this.request_type());
+    this.init('Bidding Documents');
   }
-  init(){
-    switch (this.request_type()){
+  init(type: string) {
+    switch (type){
       case 'Bidding Documents':
         this.requirements.push({ name: 'Intention to Bid' ,
+                                 extensions: ['pdf','doc','docx','png','jpeg','jpg'],
+                                 size: 10485760,
+                                 bi_icon : 'bi-file-earmark-fill' });
+        this.requirements.push({ name: 'Final Quotation Copy' ,
+                                 extensions: ['pdf','doc','docx','png','jpeg','jpg'],
+                                 size: 10485760,
+                                 bi_icon : 'bi-file-earmark-fill' });
+        this.requirements.push({ name: 'Contingency' ,
                                  extensions: ['pdf','doc','docx','png','jpeg','jpg'],
                                  size: 10485760,
                                  bi_icon : 'bi-file-earmark-fill' });
@@ -100,4 +110,8 @@ interface FileRequirement {
    extensions: string[];
    size: number;
    bi_icon: string;
+}
+interface UploadedFiles {
+  name: string;
+  uuid: string;
 }

@@ -36,7 +36,11 @@
                 </div>
               </div>
             </td>
-            <td><file-upload/></td>
+            <td><file-upload  /></td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="2"><div style="width: 600px;text-align: center; margin: 10px 0;">No Attachments Required</div></td>
           </tr>
         }
       </table>
