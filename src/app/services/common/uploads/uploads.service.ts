@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "src/environments/environment";
+import {FileUpload} from "src/app/interfaces/file-upload";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,6 @@ export class UploadsService {
   upload(file: File) {
     const formData = new FormData();
     formData.append('file', file);
-    return this.http.post(`${this.api}`, formData, { observe: 'body' });
+    return this.http.post<FileUpload>(`${this.api}`, formData, { observe: 'body' });
   }
-
 }
