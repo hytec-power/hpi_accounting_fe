@@ -29,10 +29,9 @@ export class RequestDetailsComponent {
     'Commissioning And Installation ASI',
     'Event Exhibit Convention'
   ];
-  request_types: string[] = [ 'Bidding', 'Training', 'Event/Exhibition', 'Bidding Documents', 'TCP', 'Sponsorship'];
+  request_types: string[] = [ 'Bidding Documents', 'Training / Event / Exhibition', 'After Sales Training', 'TCP', 'Sponsorship'];
   constructor() {}
   toggleSelection(event: any,value: string) {
-
     event.target.checked ? this.add(value): this.remove(value);
   }
   add(item:string) {

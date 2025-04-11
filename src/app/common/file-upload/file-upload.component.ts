@@ -1,6 +1,8 @@
-import {Component, computed, ElementRef, input, viewChild} from '@angular/core';
+import {Component, computed, ElementRef, input, output, viewChild} from '@angular/core';
 import {ModalsService} from "src/app/services/common/modals/modals.service";
 import {LoaderSpinnerComponent} from "src/app/common/loader-spinner/loader-spinner.component";
+import {UploadsService} from "src/app/services/common/uploads/uploads.service";
+import {FileUpload} from "src/app/interfaces/file-upload";
 
 @Component({
   selector: 'file-upload',
@@ -13,6 +15,7 @@ import {LoaderSpinnerComponent} from "src/app/common/loader-spinner/loader-spinn
 export class FileUploadComponent {
   //UI
   loading: boolean = false;
+  error: boolean = false;
   width_px = input<number>(427);
   height_px = input<number>(81);
   //INPUTS
@@ -22,12 +25,22 @@ export class FileUploadComponent {
   max_size_mb = computed(()=>this.max_size()/1024/1024);
   file_input = viewChild.required('file_input',{read: ElementRef});
   file: File|null  = null;
-  //
+  uploadedFile!: FileUpload;
+  //OUTPUT
+  onUpload = output<FileUpload>();
+  onClear = output<FileUpload>();
 
-  constructor(private modals: ModalsService) {
+
+  constructor(private modals: ModalsService,
+              private uploadsApi: UploadsService) {
   }
-  apiUpload() {
-
+  apiUpload(file: File) {
+    this.loading = true;
+    this.uploadsApi.upload(file)
+        .subscribe({
+          next: res=> this.onSuccess(res),
+          error: error => this.onError(),
+        });
   }
   onFileSelected(event: any) {
     if(!event.target.files.length) {
@@ -35,7 +48,6 @@ export class FileUploadComponent {
     }
     const file = event.target.files[0];
     const ext = file.name.split('.').pop()??'';
-    console.log(ext);
     if(file.size > this.max_size()) {
       this.modals.getInstance()?.showInfo('Error',`File size exceeds maximum size of ${this.max_size_mb()}MB`,'OK');
       return;
@@ -44,13 +56,22 @@ export class FileUploadComponent {
       this.modals.getInstance()?.showInfo('Error',`File format invalid`,'OK');
       return;
     }
-
     this.file = file;
+    this.apiUpload(file)
   }
-  onSelect(){
-    if(!this.file){
-      return;
-    }
-
+  retryUpload(){
+    this.apiUpload(this.file!);
+  }
+  clear(){
+    this.file = null;
+    this.onClear.emit(this.uploadedFile);
+  }
+  onSuccess(file: FileUpload) {
+    this.loading = false;
+    this.onUpload.emit(file);
+  }
+  onError() {
+    this.loading = false;
+    this.error = true;
   }
 }
