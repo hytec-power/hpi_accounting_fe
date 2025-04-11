@@ -1,8 +1,10 @@
-import {Component, input, output} from '@angular/core';
+import {Component, input, model, output} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from 'src/app/common/button/button.component';
 import {FileUploadComponent} from "src/app/common/file-upload/file-upload.component";
 import {ModalsService} from "src/app/services/common/modals/modals.service";
+import {Uploads} from "src/app/shared/budget-request/create/create.component";
+import {FileUpload} from "src/app/interfaces/file-upload";
 
 @Component({
   selector: 'request-attachments',
@@ -23,7 +25,7 @@ export class AttachmentsComponent {
   onBack = output();
   //DATA
   requirements: FileRequirement[]=[];
-
+  attachments = model<Uploads[]>([]);
 
   constructor(private modals: ModalsService) {
   }
@@ -105,13 +107,21 @@ export class AttachmentsComponent {
         break;
     }
   }
-  back(){
+  confirmBack(){
     this.modals.getInstance()?.showConfirm('Confirm Action',
                                             'Attached files be discarded if you go back to previous page, continue?',
                                             'Yes',
-                                            'Cancel',()=>this.onBack.emit());
+                                            'Cancel',()=>this.back());
+  }
+  onUpload(upload: FileUpload) {
+
+  }
+  back(){
+    this.attachments.set([]);
+    this.onBack.emit()
   }
 }
+
 interface FileRequirement {
    name: string;
    extensions: string[];

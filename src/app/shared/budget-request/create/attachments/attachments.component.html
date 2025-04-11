@@ -36,7 +36,7 @@
                 </div>
               </div>
             </td>
-            <td><file-upload  /></td>
+            <td><file-upload  (onUpload)="onUpload($event)"/></td>
           </tr>
         } @empty {
           <tr>
@@ -46,7 +46,7 @@
       </table>
     </div>
     <div class="d-flex flex-row justify-content-end my-3">
-      <button-component (click)="back()" text="Back" type="default" />
+      <button-component (click)="confirmBack()" text="Back" type="default" />
       <button-component (click)="onNext.emit()" text="Next" type="primary" />
     </div>
 </div>
