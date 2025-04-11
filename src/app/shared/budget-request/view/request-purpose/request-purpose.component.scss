@@ -11,9 +11,13 @@
   height: 311px;
 }
 .section-title{
-  color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
+  color: light-dark(colors.$primary-color,#FFF);
   font-weight: bold;
   margin-bottom: 5px;
+}
+.title, i{
+
+  font-weight: 500;
 }
 .data{
   color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
@@ -35,9 +39,7 @@ table{
 .edit{
   margin-left: auto;
 }
-body{
-  margin-left: 25px;
-}
+
 h6{
   font-size: 15px; color: #377161;
 }

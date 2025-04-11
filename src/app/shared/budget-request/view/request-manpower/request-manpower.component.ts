@@ -13,7 +13,7 @@ import { NgClass } from '@angular/common';
 export class RequestManpowerComponent {
   isEditable:boolean = false
 
-  toggleEdit(){
+  toggleEdit(){ 
       this.isEditable = !this.isEditable
   }
   

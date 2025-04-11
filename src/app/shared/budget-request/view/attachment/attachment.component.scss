@@ -7,11 +7,10 @@
   box-sizing: border-box;
   border-radius: 20px;
   margin: 10px;
-
   height: 275px;
 }
 .section-title{
-  color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
+  color: light-dark(colors.$primary-color,#FFF);
   font-weight: bold;
   margin-bottom: 5px;
 }
@@ -23,7 +22,6 @@
   }
   &-value{
     text-align: left;
-
   }
 }
 table{
@@ -42,18 +40,17 @@ h6{
   height: 220px auto;
   border-radius: 10px;
   border: 1px solid #E6E6E7;
-  background-color: #E6E6E6;
+  background-color : colors.$bg-background;
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  border-color:colors.$border-color;
 }
 .row{
   padding: 10px;
 }
 tr, th, td{
-  background-color: #E6E6E6;
+  background-color : colors.$bg-background;
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  border-bottom: none;
 }
-tr{
-  border-bottom: 1px solid whitesmoke;
-}
-.container{
-  background-color: #E6E6E7;
-}
+
 

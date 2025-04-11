@@ -1,26 +1,26 @@
 <div class="root-container">
-    <div class=" head d-flex mb-2" >
+    <div class=" head d-flex mb-3" >
         <i class="bi bi-card-checklist " style="margin-right: 10px;"></i>
         <div class="section-title">Request Details</div>
         <div class="edit">
             <i class=" bi bi-pencil-square"></i>
         </div>
     </div>
-    <body>
-        <div class="mb-3">
-            <h6 >Type of Budget Request</h6>
-            <h4 style="font-size: 18px;">TCP</h4>
+        <div style="padding-left: 24px;">
+            <div class="mb-3">
+                <h6 class="title" style="font-size: 15px;">Type of Budget Request</h6>
+                <h4 style="font-size: 18px;">TCP</h4>
+            </div>
+            <div>
+                <h6 class="title" tyle="font-size: 15px;">Purpose of the Budget Request</h6>
+                <ul style="font-size: 18px;">
+                    @for (item of purpose; track $index) {
+                        <li>{{item}}</li>
+                    }
+                </ul>
+            </div>
         </div>
-        <div>
-            <h6>Purpose of the Budget Request</h6>
-            <ul style="font-size: 18px;">
-                @for (item of purpose; track $index) {
-                    <li>{{item}}</li>
-                }
-            </ul>
-            
-        </div>
-    </body>
+   
         
         
 
