@@ -38,7 +38,7 @@ export class CreateComponent {
   onCreate = output<void>()
   //UI
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(0);
+  page:WritableSignal<number> = signal(2);
   loading: boolean = false;
   //FORMS & DATA
   form_request_details!: FormGroup;
@@ -92,16 +92,16 @@ export class CreateComponent {
   }
   initProjectDetails(){
     this.form_project_details = this.fb.group({
-      project_name: ['',[Validators.required,Validators.maxLength(50)]],
-      project_client: ['',Validators.required],
-      project_address: ['',Validators.required,Validators.maxLength(255)],
-      quotation_reference: ['',Validators.required,Validators.maxLength(50)],
-      po_reference: ['',Validators.required,Validators.maxLength(50)],
-      po_amount: ['',Validators.required,Validators.min(1),Validators.max(999999999999)],
-      future_project: [false,Validators.required],
-      confidence_level: [''],
-      expected_quarter: [''],
-      expected_year: [''],
+      project_name:         ['',[Validators.required,Validators.maxLength(50)]],
+      project_client:       ['',[Validators.required]],
+      project_address:      ['',[Validators.required,Validators.maxLength(255)]],
+      quotation_reference:  ['',[Validators.required,Validators.maxLength(50)]],
+      po_reference:         ['',[Validators.required,Validators.maxLength(50)]],
+      po_amount:            ['',[Validators.required,Validators.min(1),Validators.max(999999999999)]],
+      future_project:       [false,[Validators.required]],
+      confidence_level:     ['',[]],
+      expected_quarter:     ['',[]],
+      expected_year:        ['',[]],
     });
 
     this.form_project_details.get('future_project')?.valueChanges
@@ -109,7 +109,6 @@ export class CreateComponent {
             const controls = ['confidence_level','expected_quarter','expected_year'];
             controls.forEach(control => this.form_project_details.get(control)?.clearValidators());
             controls.forEach(control => this.form_project_details.get(control)?.setValue(''));
-            checked && controls.forEach(control => this.form_project_details.get(control)?.setValidators([Validators.required]));
             if(checked){
               this.form_project_details.get('confidence_level')?.setValidators([Validators.required,
                                                                                 Validators.pattern('^\\d+$'),
@@ -125,7 +124,6 @@ export class CreateComponent {
                                                                              Validators.max(2099)])
             }
             controls.forEach(control => this.form_project_details.get(control)?.updateValueAndValidity());
-            this.cd.detectChanges();
         });
   }
   initAllocation(){
