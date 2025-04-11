@@ -3,48 +3,53 @@
         <div class="section-title"><i class="bi bi-people mx-1"></i>Manpower</div>
         <div><i style="cursor: pointer;" (click)="toggleEdit()" class="bi bi-pencil-square"></i></div>
     </div>
-    <table style="width: 100%;" [ngClass]="{'inactiveEdit':isEditable}">
-        <tr>
-            <th style="border-top-left-radius: 15px;" class="data-label">Name/s</th>
-            <th style="border-top-right-radius: 15px;" class="data-label">Role/s</th>
-        </tr>
-        <tr>
-            <td>
-                @if (isEditable) {
-                    <i class="bi bi-trash"></i>
+    <div class="table-container">
+        <table style="width: 100%;" [ngClass]="{'inactiveEdit':isEditable}">
+            <thead>
+                <tr>
+                    <th style="border-top-left-radius: 15px;" class="data-label">Name/s</th>
+                    <th style="border-top-right-radius: 15px;" class="data-label">Role/s</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (i of manpowerList; track i.name) {
+                    <tr>
+                        <td>
+                            <input style="text-align: center;" type="text" value={{i.name}} [readOnly]="!isEditable">
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center;">
+                                <input style="flex:1; text-align: center;" type="text" value={{i.role}} [readOnly]="!isEditable">
+                                @if (isEditable) {
+                                        <i class="bi bi-trash mx-2"></i>
+                                }
+                            </div>
+                        </td>
+                    </tr>
                 }
-                <input style="text-align: center;" type="text" value="Napoleon Bonaparte" [readOnly]="!isEditable">
-            </td>
-            <td>
-                <input style="text-align: center;" type="text" value="UI/UX Designer" [readOnly]="!isEditable">
-            </td>
-        </tr>
-        <tr>
-            <td>
                 @if (isEditable) {
-                    <i class="bi bi-trash"></i>
+                    <tr>
+                        <td>
+                            <input style="text-align: center;" type="text" [readOnly]="!isEditable">
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center;">
+                                <input style="flex:1; text-align: center;" type="text" [readOnly]="!isEditable">
+                                @if (isEditable) {
+                                    <i class="bi bi-plus"></i>
+                                }
+                            </div>
+                        </td>
+                    </tr>
                 }
-                <input style="text-align: center;" type="text" value="DJ Khaled" [readOnly]="!isEditable">
-            </td>
-            <td>
-                <input style="text-align: center;" type="text" value="UI/UX Designer" [readOnly]="!isEditable">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @if (isEditable) {
-                    <i class="bi bi-trash"></i>
-                }
-                <input style="text-align: center;" type="text" value="Vince Vince" [readOnly]="!isEditable">
-            </td>
-            <td>
-                <input style="text-align: center;" type="text" value="UI/UX Designer" [readOnly]="!isEditable">
-            </td>
-        </tr>
-    </table>
-    @if (isEditable == true) {
-        <div style="text-align: right; margin-top: 10px;" >  
-            <button-component (click)="toggleEdit()" text="Save" type="primary"></button-component>
-        </div>
-    }
+            </tbody>
+        </table>
+    </div>
+    <div>
+        @if (isEditable == true) {
+            <div style="text-align: right; margin-top: 10px;" >  
+                <button-component (click)="toggleEdit()" text="Save" type="primary"></button-component>
+            </div>
+        }
+    </div>
 </div>
