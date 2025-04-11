@@ -38,7 +38,7 @@ export class CreateComponent {
   onCreate = output<void>()
   //UI
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(5);
+  page:WritableSignal<number> = signal(0);
   loading: boolean = false;
   //FORMS & DATA
   form_request_details!: FormGroup;
@@ -197,6 +197,9 @@ export class CreateComponent {
       purpose: this.purpose
     };
     this.modals.getInstance()?.showConfirm('Confirm Action','Create Budget Request?','Create','Cancel',()=>this.apiCreate(payload))
+  }
+  getRequestType(){
+    return this.form_request_details.get('type')?.value ?? '';
   }
 
 }

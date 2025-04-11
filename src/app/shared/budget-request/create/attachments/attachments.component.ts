@@ -15,7 +15,7 @@ import {FileUploadComponent} from "src/app/common/file-upload/file-upload.compon
 })
 export class AttachmentsComponent {
   //
-  request_type = input<string>('After Sales Training');
+  request_type = input<string>('');
   ast_type = input<string>('industrial');
   //NAVS
   onNext = output();
