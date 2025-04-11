@@ -29,7 +29,7 @@ export class RequestManpowerComponent {
       {name: "James Baxter", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Manager'},
     ]
 
-  toggleEdit(){
+  toggleEdit(){ 
       this.isEditable = !this.isEditable
   }
 

@@ -11,7 +11,7 @@
   height: 282px;
 }
 .section-title{
-  color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
+  color: light-dark(colors.$primary-color,#FFF);
   font-weight: bold;
   margin-bottom: 5px;
 }
@@ -25,6 +25,8 @@
 
   }
 }
+<<<<<<< HEAD
+=======
 .table-container{
   height: 175px;
   overflow-y: auto;
@@ -35,6 +37,7 @@
   display: none;
 }
 
+>>>>>>> 975c2b330a9576f31ea5edac007db0b7f968e2af
 input{
     background-color: inherit;
     border-color: light-dark(colors.$dark-bg-foreground);
@@ -46,7 +49,13 @@ input[readonly]{
     outline: none;
     box-shadow: none;
     border: none;
+<<<<<<< HEAD
+    width: 232px;
+    color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+    
+=======
     width: 100%;
+>>>>>>> 975c2b330a9576f31ea5edac007db0b7f968e2af
   }
   
 .inactiveEdit{
@@ -76,26 +85,26 @@ input[readonly]{
     }
 }
 
-
-
 table{
-    border-color: #E6E6E6;
     table-layout: auto;
     white-space: nowrap;
-    background-color: rgba(230, 230, 230, 0.5);
     width: 100%;
     border-radius: 20px;
+    border-color:colors.$border-color;
+    background-color : colors.$bg-background;
+    
+    
     td{
-        border: 2px solid #FFFFFF;
-        color: black;
+       border-bottom: none;
+       color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
         text-align: center;
-        height: 39px;
+        height: 39px ;
     }
     th{
         height: 43px;
         font-weight: 500;
         text-align: center;
         color: #377161;
-        border: 2px solid #FFF;
+        border-bottom: none;
     }
 }

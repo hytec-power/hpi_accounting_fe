@@ -12,7 +12,7 @@
 
 }
 .section-title{
-  color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
+  color: light-dark(colors.$primary-color,#FFF);
   font-weight: bold;
   margin-bottom: 5px;
 }
@@ -27,11 +27,9 @@
 
   }
 }
-
 .edit{
   margin-left: auto;
 }
-
 h6{
   font-size: 15px; color: #377161;
 }
@@ -39,20 +37,23 @@ h6{
     height: 220px auto;
     border-radius: 10px;
     border: 1px solid #E6E6E7;
-    background-color: #E6E6E6;
+    border-color:colors.$border-color;
+    background-color : colors.$bg-background;
 }
 tr, th, td{
-    background-color: #E6E6E6;
+  background-color : light-dark(#E6E6E7,#212121);
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  border-bottom: none;
 }
 th{
     color: #377161;
 }
-tr{
-    border-bottom: 1px solid whitesmoke;
-}
+
 .others{
     height: 83px auto;
     border-radius: 10px;
     border: 1px solid #E6E6E7;
-    background-color: #E6E6E6;
+    background-color : colors.$bg-background;
+    color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+    border-color:colors.$border-color;
 }

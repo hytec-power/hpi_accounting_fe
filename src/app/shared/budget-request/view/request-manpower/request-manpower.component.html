@@ -3,6 +3,17 @@
         <div class="section-title"><i class="bi bi-people mx-1"></i>Manpower</div>
         <div><i style="cursor: pointer;" (click)="toggleEdit()" class="bi bi-pencil-square"></i></div>
     </div>
+<<<<<<< HEAD
+    <table class="table" style="width: 100%;" [ngClass]="{'inactiveEdit':isEditable}">
+        <tr>
+            <th style="border-top-left-radius: 15px;" class="data-label">Name/s</th>
+            <th style="border-top-right-radius: 15px;" class="data-label">Role/s</th>
+        </tr>
+        <tr>
+            <td>
+                @if (isEditable) {
+                    <i class="bi bi-trash"></i>
+=======
     <div class="table-container">
         <table style="width: 100%;" [ngClass]="{'inactiveEdit':isEditable}">
             <thead>
@@ -26,6 +37,7 @@
                             </div>
                         </td>
                     </tr>
+>>>>>>> 975c2b330a9576f31ea5edac007db0b7f968e2af
                 }
                 @if (isEditable) {
                     <tr>
