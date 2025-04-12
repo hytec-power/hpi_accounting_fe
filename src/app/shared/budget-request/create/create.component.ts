@@ -182,6 +182,7 @@ export class CreateComponent {
       purpose: this.purpose,
       attachments: this.attachments,
     };
+    console.log(this.preview);
     this.next()
   }
   submit(){
