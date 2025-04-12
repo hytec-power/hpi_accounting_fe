@@ -44,6 +44,13 @@ table{
     background-color: #358f76;
     border: 2px solid #358f76;
   }
+  .section-title{
+    font-size: 18px;
+    font-weight: bold;
+    color: colors.$primary-color;
+    padding: 10px 30px;
+    background-color: colors.$bg-foreground;
+  }
   .data-label{
     color: gray;
     background-color: #d0e5d7;

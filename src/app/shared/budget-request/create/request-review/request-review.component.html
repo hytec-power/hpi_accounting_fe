@@ -11,7 +11,9 @@
     @if (data()) {
       <div>
         <table style="table-layout: auto;">
-          <caption>Request</caption>
+          <tr>
+            <td class="section-title" colspan="6">Request</td>
+          </tr>
           <tr>
             <td class="section-header" colspan="5"></td>
           </tr>
@@ -181,7 +183,7 @@
             <tr>
               <td>{{ i.name }}</td>
               <td colspan="3">{{ i.file.original_filename }}</td>
-              <td>{{ (i.file.size / 1024) }} mb </td>
+              <td>{{ (i.file.size / 1024) | number: '1.2-2' }} kb </td>
             </tr>
           } @empty {
             <tr>

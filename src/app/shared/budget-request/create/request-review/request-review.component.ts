@@ -1,6 +1,6 @@
 import {Component, input, output} from '@angular/core';
 import {ButtonComponent} from "src/app/common/button/button.component";
-import {CurrencyPipe, DatePipe} from "@angular/common";
+import {CurrencyPipe, DatePipe, DecimalPipe} from "@angular/common";
 import {BudgetRequest} from "src/app/interfaces/budget-request";
 
 @Component({
@@ -8,7 +8,8 @@ import {BudgetRequest} from "src/app/interfaces/budget-request";
   imports: [
     ButtonComponent,
     CurrencyPipe,
-    DatePipe
+    DatePipe,
+    DecimalPipe
   ],
   templateUrl: './request-review.component.html',
   styleUrl: './request-review.component.scss'
