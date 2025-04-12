@@ -180,7 +180,8 @@ export class CreateComponent {
       ...this.form_release_details.getRawValue(),
       budget_allocation: this.form_request_allocation.getRawValue(),
       budget_total: this.budget_total,
-      purpose: this.purpose
+      purpose: this.purpose,
+      attachments: this.attachments,
     };
     this.next()
   }
@@ -193,7 +194,8 @@ export class CreateComponent {
       ...this.form_release_details.getRawValue(),
       budget_allocation: this.form_request_allocation.getRawValue(),
       budget_total: this.budget_total,
-      purpose: this.purpose
+      purpose: this.purpose,
+      attachments: this.attachments,
     };
     this.modals.getInstance()?.showConfirm('Confirm Action','Create Budget Request?','Create','Cancel',()=>this.apiCreate(payload))
   }
