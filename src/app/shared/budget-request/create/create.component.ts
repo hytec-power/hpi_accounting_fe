@@ -8,11 +8,10 @@ import { RequestManpowerComponent } from "./request-manpower/request-manpower.co
 import { RequestReviewComponent } from "./request-review/request-review.component";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/budget-request.service";
-import {BudgetRequest} from "src/app/interfaces/budget-request";
+import {BudgetRequest, DocumentUpload} from "src/app/interfaces/budget-request";
 import {AttachmentsComponent} from "src/app/shared/budget-request/create/attachments/attachments.component";
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
 import {ModalsService} from "src/app/services/common/modals/modals.service";
-import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'create-budget-request',
@@ -47,7 +46,7 @@ export class CreateComponent {
   form_project_details!: FormGroup;
   form_request_allocation!: FormGroup;
   form_release_details!:FormGroup;
-  attachments: Uploads[]=[];
+  attachments: DocumentUpload[]=[];
   budget_total: number = 0;
   preview: BudgetRequest|null = null;
 
@@ -203,8 +202,4 @@ export class CreateComponent {
     return this.form_request_details.get('type')?.value ?? '';
   }
 
-}
-export interface Uploads{
-  name: string
-  uuid: string
 }

@@ -3,8 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from 'src/app/common/button/button.component';
 import {FileUploadComponent} from "src/app/common/file-upload/file-upload.component";
 import {ModalsService} from "src/app/services/common/modals/modals.service";
-import {Uploads} from "src/app/shared/budget-request/create/create.component";
 import {FileUpload} from "src/app/interfaces/file-upload";
+import {DocumentUpload} from "src/app/interfaces/budget-request";
 
 @Component({
   selector: 'request-attachments',
@@ -25,12 +25,12 @@ export class AttachmentsComponent {
   onBack = output();
   //DATA
   requirements: FileRequirement[]=[];
-  attachments = model<Uploads[]>([]);
+  attachments = model<DocumentUpload[]>([]);
 
   constructor(private modals: ModalsService) {}
   ngOnInit() {
     this.init(this.request_type());
-    //this.init('Bidding Documents');
+    // this.init('Bidding Documents');
   }
   init(type: string) {
     switch (type){
@@ -112,8 +112,8 @@ export class AttachmentsComponent {
                                             'Yes',
                                             'Cancel',()=>this.back());
   }
-  onUpload(upload: FileUpload,name: string) {
-    this.attachments.update(items=> [...items,{name: name, uuid: upload.uuid}] );
+  onUpload(file: FileUpload,name: string) {
+    this.attachments.update(items=> [...items,{name: name, uuid: file.uuid , file: file}] );
   }
   onRemove(name: string) {
     this.attachments.update(items=> items.filter(i=>i.name!= name));

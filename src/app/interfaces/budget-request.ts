@@ -1,4 +1,5 @@
 import {User} from "src/app/interfaces/user";
+import {FileUpload} from "src/app/interfaces/file-upload";
 
 export interface BudgetRequest {
   uuid: string,
@@ -30,6 +31,8 @@ export interface BudgetRequest {
   budget_total: number,
   //MANPOWER
   manpower: any
+  //ATTACHMENTS
+  attachments: DocumentUpload[]
   //CONTROLS
   archived: boolean,
   deleted_at: string,
@@ -48,4 +51,10 @@ export interface BudgetParticulars {
 export interface BudgetOthers {
   name: string,
   total: number
+}
+
+export interface DocumentUpload {
+  name: string,
+  uuid: string,
+  file: FileUpload
 }
