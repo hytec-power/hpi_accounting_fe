@@ -36,7 +36,7 @@
                 </div>
               </div>
             </td>
-            <td><file-upload  (onUpload)="onUpload($event)"/></td>
+            <td><file-upload  (onUpload)="onUpload($event,i.name)" (onClear)="onRemove(i.name)"/></td>
           </tr>
         } @empty {
           <tr>
@@ -47,6 +47,6 @@
     </div>
     <div class="d-flex flex-row justify-content-end my-3">
       <button-component (click)="confirmBack()" text="Back" type="default" />
-      <button-component (click)="onNext.emit()" text="Next" type="primary" />
+      <button-component (click)="onNext.emit()" [disabled]="!isComplete()" text="Next" type="primary" />
     </div>
 </div>

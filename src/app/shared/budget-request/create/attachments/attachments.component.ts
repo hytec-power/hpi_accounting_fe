@@ -1,4 +1,4 @@
-import {Component, input, model, output} from '@angular/core';
+import {Component, effect, input, model, output} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from 'src/app/common/button/button.component';
 import {FileUploadComponent} from "src/app/common/file-upload/file-upload.component";
@@ -27,11 +27,10 @@ export class AttachmentsComponent {
   requirements: FileRequirement[]=[];
   attachments = model<Uploads[]>([]);
 
-  constructor(private modals: ModalsService) {
-  }
+  constructor(private modals: ModalsService) {}
   ngOnInit() {
-    // this.init(this.request_type());
-    this.init('Bidding Documents');
+    this.init(this.request_type());
+    //this.init('Bidding Documents');
   }
   init(type: string) {
     switch (type){
@@ -113,12 +112,18 @@ export class AttachmentsComponent {
                                             'Yes',
                                             'Cancel',()=>this.back());
   }
-  onUpload(upload: FileUpload) {
-
+  onUpload(upload: FileUpload,name: string) {
+    this.attachments.update(items=> [...items,{name: name, uuid: upload.uuid}] );
+  }
+  onRemove(name: string) {
+    this.attachments.update(items=> items.filter(i=>i.name!= name));
   }
   back(){
     this.attachments.set([]);
     this.onBack.emit()
+  }
+  isComplete(){
+    return this.attachments().length == this.requirements.length;
   }
 }
 
