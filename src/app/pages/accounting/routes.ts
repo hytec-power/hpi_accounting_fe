@@ -10,7 +10,7 @@ export const AccountingRoutes: Route[]=[
         path: 'budget-requests',
         component: BudgetRequestIndex
     },{
-        path: 'budget-requests/:id',
+        path: 'budget-requests/:uuid',
         component: ViewBudgetRequest
     },
 ];
