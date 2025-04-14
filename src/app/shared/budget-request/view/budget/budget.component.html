@@ -21,12 +21,12 @@
                 <tbody>
                   @for (item of record().budget_allocation.particulars; track $index) {
                     <tr >
-                      <td> <input type="text"  [ngClass]="{'inactiveEdit':isEditable}"   [value]="item.name" [readOnly]="!isEditable"></td>
-                      <td> <input type="number"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.budget_daily" [readOnly]="!isEditable"></td>
-                      <td> <input type="number"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.qty" [readOnly]="!isEditable"></td>
-                      <td> <input type="number"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.days" [readOnly]="!isEditable"></td>
-                      <td> <input type="number"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.total" [readOnly]="!isEditable"></td>
-                      <td style="color: red;" *ngIf="isEditable"><i class="bi bi-trash"></i></td>
+                      <td> <input type="text"   class="color"  [ngClass]="{'inactiveEdit':isEditable}"   [value]="item.name" [readOnly]="!isEditable"></td>
+                      <td> <input type="number" class="color" [ngClass]="{'inactiveEdit':isEditable}" [value]="item.budget_daily" [readOnly]="!isEditable"></td>
+                      <td> <input type="number" class="color" [ngClass]="{'inactiveEdit':isEditable}" [value]="item.qty" [readOnly]="!isEditable"></td>
+                      <td> <input type="number" class="color" [ngClass]="{'inactiveEdit':isEditable}" [value]="item.days" [readOnly]="!isEditable"></td>
+                      <td> <input type="number" class="color" [ngClass]="{'inactiveEdit':isEditable}" [value]="item.total" [readOnly]="!isEditable"></td>
+                      <td style="color: red;" *ngIf="isEditable" class="color"><i class="bi bi-trash"></i></td>
                     </tr>
                   }
                 </tbody>
@@ -65,6 +65,7 @@
        <div class="mb-3">
         <h6 >Releasing Instructions</h6>
         <input class="insrtuc" style="width: auto;" type="text"  [ngClass]="{'inactiveEdit':isEditable}" value="Direct Deposit to Client" [readOnly]="!isEditable">
+        <i *ngIf="isEditable" style="position: relative; right: 22px; color: #037354;" class="bi bi-caret-down-fill"></i>
        </div>
        <div class="row mb-3" >
         <div class="col-md-3 align-middle "> 
@@ -83,8 +84,7 @@
             <h4 style="font-size: 18px;">0123-4567-8901</h4>
         </div>   
         <button *ngIf="isEditable" class="btn btn-success" style="width: auto; margin-left: auto;margin-right: 20px;"  >save</button>
-</div>   
+    </div>   
+  </div>
 </div>
-
-        </div>
         

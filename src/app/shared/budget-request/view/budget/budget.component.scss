@@ -50,7 +50,6 @@ input[readonly]{
   outline: none;
   box-shadow: none;
   border: none;
-  background-color: light-dark(#E6E6E7,#212121);
   border-radius: 5px;
 }
 .inactiveEdit{
@@ -65,4 +64,9 @@ input[readonly]{
       background-color: #A0CBB0;
       border-color: rgba(255, 255, 255, 0.5)
   }
+}
+.insrtuc{
+  background-color: light-dark(#FFF,colors.$dark-bg-foreground);
+}.color{
+  background-color: light-dark(#E6E6E7,#212121);
 }
