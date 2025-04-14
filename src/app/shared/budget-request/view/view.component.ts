@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, input} from '@angular/core';
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
 import { RequestPurposeComponent } from "src/app/shared/budget-request/view/request-purpose/request-purpose.component";
 import {RequestDateComponent} from "src/app/shared/budget-request/view/request-date/request-date.component";
@@ -28,18 +28,14 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class BudgetRequestViewComponent {
   //UI
-  loading: boolean = true;
   steps: StepperItem[]=[];
   //DATA
-  br_uuid!: string;
-  record!: BudgetRequest;
+  record= input.required<BudgetRequest>() ;
   constructor(private brApi: BudgetRequestService,
               private ar: ActivatedRoute) {
     this.initSteps();
-    this.br_uuid = this.ar.snapshot.paramMap.get('uuid') ??'';
   }
   ngOnInit() {
-    this.apiFetch();
   }
   initSteps(){
     this.steps.push(...[
@@ -50,12 +46,5 @@ export class BudgetRequestViewComponent {
       {name: 'Receipt', bi_icon: 'bi-card-checklist'},
       {name: 'Confirmation', bi_icon: 'bi-card-checklist'},
     ])
-  }
-  apiFetch(){
-    this.loading = true;
-    this.brApi.find(this.br_uuid).subscribe({
-      next: data => this.record = data,
-      complete: () => this.loading = false,
-    });
   }
 }
