@@ -33,13 +33,7 @@
 h6{
   font-size: 15px; color: #377161;
 }
-.container {
-    height: 220px auto;
-    border-radius: 10px;
-    border: 1px solid #E6E6E7;
-    border-color:colors.$border-color;
-    background-color : colors.$bg-background;
-}
+
 tr, th, td{
   background-color : light-dark(#E6E6E7,#212121);
   color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
@@ -48,12 +42,27 @@ tr, th, td{
 th{
     color: #377161;
 }
-
-.others{
-    height: 83px auto;
-    border-radius: 10px;
-    border: 1px solid #E6E6E7;
-    background-color : colors.$bg-background;
-    color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
-    border-color:colors.$border-color;
+input{
+  width: 100%;
+  
+}
+input[readonly]{
+  outline: none;
+  box-shadow: none;
+  border: none;
+  background-color: light-dark(#E6E6E7,#212121);
+  border-radius: 5px;
+}
+.inactiveEdit{
+  border: 1px solid #037354;
+  border-radius: 5px;
+}
+.tab{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  th{
+      width: 50%;
+      background-color: #A0CBB0;
+      border-color: rgba(255, 255, 255, 0.5)
+  }
 }
