@@ -1,38 +1,22 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BudgetRequest } from 'src/app/interfaces/budget-request';
 
 @Component({
   selector: 'app-budget',
-  imports: [],
+  imports: [FormsModule, CommonModule],
   templateUrl: './budget.component.html',
   styleUrl: './budget.component.scss'
 })
 export class BudgetComponent {
-
- budget: any = [
-  {
-    particular:'Hotel Accomodation',
-    Budget:'₱ 1,250.00',
-    Qty:'10',
-    Days:'3',
-    Amount:'₱ 1,250.00',
-  },
-  {
-    particular:'Hotel Accomodation',
-    Budget:'₱ 1,250.00',
-    Qty:'10',
-    Days:'3',
-    Amount:'₱ 1,250.00',
-  },
+ 
+  record = input.required<BudgetRequest>();
   
- ]
- others: any = [
-  {
-    particular:'Hotel Accomodation',
-    Budget:'₱ 1,250.00',
-    Qty:'10',
-    Days:'3',
-    Amount:'₱ 1,250.00',
-  },
- ]
+  isEditable = false;
+  onedit(){
+    this.isEditable = !this.isEditable
+  }
+
 
 }
