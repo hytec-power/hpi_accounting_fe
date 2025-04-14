@@ -3,34 +3,36 @@
         <i class="bi bi-clipboard mb-3" style="margin-right: 10px;"></i>
         <div class="section-title">Charging Details</div>
         <div class="edit">
-            <i class=" bi bi-pencil-square"></i>
+            <i class=" bi bi-pencil-square" style="cursor: pointer;" (click)="onedit()"></i>
         </div>
     </div>
         <div class="container mb-2">
             <h6>Title</h6>
-            <h4 style="font-size: 18px;">{{record().project_name}}</h4>
+            <input style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':!isEditable}" [value]="record().project_name" [readOnly]="isEditable">
             <h6>School/Company</h6>
-            <h4 style="font-size: 18px;">asa</h4>
+            <input style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':!isEditable}" value="asa" [readOnly]="isEditable">
             <h6>Address</h6>
-            <h4 style="font-size: 18px;">Quirino Highway Barangay San Bartolome</h4>
+            <input style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':!isEditable}" value="Quirino Highway Barangay San Bartolome" [readOnly]="isEditable">
         </div>
         <div class="data mb-3" style="padding: 20px;">
             <h6>Quotation Reference</h6>
-            <h4 style="font-size: 18px;">{{record().quotation_reference}}</h4>
+            <input style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':!isEditable}" [value]="record().quotation_reference" [readOnly]="isEditable">
             <h6>P.O. Number</h6>
-            <h4 style="font-size: 18px;">{{record().po_reference}}</h4>
+            <input style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':!isEditable}" [value]="record().po_reference" [readOnly]="isEditable">
             <h6>P.O Amount</h6>
-            <h4 style="font-size: 18px;">{{record().po_amount}}</h4>
+            <input style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':!isEditable}" [value]="record().po_amount" [readOnly]="isEditable">
         </div>
         <div class="future row">
             <h6 class="mb-3"><strong>FOR FUTURE PROJECT</strong></h6>
             <div class="col-md-6">
                 <h6>Confidence Level</h6>
-                <h4 style="font-size: 18px;">90%</h4>
+                <input style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':!isEditable}" value="90%" [readOnly]="isEditable">
+         
             </div>
             <div class="col-md-6">
                 <h6>Expected Release of P.O</h6>
-                <h4 style="font-size: 18px;">{{record().expected_quarter}} / {{record().expected_year}}</h4>
+                <input style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':!isEditable}" [value]="record().expected_quarter" [value]="record().expected_year" [readOnly]="isEditable">
+
             </div>
         </div>
 </div>
