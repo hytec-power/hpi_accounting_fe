@@ -7,24 +7,24 @@
         </div>
     </div>
         <div class="container mb-3">
-            <table class=" table rounded-4 overflow-hidden">
+            <table class=" table rounded-4 overflow-hidden" [ngClass]="{'tab':isEditable}">
                 <thead>
                   <tr>
                       <th style="width:33%;">Particulars</th>
                       <th style="width: 25%;" >Budget per day</th>
-                      <th >Qty</th>
-                      <th >Days</th>
-                      <th >Amount</th>
+                      <th style="width: 10%;">Qty</th>
+                      <th style="width: 10%;">Days</th>
+                      <th style="width: 15%;">Amount</th>
                   </tr>
                 </thead>
                 <tbody>
                   @for (item of record().budget_allocation.particulars; track $index) {
                     <tr >
-                      <td> <input type="text"  [ngClass]="{'inactiveEdit':!isEditable}" [ngClass]="{'inactiveEdit':isEditable}" [value]="item.name" [readOnly]="!isEditable"></td>
-                      <td> <input type="text"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.budget_daily" [readOnly]="!isEditable"></td>
-                      <td> <input type="text"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.qty" [readOnly]="!isEditable"></td>
-                      <td> <input type="text"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.days" [readOnly]="!isEditable"></td>
-                      <td> <input type="text"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.total" [readOnly]="!isEditable"></td>
+                      <td> <input type="text"  [ngClass]="{'inactiveEdit':isEditable}"[value]="item.name" [readOnly]="!isEditable"></td>
+                      <td> <input type="number"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.budget_daily" [readOnly]="!isEditable"></td>
+                      <td> <input type="number"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.qty" [readOnly]="!isEditable"></td>
+                      <td> <input type="number"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.days" [readOnly]="!isEditable"></td>
+                      <td> <input type="number"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.total" [readOnly]="!isEditable"></td>
                     </tr>
                   }
                 </tbody>
@@ -53,15 +53,14 @@
                   }
                 </tbody>
               </table>
-        </div>
-        <div class="row d-flex edit mb-3" >
+              <div class="row d-flex edit mb-3" >
                 <div class="col-md-6"> <h6 ></h6></div>
                 <div class="col-md-3"> <h6 >TOTAL BUDGET</h6></div>
                 <div class="col-md-3"><h4 style="font-size: 18px;">{{record().budget_total}}</h4></div>   
         </div>
        <div class="mb-3">
         <h6 >Releasing Instructions</h6>
-        <input style="width: auto; background-color: white;" type="text"  [ngClass]="{'inactiveEdit':isEditable}" value="Direct Deposit to Client" [readOnly]="!isEditable">
+        <input class="insrtuc" style="width: auto;" type="text"  [ngClass]="{'inactiveEdit':isEditable}" value="Direct Deposit to Client" [readOnly]="!isEditable">
        </div>
        <div class="row mb-3" >
         <div class="col-md-3 align-middle "> 
@@ -82,3 +81,6 @@
         <button *ngIf="isEditable" class="btn btn-success" style="width: auto; margin-left: auto;margin-right: 20px;"  >save</button>
 </div>   
 </div>
+
+        </div>
+        
