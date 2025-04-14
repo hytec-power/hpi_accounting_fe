@@ -21,8 +21,8 @@
               }
               @if (!loading) {
                 @for (i of items;track i.uuid){
-                  <tr routerLink="/employee/budget-requests/202501021">
-                    <td><a routerLink="/employee/budget-requests/202501021">{{ i.request_reference }}</a></td>
+                  <tr [routerLink]="'/employee/budget-requests/'+i.uuid">
+                    <td><a [routerLink]="'/employee/budget-requests/'+i.uuid">{{ i.request_reference }}</a></td>
                     <td>{{ i.user.firstname | titlecase }} {{ i.user.lastname | titlecase }}</td>
                     <td>Pending</td>
                     <td>{{ i.budget_total | currency: 'PHP':'symbol' }}</td>

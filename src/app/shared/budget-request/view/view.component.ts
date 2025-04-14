@@ -6,25 +6,40 @@ import { ChargingdetailsComponent } from "./chargingdetails/chargingdetails.comp
 import { BudgetComponent } from "./budget/budget.component";
 import { AttachmentComponent } from "./attachment/attachment.component";
 import {RequestManpowerComponent} from './request-manpower/request-manpower.component'
+import {BudgetRequest} from "src/app/interfaces/budget-request";
+import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
+import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/budget-request.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'budget-request-viewer',
-    imports: [
+  imports: [
     StepperComponent,
     RequestDateComponent,
     RequestPurposeComponent,
     ChargingdetailsComponent,
     BudgetComponent,
     AttachmentComponent,
-    RequestManpowerComponent
-],
+    RequestManpowerComponent,
+    LoaderBouncingBallsComponent
+  ],
     templateUrl: './view.component.html',
     styleUrl: './view.component.scss'
 })
 export class BudgetRequestViewComponent {
+  //UI
+  loading: boolean = true;
   steps: StepperItem[]=[];
-  constructor() {
+  //DATA
+  br_uuid!: string;
+  record!: BudgetRequest;
+  constructor(private brApi: BudgetRequestService,
+              private ar: ActivatedRoute) {
     this.initSteps();
+    this.br_uuid = this.ar.snapshot.paramMap.get('uuid') ??'';
+  }
+  ngOnInit() {
+    this.apiFetch();
   }
   initSteps(){
     this.steps.push(...[
@@ -35,5 +50,12 @@ export class BudgetRequestViewComponent {
       {name: 'Receipt', bi_icon: 'bi-card-checklist'},
       {name: 'Confirmation', bi_icon: 'bi-card-checklist'},
     ])
+  }
+  apiFetch(){
+    this.loading = true;
+    this.brApi.find(this.br_uuid).subscribe({
+      next: data => this.record = data,
+      complete: () => this.loading = false,
+    });
   }
 }

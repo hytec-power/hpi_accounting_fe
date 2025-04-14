@@ -1,33 +1,38 @@
 <div>
+  @if (loading) {
+    <div class="text-center my-5"> <loader-bouncing-balls/> </div>
+  }
+  @if (!loading){
     <stepper-component [items]="steps" [current_index]="3"/>
     <div class="row mb-4">
-        <div class="col" style="padding-left: 12x; margin-left: 10px; font-weight: 500;">
-            <div style="color: #377161;">Request ID</div>
-            <div style="font-size: 20px; ">20250121</div>
+      <div class="col" style="padding-left: 12x; margin-left: 10px; font-weight: 500;">
+        <div style="color: #377161;">Request ID</div>
+        <div style="font-size: 20px; ">20250121</div>
+      </div>
+      <div class="col" style="display: flex;">
+        <div style="width: 200px; margin-left: auto; font-weight: 500;">
+          <div style="color: #377161;">Status</div>
+          <div style="color: #1876D2; font-size: 20px;">For Releasing <i class="bi bi-question-circle-fill"></i></div>
         </div>
-        <div class="col" style="display: flex;">
-            <div style="width: 200px; margin-left: auto; font-weight: 500;">
-                <div style="color: #377161;">Status</div>
-                <div style="color: #1876D2; font-size: 20px;">For Releasing <i class="bi bi-question-circle-fill"></i></div>
-            </div>
-        </div>
+      </div>
     </div>
     <div style="width: 100%;" class="row">
-        <div class="col">
-            <div class="row">
-                <div class="col-7">
-                    <request-purpose/>
-                </div>
-                <div class="col-5">
-                    <request-date/>
-                </div>
-            </div>
-            <app-budget/>
-            <app-attachment/>
+      <div class="col">
+        <div class="row">
+          <div class="col-7">
+            <request-purpose/>
+          </div>
+          <div class="col-5">
+            <request-date/>
+          </div>
         </div>
-        <div class="col">
-            <app-chargingdetails/>
-            <request-manpower/>
-        </div>
+        <app-budget/>
+        <app-attachment/>
+      </div>
+      <div class="col">
+        <app-chargingdetails/>
+        <request-manpower/>
+      </div>
     </div>
+  }
 </div>

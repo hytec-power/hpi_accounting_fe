@@ -15,7 +15,7 @@ export const EmployeeRoutes: Route[]=[
         path: 'budget-requests/create',
         component: BudgetRequestCreate
     },{
-        path: 'budget-requests/:id',
+        path: 'budget-requests/:uuid',
         component: BudgetRequestViewer
     }
 ];
