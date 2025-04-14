@@ -9,7 +9,7 @@
         </tr>
         <tr>
             <td class="data-value">
-                <input onkeydown="return false" [ngClass]="{'inactiveEdit':!isEditable}" type="date" [readOnly]="!isEditable" value={{today}}>
+                <input onkeydown="return false" [ngClass]="{'inactiveEdit':!isEditable}" [type]="isEditable ? 'date' : 'text' " [readOnly]="!isEditable" [value]="record().date_needed | date:(isEditable ? 'yyyy-MM-dd' : 'MMM dd, Y')">
             </td>
         </tr>
         <tr>
@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <td class="data-value">
-                <input onkeydown="return false"  [ngClass]="{'inactiveEdit':!isEditable}" type="time" [readOnly]="!isEditable">
+                <input onkeydown="return false"  [ngClass]="{'inactiveEdit':!isEditable}" type="time" [readOnly]="!isEditable" value={{record().time_needed}}>
             </td>
         </tr>
         <tr>
@@ -25,7 +25,7 @@
         </tr>
         <tr>
             <td class="data-value">
-                <input onkeydown="return false" [ngClass]="{'inactiveEdit':!isEditable}" type="date" [readOnly]="!isEditable">
+                <input onkeydown="return false" [ngClass]="{'inactiveEdit':!isEditable}" [type]="isEditable ? 'date' : 'text' " [readOnly]="!isEditable" [value]="record().date_utilization | date:(isEditable ? 'yyyy-MM-dd' : 'MMM dd, Y')">
             </td>
         </tr>
     </table>
