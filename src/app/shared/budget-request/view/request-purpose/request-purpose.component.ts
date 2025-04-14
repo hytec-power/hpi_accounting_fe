@@ -10,12 +10,7 @@ import {JsonPipe} from "@angular/common";
 })
 export class RequestPurposeComponent {
   record = input.required<BudgetRequest>();
-    purpose: any = [
-        'Client Visit',
-        'Occular Visit',
-        'Faculty Immersion',
-        'Delivery',
-       ]
+
   constructor() {}
   ngOnInit() {}
 }
