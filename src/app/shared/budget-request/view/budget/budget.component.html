@@ -15,6 +15,7 @@
                       <th style="width: 10%;">Qty</th>
                       <th style="width: 10%;">Days</th>
                       <th style="width: 15%;">Amount</th>
+                      <th *ngIf="isEditable"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -25,6 +26,7 @@
                       <td> <input type="number"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.qty" [readOnly]="!isEditable"></td>
                       <td> <input type="number"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.days" [readOnly]="!isEditable"></td>
                       <td> <input type="number"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.total" [readOnly]="!isEditable"></td>
+                      <td style="color: red;" *ngIf="isEditable"><i class="bi bi-trash"></i></td>
                     </tr>
                   }
                 </tbody>
@@ -39,6 +41,7 @@
                       <th >Qty</th>
                       <th >Days</th>
                       <th >Amount</th>
+                      <th *ngIf="isEditable"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -49,6 +52,7 @@
                       <td></td>
                       <td></td>
                       <td><input type="text"  [ngClass]="{'inactiveEdit':!isEditable}" [ngClass]="{'inactiveEdit':isEditable}" [value]="other.total" [readOnly]="!isEditable"></td>
+                      <td style="color: red;" *ngIf="isEditable"><i class="bi bi-trash"></i></td>
                     </tr>
                   }
                 </tbody>
