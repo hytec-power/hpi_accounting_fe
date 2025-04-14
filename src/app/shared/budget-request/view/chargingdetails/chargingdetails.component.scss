@@ -8,7 +8,7 @@
   border-radius: 20px;
   margin: 10px;
   width: 100%;
-  height: 646px;
+  height: auto;
 
 }
 .section-title{
@@ -28,7 +28,7 @@
 }
 .container{
     background-color: light-dark(#E6E6E7,#212121);
-    height: 220px;
+    height: auto;
     border-radius: 10px;
     padding: 20px;
 }
@@ -43,16 +43,27 @@
   }
   input{
   width: 100%;
+  height: auto;
+  padding: 4px;
   
 }
 input[readonly]{
   outline: none;
   box-shadow: none;
   border: none;
-  background-color: light-dark(#E6E6E7,#212121);
   border-radius: 5px;
+  font-size: 18px;
+  
 }
 .inactiveEdit{
   border: 1px solid #037354;
   border-radius: 5px;
+  font-size: 18px;
+}
+.back{
+  background-color: light-dark(#E6E6E7,#212121);
+}
+.back2{
+ 
+  background-color: light-dark(#FFF,colors.$dark-bg-foreground);
 }

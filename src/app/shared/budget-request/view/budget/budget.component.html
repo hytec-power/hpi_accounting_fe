@@ -20,7 +20,7 @@
                 <tbody>
                   @for (item of record().budget_allocation.particulars; track $index) {
                     <tr >
-                      <td> <input type="text"  [ngClass]="{'inactiveEdit':isEditable}"[value]="item.name" [readOnly]="!isEditable"></td>
+                      <td> <input type="text"  [ngClass]="{'inactiveEdit':isEditable}"   [value]="item.name" [readOnly]="!isEditable"></td>
                       <td> <input type="number"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.budget_daily" [readOnly]="!isEditable"></td>
                       <td> <input type="number"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.qty" [readOnly]="!isEditable"></td>
                       <td> <input type="number"  [ngClass]="{'inactiveEdit':isEditable}" [value]="item.days" [readOnly]="!isEditable"></td>
