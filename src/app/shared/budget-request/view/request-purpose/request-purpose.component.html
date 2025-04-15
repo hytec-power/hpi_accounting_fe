@@ -3,23 +3,30 @@
         <i class="bi bi-card-checklist " style="margin-right: 10px;"></i>
         <div class="section-title">Request Details</div>
         <div class="edit">
-            <i class=" bi bi-pencil-square"></i>
+            <i class=" bi bi-pencil-square" style="cursor: pointer;" (click)="onedit()"></i>
         </div>
     </div>
-        <div style="padding-left: 24px;">
+        <div class="mb-3" style="padding-left: 24px;">
             <div class="mb-3">
-                <h6 class="title" style="font-size: 15px;">Type of Budget Request</h6>
-                <h4 style="font-size: 18px;"> {{ record().type }} </h4>
+                <h6 class="title" style="font-size: 15px; width: 100%;">Type of Budget Request</h6>
+                <input style="font-size: 18px;" type="text" class="back" [ngClass]="{'inactiveEdit':isEditable}" [value]="record().type" [readOnly]="!isEditable">
             </div>
             <div>
                 <h6 class="title" tyle="font-size: 15px;">Purpose of the Budget Request</h6>
-                <ul style="font-size: 18px;">
-                        <li>{{record().purpose}}</li>
-                </ul>
+                @for (item of record().purpose; track $index) {
+                    <ul  style="font-size: 18px;margin: 0;" class="d-flex">
+                        <li style="list-style-type: none;" *ngIf="isEditable">
+                            <input style="margin-right: 5px;"  type="checkbox"   >{{item}}
+                        </li>
+                        <li *ngIf="!isEditable">
+                            {{item}}
+                        </li>
+                    </ul>
+                }
             </div>
         </div>
-
-
-
-
+        <div class="d-flex justify-content-end">
+            <button style="background-color: #037354; font-size: 15px;" *ngIf="isEditable" class="btn btn-success" >Save</button>
+        </div>
 </div>
+
