@@ -6,9 +6,7 @@
   color: colors.$text-normal;
 }
 .row-controls{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  color: #BDBDBD;
   .bi{
     margin: 2px 5px;
     font-size: 13px;
@@ -21,4 +19,7 @@ tbody tr{
 a{
   text-decoration: none;
   color: royalblue;
+}
+.link{
+  color: colors.$primary-active;
 }
