@@ -16,7 +16,7 @@
                 @for (item of record().purpose; track $index) {
                     <ul  style="font-size: 18px;margin: 0;" class="d-flex">
                         <li style="list-style-type: none;" *ngIf="isEditable">
-                            <input style="margin-right: 5px;"  type="checkbox"   >{{item}}
+                            <input style="margin-right: 5px;"  type="checkbox" >{{item}}
                         </li>
                         <li *ngIf="!isEditable">
                             {{item}}
