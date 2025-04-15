@@ -5,6 +5,7 @@
   color: colors.$primary-color;
   align-items: center;
   font-size: 12px;
+  user-select: none;
 }
 .nav{
   display: flex;
