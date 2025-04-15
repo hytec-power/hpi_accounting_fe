@@ -3,7 +3,7 @@
         <i class="bi bi-link " style="margin-right: 10px;"></i>
         <div class="section-title">Attachments</div>
         <div class="edit">
-            <i class=" bi bi-pencil-square"></i>
+            <i class=" bi bi-pencil-square" style="cursor: pointer;" (click)="onedit()"></i>
         </div>
     </div>
         <div class="container ">
@@ -28,13 +28,16 @@
                         </div>
                     </td>
                     <td>
-                        <div class="row">
+                        <div class="row d-flex">
                             <div class="col-md-2 image">
                                 <i style="font-size:40px; color: #A0CBB0; background-color: white;   border-radius:5px ;" class="bi bi-file-earmark-image"></i>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-8">
                                 <h6 >Course Outline.jpg</h6>
                                 <p style="font-size: 12px;">File size: 500mb.</p>
+                            </div>
+                            <div *ngIf="isEditable"  class="col-md-2  ">
+                                <i class="bi bi-x" style="font-size: 28px;color: red;"></i>
                             </div>
                         </div>
                     </td>
