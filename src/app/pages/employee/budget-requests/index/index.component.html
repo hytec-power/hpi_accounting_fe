@@ -7,6 +7,7 @@
             <tr>
                 <th>Request ID</th>
                 <th>Requester</th>
+                <th>Type</th>
                 <th>Status</th>
                 <th>Amount</th>
                 <th>Date</th>
@@ -24,6 +25,7 @@
                   <tr [routerLink]="'/employee/budget-requests/'+i.uuid">
                     <td><a [routerLink]="'/employee/budget-requests/'+i.uuid">{{ i.request_reference }}</a></td>
                     <td>{{ i.user.firstname | titlecase }} {{ i.user.lastname | titlecase }}</td>
+                    <td>{{ i.type }}</td>
                     <td>Pending</td>
                     <td>{{ i.budget_total | currency: 'PHP':'symbol' }}</td>
                     <td>{{ i.created_at | date: 'medium' }}</td>

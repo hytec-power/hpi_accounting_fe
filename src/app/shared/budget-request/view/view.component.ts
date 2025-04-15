@@ -7,7 +7,6 @@ import { BudgetComponent } from "./budget/budget.component";
 import { AttachmentComponent } from "./attachment/attachment.component";
 import {RequestManpowerComponent} from './request-manpower/request-manpower.component'
 import {BudgetRequest} from "src/app/interfaces/budget-request";
-import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
 import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/budget-request.service";
 import {ActivatedRoute} from "@angular/router";
 
@@ -21,7 +20,6 @@ import {ActivatedRoute} from "@angular/router";
     BudgetComponent,
     AttachmentComponent,
     RequestManpowerComponent,
-    LoaderBouncingBallsComponent
   ],
     templateUrl: './view.component.html',
     styleUrl: './view.component.scss'
