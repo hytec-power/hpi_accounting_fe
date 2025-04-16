@@ -8,6 +8,7 @@ import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls
 import {CurrencyPipe, DatePipe, TitleCasePipe} from "@angular/common";
 import {PaginatorComponent} from "src/app/common/paginator/paginator.component";
 import {DropdownComponent} from "src/app/common/dropdown/dropdown.component";
+import {SearchComponent} from "src/app/common/search/search.component";
 
 @Component({
     selector: 'app-index',
@@ -20,7 +21,8 @@ import {DropdownComponent} from "src/app/common/dropdown/dropdown.component";
     DatePipe,
     CurrencyPipe,
     PaginatorComponent,
-    DropdownComponent
+    DropdownComponent,
+    SearchComponent
   ],
     templateUrl: './index.component.html',
     styleUrl: './index.component.scss'

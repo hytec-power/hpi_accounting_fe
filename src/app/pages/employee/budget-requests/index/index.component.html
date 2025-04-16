@@ -1,8 +1,10 @@
 <div class="root-container">
     <page-title text="Budget Requests" bi_icon="bi-wallet-fill"  />
     <div class="d-flex flex-row">
+      <search-component width="322px"/>
       <dropdown placeholder="Filter By"/>
       <dropdown placeholder="Sort By"/>
+      <div style="flex:1;"></div>
       <button-component routerLink="/employee/budget-requests/create" text="Add" type="primary" bi_icon="bi-plus-lg" />
     </div>
     <div class="table-wrapper my-2">
@@ -46,5 +48,6 @@
             </tbody>
         </table>
     </div>
-    <paginator />
+    <div class="text-center"><paginator /></div>
+
 </div>
