@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BudgetRequest } from 'src/app/interfaces/budget-request';
+import { ButtonComponent } from "../../../../common/button/button.component";
 
 @Component({
   selector: 'app-budget',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ButtonComponent],
   templateUrl: './budget.component.html',
   styleUrl: './budget.component.scss'
 })
