@@ -1,7 +1,7 @@
 <div class="root-container">
     <page-title text="Budget Requests" bi_icon="bi-wallet-fill"  />
     <div class="d-flex flex-row">
-      <search-component width="322px"/>
+      <search-component width="322px" (onSearch)="query.set($event)"/>
       <dropdown placeholder="Request Type" [items]="filter_types" width="200px"/>
       <dropdown placeholder="Request Status" [items]="filter_status" width="200px"/>
       <dropdown [items]="sort_types" width="200px" placeholder="Sort By" />

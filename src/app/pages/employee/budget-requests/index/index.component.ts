@@ -38,12 +38,13 @@ export class IndexComponent {
   filter_status: DropdownItem[]=[];
   //PAGINATION
   page : WritableSignal<number> = signal(1);
+  query_input: WritableSignal<string> = signal('');
+  query: WritableSignal<string> = signal('');
   constructor(private br: BudgetRequestService) {
     this.init();
-    effect(() => this.apiFetch(this.page()) );
+    effect(() => this.apiFetch(this.page(),this.query()) );
   }
   ngOnInit() {
-    this.apiFetch(1);
   }
   init(){
     this.sort_types = [
@@ -67,7 +68,7 @@ export class IndexComponent {
     ];
 
   }
-  apiFetch(page: number){
+  apiFetch(page: number,query: string){
     this.loading = true;
     this.items = [];
     this.br
