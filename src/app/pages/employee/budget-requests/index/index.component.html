@@ -49,6 +49,8 @@
             </tbody>
         </table>
     </div>
-    <div class="text-center"><paginator /></div>
+    <div class="text-center"><paginator [(currentPage)]="page"
+                                        [itemCount]="items_count"
+                                        [pageSize]="10" /></div>
 
 </div>

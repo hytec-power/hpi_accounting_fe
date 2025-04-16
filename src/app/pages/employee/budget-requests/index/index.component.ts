@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, effect, signal, WritableSignal} from '@angular/core';
 import {PageTitleComponent} from "src/app/common/page-title/page-title.component";
 import {RouterLink} from "@angular/router";
 import {ButtonComponent} from "src/app/common/button/button.component";
@@ -32,14 +32,18 @@ export class IndexComponent {
   loading: boolean =  false;
   //DATA
   items: BudgetRequest[] = [];
+  items_count: number = 0;
   sort_types: DropdownItem[]=[];
   filter_types: DropdownItem[]=[];
   filter_status: DropdownItem[]=[];
+  //PAGINATION
+  page : WritableSignal<number> = signal(1);
   constructor(private br: BudgetRequestService) {
     this.init();
+    effect(() => this.apiFetch(this.page()) );
   }
   ngOnInit() {
-    this.apiFetch();
+    this.apiFetch(1);
   }
   init(){
     this.sort_types = [
@@ -63,12 +67,12 @@ export class IndexComponent {
     ];
 
   }
-  apiFetch(){
+  apiFetch(page: number){
     this.loading = true;
     this.items = [];
     this.br
-        .index()
-        .subscribe({next: data => this.items = data})
+        .index(page)
+        .subscribe({next: data => { this.items = data.items ; this.items_count = data.count }})
         .add(()=> this.loading = false);
   }
 

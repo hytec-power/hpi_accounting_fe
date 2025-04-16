@@ -11,8 +11,8 @@ import {NgClass} from "@angular/common";
 })
 export class PaginatorComponent {
   currentPage = model<number>(1);
-  itemCount = input<number>(240);
-  pageSize = input<number>(10);
+  itemCount = input.required<number>();
+  pageSize = input.required<number>();
   pageCount = computed(()=> Math.ceil(this.itemCount()/this.pageSize()));
   pageList = computed(()=> this.getPages(this.currentPage()));
   lastPages = computed(()=> this.getLastPage(this.pageList()) );
