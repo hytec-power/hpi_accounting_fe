@@ -13,7 +13,6 @@
             <thead>
             <tr>
                 <th>Request ID</th>
-                <th>Requester</th>
                 <th>Type</th>
                 <th>Date Request</th>
                 <th>Status</th>
@@ -23,14 +22,13 @@
             <tbody>
               @if (loading){
                 <tr>
-                  <td colspan="6"><div class="text-center m-3"><loader-bouncing-balls/></div> </td>
+                  <td colspan="5"><div class="text-center m-3"><loader-bouncing-balls/></div> </td>
                 </tr>
               }
               @if (!loading) {
                 @for (i of items;track i.uuid){
                   <tr [routerLink]="'/employee/budget-requests/'+i.uuid">
                     <td><a class="link" [routerLink]="'/employee/budget-requests/'+i.uuid">{{ i.request_reference }}</a></td>
-                    <td>{{ i.user.firstname | titlecase }} {{ i.user.lastname | titlecase }}</td>
                     <td>{{ i.type }}</td>
                     <td>{{ i.created_at | date: 'mediumDate' }}</td>
                     <td>Pending</td>
