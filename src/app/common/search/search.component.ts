@@ -1,4 +1,4 @@
-import {Component, input, model} from '@angular/core';
+import {Component, input, model, output} from '@angular/core';
 import {ButtonComponent} from "src/app/common/button/button.component";
 import {FormsModule} from "@angular/forms";
 
@@ -17,5 +17,5 @@ export class SearchComponent {
   search_text = input<string>('Search');
   search_bi_icon = input<string>('');
   placeholder = input<string>('Search');
-
+  onSearch = output<string>();
 }

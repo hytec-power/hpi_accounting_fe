@@ -3,5 +3,5 @@
          [(ngModel)]="value"
          [style.width]="width()"
          [placeholder]="placeholder()">
-  <button-component type="primary" text="Search"/>
+  <button-component (click)="onSearch.emit(value())" type="primary" text="Search"/>
 </div>
