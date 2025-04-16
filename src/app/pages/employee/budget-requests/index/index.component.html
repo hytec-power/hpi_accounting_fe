@@ -2,10 +2,9 @@
     <page-title text="Budget Requests" bi_icon="bi-wallet-fill"  />
     <div class="d-flex flex-row">
       <search-component width="322px"/>
-      <dropdown placeholder="Filter By"/>
-      <dropdown [items]="sort_types"
-                width="200px"
-                placeholder="Sort By" />
+      <dropdown placeholder="Request Type" [items]="filter_types" width="200px"/>
+      <dropdown placeholder="Request Status" [items]="filter_status" width="200px"/>
+      <dropdown [items]="sort_types" width="200px" placeholder="Sort By" />
       <div style="flex:1;"></div>
       <button-component routerLink="/employee/budget-requests/create" text="Add" type="primary" bi_icon="bi-plus-lg" />
     </div>

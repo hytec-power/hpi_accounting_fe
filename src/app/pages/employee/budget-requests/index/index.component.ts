@@ -34,6 +34,7 @@ export class IndexComponent {
   items: BudgetRequest[] = [];
   sort_types: DropdownItem[]=[];
   filter_types: DropdownItem[]=[];
+  filter_status: DropdownItem[]=[];
   constructor(private br: BudgetRequestService) {
     this.init();
   }
@@ -47,6 +48,20 @@ export class IndexComponent {
       {name: 'Requester (A-Z)', value: 'name_asc' },
       {name: 'Requester (Z-A)', value: 'name_desc' },
     ];
+    this.filter_types = [
+      {name: 'All types',value:'all' },
+      {name:'Bidding Documents',value:'date_desc'},
+      {name:'Training / Event / Exhibition',value:'date_desc'},
+      {name:'After Sales Training',value:'date_desc'},
+      {name:'TCP',value:'date_desc'},
+      {name:'Sponsorship',value:'date_desc'},
+    ];
+    this.filter_status = [
+      {name: 'All status',value:'all' },
+      {name:'For Reviewal',value:'For Reviewal'},
+      {name:'Approved',value:'Approved'}
+    ];
+
   }
   apiFetch(){
     this.loading = true;
