@@ -8,7 +8,8 @@
  background-color: colors.$bg-foreground;
  border-radius: 99px;
  position: relative;
-  outline: none;
+ outline: none;
+ margin: 2px;
   &:focus-within .list{
     display: block;
   }
