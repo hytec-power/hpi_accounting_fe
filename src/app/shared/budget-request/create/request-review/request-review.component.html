@@ -160,8 +160,8 @@
           </tr>
           @for (i of data()?.manpower??[];track $index){
             <tr>
-              <td colspan="3">--</td>
-              <td colspan="2">--</td>
+              <td colspan="3"> {{i.name}} </td>
+              <td colspan="2"> {{i.role}} </td>
             </tr>
           } @empty {
             <tr>
