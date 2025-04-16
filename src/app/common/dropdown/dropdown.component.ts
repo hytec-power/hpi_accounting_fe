@@ -1,21 +1,31 @@
-import {Component, input, model, output} from '@angular/core';
+import {Component, ElementRef, input, model, output, viewChild} from '@angular/core';
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'dropdown',
-  imports: [],
+  imports: [
+    NgClass
+  ],
   templateUrl: './dropdown.component.html',
   styleUrl: './dropdown.component.scss'
 })
 export class DropdownComponent {
+  //UI
+  view = viewChild.required('main',{read: ElementRef});
+  width = input<string>();
+  //DATA
   placeholder = input('Select Option');
   selection = model<DropdownItem>();
-  items: DropdownItem[] = [];
+  items = input<DropdownItem[]>([]);
   //OUTPUTS
   onSelect = output<any>();
+
+  ngOnInit(): void {}
 
   select(item: DropdownItem) {
     this.selection.set(item);
     this.onSelect.emit(item.value);
+    this.view()?.nativeElement.blur();
   }
 
 }

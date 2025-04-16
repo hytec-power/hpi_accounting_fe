@@ -1,15 +1,20 @@
-<div class="root-container" tabindex="1">
+<div class="root-container"
+     [style.width]="width()"
+     tabindex="1" #main>
   <div class="selection" tabindex="1">
     @if (selection()){
-      <div class="selection-item"> {{ selection() }} </div>
+      <div class="selection-item"> {{ selection()?.name }} </div>
     } @else {
       <div class="selection-placeholder">{{ placeholder() }}</div>
     }
     <i class="bi bi-chevron-down"></i>
   </div>
   <div class="list">
-    @for (i of items;track $index){
-      <div (click)="select(i)" class="option">{{ i.name }}</div>
+    <div class="list-title">{{ placeholder() }}</div>
+    @for (i of items();track $index){
+      <div (click)="select(i)"
+           [ngClass]="{'selected':i == selection()}"
+           class="option selected" >{{ i.name }}</div>
     } @empty {
       <div class="option empty">No Items </div>
     }

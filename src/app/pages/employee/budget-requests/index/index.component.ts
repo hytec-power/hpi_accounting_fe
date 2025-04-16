@@ -7,7 +7,7 @@ import {BudgetRequest} from "src/app/interfaces/budget-request";
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
 import {CurrencyPipe, DatePipe, TitleCasePipe} from "@angular/common";
 import {PaginatorComponent} from "src/app/common/paginator/paginator.component";
-import {DropdownComponent} from "src/app/common/dropdown/dropdown.component";
+import {DropdownComponent, DropdownItem} from "src/app/common/dropdown/dropdown.component";
 import {SearchComponent} from "src/app/common/search/search.component";
 
 @Component({
@@ -32,10 +32,21 @@ export class IndexComponent {
   loading: boolean =  false;
   //DATA
   items: BudgetRequest[] = [];
+  sort_types: DropdownItem[]=[];
+  filter_types: DropdownItem[]=[];
   constructor(private br: BudgetRequestService) {
+    this.init();
   }
   ngOnInit() {
     this.apiFetch();
+  }
+  init(){
+    this.sort_types = [
+      {name: 'Newest First', value: 'date_desc' },
+      {name: 'Oldest First', value: 'date_asc' },
+      {name: 'Requester (A-Z)', value: 'name_asc' },
+      {name: 'Requester (Z-A)', value: 'name_desc' },
+    ];
   }
   apiFetch(){
     this.loading = true;
@@ -45,4 +56,5 @@ export class IndexComponent {
         .subscribe({next: data => this.items = data})
         .add(()=> this.loading = false);
   }
+
 }
