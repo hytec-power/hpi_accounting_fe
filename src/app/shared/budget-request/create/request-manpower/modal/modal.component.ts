@@ -1,4 +1,4 @@
-import { Component,ViewChild,ElementRef, Output, EventEmitter} from '@angular/core';
+import { Component,ViewChild,ElementRef, Output, EventEmitter, model} from '@angular/core';
 import { ButtonComponent } from "../../../../../common/button/button.component";
 import { FormsModule } from '@angular/forms';
 import { manpower } from 'src/app/interfaces/request-manpower';
@@ -30,42 +30,52 @@ export class ModalComponent {
     {name: "James Baxter", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Manager'},
   ]
   search: string = '';
-  filteredManpower = [...this.manpowerList];
-  activeManpower:{
-    name:string
-    img:string
-    active:boolean
-    role:string
-  }[] = [];
+  activeManpower = model<manpower[]>([]);
+  filteredManpower: manpower[] = [];
+  updatedManpower: manpower [] = [];
   activeCount:{
     name:string
     img:string
     active:boolean
     role:string
   }[] = [];
+
+
+
+  ngOnInit(){  
+    this.updatedManpower = this.manpowerList.map(person => {
+    const updated = this.activeManpower().find(p => p.name === person.name);
+    if (updated) {
+        return { ...person, active: updated.active };
+      }
+      return person;
+    });
+    this.filteredManpower = this.updatedManpower;
+  }
+  
   sendData() {
     this.updateActiveManpower();
-    this.arrayEmitter.emit(this.activeManpower);
+    this.arrayEmitter.emit(this.activeManpower());
     this.dialogRef.nativeElement.close();
   }
   updateActiveManpower() {
-    this.activeManpower = this.manpowerList.filter(skill => skill.active);
+    this.activeManpower.set(this.updatedManpower.filter(skill => skill.active));
   }
   filterManpower() {
-    this.filteredManpower = this.manpowerList.filter(p =>
+    this.filteredManpower = this.updatedManpower.filter(p =>
       p.name.toLowerCase().includes(this.search.toLowerCase()));
   }
   toggleActive(name: string) {
-    const item = this.manpowerList.find(p => p.name === name);
+    const item = this.updatedManpower.find(p => p.name === name);
     if (item) {
       item.active = !item.active;
-    this.activeCount = this.manpowerList.filter(skill => skill.active);
+    this.activeCount = this.updatedManpower.filter(skill => skill.active);
     }
   }
   onClear(event: Event){
   const input = event.target as HTMLInputElement;
   if (input.value === '') {
-    this.filteredManpower = [...this.manpowerList];
+    this.filteredManpower = [...this.updatedManpower];
   }
   }
   open(){

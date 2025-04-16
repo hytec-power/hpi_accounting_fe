@@ -1,4 +1,4 @@
-import {Component, output, ViewChild} from '@angular/core';
+import {Component, output, model, ViewChild} from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ButtonComponent } from 'src/app/common/button/button.component';
 import { CommonModule } from '@angular/common';
@@ -18,36 +18,33 @@ import { manpower } from 'src/app/interfaces/request-manpower';
 })
 
 export class RequestManpowerComponent {
-  receivedUsers: manpower[] = [];
-  search2: string = '';
+  @ViewChild(Modal) Modal!: Modal;
+  receivedUsers = model<manpower[]>([]);
+  search: string = '';
   onNext = output();
   onBack = output();
-  filteredManpower2 = [...this.receivedUsers];
-  @ViewChild(Modal) Modal!: Modal;
+  filteredManpower: manpower[]= [];
+  ngOnInit() {
+    this.filteredManpower = this.receivedUsers();
+  }
   showModal(){
     this.Modal.open();
   }
   receiveArray(data: manpower[]) {
-    this.receivedUsers = data;
-    this.filteredManpower2 = data;
-    console.log('Received users:', this.receivedUsers);
-    console.log(this.filteredManpower2)
+    this.receivedUsers.set(data);
+    this.filteredManpower = data;
   }
-  filterManpower2() {
-    if (!this.search2 || this.search2.trim() === '') {
-      this.filteredManpower2 = [...this.receivedUsers];
-    } else {
-      this.filteredManpower2 = this.receivedUsers.filter((p: { name: string; }) =>
-        p.name.toLowerCase().includes(this.search2.toLowerCase())
-      );
-    }
+  filterManpower() {
+      this.filteredManpower = this.receivedUsers().filter((p: { name: string; }) =>
+        p.name.toLowerCase().includes(this.search.toLowerCase()));
   }
-  clear(event: Event){
+  onClear(event: Event){
     const input = event.target as HTMLInputElement;
     if (input.value === '') {
-      this.filteredManpower2 = [...this.receivedUsers];
+      this.filteredManpower = this.receivedUsers();
     }
   }
+
   test(){
     console.log(this.receivedUsers)
   }

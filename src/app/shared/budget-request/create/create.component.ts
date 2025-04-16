@@ -12,6 +12,7 @@ import {BudgetRequest, DocumentUpload} from "src/app/interfaces/budget-request";
 import {AttachmentsComponent} from "src/app/shared/budget-request/create/attachments/attachments.component";
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
 import {ModalsService} from "src/app/services/common/modals/modals.service";
+import { manpower } from 'src/app/interfaces/request-manpower';
 
 @Component({
   selector: 'create-budget-request',
@@ -37,11 +38,12 @@ export class CreateComponent {
   onCreate = output<void>()
   //UI
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(0);
+  page:WritableSignal<number> = signal(4);
   loading: boolean = false;
   //FORMS & DATA
   form_request_details!: FormGroup;
   purpose: string[] = [];
+  manpower: manpower[] = [];
   form_date_time!: FormGroup;
   form_project_details!: FormGroup;
   form_request_allocation!: FormGroup;
@@ -179,6 +181,7 @@ export class CreateComponent {
       ...this.form_release_details.getRawValue(),
       budget_allocation: this.form_request_allocation.getRawValue(),
       budget_total: this.budget_total,
+      manpower: this.manpower,
       purpose: this.purpose,
       attachments: this.attachments,
     };
@@ -194,6 +197,7 @@ export class CreateComponent {
       ...this.form_release_details.getRawValue(),
       budget_allocation: this.form_request_allocation.getRawValue(),
       budget_total: this.budget_total,
+      manpower: this.manpower,
       purpose: this.purpose,
       attachments: this.attachments,
     };

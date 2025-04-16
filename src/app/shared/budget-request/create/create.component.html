@@ -17,7 +17,7 @@
                                           [(total)]="budget_total"
                                           (onNext)="next()"
                                           (onBack)="back()"/>  }
-        @case(4) {  <request-manpower     (onNext)="next()" (onBack)="back()"/>  }
+        @case(4) {  <request-manpower     (onNext)="next()" (onBack)="back()" [(receivedUsers)]="manpower" />  }
         @case(5) {  <request-attachments  [request_type]="getRequestType()"
                                           [(attachments)]="attachments"
                                           (onNext)="showPreview()"

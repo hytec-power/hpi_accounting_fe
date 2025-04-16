@@ -9,7 +9,7 @@
     </div>
     <form>
         <div class="list">
-            @for (i of filteredManpower; track i) {
+            @for (i of filteredManpower; track i.name) {
                 <div>
                     <div (click)="toggleActive(i.name)" [class.active]="i.active" class="people form pt-2 px-0">
                         <div style="width: 100%;">
@@ -25,7 +25,7 @@
             }
         </div>
         <div class="mt-4">
-            <span class="light" style="color: rgb(55,113,97); font-weight: normal;">{{activeCount.length}} Employees selected.</span>
+            <span class="light" style="color: rgb(55,113,97); font-weight: normal;">{{activeManpower().length}} Employees selected.</span>
             <button-component (click)="sendData()" text="Save" style="float: right;" type="primary"></button-component>
         </div>
     </form>
