@@ -32,6 +32,7 @@ export class PaginatorComponent {
     return pages;
   }
   getLastPage(pageList: number[]) {
+    if(this.pageCount()<=2){return []}
     return [this.pageCount()-1,this.pageCount()].filter(p=> !pageList.includes(p));
   }
   next(){
