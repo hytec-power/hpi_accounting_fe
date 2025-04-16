@@ -6,6 +6,9 @@ import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/bud
 import {BudgetRequest} from "src/app/interfaces/budget-request";
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
 import {CurrencyPipe, DatePipe, TitleCasePipe} from "@angular/common";
+import {PaginatorComponent} from "src/app/common/paginator/paginator.component";
+import {DropdownComponent} from "src/app/common/dropdown/dropdown.component";
+import {SearchComponent} from "src/app/common/search/search.component";
 
 @Component({
     selector: 'app-index',
@@ -16,7 +19,10 @@ import {CurrencyPipe, DatePipe, TitleCasePipe} from "@angular/common";
     LoaderBouncingBallsComponent,
     TitleCasePipe,
     DatePipe,
-    CurrencyPipe
+    CurrencyPipe,
+    PaginatorComponent,
+    DropdownComponent,
+    SearchComponent
   ],
     templateUrl: './index.component.html',
     styleUrl: './index.component.scss'

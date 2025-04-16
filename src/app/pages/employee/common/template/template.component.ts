@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import {SidebarComponent, SidebarItem} from "src/app/common/templates/sidebar/sidebar.component";
-import {HeaderComponent} from "src/app/common/templates/header/header.component";
 import {RouterOutlet} from "@angular/router";
+import { HeaderComponent } from "src/app/pages/employee/common/header/header.component";
 
 @Component({
     selector: 'employee-template',
     imports: [
-        HeaderComponent,
         RouterOutlet,
-        SidebarComponent
+        SidebarComponent,
+        HeaderComponent
     ],
     templateUrl: './template.component.html',
     styleUrl: './template.component.scss'

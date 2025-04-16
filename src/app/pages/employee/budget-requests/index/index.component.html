@@ -1,16 +1,22 @@
 <div class="root-container">
     <page-title text="Budget Requests" bi_icon="bi-wallet-fill"  />
-    <button-component routerLink="/employee/budget-requests/create" text="Create Request" type="primary" bi_icon="bi-plus-lg" />
+    <div class="d-flex flex-row">
+      <search-component width="322px"/>
+      <dropdown placeholder="Filter By"/>
+      <dropdown placeholder="Sort By"/>
+      <div style="flex:1;"></div>
+      <button-component routerLink="/employee/budget-requests/create" text="Add" type="primary" bi_icon="bi-plus-lg" />
+    </div>
     <div class="table-wrapper my-2">
         <table>
             <thead>
             <tr>
                 <th>Request ID</th>
                 <th>Requester</th>
+                <th>Type</th>
+                <th>Date Request</th>
                 <th>Status</th>
-                <th>Amount</th>
-                <th>Date</th>
-                <th></th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -22,14 +28,13 @@
               @if (!loading) {
                 @for (i of items;track i.uuid){
                   <tr [routerLink]="'/employee/budget-requests/'+i.uuid">
-                    <td><a [routerLink]="'/employee/budget-requests/'+i.uuid">{{ i.request_reference }}</a></td>
+                    <td><a class="link" [routerLink]="'/employee/budget-requests/'+i.uuid">{{ i.request_reference }}</a></td>
                     <td>{{ i.user.firstname | titlecase }} {{ i.user.lastname | titlecase }}</td>
+                    <td>{{ i.type }}</td>
+                    <td>{{ i.created_at | date: 'mediumDate' }}</td>
                     <td>Pending</td>
-                    <td>{{ i.budget_total | currency: 'PHP':'symbol' }}</td>
-                    <td>{{ i.created_at | date: 'medium' }}</td>
                     <td>
                       <div class="row-controls">
-                        <i class="bi bi-pencil-fill"></i>
                         <i class="bi bi-trash3-fill"></i>
                       </div>
                     </td>
@@ -43,4 +48,6 @@
             </tbody>
         </table>
     </div>
+    <div class="text-center"><paginator /></div>
+
 </div>

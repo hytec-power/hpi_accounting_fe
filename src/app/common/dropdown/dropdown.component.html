@@ -1,0 +1,17 @@
+<div class="root-container" tabindex="1">
+  <div class="selection" tabindex="1">
+    @if (selection()){
+      <div class="selection-item"> {{ selection() }} </div>
+    } @else {
+      <div class="selection-placeholder">{{ placeholder() }}</div>
+    }
+    <i class="bi bi-chevron-down"></i>
+  </div>
+  <div class="list">
+    @for (i of items;track $index){
+      <div (click)="select(i)" class="option">{{ i.name }}</div>
+    } @empty {
+      <div class="option empty">No Items </div>
+    }
+  </div>
+</div>
