@@ -8,6 +8,13 @@
       <div style="flex:1;"></div>
       <button-component routerLink="/employee/budget-requests/create" text="Add" type="primary" bi_icon="bi-plus-lg" />
     </div>
+    <div class="message ">
+      <span class="count">{{ items_count }}</span>Items found.
+      @if (query()) {
+        <span> Search Results for "{{query()}}". </span>
+        <span (click)="query.set('')" class="clear-search"> Clear </span>
+      }
+    </div>
     <div class="table-wrapper my-2">
         <table>
             <thead>

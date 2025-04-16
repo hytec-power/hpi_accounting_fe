@@ -9,6 +9,7 @@ import {CurrencyPipe, DatePipe, TitleCasePipe} from "@angular/common";
 import {PaginatorComponent} from "src/app/common/paginator/paginator.component";
 import {DropdownComponent, DropdownItem} from "src/app/common/dropdown/dropdown.component";
 import {SearchComponent} from "src/app/common/search/search.component";
+import {count} from "rxjs";
 
 @Component({
     selector: 'app-index',
@@ -77,4 +78,5 @@ export class IndexComponent {
         .add(()=> this.loading = false);
   }
 
+  protected readonly count = count;
 }
