@@ -14,14 +14,14 @@
   </div>
   <div style="width: 100%;" class="row">
     <div class="col">
-      <div class="row">
-        <div class="col-7">
-          <request-purpose [form]="purpose_form" />
+      <div class="row align-items-stretch">
+        <div class="col-7 d-flex">
+          <request-purpose class="flex-fill" [form]="purpose_form"></request-purpose>
         </div>
-        <div class="col-5">
-          <request-date [form]="date_form"/>
+        <div class="col-5 d-flex">
+          <request-date class="flex-fill" [form]="date_form"></request-date>
         </div>
-      </div>
+      </div>       
       <app-budget [record]="record()"/>
       <app-attachment [record]="record()"/>
     </div>
