@@ -30,6 +30,6 @@ export class BudgetRequestService {
 
   }
   employees(){
-    return this.http.get<HpiUser[]>(`${this.api}/employees`,{observe: 'response'});
+    return this.http.get<HpiUser[]>(`${this.api}/employees`,{observe: 'body'});
   }
 }
