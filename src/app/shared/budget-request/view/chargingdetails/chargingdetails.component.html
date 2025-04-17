@@ -30,7 +30,7 @@
             </div>
             <div class="col-md-6 mb-3">
                 <h6>Expected Release of P.O</h6>
-                <input  class="back2" style="font-size: 18px;width: 92%;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="record().expected_quarter" [value]="record().expected_year" [readOnly]="!isEditable">
+                <input  class="back2" style="font-size: 18px;width: 92%;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="record().expected_quarter + '/' + record().expected_year" [readOnly]="!isEditable">
                 <i *ngIf="isEditable" style="position: relative; right: 22px; color: #037354;" class="bi bi-caret-down-fill"></i>
 
             </div>
