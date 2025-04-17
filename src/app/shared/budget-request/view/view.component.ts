@@ -9,6 +9,7 @@ import {RequestManpowerComponent} from './request-manpower/request-manpower.comp
 import {BudgetRequest} from "src/app/interfaces/budget-request";
 import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/budget-request.service";
 import {ActivatedRoute} from "@angular/router";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'budget-request-viewer',
@@ -27,13 +28,17 @@ import {ActivatedRoute} from "@angular/router";
 export class BudgetRequestViewComponent {
   //UI
   steps: StepperItem[]=[];
+  date_form!: FormGroup;
   //DATA
   record= input.required<BudgetRequest>() ;
-  constructor(private brApi: BudgetRequestService,
+  constructor(private fb: FormBuilder,
+              private brApi: BudgetRequestService,
               private ar: ActivatedRoute) {
     this.initSteps();
   }
   ngOnInit() {
+    console.log(this.record());
+    this.initForms();
   }
   initSteps(){
     this.steps.push(...[
@@ -45,4 +50,15 @@ export class BudgetRequestViewComponent {
       {name: 'Confirmation', bi_icon: 'bi-card-checklist'},
     ])
   }
+  initForms(){
+    this.initDateform();
+  }
+  initDateform(){
+    this.date_form = this.fb.group({
+      view_date: [this.record().date_needed,Validators.required],
+      view_time: [this.record().time_needed,Validators.required],
+      view_util: [this.record().date_utilization,Validators.required]
+    })
+  }
+  
 }
