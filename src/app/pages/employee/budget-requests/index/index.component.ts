@@ -73,10 +73,12 @@ export class IndexComponent {
     this.loading = true;
     this.items = [];
     this.br
-        .index(page)
+        .index(page,query)
         .subscribe({next: data => { this.items = data.items ; this.items_count = data.count }})
         .add(()=> this.loading = false);
   }
-
-  protected readonly count = count;
+  onSearch(query: string){
+    this.page.set(1);
+    this.query.set(query);
+  }
 }

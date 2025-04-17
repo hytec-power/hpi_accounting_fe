@@ -10,8 +10,9 @@ import {BudgetRequest} from "src/app/interfaces/budget-request";
 export class BudgetRequestService {
   api = `${environment.apiUrl}/employee/budget-requests`;
   constructor(private http: HttpClient) { }
-  index(page:number){
-    const params = new HttpParams().set("page", page);
+  index(page:number,query: string){
+    const params = new HttpParams().set("page", page)
+                                              .set("query", query);
 
     return this.http.get<{ count:number , items: BudgetRequest[] }>(`${this.api}`,{observe: 'body',params: params});
   }

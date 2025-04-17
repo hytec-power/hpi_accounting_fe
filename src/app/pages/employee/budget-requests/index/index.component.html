@@ -1,7 +1,9 @@
 <div class="root-container">
     <page-title text="Budget Requests" bi_icon="bi-wallet-fill"  />
     <div class="d-flex flex-row">
-      <search-component width="322px" (onSearch)="query.set($event)"/>
+      <search-component width="322px"
+                        placeholder="Search project name / Request Number"
+                        (onSearch)="onSearch($event)"/>
       <dropdown placeholder="Request Type" [items]="filter_types" width="200px"/>
       <dropdown placeholder="Request Status" [items]="filter_status" width="200px"/>
       <dropdown [items]="sort_types" width="200px" placeholder="Sort By" />
@@ -20,6 +22,7 @@
             <thead>
             <tr>
                 <th>Request ID</th>
+                <th>Project Name</th>
                 <th>Type</th>
                 <th>Date Request</th>
                 <th>Status</th>
@@ -29,13 +32,14 @@
             <tbody>
               @if (loading){
                 <tr>
-                  <td colspan="5"><div class="text-center m-3"><loader-bouncing-balls/></div> </td>
+                  <td colspan="6"><div class="text-center m-3"><loader-bouncing-balls/></div> </td>
                 </tr>
               }
               @if (!loading) {
                 @for (i of items;track i.uuid){
                   <tr [routerLink]="'/employee/budget-requests/'+i.uuid">
                     <td><a class="link" [routerLink]="'/employee/budget-requests/'+i.uuid">{{ i.request_reference }}</a></td>
+                    <td>{{ i.project_name }}</td>
                     <td>{{ i.type }}</td>
                     <td>{{ i.created_at | date: 'mediumDate' }}</td>
                     <td>Pending</td>
@@ -47,7 +51,7 @@
                   </tr>
                 } @empty {
                   <tr>
-                    <td colspan="5"><div class="text-center">No items</div></td>
+                    <td colspan="6"><div class="text-center">No items</div></td>
                   </tr>
                 }
               }
