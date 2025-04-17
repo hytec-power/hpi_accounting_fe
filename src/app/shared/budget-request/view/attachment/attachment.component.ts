@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BudgetRequest } from 'src/app/interfaces/budget-request';
 
 @Component({
   selector: 'app-attachment',
@@ -9,6 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './attachment.component.scss'
 })
 export class AttachmentComponent {
+  record = input.required<BudgetRequest>();
   isEditable = false;
   onedit(){
     this.isEditable = !this.isEditable
