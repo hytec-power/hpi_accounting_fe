@@ -20,7 +20,7 @@
             <h6>P.O. Number</h6>
             <input class="back2" style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="record().po_reference" [readOnly]="!isEditable">
             <h6> P.O Amount</h6>
-            <input class="back2" style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="record().po_amount" [readOnly]="!isEditable">
+            <input class="back2" style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="!isEditable ? (record().po_amount | currency:'PHP':'symbol') : record().po_amount" [readOnly]="!isEditable">
         </div>
         <div class="future row">
             <h6 class="mb-3"><strong>FOR FUTURE PROJECT</strong></h6>
