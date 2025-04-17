@@ -28,4 +28,7 @@ export class BudgetRequestService {
   delete(uuid: string){
 
   }
+  employees(){
+    return this.http.get(`${this.api}/employees`,{observe: 'response'});
+  }
 }
