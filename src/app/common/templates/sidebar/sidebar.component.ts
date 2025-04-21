@@ -15,7 +15,6 @@ export class SidebarComponent {
   items = input<SidebarItem[]>([]);
   toggle_temp: boolean = true;
   constructor(private theme: ThemeService) {
-
   }
   test(){
     this.toggle_temp = !this.toggle_temp;

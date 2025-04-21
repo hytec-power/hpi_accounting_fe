@@ -1,0 +1,53 @@
+<div class="root-container">
+    <page-title text="List of Schools/Companies" bi_icon="bi-wallet-fill"  />
+    <div class="d-flex flex-row">
+      <search-component width="322px" placeholder="Search School or Company Name"/>
+      <dropdown placeholder="Filter by" [items]="filter_types" width="200px"/>
+      <dropdown [items]="sort_types" width="200px" placeholder="Sort By" />
+      <div style="flex:1;"></div>
+      <button-component routerLink="" text="Add" type="primary" bi_icon="bi-plus-lg" />
+    </div>
+    <div class="message ">
+      <span class="count">{{ items_count }}</span>Items found.
+        <span> Search Results for "". </span>
+        <span  class="clear-search"> Clear </span>
+    </div>
+    <div class="table-wrapper my-2">
+        <table style="width: 100%;">
+            <thead>
+            <tr>
+                <th style="width: 20%;">School/Company Name</th>
+                <th style="width: 50%;">Address</th>
+                <th>Date Added</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+              @if (loading){
+                <tr>
+                  <td colspan="6"><div class="text-center m-3"><loader-bouncing-balls/></div> </td>
+                </tr>
+              }
+              @if (!loading) {
+                  <tr >
+                    <td><a class="link" >Quezon City University</a></td>
+                    <td>Quirino Highway San Bartolome Campus Quezon City</td>
+                    <td>March 12, 2025</td>
+                    <td>
+                      <div class="row-controls">
+                        <i class="bi bi-pencil-square"></i>
+                        <i class="bi bi-trash"></i>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4"><div class="text-center">No items</div></td>
+                  </tr>
+              }
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center"><paginator 
+                                        [itemCount]="items_count"
+                                        [pageSize]="10" /></div>
+</div>

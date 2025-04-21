@@ -11,12 +11,9 @@ import { ButtonComponent } from "../../../../common/button/button.component";
   styleUrl: './budget.component.scss'
 })
 export class BudgetComponent {
-
   record = input.required<BudgetRequest>();
-  
   isEditable = false;
   onedit(){
     this.isEditable = !this.isEditable
   }
-  
 }
