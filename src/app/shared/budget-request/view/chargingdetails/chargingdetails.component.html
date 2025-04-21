@@ -1,39 +1,41 @@
 <div class="root-container">
-    <div class=" head d-flex" >
-        <i class="bi bi-clipboard mb-3" style="margin-right: 10px;"></i>
-        <div class="section-title">Charging Details</div>
-        <div class="edit">
-            <i class=" bi bi-pencil-square" style="cursor: pointer;" (click)="onedit()"></i>
-        </div>
-    </div>
-        <div class="container mb-2">
-            <h6>Title</h6>
-            <input  type="text" class="back" [ngClass]="{'inactiveEdit':isEditable}" [value]="record().project_name" [readOnly]="!isEditable">
-            <h6>School/Company</h6>
-            <input  type="text" class="back" [ngClass]="{'inactiveEdit':isEditable}" value="asa" [readOnly]="!isEditable">
-            <h6>Address</h6>
-            <input  type="text" class="back"[ngClass]="{'inactiveEdit':isEditable}" value="Quirino Highway Barangay San Bartolome" [readOnly]="!isEditable">
-        </div>
-        <div class="data mb-3" style="padding: 20px;">
-            <h6>Quotation Reference</h6>
-            <input class="back2" style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="record().quotation_reference" [readOnly]="!isEditable">
-            <h6>P.O. Number</h6>
-            <input class="back2" style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="record().po_reference" [readOnly]="!isEditable">
-            <h6> P.O Amount</h6>
-            <input class="back2" style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="!isEditable ? (record().po_amount | currency:'PHP':'symbol') : record().po_amount" [readOnly]="!isEditable">
-        </div>
-        <div class="future row">
-            <h6 class="mb-3"><strong>FOR FUTURE PROJECT</strong></h6>
-            <div class="col-md-6">
-                <h6>Confidence Level</h6>
-                <input  class="back2" style="font-size: 18px ; width: 92%;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="record().confidence_level" [readOnly]="!isEditable">
+    <form [formGroup]="form()">
+        <div class=" head d-flex" >
+            <i class="bi bi-clipboard mb-3" style="margin-right: 10px;"></i>
+            <div class="section-title">Charging Details</div>
+            <div class="edit">
+                <i class=" bi bi-pencil-square" style="cursor: pointer;" (click)="onedit()"></i>
             </div>
-            <div class="col-md-6 mb-3">
-                <h6>Expected Release of P.O</h6>
-                <input  class="back2" style="font-size: 18px;width: 92%;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="record().expected_quarter + '/' + record().expected_year" [readOnly]="!isEditable">
-                <i *ngIf="isEditable" style="position: relative; right: 22px; color: #037354;" class="bi bi-caret-down-fill"></i>
-
-            </div>
-            <button-component *ngIf="isEditable" style="width: auto; margin-left: auto;"  text="Save" type="primary"></button-component>
         </div>
+            <div class="container mb-2">
+                <h6>Title</h6>
+                <input  type="text" class="back" [ngClass]="{'inactiveEdit':isEditable}" formControlName="project_name" [readOnly]="!isEditable">
+                <h6>School/Company</h6>
+                <input  type="text" class="back" [ngClass]="{'inactiveEdit':isEditable}" value="asa" [readOnly]="!isEditable">
+                <h6>Address</h6>
+                <input  type="text" class="back"[ngClass]="{'inactiveEdit':isEditable}" value="Quirino Highway Barangay San Bartolome" [readOnly]="!isEditable">
+            </div>
+            <div class="data mb-3" style="padding: 20px;">
+                <h6>Quotation Reference</h6>
+                <input class="back2" style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':isEditable}" formControlName="quotation_ref" [readOnly]="!isEditable">
+                <h6>P.O. Number</h6>
+                <input class="back2" style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':isEditable}" formControlName="po_ref" [readOnly]="!isEditable">
+                <h6> P.O Amount</h6>
+                <input class="back2" style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':isEditable}" formControlName="po_amount" [readOnly]="!isEditable">
+            </div>
+            <div class="future row">
+                <h6 class="mb-3"><strong>FOR FUTURE PROJECT</strong></h6>
+                <div class="col-md-6">
+                    <h6>Confidence Level</h6>
+                    <input  class="back2" style="font-size: 18px ; width: 92%;" type="text" [ngClass]="{'inactiveEdit':isEditable}" formControlName="confidence_level"  [readOnly]="!isEditable">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h6>Expected Release of P.O</h6>
+                    <input  class="back2" style="font-size: 18px;width: 92%;" type="text" [ngClass]="{'inactiveEdit':isEditable}" formControlName="expected_qy"  [readOnly]="!isEditable">
+                    <i *ngIf="isEditable" style="position: relative; right: 22px; color: #037354;" class="bi bi-caret-down-fill"></i>
+    
+                </div>
+                <button-component [disabled]="form().invalid" *ngIf="isEditable" style="width: auto; margin-left: auto;"  text="Save" type="primary"></button-component>
+            </div>
+    </form>
 </div>
