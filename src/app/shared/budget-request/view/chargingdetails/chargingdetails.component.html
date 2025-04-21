@@ -20,17 +20,17 @@
             <h6>P.O. Number</h6>
             <input class="back2" style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="record().po_reference" [readOnly]="!isEditable">
             <h6> P.O Amount</h6>
-            <input class="back2" style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="record().po_amount" [readOnly]="!isEditable">
+            <input class="back2" style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="!isEditable ? (record().po_amount | currency:'PHP':'symbol') : record().po_amount" [readOnly]="!isEditable">
         </div>
         <div class="future row">
             <h6 class="mb-3"><strong>FOR FUTURE PROJECT</strong></h6>
             <div class="col-md-6">
                 <h6>Confidence Level</h6>
-                <input  class="back2" style="font-size: 18px ; width: 92%;" type="text" [ngClass]="{'inactiveEdit':isEditable}" value="90%" [readOnly]="!isEditable">
+                <input  class="back2" style="font-size: 18px ; width: 92%;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="record().confidence_level" [readOnly]="!isEditable">
             </div>
             <div class="col-md-6 mb-3">
                 <h6>Expected Release of P.O</h6>
-                <input  class="back2" style="font-size: 18px;width: 92%;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="record().expected_quarter" [value]="record().expected_year" [readOnly]="!isEditable">
+                <input  class="back2" style="font-size: 18px;width: 92%;" type="text" [ngClass]="{'inactiveEdit':isEditable}" [value]="record().expected_quarter + '/' + record().expected_year" [readOnly]="!isEditable">
                 <i *ngIf="isEditable" style="position: relative; right: 22px; color: #037354;" class="bi bi-caret-down-fill"></i>
 
             </div>
