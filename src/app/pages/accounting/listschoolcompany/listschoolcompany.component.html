@@ -1,11 +1,11 @@
 <div class="root-container">
-    <page-title text="List of Schools/Companies" bi_icon="bi-wallet-fill"  />
+    <page-title text="List of Schools/Companies" bi_icon="bi-building-fill"  />
     <div class="d-flex flex-row">
       <search-component width="322px" placeholder="Search School or Company Name"/>
       <dropdown placeholder="Filter by" [items]="filter_types" width="200px"/>
       <dropdown [items]="sort_types" width="200px" placeholder="Sort By" />
       <div style="flex:1;"></div>
-      <button-component routerLink="" text="Add" type="primary" bi_icon="bi-plus-lg" />
+      <button-component text="Add" (click)="openadd()" type="primary" bi_icon="bi-plus-lg" />
     </div>
     <div class="message ">
       <span class="count">{{ items_count }}</span>Items found.
@@ -35,8 +35,8 @@
                     <td>March 12, 2025</td>
                     <td>
                       <div class="row-controls">
-                        <i class="bi bi-pencil-square"></i>
-                        <i class="bi bi-trash"></i>
+                        <i style="font-size: 20px;" class="bi bi-pencil-square" (click)="onedit()"></i>
+                        <i  style="font-size: 20px;" class="bi bi-trash" (click)="ondelete()"></i>
                       </div>
                     </td>
                   </tr>
@@ -51,3 +51,4 @@
                                         [itemCount]="items_count"
                                         [pageSize]="10" /></div>
 </div>
+<app-adeditmodal #basicdialog #basicdialog2/>

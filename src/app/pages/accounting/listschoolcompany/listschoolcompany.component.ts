@@ -1,4 +1,4 @@
-import { Component, effect, signal, WritableSignal } from '@angular/core';
+import { Component, effect, signal, ViewChild, WritableSignal } from '@angular/core';
 import { PageTitleComponent } from "../../../common/page-title/page-title.component";
 import {DropdownComponent, DropdownItem} from "src/app/common/dropdown/dropdown.component";
 import { ButtonComponent } from "../../../common/button/button.component";
@@ -8,15 +8,19 @@ import { SearchComponent } from "../../../common/search/search.component";
 import {RouterLink} from "@angular/router";
 import { BudgetRequestService } from 'src/app/services/employee/budget-reqeust/budget-request.service';
 import { BudgetRequest } from 'src/app/interfaces/budget-request';
+import { AdeditmodalComponent } from './adeditmodal/adeditmodal.component';
 
 
 @Component({
   selector: 'app-listschoolcompany',
-  imports: [ PageTitleComponent, DropdownComponent, ButtonComponent, LoaderBouncingBallsComponent, PaginatorComponent, SearchComponent,RouterLink],
+  imports: [PageTitleComponent, DropdownComponent, ButtonComponent, LoaderBouncingBallsComponent, PaginatorComponent, SearchComponent, RouterLink, AdeditmodalComponent],
   templateUrl: './listschoolcompany.component.html',
   styleUrl: './listschoolcompany.component.scss'
 })
 export class ListschoolcompanyComponent {
+  @ViewChild('basicdialog') child!: AdeditmodalComponent;
+  @ViewChild('basicdialog2') child2!: AdeditmodalComponent;
+  
   loading: boolean =  false;
   //DATA
 
@@ -26,7 +30,7 @@ export class ListschoolcompanyComponent {
   filter_status: DropdownItem[]=[];
   //PAGINATION
 
-  constructor(private br: BudgetRequestService) {
+  constructor() {
     this.init();
   }
   ngOnInit() {
@@ -43,7 +47,16 @@ export class ListschoolcompanyComponent {
       {name:'School',value:'date_desc'},
       {name:'Company',value:'date_desc'},
     ]
-
-
+  }
+  openadd() {
+    this.child.isEdit = false;
+    this.child.openDialog();
+  }
+  onedit() {
+    this.child.isEdit = true;
+    this.child.openDialog();
+  }
+  ondelete(){
+    this.child2.openConfirmDialog()
   }
 }
