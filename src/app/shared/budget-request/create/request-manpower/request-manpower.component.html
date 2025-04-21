@@ -27,17 +27,17 @@
                             <button-component bi_icon="bi-plus-lg" [borderRadius]="'round'" style="float: right;" (click)="showModal()" text="Add People" type="primary" />
                         </div>
                         <div class="list">
-                            @for (i of filteredManpower; track i.name) {
+                            @for (i of filteredManpower; track i) {
                                 <div class="roles pt-2">
                                     <div>
                                         <div>
                                             
                                             <div>
-                                                <img class="powerImage" src={{i.img}} alt="">
+                                                <img class="powerImage" src={{i.image}} alt="">
                                             </div>
                                             <div style="width: 145px;" class="col-1">
-                                                <div style="max-width: 145px; max-height: 22.5px; font-size: 15px; overflow: hidden;"> {{i.name}} </div>
-                                                <div style="font-size: 12px;"> {{i.role}} </div>
+                                                <div style="max-width: 145px; max-height: 22.5px; font-size: 15px; overflow: hidden;">{{i.firstname}} {{i.middlename}} {{i.lastname}}</div>
+                                                <div style="font-size: 12px;"> {{i.employees_id}} </div>
                                             </div>
                                         </div>
                                     </div>

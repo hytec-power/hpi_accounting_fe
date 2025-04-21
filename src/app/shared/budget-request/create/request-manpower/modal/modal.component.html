@@ -9,15 +9,15 @@
     </div>
     <form>
         <div class="list">
-            @for (i of filteredManpower; track i.name) {
+            @for (i of filteredManpower; track i.uuid) {
                 <div>
-                    <div (click)="toggleActive(i.name)" [class.active]="i.active" class="people form pt-2 px-0">
+                    <div (click)="toggleActive(i.uuid)" class="people form pt-2 px-0" [ngStyle]="{'background-color': isActive(i.uuid) ? 'lightgreen' : 'white'}">
                         <div style="width: 100%;">
-                            <img src={{i.img}} alt="">
+                            <img src={{i.image}} alt="">
                             <br>
                             <div>
-                                <div style="max-width: 145px; max-height: 22.5px; font-size: 15px; overflow: hidden;">{{i.name}}</div>
-                                <div style="font-size: 12px;">{{i.role}}</div>
+                                <div style="max-width: 145px; max-height: 22.5px; font-size: 15px; overflow: hidden;">{{i.firstname}} {{i.middlename}} {{i.lastname}}</div>
+                                <div style="font-size: 12px;">{{i?.employees_id}}</div>
                             </div>
                         </div>
                     </div>
