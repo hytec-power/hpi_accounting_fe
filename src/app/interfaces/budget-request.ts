@@ -2,6 +2,7 @@ import {User} from "src/app/interfaces/user";
 import {FileUpload} from "src/app/interfaces/file-upload";
 import { manpower } from "./request-manpower";
 import {FileStore} from "src/app/interfaces/file-store";
+import { HpiUser } from "./hpi-user";
 
 export interface BudgetRequest {
   uuid: string,
@@ -32,7 +33,7 @@ export interface BudgetRequest {
   }
   budget_total: number,
   //MANPOWER
-  manpower: manpower[];
+  manpower: HpiUser[];
   //ATTACHMENTS
   attachments: DocumentUpload[]
   //CONTROLS

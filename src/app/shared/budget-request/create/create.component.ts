@@ -13,6 +13,7 @@ import {AttachmentsComponent} from "src/app/shared/budget-request/create/attachm
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
 import {ModalsService} from "src/app/services/common/modals/modals.service";
 import { manpower } from 'src/app/interfaces/request-manpower';
+import { HpiUser } from 'src/app/interfaces/hpi-user';
 
 @Component({
   selector: 'create-budget-request',
@@ -43,7 +44,7 @@ export class CreateComponent {
   //FORMS & DATA
   form_request_details!: FormGroup;
   purpose: string[] = [];
-  manpower: manpower[] = [];
+  manpower: HpiUser[] = [];
   form_date_time!: FormGroup;
   form_project_details!: FormGroup;
   form_request_allocation!: FormGroup;
@@ -197,7 +198,7 @@ export class CreateComponent {
       ...this.form_release_details.getRawValue(),
       budget_allocation: this.form_request_allocation.getRawValue(),
       budget_total: this.budget_total,
-      manpower: this.manpower,
+      manpower: this.manpower.map(m => m.uuid),
       purpose: this.purpose,
       attachments: this.attachments,
     };

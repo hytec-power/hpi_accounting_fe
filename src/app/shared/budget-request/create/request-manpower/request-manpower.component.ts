@@ -4,6 +4,7 @@ import { ButtonComponent } from 'src/app/common/button/button.component';
 import { CommonModule } from '@angular/common';
 import { ModalComponent as Modal } from './modal/modal.component';
 import { manpower } from 'src/app/interfaces/request-manpower';
+import { HpiUser } from 'src/app/interfaces/hpi-user';
 
 @Component({
   selector: 'request-manpower',
@@ -19,32 +20,31 @@ import { manpower } from 'src/app/interfaces/request-manpower';
 
 export class RequestManpowerComponent {
   @ViewChild(Modal) Modal!: Modal;
-  receivedUsers = model<manpower[]>([]);
+  receivedUsers = model<HpiUser[]>([]);
   search: string = '';
   onNext = output();
   onBack = output();
-  filteredManpower: manpower[]= [];
+  filteredManpower: HpiUser[]= [];
   ngOnInit() {
-    this.filteredManpower = this.receivedUsers();
+    this.filteredManpower = [...this.receivedUsers()];
   }
   showModal(){
     this.Modal.open();
   }
-  receiveArray(data: manpower[]) {
+  receiveArray(data: HpiUser[]) {
     this.receivedUsers.set(data);
     this.filteredManpower = data;
   }
   filterManpower() {
-      this.filteredManpower = this.receivedUsers().filter((p: { name: string; }) =>
-        p.name.toLowerCase().includes(this.search.toLowerCase()));
+    this.filteredManpower = this.receivedUsers().filter(p =>(`${p.firstname} ${p?.middlename ? p.middlename +  ' ': ''} ${p.lastname}`
+    ).toLowerCase().includes(this.search.toLowerCase()));
   }
   onClear(event: Event){
     const input = event.target as HTMLInputElement;
     if (input.value === '') {
-      this.filteredManpower = this.receivedUsers();
+      this.filteredManpower = [...this.receivedUsers()];
     }
   }
-
   test(){
     console.log(this.receivedUsers)
   }
