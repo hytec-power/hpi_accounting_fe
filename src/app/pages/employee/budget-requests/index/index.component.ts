@@ -40,9 +40,10 @@ export class IndexComponent {
   query: WritableSignal<string> = signal('');
   type!: WritableSignal<DropdownItem>;
   status!: WritableSignal<DropdownItem>
+  sort!: WritableSignal<DropdownItem>
   constructor(private br: BudgetRequestService) {
     this.init();
-    effect(() => this.apiFetch(this.page(),this.query(),this.type().value,this.status().value));
+    effect(() => this.apiFetch(this.page(),this.query(),this.sort().value,this.type().value,this.status().value));
   }
   ngOnInit() {
   }
@@ -69,13 +70,14 @@ export class IndexComponent {
 
     this.type = signal(this.filter_types[0]);
     this.status = signal(this.filter_status[0]);
+    this.sort = signal(this.sort_types[0]);
 
   }
-  apiFetch(page: number,query: string,type: string,status: string){
+  apiFetch(page: number,query: string,sort: string, type: string,status: string){
     this.loading = true;
     this.items = [];
     this.br
-        .index(page,query,type,status)
+        .index(page,query,sort,type,status)
         .subscribe({next: data => { this.items = data.items ; this.items_count = data.count }})
         .add(()=> this.loading = false);
   }
