@@ -3,9 +3,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ButtonComponent } from 'src/app/common/button/button.component';
 import { CommonModule } from '@angular/common';
 import { ModalComponent as Modal } from './modal/modal.component';
-import { manpower } from 'src/app/interfaces/request-manpower';
 import { HpiUser } from 'src/app/interfaces/hpi-user';
 import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/budget-request.service";
+import { LoaderBouncingBallsComponent } from 'src/app/common/loader-bouncing-balls/loader-bouncing-balls.component';
 
 @Component({
   selector: 'request-manpower',
@@ -14,7 +14,8 @@ import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/bud
     ReactiveFormsModule,
     CommonModule,
     FormsModule,
-    Modal],
+    Modal,
+    LoaderBouncingBallsComponent],
   templateUrl: './request-manpower.component.html',
   styleUrl: './request-manpower.component.scss'
 })
@@ -28,7 +29,6 @@ export class RequestManpowerComponent {
   onBack = output();
   filteredManpower: HpiUser[]= [];
   employees: HpiUser[] = [];
-  filtered_employee: HpiUser[] = [];
   constructor(public brApi: BudgetRequestService) {
   }
   ngOnInit() {
@@ -38,7 +38,7 @@ export class RequestManpowerComponent {
   fetchEmployees(){
     this.brApi.employees()
         .subscribe({
-          next: data => {this.employees = data; this.filtered_employee = data;},
+          next: data => this.employees = data,
           complete: () => this.loading = false
         })
   }

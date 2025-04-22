@@ -1,57 +1,65 @@
 <div class="root-container">
-    <div style="display: flex; flex-direction: column;">
-        <div class="title my-0">Who are the individuals involved for this Budget Request?</div>
-        <div>
-            <div style="font-size: 15px;">
-                <span class="active">NOTE:</span>
-                <span class="light"> This is for events/exhibits only. Disregard this if not applicable.</span>
-            </div>
+    @if (loading) {
+        <div class="d-flex flex-column align-items-center justify-content-center my-5">
+          <loader-bouncing-balls/>
+          <div>Loading</div>
         </div>
-        <div style="max-height: 360px;">
-            @switch (receivedUsers().length === 0) {
-                @case (true) {
-                <div style="height: 360px;" class="createManpower mt-5">
-                    <button-component (click)="showModal()" text="Create Manpower" type="primary" />
+      }
+    @if (!loading) {
+        <div style="display: flex; flex-direction: column;">
+            <div class="title my-0">Who are the individuals involved for this Budget Request?</div>
+            <div>
+                <div style="font-size: 15px;">
+                    <span class="active">NOTE:</span>
+                    <span class="light"> This is for events/exhibits only. Disregard this if not applicable.</span>
                 </div>
-                }
-                @case (false) {
-                    <div style="height: 300px;">
-                        <div>
-                            <div style="font-weight: 300;" class="title my-0">Manpower({{receivedUsers().length}})</div>
-                        </div>
-                        <div style="display: flex; justify-content: space-between;" class="my-2">
+            </div>
+            <div style="max-height: 360px;">
+                @switch (receivedUsers().length === 0) {
+                    @case (true) {
+                    <div style="height: 360px;" class="createManpower mt-5">
+                        <button-component (click)="showModal()" text="Create Manpower" type="primary" />
+                    </div>
+                    }
+                    @case (false) {
+                        <div style="height: 300px;">
                             <div>
-                                <input class="search" type="search" placeholder="Search employee name" [(ngModel)]="search" (input)="onClear($event)">
-                                <button-component [borderRadius]="'round'" style="float: end;"  text="Search" type="primary" (click)="filterManpower()"></button-component>
+                                <div style="font-weight: 300;" class="title my-0">Manpower({{receivedUsers().length}})</div>
                             </div>
-                            <button-component bi_icon="bi-plus-lg" [borderRadius]="'round'" style="float: right;" (click)="showModal()" text="Add People" type="primary" />
-                        </div>
-                        <div class="list">
-                            @for (i of filteredManpower; track i) {
-                                <div class="roles pt-2">
-                                    <div>
+                            <div style="display: flex; justify-content: space-between;" class="my-2">
+                                <div>
+                                    <input class="search" type="search" placeholder="Search employee name" [(ngModel)]="search" (input)="onClear($event)">
+                                    <button-component [borderRadius]="'round'" style="float: end;"  text="Search" type="primary" (click)="filterManpower()"></button-component>
+                                </div>
+                                <button-component bi_icon="bi-plus-lg" [borderRadius]="'round'" style="float: right;" (click)="showModal()" text="Add People" type="primary" />
+                            </div>
+                            <div class="list">
+                                @for (i of filteredManpower; track i) {
+                                    <div class="roles pt-2">
                                         <div>
-                                            
                                             <div>
-                                                <img class="powerImage" src={{i.image}} alt="">
-                                            </div>
-                                            <div style="width: 145px;" class="col-1">
-                                                <div style="max-width: 145px; max-height: 22.5px; font-size: 15px; overflow: hidden;">{{i.firstname}} {{i.middlename}} {{i.lastname}}</div>
-                                                <div style="font-size: 12px;"> {{i.employees_id}} </div>
+                                                
+                                                <div>
+                                                    <img class="powerImage" src={{i.image}} alt="">
+                                                </div>
+                                                <div style="width: 145px;" class="col-1">
+                                                    <div style="max-width: 145px; max-height: 22.5px; font-size: 15px; overflow: hidden;">{{i.firstname}} {{i.middlename}} {{i.lastname}}</div>
+                                                    <div style="font-size: 12px;"> {{i.employees_id}} </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    </div>
-                                }
+                                        </div>
+                                    }
+                            </div>
                         </div>
-                    </div>
+                    }
                 }
-            }
+            </div>
+            <div class="d-flex flex-row justify-content-end my-5">
+                <button-component (click)="onBack.emit()" text="Back" type="default" />
+                <button-component (click)="onNext.emit()" text="Next" type="primary" />
+            </div>
+            <app-modal-test (arrayEmitter)="receiveArray($event)" [(activeManpower)]="receivedUsers" [(employeesList)]="employees"></app-modal-test>
         </div>
-        <div class="d-flex flex-row justify-content-end my-5">
-            <button-component (click)="onBack.emit()" text="Back" type="default" />
-            <button-component (click)="onNext.emit()" text="Next" type="primary" />
-        </div>
-        <app-modal-test (arrayEmitter)="receiveArray($event)" [(activeManpower)]="receivedUsers"></app-modal-test>
-    </div>
+    }
 </div>

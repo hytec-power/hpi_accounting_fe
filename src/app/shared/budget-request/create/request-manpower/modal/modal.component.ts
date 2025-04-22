@@ -18,14 +18,12 @@ import { CommonModule } from '@angular/common';
 export class ModalComponent {
   @Output() arrayEmitter = new EventEmitter<HpiUser[]>();
   @ViewChild('modal') dialogRef!: ElementRef<HTMLDialogElement>;
-  employeesList: HpiUser[]=[];
   search: string = '';
+  employeesList = model<HpiUser[]>([]);
   activeManpower = model<HpiUser[]>([]);
   filteredManpower: HpiUser[] = [];
   updatedManpower: HpiUser [] = [];
-  activeCount:HpiUser[] = [];
   constructor(private brApi: BudgetRequestService){
-    this.employeeFetch();
   }
   ngOnInit(){ 
     this.updatedManpower = [...this.activeManpower()]
@@ -39,7 +37,7 @@ export class ModalComponent {
     this.activeManpower.set([...this.updatedManpower]);
   }
   filterManpower() {
-    this.filteredManpower = this.employeesList.filter(p =>(`${p?.firstname} ${p?.middlename ? p.middlename+ ' ': ''} ${p?.lastname}`
+    this.filteredManpower = this.employeesList().filter(p =>(`${p?.firstname} ${p?.middlename ? p.middlename+ ' ': ''} ${p?.lastname}`
     ).toLowerCase().includes(this.search.toLowerCase()));
   }
   toggleActive(uuid: string) {
@@ -47,16 +45,19 @@ export class ModalComponent {
       if (employeeIndex > -1) {
         this.updatedManpower.splice(employeeIndex, 1)
       } else{
-        const employee = this.employeesList.find(e => e.uuid === uuid)
+        const employee = this.employeesList().find(e => e.uuid === uuid)
         if (employee){
           this.updatedManpower.push(employee)
         }
       }
   }
+  isActive(uuid: string):boolean{
+    return this.updatedManpower.some(e => e.uuid === uuid)
+  }
   onClear(event: Event){
   const input = event.target as HTMLInputElement;
   if (input.value === '') {
-    this.filteredManpower = [...this.employeesList];}
+    this.filteredManpower = [...this.employeesList()];}
   }
   open(){
     this.search = '';
@@ -65,11 +66,5 @@ export class ModalComponent {
   }
   close(){
     this.dialogRef.nativeElement.close();
-  }
-  employeeFetch(){
-    this.brApi.employees().subscribe(res=> this.employeesList = res)
-  }
-  isActive(uuid: string):boolean{
-    return this.updatedManpower.some(e => e.uuid === uuid)
   }
 }
