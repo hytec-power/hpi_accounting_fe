@@ -69,7 +69,7 @@ export class IndexComponent {
   }
   apiFetch(page: number,query: string,sort:string,type: string,status: string){
     this.loading = true;
-    this.brApi.index().subscribe({
+    this.brApi.index(page,query,sort,type,status).subscribe({
       next: data => this.items = data,
       complete: () => this.loading = false
     });

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from "src/environments/environment";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {BudgetRequest} from "src/app/interfaces/budget-request";
 
 @Injectable({
@@ -9,8 +9,12 @@ import {BudgetRequest} from "src/app/interfaces/budget-request";
 export class BudgetRequestService {
   api = `${environment.apiUrl}/accounting/budget-requests`;
   constructor(private http: HttpClient) { }
-  index(){
-    return this.http.get<BudgetRequest[]>(`${this.api}`,{observe: 'body'});
+  index(page: number,query: string,sort:string = '',type: string='',status: string=''){
+    const params = new HttpParams().append('page',page)
+                                              .append('query',query)
+                                              .append('sort',sort)
+                                              .append('type',type);
+    return this.http.get<BudgetRequest[]>(`${this.api}`,{observe: 'body',params:params});
   }
   find(uuid: string) {
     return this.http.get<BudgetRequest>(`${this.api}/${uuid}`,{ observe: 'body' });
