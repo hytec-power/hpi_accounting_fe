@@ -12,7 +12,7 @@
       <div>
         <table style="table-layout: auto;">
           <tr>
-            <td class="section-title" colspan="6">Request</td>
+            <td class="section-title" colspan="6"> <i class="bi bi-calendar3"></i> Request</td>
           </tr>
           <tr>
             <td class="section-header" colspan="5"></td>
@@ -32,7 +32,7 @@
             </td>
           </tr>
           <tr>
-            <td colspan="6">Date & Time</td>
+            <td class="section-title" colspan="6"><i class="bi bi-calendar3"></i>Date & Time</td>
           </tr>
           <tr>
             <td class="section-header" colspan="5"></td>
@@ -50,7 +50,7 @@
             <td colspan="4">{{ data()?.date_utilization | date: 'MMMM d, Y' }}</td>
           </tr>
           <tr>
-            <td colspan="5">Charging Information</td>
+            <td class="section-title" colspan="5"> <i class="bi bi-clipboard"></i> Charging Information</td>
           </tr>
           <tr>
             <td class="section-header" colspan="5"></td>
@@ -94,21 +94,21 @@
             </tr>
           }
           <tr>
-            <td colspan="5">Budget</td>
+            <td class="section-title" colspan="5"><i class="bi bi-cash"></i>Budget</td>
           </tr>
           <tr>
             <td class="section-header" colspan="5"></td>
           </tr>
           <tr>
-            <th>Particulars</th>
-            <th>Budget Per Day</th>
-            <th>Qty</th>
-            <th>Days</th>
-            <th>Amount</th>
+            <th class="data-label">Particulars</th>
+            <th class="data-label">Budget Per Day</th>
+            <th class="data-label">Qty</th>
+            <th class="data-label">Days</th>
+            <th class="data-label">Amount</th>
           </tr>
           @for (i of (data()?.budget_allocation?.particulars ?? []);track $index){
             <tr>
-              <td class="data-label">{{ i.name }}</td>
+              <td>{{ i.name }}</td>
               <td>{{ i.budget_daily | currency:'PHP':'symbol' }}</td>
               <td>{{ i.qty }}</td>
               <td>{{ i.days }}</td>
@@ -119,28 +119,26 @@
               <td colspan="5"><div class="text-center">No items</div></td>
             </tr>
           }
-          <tr>
-            <th colspan="5">Others</th>
-          </tr>
-          @for (i of data()?.budget_allocation?.others??[];track $index){
+          @if((data()?.budget_allocation?.others??[]).length){
             <tr>
-              <td class="data-label">{{ i.name }}</td>
-              <td class="data-value text-end" colspan="4">{{ i.total | currency:'PHP':'symbol' }}</td>
+              <th class="data-label" colspan="5">Others</th>
             </tr>
-          } @empty {
-            <tr>
-              <td colspan="5 text-"><div class="text-center">No items</div></td>
-            </tr>
+            @for (i of data()?.budget_allocation?.others??[];track $index){
+              <tr>
+                <td class="data-label">{{ i.name }}</td>
+                <td class="data-value text-end" colspan="4">{{ i.total | currency:'PHP':'symbol' }}</td>
+              </tr>
+            }
           }
           <tr>
             <th class="text-end" colspan="4">Total</th>
             <th>{{ data()?.budget_total | currency:'PHP':'symbol' }}</th>
           </tr>
           <tr>
-            <th colspan="2">Releasing Instructions</th>
-            <th>Bank</th>
-            <th>Account Name</th>
-            <th>Account Number</th>
+            <th class="data-label" colspan="2">Releasing Instructions</th>
+            <th class="data-label">Bank</th>
+            <th class="data-label">Account Name</th>
+            <th class="data-label">Account Number</th>
           </tr>
           <tr>
             <td colspan="2">Direct deposit</td>
@@ -149,7 +147,7 @@
             <td>231204120</td>
           </tr>
           <tr>
-            <td colspan="5">Manpower</td>
+            <th class="section-title" colspan="5"><i class="bi bi-people"></i>Manpower</th>
           </tr>
           <tr>
             <td class="section-header" colspan="5"></td>
@@ -169,7 +167,7 @@
             </tr>
           }
           <tr>
-            <td colspan="5">Attachments</td>
+            <td class="section-title" colspan="5"><i class="bi bi-paperclip"></i>Attachments</td>
           </tr>
           <tr>
             <td class="section-header" colspan="5"></td>
