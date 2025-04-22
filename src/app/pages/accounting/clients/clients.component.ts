@@ -1,4 +1,4 @@
-import {Component, signal, ViewChild, WritableSignal} from '@angular/core';
+import {Component, signal, viewChild, ViewChild, WritableSignal} from '@angular/core';
 import {AdeditmodalComponent} from "src/app/pages/accounting/listschoolcompany/adeditmodal/adeditmodal.component";
 import {DropdownComponent, DropdownItem} from "src/app/common/dropdown/dropdown.component";
 import {ButtonComponent} from "src/app/common/button/button.component";
@@ -6,6 +6,7 @@ import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls
 import {PageTitleComponent} from "src/app/common/page-title/page-title.component";
 import {PaginatorComponent} from "src/app/common/paginator/paginator.component";
 import {SearchComponent} from "src/app/common/search/search.component";
+import {ClientEditorComponent} from "src/app/pages/accounting/clients/client-editor/client-editor.component";
 
 @Component({
   selector: 'app-clients',
@@ -16,12 +17,14 @@ import {SearchComponent} from "src/app/common/search/search.component";
     LoaderBouncingBallsComponent,
     PageTitleComponent,
     PaginatorComponent,
-    SearchComponent
+    SearchComponent,
+    ClientEditorComponent
   ],
   templateUrl: './clients.component.html',
   styleUrl: './clients.component.scss'
 })
 export class ClientsComponent {
+  editor = viewChild.required('editor',{read: ClientEditorComponent});
   @ViewChild('basicdialog') child!: AdeditmodalComponent;
   @ViewChild('basicdialog2') child2!: AdeditmodalComponent;
 
@@ -43,6 +46,7 @@ export class ClientsComponent {
     this.init();
   }
   ngOnInit() {
+    this.editor().open();
   }
   init(){
     this.sort_types = [

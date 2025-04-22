@@ -1,1 +1,30 @@
-<p>client-editor works!</p>
+<dialog class="root-container" #modal>
+  <div class="d-flex flex-row align-items-center justify-content-between">
+    <div class="title">Add School/Company</div>
+    <i class="bi bi-x-lg close"></i>
+  </div>
+  @if (loading){
+    <div class="text-center my-3"> <loader-spinner [size_px]="30"/> </div>
+  }
+  @if (!loading) {
+    <div class="main">
+      <label>
+        <div>Category</div>
+        <select>
+          <option selected disabled>Select category</option>
+        </select>
+      </label>
+      <label>
+        <div>Name</div>
+        <input type="text" placeholder="Name" maxlength="255">
+      </label>
+      <label>
+        <div>Address</div>
+        <textarea placeholder="Address"></textarea>
+      </label>
+      <div class="text-end">
+        <button-component text="Save" type="primary"/>
+      </div>
+    </div>
+  }
+</dialog>

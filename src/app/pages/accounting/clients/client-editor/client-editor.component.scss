@@ -1,0 +1,31 @@
+@use "forms";
+@use "colors";
+.root-container{
+  border:none;
+  outline: none;
+  border-radius: 20px;
+  padding: 30px;
+  width: 512px;
+  .title{
+    font-weight: bold;
+  }
+  &::backdrop{
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+.main{
+  display: flex;
+  flex-direction: column;
+}
+label{
+  margin: 10px 0;
+  div{
+    margin: 2px 0;
+  }
+}
+select,input[type=text],textarea{
+  width: 100%;
+}
+.close{
+  cursor: pointer;
+}
