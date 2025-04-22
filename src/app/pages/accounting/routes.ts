@@ -3,6 +3,7 @@ import {DashboardComponent} from "src/app/pages/accounting/dashboard/dashboard.c
 import { ViewComponent as ViewBudgetRequest } from "src/app/pages/accounting/budget-requests/view/view.component";
 import { IndexComponent as BudgetRequestIndex } from "src/app/pages/accounting/budget-requests/index/index.component";
 import { ListschoolcompanyComponent } from "./listschoolcompany/listschoolcompany.component";
+import {ClientsComponent} from "src/app/pages/accounting/clients/clients.component";
 
 export const AccountingRoutes: Route[]=[
     { path: '',
@@ -16,5 +17,8 @@ export const AccountingRoutes: Route[]=[
     },{
         path: 'listschoolcompany',
         component: ListschoolcompanyComponent
+    },{
+        path: 'clients',
+        component: ClientsComponent
     },
 ];

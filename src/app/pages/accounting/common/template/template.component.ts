@@ -34,6 +34,11 @@ export class AccountingTemplateComponent {
                                 link: '/accounting/listschoolcompany' ,
                                 bi_icon: 'bi-building',
                                 bi_icon_active: 'bi-building-fill',
-                                exact: false });                         
+                                exact: false });
+      this.sidebar_items.push({name: 'Clients',
+                               link: '/accounting/clients' ,
+                               bi_icon: 'bi-building',
+                               bi_icon_active: 'bi-building-fill',
+                               exact: false });
     }
 }
