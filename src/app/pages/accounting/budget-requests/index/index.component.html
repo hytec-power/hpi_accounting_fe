@@ -1,6 +1,12 @@
 <div class="root-container">
-    <page-title text="Budget Requests" bi_icon="bi-wallet-fill"  />
-    <div class="table-wrapper">
+  <page-title text="Budget Requests" bi_icon="bi-wallet-fill"  />
+  <div class="d-flex flex-row my-2">
+    <search-component (onSearch)="query.set($event)" />
+    <dropdown [items]="dropdown_types"  placeholder="Request Types"  [(value)]="type"    width="200px"/>
+    <dropdown [items]="dropdown_status" placeholder="Status" [(value)]="status"  width="200px"/>
+    <dropdown [items]="dropdown_sort"   placeholder="Sort By"   [(value)]="sort"    width="200px"/>
+  </div>
+  <div class="table-wrapper">
         <table>
             <thead>
             <tr>
@@ -42,4 +48,7 @@
             </tbody>
         </table>
     </div>
+  <div class="text-center my-2">
+    <paginator [itemCount]="10" [pageSize]="10"/>
+  </div>
 </div>
