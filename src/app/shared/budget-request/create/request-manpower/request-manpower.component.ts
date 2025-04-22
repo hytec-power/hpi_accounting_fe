@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ModalComponent as Modal } from './modal/modal.component';
 import { manpower } from 'src/app/interfaces/request-manpower';
 import { HpiUser } from 'src/app/interfaces/hpi-user';
+import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/budget-request.service";
 
 @Component({
   selector: 'request-manpower',
@@ -20,13 +21,26 @@ import { HpiUser } from 'src/app/interfaces/hpi-user';
 
 export class RequestManpowerComponent {
   @ViewChild(Modal) Modal!: Modal;
+  loading: boolean = true;
   receivedUsers = model<HpiUser[]>([]);
   search: string = '';
   onNext = output();
   onBack = output();
   filteredManpower: HpiUser[]= [];
+  employees: HpiUser[] = [];
+  filtered_employee: HpiUser[] = [];
+  constructor(public brApi: BudgetRequestService) {
+  }
   ngOnInit() {
     this.filteredManpower = [...this.receivedUsers()];
+    this.fetchEmployees();
+  }
+  fetchEmployees(){
+    this.brApi.employees()
+        .subscribe({
+          next: data => {this.employees = data; this.filtered_employee = data;},
+          complete: () => this.loading = false
+        })
   }
   showModal(){
     this.Modal.open();
