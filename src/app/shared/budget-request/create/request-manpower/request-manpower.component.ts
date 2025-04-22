@@ -50,7 +50,7 @@ export class RequestManpowerComponent {
     this.filteredManpower = data;
   }
   filterManpower() {
-    this.filteredManpower = this.receivedUsers().filter(p =>(`${p.firstname} ${p?.middlename ? p.middlename +  ' ': ''} ${p.lastname}`
+    this.filteredManpower = this.receivedUsers().filter(p =>(`${p.firstname} ${p.middlename ? p.middlename +  ' ': ''} ${p.lastname}`
     ).toLowerCase().includes(this.search.toLowerCase()));
   }
   onClear(event: Event){

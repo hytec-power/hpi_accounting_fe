@@ -4,4 +4,5 @@ export interface FileUpload {
   original_filename: string,
   mime: string,
   size: number,
+  ext: string
 }
