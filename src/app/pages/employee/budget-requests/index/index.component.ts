@@ -38,9 +38,11 @@ export class IndexComponent {
   page : WritableSignal<number> = signal(1);
   query_input: WritableSignal<string> = signal('');
   query: WritableSignal<string> = signal('');
+  type!: WritableSignal<DropdownItem>;
+  status!: WritableSignal<DropdownItem>
   constructor(private br: BudgetRequestService) {
     this.init();
-    effect(() => this.apiFetch(this.page(),this.query()) );
+    effect(() => this.apiFetch(this.page(),this.query(),this.type().value,this.status().value));
   }
   ngOnInit() {
   }
@@ -53,11 +55,11 @@ export class IndexComponent {
     ];
     this.filter_types = [
       {name: 'All types',value:'all' },
-      {name:'Bidding Documents',value:'date_desc'},
-      {name:'Training / Event / Exhibition',value:'date_desc'},
-      {name:'After Sales Training',value:'date_desc'},
-      {name:'TCP',value:'date_desc'},
-      {name:'Sponsorship',value:'date_desc'},
+      {name:'Bidding Documents',value:'Bidding Documents'},
+      {name:'Training / Event / Exhibition',value:'Training / Event / Exhibition'},
+      {name:'After Sales Training',value:'After Sales Training'},
+      {name:'TCP',value:'TCP'},
+      {name:'Sponsorship',value:'Sponsorship'},
     ];
     this.filter_status = [
       {name: 'All status',value:'all' },
@@ -65,12 +67,15 @@ export class IndexComponent {
       {name:'Approved',value:'Approved'}
     ];
 
+    this.type = signal(this.filter_types[0]);
+    this.status = signal(this.filter_status[0]);
+
   }
-  apiFetch(page: number,query: string){
+  apiFetch(page: number,query: string,type: string,status: string){
     this.loading = true;
     this.items = [];
     this.br
-        .index(page,query)
+        .index(page,query,type,status)
         .subscribe({next: data => { this.items = data.items ; this.items_count = data.count }})
         .add(()=> this.loading = false);
   }

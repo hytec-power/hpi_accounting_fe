@@ -15,7 +15,7 @@ export class DropdownComponent {
   width = input<string>();
   //DATA
   placeholder = input('Select Option');
-  selection = model<DropdownItem>();
+  value = model<DropdownItem>();
   items = input<DropdownItem[]>([]);
   //OUTPUTS
   onSelect = output<any>();
@@ -23,7 +23,7 @@ export class DropdownComponent {
   ngOnInit(): void {}
 
   select(item: DropdownItem) {
-    this.selection.set(item);
+    this.value.set(item);
     this.onSelect.emit(item.value);
     this.view()?.nativeElement.blur();
   }

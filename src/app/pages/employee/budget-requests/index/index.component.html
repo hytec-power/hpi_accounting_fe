@@ -4,8 +4,8 @@
       <search-component width="322px"
                         placeholder="Search project name / Request Number"
                         (onSearch)="onSearch($event)"/>
-      <dropdown placeholder="Request Type" [items]="filter_types" width="200px"/>
-      <dropdown placeholder="Request Status" [items]="filter_status" width="200px"/>
+      <dropdown placeholder="Request Type" [items]="filter_types"  [(value)]="type" width="200px"/>
+      <dropdown placeholder="Request Status" [items]="filter_status" [(value)]="status" width="200px"/>
       <dropdown [items]="sort_types" width="200px" placeholder="Sort By" />
       <div style="flex:1;"></div>
       <button-component routerLink="/employee/budget-requests/create" text="Add" type="primary" bi_icon="bi-plus-lg" />

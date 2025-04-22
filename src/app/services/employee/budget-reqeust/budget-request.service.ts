@@ -11,8 +11,10 @@ import {HpiUser} from "src/app/interfaces/hpi-user";
 export class BudgetRequestService {
   api = `${environment.apiUrl}/employee/budget-requests`;
   constructor(private http: HttpClient) { }
-  index(page:number,query: string){
+  index(page:number,query: string,type: string = '',status: string = ''){
     const params = new HttpParams().set("page", page)
+                                              .set("type", type)
+                                              .set("status", status)
                                               .set("query", query);
 
     return this.http.get<{ count:number , items: BudgetRequest[] }>(`${this.api}`,{observe: 'body',params: params});
