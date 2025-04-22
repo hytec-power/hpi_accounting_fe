@@ -2,81 +2,61 @@ import { Component,ViewChild,ElementRef, Output, EventEmitter, model} from '@ang
 import { ButtonComponent } from "../../../../../common/button/button.component";
 import { FormsModule } from '@angular/forms';
 import { manpower } from 'src/app/interfaces/request-manpower';
+import { HpiUser } from 'src/app/interfaces/hpi-user';
+import { BudgetRequestService } from 'src/app/services/employee/budget-reqeust/budget-request.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-modal-test',
   imports: [
     ButtonComponent,
-    FormsModule],
+    FormsModule,
+    CommonModule],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss'
 })
 export class ModalComponent {
-  @Output() arrayEmitter = new EventEmitter<manpower[]>();
+  @Output() arrayEmitter = new EventEmitter<HpiUser[]>();
   @ViewChild('modal') dialogRef!: ElementRef<HTMLDialogElement>;
-  manpowerList:  manpower[] = [
-    {name: "James Richard Gomez", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Manager'},
-    {name: "Ricardo De Leon ", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Front-end Developer'},
-    {name: "Arthur Lionheart", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Back-end Developer'},
-    {name: "Julius Caesar ", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Supervisor'},
-    {name: "Napoleon Bonaparte", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Manager'},
-    {name: "Genghis Khan", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Manager'},
-    {name: "Alexander Macedon", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Manager'},
-    {name: "Ahabram Limcoln", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Manager'},
-    {name: "Musashi Miyamoto", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Manager'},
-    {name: "Richard Albert James", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Manager'},
-    {name: "Bob Robbert", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Manager'},
-    {name: "Ed Neddard", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Manager'},
-    {name: "James Baxter", img:'assets/images/common/defaults/default_user.png',active:false, role: 'Manager'},
-  ]
+  employeesList: HpiUser[]=[];
   search: string = '';
-  activeManpower = model<manpower[]>([]);
-  filteredManpower: manpower[] = [];
-  updatedManpower: manpower [] = [];
-  activeCount:{
-    name:string
-    img:string
-    active:boolean
-    role:string
-  }[] = [];
-
-
-
-  ngOnInit(){  
-    this.updatedManpower = this.manpowerList.map(person => {
-    const updated = this.activeManpower().find(p => p.name === person.name);
-    if (updated) {
-        return { ...person, active: updated.active };
-      }
-      return person;
-    });
-    this.filteredManpower = this.updatedManpower;
+  activeManpower = model<HpiUser[]>([]);
+  filteredManpower: HpiUser[] = [];
+  updatedManpower: HpiUser [] = [];
+  activeCount:HpiUser[] = [];
+  constructor(private brApi: BudgetRequestService){
+    this.employeeFetch();
   }
-  
+  ngOnInit(){ 
+    this.updatedManpower = [...this.activeManpower()]
+  }
   sendData() {
     this.updateActiveManpower();
     this.arrayEmitter.emit(this.activeManpower());
     this.dialogRef.nativeElement.close();
   }
   updateActiveManpower() {
-    this.activeManpower.set(this.updatedManpower.filter(skill => skill.active));
+    this.activeManpower.set([...this.updatedManpower]);
   }
   filterManpower() {
-    this.filteredManpower = this.updatedManpower.filter(p =>
-      p.name.toLowerCase().includes(this.search.toLowerCase()));
+    this.filteredManpower = this.employeesList.filter(p =>(`${p?.firstname} ${p?.middlename ? p.middlename+ ' ': ''} ${p?.lastname}`
+    ).toLowerCase().includes(this.search.toLowerCase()));
   }
-  toggleActive(name: string) {
-    const item = this.updatedManpower.find(p => p.name === name);
-    if (item) {
-      item.active = !item.active;
-    this.activeCount = this.updatedManpower.filter(skill => skill.active);
-    }
+  toggleActive(uuid: string) {
+    const employeeIndex = this.updatedManpower.findIndex(p => p.uuid === uuid);
+      if (employeeIndex > -1) {
+        this.updatedManpower.splice(employeeIndex, 1)
+      } else{
+        const employee = this.employeesList.find(e => e.uuid === uuid)
+        if (employee){
+          this.updatedManpower.push(employee)
+        }
+      }
   }
   onClear(event: Event){
   const input = event.target as HTMLInputElement;
   if (input.value === '') {
-    this.filteredManpower = [...this.updatedManpower];
-  }
+    this.filteredManpower = [...this.employeesList];}
   }
   open(){
     this.search = '';
@@ -85,5 +65,11 @@ export class ModalComponent {
   }
   close(){
     this.dialogRef.nativeElement.close();
+  }
+  employeeFetch(){
+    this.brApi.employees().subscribe(res=> this.employeesList = res)
+  }
+  isActive(uuid: string):boolean{
+    return this.updatedManpower.some(e => e.uuid === uuid)
   }
 }

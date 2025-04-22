@@ -8,18 +8,21 @@
                         <div>Date Needed</div>
                         <input type="date"
                                formControlName="date_needed"
+                               onkeydown="return false"
                                min="2024-01-01"
                                max="2030-12-31"  />
                     </label>
                     <label class="my-2">
                         <div>Time Needed</div>
                         <input type="time"
+                               onkeydown="return false"
                                formControlName="time_needed" />
                     </label>
 
                     <label class="my-2">
                         <div>Expected Utilization</div>
                         <input type="date"
+                               onkeydown="return false"
                                formControlName="date_utilization"/>
                     </label>
                 </div>

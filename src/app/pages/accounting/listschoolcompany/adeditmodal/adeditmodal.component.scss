@@ -1,0 +1,137 @@
+@use "colors";
+.root-container{
+  outline: none;
+  border:none;
+  border-radius:10px;
+  flex-direction: column;
+  padding: 20px;
+  width:400px;
+  align-items: stretch;
+  user-select: none;
+  position: relative;
+  background-color: colors.$bg-foreground;
+  color: colors.$text-normal;
+  &[open]{
+    display: flex;
+  }
+  &[close]{
+    display: none;
+  }
+}
+dialog::backdrop{
+  background-color:rgba(0,0,0,.7);
+}
+.title{
+  font-weight:bold;
+  font-size:20px;
+  text-align:center;
+}
+.message{
+  padding:5px;
+  text-align:start;
+  white-space: pre-wrap;
+  margin: 5px 0;
+}
+.close-button{
+  position:absolute;
+  top:15px;
+  right:20px;
+  cursor:pointer;
+  &:hover{
+    color: colors.$primary-color;
+  }
+}
+dialog{
+    width: 510px;
+    height: 492px;
+    border: none;
+    border-radius: 20px;
+    padding: 30px;
+}
+input, select{
+    width: 100%;
+    height: 55px;
+}
+label{
+    font-size: 18px;
+    margin: 10px;
+    color: #037354;
+}
+.confirm-dialog {
+  border: none;
+  border-radius: 12px;
+  padding: 20px;
+  width: 399px;
+  max-width: 90%;
+  height: 200px;
+}
+.confirm-content {
+  text-align: center;
+}
+.confirm-content h4 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.confirm-content p {
+  margin: 10px 0 20px;
+  font-size: 14px;
+}
+.text-danger {
+  color: #d32f2f;
+  font-weight: bold;
+}
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.btn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  min-width: 80px;
+  width: 101px;
+}
+.btn.cancel {
+  background-color: #e0e0e0;
+  color: #333;
+}
+.btn.delete {
+  background-color: #d32f2f;
+  color: #fff;
+}
+.success-dialog {
+  border: none;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 90%;
+  text-align: center;
+  height: 250px;
+  width: 399px;
+}
+.success-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.check-icon {
+  font-size: 48px;
+  color: #4caf50;
+  margin-bottom: 15px;
+}
+.success-content p {
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #333;
+}
+.btn.okay {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}

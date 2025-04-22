@@ -15,7 +15,7 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
     styleUrl: './request-date.component.scss'
 })
 export class RequestDateComponent {
-    @Input() form_test!: FormGroup;
+    form = input.required<FormGroup>();
     isEditable:boolean = false
 
     toggleEdit(){

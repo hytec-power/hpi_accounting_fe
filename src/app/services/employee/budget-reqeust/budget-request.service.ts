@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from "src/environments/environment";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {BudgetRequest} from "src/app/interfaces/budget-request";
+import {HpiUser} from "src/app/interfaces/hpi-user";
 
 
 @Injectable({
@@ -27,5 +28,8 @@ export class BudgetRequestService {
   }
   delete(uuid: string){
 
+  }
+  employees(){
+    return this.http.get<HpiUser[]>(`${this.api}/employees`,{observe: 'body'});
   }
 }

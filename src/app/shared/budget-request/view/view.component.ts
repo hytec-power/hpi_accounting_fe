@@ -10,6 +10,7 @@ import {BudgetRequest} from "src/app/interfaces/budget-request";
 import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/budget-request.service";
 import {ActivatedRoute} from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
     selector: 'budget-request-viewer',
@@ -22,16 +23,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     AttachmentComponent,
     RequestManpowerComponent,
   ],
+    providers: [CurrencyPipe],
     templateUrl: './view.component.html',
     styleUrl: './view.component.scss'
 })
 export class BudgetRequestViewComponent {
   //UI
   steps: StepperItem[]=[];
-  date_form!: FormGroup;
   //DATA
+  purpose_form!: FormGroup;
+  date_form!: FormGroup;
+  charging_form!: FormGroup;
   record= input.required<BudgetRequest>() ;
-  constructor(private fb: FormBuilder,
+  constructor(private currencyPipe: CurrencyPipe,
+              private fb: FormBuilder,
               private brApi: BudgetRequestService,
               private ar: ActivatedRoute) {
     this.initSteps();
@@ -52,12 +57,30 @@ export class BudgetRequestViewComponent {
   }
   initForms(){
     this.initDateform();
+    this.initPurposeform();
+    this.initChargingform();
   }
   initDateform(){
     this.date_form = this.fb.group({
       view_date: [this.record().date_needed,Validators.required],
       view_time: [this.record().time_needed,Validators.required],
       view_util: [this.record().date_utilization,Validators.required]
+    })
+  }
+  initPurposeform(){
+    this.purpose_form = this.fb.group({
+      view_type: [this.record().type,Validators.required],
+      view_purpose: [this.record().purpose, Validators.required]
+    })
+  }
+  initChargingform(){
+    this.charging_form = this.fb.group({
+      project_name: [this.record().project_name,Validators.required],
+      quotation_ref: [this.record().quotation_reference,Validators.required],
+      po_ref: [this.record().po_reference,Validators.required],
+      po_amount: [this.currencyPipe.transform(this.record().po_amount, 'PHP'),Validators.required],
+      confidence_level: [this.record().confidence_level,Validators.required],
+      expected_qy: [this.record().expected_quarter + this.record().expected_year,Validators.required]
     })
   }
   
