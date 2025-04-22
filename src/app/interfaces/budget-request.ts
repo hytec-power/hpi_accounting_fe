@@ -35,7 +35,7 @@ export interface BudgetRequest {
   //MANPOWER
   manpower: HpiUser[];
   //ATTACHMENTS
-  attachments: DocumentUpload[]
+  attachments: DocumentUpload[] | attachments[]
   //CONTROLS
   archived: boolean,
   deleted_at: string,
