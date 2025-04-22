@@ -5,11 +5,10 @@ import {ButtonComponent} from "src/app/common/button/button.component";
 import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/budget-request.service";
 import {BudgetRequest} from "src/app/interfaces/budget-request";
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
-import {CurrencyPipe, DatePipe, TitleCasePipe} from "@angular/common";
+import {DatePipe} from "@angular/common";
 import {PaginatorComponent} from "src/app/common/paginator/paginator.component";
 import {DropdownComponent, DropdownItem} from "src/app/common/dropdown/dropdown.component";
 import {SearchComponent} from "src/app/common/search/search.component";
-import {count} from "rxjs";
 
 @Component({
     selector: 'app-index',
@@ -18,9 +17,7 @@ import {count} from "rxjs";
     RouterLink,
     ButtonComponent,
     LoaderBouncingBallsComponent,
-    TitleCasePipe,
     DatePipe,
-    CurrencyPipe,
     PaginatorComponent,
     DropdownComponent,
     SearchComponent
