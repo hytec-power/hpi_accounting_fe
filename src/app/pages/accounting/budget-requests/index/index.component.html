@@ -22,7 +22,7 @@
             <tbody>
               @if (loading) {
                 <tr>
-                  <td colspan="5" class="text-center"> <loader-bouncing-balls/> </td>
+                  <td colspan="7" class="text-center"> <loader-bouncing-balls/> </td>
                 </tr>
               }
               @if (!loading){
@@ -42,13 +42,13 @@
                     </td>
                   </tr>
                 } @empty {
-                  <td colspan="5" class="text-center"> No items </td>
+                  <td colspan="7" class="text-center"> No items </td>
                 }
               }
             </tbody>
         </table>
     </div>
   <div class="text-center my-2">
-    <paginator [itemCount]="10" [pageSize]="10"/>
+    <paginator [(currentPage)]="page" [itemCount]="count" [pageSize]="10"/>
   </div>
 </div>

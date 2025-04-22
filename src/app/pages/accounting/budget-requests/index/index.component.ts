@@ -36,6 +36,7 @@ export class IndexComponent {
   dropdown_sort: DropdownItem[]=[];
 
   //PAGINATION
+  count: number = 0;
   page: WritableSignal<number> = signal(1);
   type!: WritableSignal<DropdownItem>;
   status!: WritableSignal<DropdownItem>;
@@ -70,7 +71,7 @@ export class IndexComponent {
   apiFetch(page: number,query: string,sort:string,type: string,status: string){
     this.loading = true;
     this.brApi.index(page,query,sort,type,status).subscribe({
-      next: data => this.items = data,
+      next: data => {this.items = data.items , this.count = data.count},
       complete: () => this.loading = false
     });
   }

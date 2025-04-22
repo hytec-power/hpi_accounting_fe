@@ -13,8 +13,9 @@ export class BudgetRequestService {
     const params = new HttpParams().append('page',page)
                                               .append('query',query)
                                               .append('sort',sort)
-                                              .append('type',type);
-    return this.http.get<BudgetRequest[]>(`${this.api}`,{observe: 'body',params:params});
+                                              .append('type',type)
+                                              .append('status',status);
+    return this.http.get<{count: number, items: BudgetRequest[]}>(`${this.api}`,{observe: 'body',params:params});
   }
   find(uuid: string) {
     return this.http.get<BudgetRequest>(`${this.api}/${uuid}`,{ observe: 'body' });
