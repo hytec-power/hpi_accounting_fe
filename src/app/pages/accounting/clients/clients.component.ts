@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, signal, ViewChild, WritableSignal} from '@angular/core';
 import {AdeditmodalComponent} from "src/app/pages/accounting/listschoolcompany/adeditmodal/adeditmodal.component";
 import {DropdownComponent, DropdownItem} from "src/app/common/dropdown/dropdown.component";
 import {ButtonComponent} from "src/app/common/button/button.component";
@@ -28,11 +28,16 @@ export class ClientsComponent {
   loading: boolean =  false;
   //DATA
 
-  items_count: number = 0;
   sort_types: DropdownItem[]=[];
   filter_types: DropdownItem[]=[];
   filter_status: DropdownItem[]=[];
   //PAGINATION
+  count: number = 0;
+  items_count: number = 0;
+  query: WritableSignal<string> = signal('');
+  page: WritableSignal<number> = signal(1);
+  sort: WritableSignal<string> = signal('');
+
 
   constructor() {
     this.init();
