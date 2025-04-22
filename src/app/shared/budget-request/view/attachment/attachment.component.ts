@@ -15,11 +15,34 @@ import { FileSizePipe } from './file-size.pipe';
 })
 export class AttachmentComponent {
   record = input.required<BudgetRequest>();
+  icon: attachmentIcon[]=[]
   isEditable = false;
   ngOnInit(){
   }
   onedit(){
     this.isEditable = !this.isEditable
   }
+  getExt(str: string){
+    switch (str){
+        case 'xlsx':
+          return 'bi-filetype-xlsx'
+        case 'png':
+          return 'bi-filetype-png'
+        case 'jpg':
+          return 'bi-filetype-jpg'
+        case 'pdf':
+          return 'bi-filetype-pdf'
+        case 'doc':
+          return 'bi-filetype-doc'
+        case 'docx':
+          return 'bi-filetype-docx'
+        default:
+          return 'bi-file-earmark-fill'
+      }
+  }
+}
+
+export interface attachmentIcon{
+    bi: string
 }
 

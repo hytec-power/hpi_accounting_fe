@@ -113,7 +113,7 @@ export class AttachmentsComponent {
                                             'Cancel',()=>this.back());
   }
   onUpload(file: FileUpload,name: string) {
-    this.attachments.update(items=> [...items,{name: name, uuid: file.uuid , file: file}] );
+    this.attachments.update(items=> [...items,{name: name, uuid: file.uuid , file: file, ext: file.ext}] );
   }
   onRemove(name: string) {
     this.attachments.update(items=> items.filter(i=>i.name!= name));

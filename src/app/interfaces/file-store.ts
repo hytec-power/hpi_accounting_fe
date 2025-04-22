@@ -5,5 +5,6 @@ export interface FileStore {
   ext: string
   mime: string,
   path: string,
-  size: number
+  size: number,
+  
 }
