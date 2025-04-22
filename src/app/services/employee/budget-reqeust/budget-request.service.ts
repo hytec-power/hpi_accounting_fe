@@ -13,6 +13,7 @@ export class BudgetRequestService {
   constructor(private http: HttpClient) { }
   index(page:number,query: string,sort: string,type: string = '',status: string = ''){
     const params = new HttpParams().set("page", page)
+                                              .set("sort", sort)
                                               .set("type", type)
                                               .set("status", status)
                                               .set("query", query);

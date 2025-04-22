@@ -50,9 +50,7 @@ export class IndexComponent {
   init(){
     this.sort_types = [
       {name: 'Newest First', value: 'date_desc' },
-      {name: 'Oldest First', value: 'date_asc' },
-      {name: 'Requester (A-Z)', value: 'name_asc' },
-      {name: 'Requester (Z-A)', value: 'name_desc' },
+      {name: 'Oldest First', value: 'date_asc' }
     ];
     this.filter_types = [
       {name: 'All types',value:'all' },
