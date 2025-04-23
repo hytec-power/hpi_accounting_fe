@@ -1,7 +1,7 @@
 <dialog class="root-container" #modal>
   <div class="d-flex flex-row align-items-center justify-content-between">
     <div class="title">Add School/Company</div>
-    <i class="bi bi-x-lg close"></i>
+    <i (click)="close()" class="bi bi-x-lg close"></i>
   </div>
   @if (loading){
     <div class="text-center my-3"> <loader-spinner [size_px]="30"/> </div>
@@ -29,7 +29,7 @@
         </div>
       </form>
       <div class="text-end">
-        <button-component text="Save" type="primary"/>
+        <button-component (click)="save()" text="Save" type="primary" [disabled]="form.invalid"/>
       </div>
     </div>
   }
