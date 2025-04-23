@@ -59,8 +59,5 @@ export class RequestManpowerComponent {
       this.filteredManpower = [...this.receivedUsers()];
     }
   }
-  test(){
-    console.log(this.receivedUsers)
-  }
 }
 
