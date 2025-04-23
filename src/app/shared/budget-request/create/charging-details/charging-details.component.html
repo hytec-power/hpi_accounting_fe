@@ -9,7 +9,11 @@
           </label>
           <label class="data-item">
             <div class="data-label">School Company</div>
-            <input  type="text" formControlName="project_client">
+            <select>
+              @for (i of items;track i.uuid){
+                <option [value]="i.uuid">{{ i.name }}</option>
+              }
+            </select>
           </label>
           <label class="data-item">
             <div class="data-label">Address</div>
