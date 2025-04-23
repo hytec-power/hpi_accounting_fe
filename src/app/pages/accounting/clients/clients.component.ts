@@ -9,6 +9,7 @@ import {ClientEditorComponent} from "src/app/pages/accounting/clients/client-edi
 import {ClientsService} from "src/app/services/accounting/clients/clients.service";
 import {Client} from "src/app/interfaces/client";
 import {DatePipe, SlicePipe, TitleCasePipe} from "@angular/common";
+import {ModalsService} from "src/app/services/common/modals/modals.service";
 
 @Component({
   selector: 'app-clients',
@@ -45,7 +46,8 @@ export class ClientsComponent {
   sort: WritableSignal<string> = signal('');
   filter: WritableSignal<string> = signal('');
 
-  constructor(private clientsApi: ClientsService) {
+  constructor(private clientsApi: ClientsService,
+              private modals: ModalsService) {
     this.init();
   }
   ngOnInit() {
@@ -76,6 +78,10 @@ export class ClientsComponent {
       complete: () => { this.loading = false; }
     });
   }
+  apiDelete(uuid: string){
+    this.clientsApi.delete(uuid)
+        .subscribe({complete: () => this.apiFetch()});
+  }
   onFilter(items:Client[], search: string,filter: string){
 
     let res = items.filter(item => item.name.toLowerCase().includes(search));
@@ -90,6 +96,13 @@ export class ClientsComponent {
       case 'date_desc': return list.sort((a,b)=> b.created_at.localeCompare(a.created_at));
       default: return list;
     }
+  }
+  confirmDelete(client: Client){
+    this.modals.getInstance()?.showConfirmWarning('Confirm Action',
+                                                  `Delete ${client.name} ? `,
+                                                  'Delete',
+                                                  'Cancel',
+                                                    ()=> this.apiDelete(client.uuid) );
   }
 
 }

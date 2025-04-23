@@ -12,7 +12,7 @@
   </div>
   @if (query()) {
     <div class="message">
-      <span class="count">{{ items_count }}</span>Items found.
+      <span class="count">{{ items_filtered().length }}</span>Items found.
       <span> Search Results for "". </span>
       <span  (click)="query.set('');page.set(1)" class="clear-search"> Clear </span>
     </div>
@@ -43,7 +43,7 @@
               <td>{{ i.created_at | date: 'shortDate' }}</td>
               <td class="row-controls">
                 <i class="bi bi-pencil-square" (click)="editor.edit(i)"></i>
-                <i class="bi bi-trash" ></i>
+                <i class="bi bi-trash" (click)="confirmDelete(i)"></i>
               </td>
             </tr>
           } @empty {

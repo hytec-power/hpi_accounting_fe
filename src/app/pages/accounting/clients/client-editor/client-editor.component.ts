@@ -4,6 +4,7 @@ import {LoaderSpinnerComponent} from "src/app/common/loader-spinner/loader-spinn
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ClientsService} from "src/app/services/accounting/clients/clients.service";
 import {Client} from "src/app/interfaces/client";
+import {ModalsService} from "src/app/services/common/modals/modals.service";
 
 @Component({
   selector: 'client-editor',
