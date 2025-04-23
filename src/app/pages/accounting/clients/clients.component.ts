@@ -35,7 +35,7 @@ export class ClientsComponent {
   filter_types: DropdownItem[]=[];
   filter_status: DropdownItem[]=[];
   items: WritableSignal<Client[]>=signal([]);
-  items_filtered: Signal<Client[]>=computed(()=> this.onFilter(this.items(),this.query(),this.filter()) );
+  items_filtered: Signal<Client[]>=computed(()=> this.onSort(this.onFilter(this.items(),this.query(),this.filter()),this.sort()) );
   //PAGINATION
   count: number = 0;
   items_count: number = 0;
