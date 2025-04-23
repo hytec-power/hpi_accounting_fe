@@ -15,7 +15,6 @@ import { FileSizePipe } from './file-size.pipe';
 })
 export class AttachmentComponent {
   record = input.required<BudgetRequest>();
-  icon: attachmentIcon[]=[]
   isEditable = false;
   ngOnInit(){
   }

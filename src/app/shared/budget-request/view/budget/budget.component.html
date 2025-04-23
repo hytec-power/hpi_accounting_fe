@@ -1,89 +1,91 @@
 <div class="root-container">
-    <div class=" head d-flex mb-2" >
-        <i class="bi bi-cash " style="margin-right: 10px;"></i>
-        <div class="section-title">Budget</div>
-        <div class="edit">
-            <i class=" bi bi-pencil-square" style="cursor: pointer;" (click)="onedit()"></i>
-        </div>
+  <div class=" head d-flex mb-2" >
+      <i class="bi bi-cash " style="margin-right: 10px;"></i>
+      <div class="section-title">Budget</div>
+      <div class="edit">
+          <i class=" bi bi-pencil-square" style="cursor: pointer;" (click)="onedit()"></i>
+      </div>
+  </div>
+  <div class="container mb-3">
+      <table class=" table rounded-4 overflow-hidden" [ngClass]="{'tab':isEditable}">
+          <thead>
+            <tr>
+                <th style="width:33%;">Particulars</th>
+                <th style="width: 25%;" >Budget per day</th>
+                <th style="width: 10%;">Qty</th>
+                <th style="width: 10%;">Days</th>
+                <th style="width: 17%;">Amount</th>
+                <th *ngIf="isEditable"></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of record().budget_allocation.particulars; track $index) {
+              <tr >
+                <td> <input type="text"   class="color"  [ngClass]="{'inactiveEdit':isEditable}"   [value]="item.name" [readOnly]="!isEditable"></td>
+                <td> <input type="number" class="color" [ngClass]="{'inactiveEdit':isEditable}" [value]="item.budget_daily" [readOnly]="!isEditable"></td>
+                <td> <input type="number" class="color" [ngClass]="{'inactiveEdit':isEditable}" [value]="item.qty" [readOnly]="!isEditable"></td>
+                <td> <input type="number" class="color" [ngClass]="{'inactiveEdit':isEditable}" [value]="item.days" [readOnly]="!isEditable"></td>
+                <td> <input type="text" class="color" [ngClass]="{'inactiveEdit':isEditable}"  [value]="!isEditable ? (item.total | currency:'PHP':'symbol') : item.total" [readOnly]="!isEditable"></td>
+                <td style="color: red;" *ngIf="isEditable" class="color"><i class="bi bi-trash"></i></td>
+              </tr>
+            }
+          </tbody>
+        </table>
+  </div>
+  <div class="container  mb-3">
+    @if (record().budget_allocation.others.length > 0) {
+      <table class="table table rounded-4 overflow-hidden ">
+        <thead>
+          <tr>
+            <th style="width:33%;">Particulars</th>
+            <th style="width: 24%;" >Budget per day</th>
+              <th style="width: 10%;" >Qty</th>
+              <th style="width: 10%;" >Days</th>
+              <th style="width: 17%;">Amount</th>
+              <th *ngIf="isEditable"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (other of record().budget_allocation.others; track $index) {
+            <tr>
+              <td><input type="text" class="color"  [ngClass]="{'inactiveEdit':!isEditable}" [ngClass]="{'inactiveEdit':isEditable}" [value]="other.name" [readOnly]="!isEditable"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><input type="text" class="color"  [ngClass]="{'inactiveEdit':!isEditable}" [ngClass]="{'inactiveEdit':isEditable}" [value]="isEditable ? other.total : (other.total | currency:'PHP':'symbol')" [readOnly]="!isEditable"></td>
+              <td style="color: red;" *ngIf="isEditable"><i class="bi bi-trash"></i></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+    <div class="row d-flex edit mb-3" >
+      <div class="col-md-6"> <h6 ></h6></div>
+      <div class="col-md-3"> <h6 >TOTAL BUDGET</h6></div>
+      <div class="col-md-3"><h4 style="font-size: 18px;">{{ record().budget_total | currency:'PHP':'symbol' }}</h4></div>   
     </div>
-        <div class="container mb-3">
-            <table class=" table rounded-4 overflow-hidden" [ngClass]="{'tab':isEditable}">
-                <thead>
-                  <tr>
-                      <th style="width:33%;">Particulars</th>
-                      <th style="width: 25%;" >Budget per day</th>
-                      <th style="width: 10%;">Qty</th>
-                      <th style="width: 10%;">Days</th>
-                      <th style="width: 17%;">Amount</th>
-                      <th *ngIf="isEditable"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @for (item of record().budget_allocation.particulars; track $index) {
-                    <tr >
-                      <td> <input type="text"   class="color"  [ngClass]="{'inactiveEdit':isEditable}"   [value]="item.name" [readOnly]="!isEditable"></td>
-                      <td> <input type="number" class="color" [ngClass]="{'inactiveEdit':isEditable}" [value]="item.budget_daily" [readOnly]="!isEditable"></td>
-                      <td> <input type="number" class="color" [ngClass]="{'inactiveEdit':isEditable}" [value]="item.qty" [readOnly]="!isEditable"></td>
-                      <td> <input type="number" class="color" [ngClass]="{'inactiveEdit':isEditable}" [value]="item.days" [readOnly]="!isEditable"></td>
-                      <td> <input type="text" class="color" [ngClass]="{'inactiveEdit':isEditable}"  [value]="!isEditable ? (item.total | currency:'PHP':'symbol') : item.total" [readOnly]="!isEditable"></td>
-                      <td style="color: red;" *ngIf="isEditable" class="color"><i class="bi bi-trash"></i></td>
-                    </tr>
-                  }
-                </tbody>
-              </table>
-        </div>
-        <div class="container  mb-3">
-            <table class="table table rounded-4 overflow-hidden ">
-                <thead>
-                  <tr>
-                    <th style="width:33%;">Particulars</th>
-                    <th style="width: 24%;" >Budget per day</th>
-                      <th style="width: 10%;" >Qty</th>
-                      <th style="width: 10%;" >Days</th>
-                      <th style="width: 17%;">Amount</th>
-                      <th *ngIf="isEditable"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @for (other of record().budget_allocation.others; track $index) {
-                    <tr>
-                      <td><input type="text" class="color"  [ngClass]="{'inactiveEdit':!isEditable}" [ngClass]="{'inactiveEdit':isEditable}" [value]="other.name" [readOnly]="!isEditable"></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td><input type="text" class="color"  [ngClass]="{'inactiveEdit':!isEditable}" [ngClass]="{'inactiveEdit':isEditable}" [value]="isEditable ? other.total : (other.total | currency:'PHP':'symbol')" [readOnly]="!isEditable"></td>
-                      <td style="color: red;" *ngIf="isEditable"><i class="bi bi-trash"></i></td>
-                    </tr>
-                  }
-                </tbody>
-              </table>
-              <div class="row d-flex edit mb-3" >
-                <div class="col-md-6"> <h6 ></h6></div>
-                <div class="col-md-3"> <h6 >TOTAL BUDGET</h6></div>
-                <div class="col-md-3"><h4 style="font-size: 18px;">{{ record().budget_total | currency:'PHP':'symbol' }}</h4></div>   
-        </div>
-       <div class="mb-3">
-        <h6 >Releasing Instructions</h6>
-        <input class="insrtuc" style="width: auto;" type="text"  [ngClass]="{'inactiveEdit':isEditable}" value="Direct Deposit to Client" [readOnly]="!isEditable">
-        <i *ngIf="isEditable" style="position: relative; right: 22px; color: #037354;" class="bi bi-caret-down-fill"></i>
-       </div>
-       <div class="row mb-3" >
-        <div class="col-md-3 align-middle "> 
-            <h6>Bank</h6>
-           <div class=" d-flex ">
-            <img style="height: 25px; width: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/f/ff/RCBC_logo.svg" alt="">
-            <h4 style="font-size: 18px;">RCBC</h4>
-           </div>
-        </div>
-        <div class="col-md-5"> 
-            <h6 >Account Name</h6>
-            <h4 style="font-size: 18px;">{{record().client}}</h4>
-        </div>
-        <div class="col-md-4">
-            <h6 >Account Number</h6>
-            <h4 style="font-size: 18px;">0123-4567-8901</h4>
-        </div>   
-        <button-component *ngIf="isEditable" style="width: auto; margin-left: auto;"  text="Save" type="primary"></button-component>
+    <div class="mb-3">
+    <h6 >Releasing Instructions</h6>
+    <input class="insrtuc" style="width: auto;" type="text"  [ngClass]="{'inactiveEdit':isEditable}" value="Direct Deposit to Client" [readOnly]="!isEditable">
+    <i *ngIf="isEditable" style="position: relative; right: 22px; color: #037354;" class="bi bi-caret-down-fill"></i>
+    </div>
+    <div class="row mb-3" >
+      <div class="col-md-3 align-middle "> 
+          <h6>Bank</h6>
+        <div class=" d-flex ">
+          <img style="height: 25px; width: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/f/ff/RCBC_logo.svg" alt="">
+          <h4 style="font-size: 18px;">RCBC</h4>
+      </div>
+    </div>
+    <div class="col-md-5"> 
+        <h6 >Account Name</h6>
+        <h4 style="font-size: 18px;">{{record().client}}</h4>
+    </div>
+    <div class="col-md-4">
+        <h6 >Account Number</h6>
+        <h4 style="font-size: 18px;">0123-4567-8901</h4>
+    </div>   
+      <button-component *ngIf="isEditable" style="width: auto; margin-left: auto;"  text="Save" type="primary"></button-component>
     </div>   
   </div>
 </div>
