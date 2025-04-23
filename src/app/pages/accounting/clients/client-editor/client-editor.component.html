@@ -1,6 +1,6 @@
 <dialog class="root-container" #modal>
   <div class="d-flex flex-row align-items-center justify-content-between">
-    <div class="title">Add School/Company</div>
+    <div class="title">{{ mode == "add" ? "Add" : "Edit" }} School/Company</div>
     <i (click)="close()" class="bi bi-x-lg close"></i>
   </div>
   @if (loading){

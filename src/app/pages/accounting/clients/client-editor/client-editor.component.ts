@@ -48,7 +48,11 @@ export class ClientEditorComponent {
     });
   }
   apiUpdate(uuid: string, payload: any){
-
+    this.loading = true;
+    this.clients.update(uuid,payload).subscribe({
+      error: error => this.error(),
+      complete: () => this.success()
+    });
   }
   open(){
     this.modal()?.nativeElement.showModal();
@@ -58,7 +62,9 @@ export class ClientEditorComponent {
     this.open();
   }
   edit(client: Client){
+    this.uuid = client.uuid;
     this.form.patchValue(client);
+    this.mode = "edit";
     this.open();
   }
   close(){

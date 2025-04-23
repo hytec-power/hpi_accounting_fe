@@ -8,7 +8,7 @@ import {SearchComponent} from "src/app/common/search/search.component";
 import {ClientEditorComponent} from "src/app/pages/accounting/clients/client-editor/client-editor.component";
 import {ClientsService} from "src/app/services/accounting/clients/clients.service";
 import {Client} from "src/app/interfaces/client";
-import {DatePipe, TitleCasePipe} from "@angular/common";
+import {DatePipe, SlicePipe, TitleCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-clients',
@@ -21,7 +21,8 @@ import {DatePipe, TitleCasePipe} from "@angular/common";
     SearchComponent,
     ClientEditorComponent,
     DatePipe,
-    TitleCasePipe
+    TitleCasePipe,
+    SlicePipe
   ],
   templateUrl: './clients.component.html',
   styleUrl: './clients.component.scss'

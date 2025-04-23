@@ -35,14 +35,14 @@
           </tr>
         }
         @if (!loading) {
-          @for (i of items_filtered();track i.uuid){
+          @for (i of items_filtered() | slice: (page()-1)*10: page() * 10;track i.uuid){
             <tr>
               <td><a class="link" >{{ i.name }}</a></td>
               <td>{{ i.address }}</td>
               <td>{{ i.category | titlecase }}</td>
               <td>{{ i.created_at | date: 'shortDate' }}</td>
               <td class="row-controls">
-                <i class="bi bi-pencil-square"></i>
+                <i class="bi bi-pencil-square" (click)="editor.edit(i)"></i>
                 <i class="bi bi-trash" ></i>
               </td>
             </tr>
