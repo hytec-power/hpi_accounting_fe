@@ -10,7 +10,7 @@ export class ClientsService {
   api = `${environment.apiUrl}/accounting/clients`;
   constructor(private http: HttpClient) { }
   index(){
-    return this.http.get<Client[]>(`${this.api}`,{observe: 'body'});
+    return this.http.get<{count: number, items:Client[]}>(`${this.api}`,{observe: 'body'});
   }
   find(uuid: string) {
     return this.http.get<Client>(`${this.api}/${uuid}`,{observe: 'body'});

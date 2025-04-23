@@ -13,14 +13,14 @@ import { AdeditmodalComponent } from './adeditmodal/adeditmodal.component';
 
 @Component({
   selector: 'app-listschoolcompany',
-  imports: [PageTitleComponent, DropdownComponent, ButtonComponent, LoaderBouncingBallsComponent, PaginatorComponent, SearchComponent, RouterLink, AdeditmodalComponent],
+  imports: [PageTitleComponent, DropdownComponent, ButtonComponent, LoaderBouncingBallsComponent, PaginatorComponent, SearchComponent, AdeditmodalComponent],
   templateUrl: './listschoolcompany.component.html',
   styleUrl: './listschoolcompany.component.scss'
 })
 export class ListschoolcompanyComponent {
   @ViewChild('basicdialog') child!: AdeditmodalComponent;
   @ViewChild('basicdialog2') child2!: AdeditmodalComponent;
-  
+
   loading: boolean =  false;
   //DATA
 
