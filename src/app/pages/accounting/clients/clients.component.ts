@@ -25,12 +25,9 @@ import {ClientEditorComponent} from "src/app/pages/accounting/clients/client-edi
 })
 export class ClientsComponent {
   editor = viewChild.required('editor',{read: ClientEditorComponent});
-  @ViewChild('basicdialog') child!: AdeditmodalComponent;
-  @ViewChild('basicdialog2') child2!: AdeditmodalComponent;
 
   loading: boolean =  false;
   //DATA
-
   sort_types: DropdownItem[]=[];
   filter_types: DropdownItem[]=[];
   filter_status: DropdownItem[]=[];
@@ -40,7 +37,6 @@ export class ClientsComponent {
   query: WritableSignal<string> = signal('');
   page: WritableSignal<number> = signal(1);
   sort: WritableSignal<string> = signal('');
-
 
   constructor() {
     this.init();
@@ -60,16 +56,5 @@ export class ClientsComponent {
       {name:'School',value:'date_desc'},
       {name:'Company',value:'date_desc'},
     ]
-  }
-  openadd() {
-    this.child.isEdit = false;
-    this.child.openDialog();
-  }
-  onedit() {
-    this.child.isEdit = true;
-    this.child.openDialog();
-  }
-  ondelete(){
-    this.child2.openConfirmDialog()
   }
 }
