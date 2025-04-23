@@ -4,9 +4,9 @@
       <search-component width="322px"
                         placeholder="Search project name / Request Number"
                         (onSearch)="onSearch($event)"/>
-      <dropdown placeholder="Request Type"   [items]="filter_types"  [(value)]="type"   width="200px"/>
-      <dropdown placeholder="Request Status" [items]="filter_status" [(value)]="status" width="200px"/>
-      <dropdown placeholder="Sort By"        [items]="sort_types"    [(value)]="sort"   width="200px"  />
+      <dropdown placeholder="Request Type"   [items]="filter_types"  [(selection)]="type"   width="200px"/>
+      <dropdown placeholder="Request Status" [items]="filter_status" [(selection)]="status" width="200px"/>
+      <dropdown placeholder="Sort By"        [items]="sort_types"    [(selection)]="sort"   width="200px"  />
       <div style="flex:1;"></div>
       <button-component routerLink="/employee/budget-requests/create" text="Add" type="primary" bi_icon="bi-plus-lg" />
     </div>

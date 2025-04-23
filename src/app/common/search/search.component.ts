@@ -18,4 +18,5 @@ export class SearchComponent {
   search_bi_icon = input<string>('');
   placeholder = input<string>('Search');
   onSearch = output<string>();
+  onChange = output<void>();
 }

@@ -2,9 +2,9 @@
   <page-title text="Budget Requests" bi_icon="bi-wallet-fill"  />
   <div class="d-flex flex-row my-2">
     <search-component (onSearch)="query.set($event)" />
-    <dropdown [items]="dropdown_types"  placeholder="Request Types"  [(value)]="type"    width="200px"/>
-    <dropdown [items]="dropdown_status" placeholder="Status" [(value)]="status"  width="200px"/>
-    <dropdown [items]="dropdown_sort"   placeholder="Sort By"   [(value)]="sort"    width="200px"/>
+    <dropdown [items]="dropdown_types"  placeholder="Request Types"  [(selection)]="type"    width="200px"/>
+    <dropdown [items]="dropdown_status" placeholder="Status" [(selection)]="status"  width="200px"/>
+    <dropdown [items]="dropdown_sort"   placeholder="Sort By"   [(selection)]="sort"    width="200px"/>
   </div>
   <div class="table-wrapper">
         <table>
