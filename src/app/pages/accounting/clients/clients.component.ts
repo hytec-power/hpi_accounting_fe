@@ -1,5 +1,4 @@
-import {Component, signal, viewChild, ViewChild, WritableSignal} from '@angular/core';
-import {AdeditmodalComponent} from "src/app/pages/accounting/listschoolcompany/adeditmodal/adeditmodal.component";
+import {Component, signal, viewChild, WritableSignal} from '@angular/core';
 import {DropdownComponent, DropdownItem} from "src/app/common/dropdown/dropdown.component";
 import {ButtonComponent} from "src/app/common/button/button.component";
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
@@ -11,7 +10,6 @@ import {ClientEditorComponent} from "src/app/pages/accounting/clients/client-edi
 @Component({
   selector: 'app-clients',
   imports: [
-    AdeditmodalComponent,
     ButtonComponent,
     DropdownComponent,
     LoaderBouncingBallsComponent,
