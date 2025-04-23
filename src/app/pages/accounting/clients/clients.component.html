@@ -31,20 +31,21 @@
           </tr>
         }
         @if (!loading) {
-          <tr>
-            <td><a class="link" >Quezon City University</a></td>
-            <td>Quirino Highway San Bartolome Campus Quezon City</td>
-            <td>March 12, 2025</td>
-            <td>
-              <div class="row-controls">
-                <i style="font-size: 20px;" class="bi bi-pencil-square" (click)="onedit()"></i>
-                <i  style="font-size: 20px;" class="bi bi-trash" (click)="ondelete()"></i>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="4"><div class="text-center">No items</div></td>
-          </tr>
+          @for (i of items_filtered;track i.uuid){
+            <tr>
+              <td><a class="link" >{{ i.name }}</a></td>
+              <td>{{ i.address }}</td>
+              <td>{{ i.created_at | date: 'shortDate' }}</td>
+              <td class="row-controls">
+                <i class="bi bi-pencil-square"></i>
+                <i class="bi bi-trash" ></i>
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="4"><div class="text-center">No items</div></td>
+            </tr>
+          }
         }
       </tbody>
     </table>
