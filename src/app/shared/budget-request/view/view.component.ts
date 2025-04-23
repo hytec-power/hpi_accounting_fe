@@ -80,7 +80,8 @@ export class BudgetRequestViewComponent {
       po_ref: [this.record().po_reference,Validators.required],
       po_amount: [this.currencyPipe.transform(this.record().po_amount, 'PHP'),Validators.required],
       confidence_level: [this.record().confidence_level,Validators.required],
-      expected_qy: [`${this.record().expected_quarter} / ${this.record().expected_year}`,Validators.required]
+      expected_qy: [`${this.record().expected_quarter} / ${this.record().expected_year}`,Validators.required],
+      future_project: [this.record().future_project]
     })
   }
   

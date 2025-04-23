@@ -23,19 +23,21 @@
                 <h6> P.O Amount</h6>
                 <input class="back2" style="font-size: 18px;" type="text" [ngClass]="{'inactiveEdit':isEditable}" formControlName="po_amount" [readOnly]="!isEditable">
             </div>
-            <div class="future row">
-                <h6 class="mb-3"><strong>FOR FUTURE PROJECT</strong></h6>
-                <div class="col-md-6">
-                    <h6>Confidence Level</h6>
-                    <input  class="back2" style="font-size: 18px ; width: 92%;" type="text" [ngClass]="{'inactiveEdit':isEditable}" formControlName="confidence_level"  [readOnly]="!isEditable">
+            @if (form().get('future_project')?.value > 0) {
+                <div class="future row">
+                    <h6 class="mb-3"><strong>FOR FUTURE PROJECT</strong></h6>
+                    <div class="col-md-6">
+                        <h6>Confidence Level</h6>
+                        <input  class="back2" style="font-size: 18px ; width: 92%;" type="text" [ngClass]="{'inactiveEdit':isEditable}" formControlName="confidence_level"  [readOnly]="!isEditable">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <h6>Expected Release of P.O</h6>
+                        <input  class="back2" style="font-size: 18px;width: 92%;" type="text" [ngClass]="{'inactiveEdit':isEditable}" formControlName="expected_qy"  [readOnly]="!isEditable">
+                        <i *ngIf="isEditable" style="position: relative; right: 22px; color: #037354;" class="bi bi-caret-down-fill"></i>
+        
+                    </div>
+                    <button-component [disabled]="form().invalid" *ngIf="isEditable" style="width: auto; margin-left: auto;"  text="Save" type="primary"></button-component>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <h6>Expected Release of P.O</h6>
-                    <input  class="back2" style="font-size: 18px;width: 92%;" type="text" [ngClass]="{'inactiveEdit':isEditable}" formControlName="expected_qy"  [readOnly]="!isEditable">
-                    <i *ngIf="isEditable" style="position: relative; right: 22px; color: #037354;" class="bi bi-caret-down-fill"></i>
-    
-                </div>
-                <button-component [disabled]="form().invalid" *ngIf="isEditable" style="width: auto; margin-left: auto;"  text="Save" type="primary"></button-component>
-            </div>
+            }
     </form>
 </div>
