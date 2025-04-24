@@ -30,11 +30,6 @@ export class AccountingTemplateComponent {
                                  bi_icon: 'bi-wallet2',
                                  bi_icon_active: 'bi-wallet-fill',
                                  exact: false });
-        this.sidebar_items.push({name: 'Schools/Company',
-                                link: '/accounting/listschoolcompany' ,
-                                bi_icon: 'bi-building',
-                                bi_icon_active: 'bi-building-fill',
-                                exact: false });
       this.sidebar_items.push({name: 'Clients',
                                link: '/accounting/clients' ,
                                bi_icon: 'bi-building',

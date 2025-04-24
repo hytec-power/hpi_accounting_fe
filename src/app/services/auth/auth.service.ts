@@ -50,7 +50,7 @@ export class AuthService {
   getRedirectUrl(){
     switch(this.current_user()?.role.name){
       case 'employee': return '/employee';
-      case 'accountant': return '/accounting';
+      case 'accountant': return '/accounting/budget-requests';
       default: return '/login';
     }
   }
