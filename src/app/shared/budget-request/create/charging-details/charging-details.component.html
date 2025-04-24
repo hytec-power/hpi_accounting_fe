@@ -9,7 +9,7 @@
           </label>
           <label class="data-item">
             <div class="data-label">School Company</div>
-            <select>
+            <select formControlName="project_client" (change)="onClientSelect($event)">
               @for (i of items;track i.uuid){
                 <option [value]="i.uuid">{{ i.name }}</option>
               }

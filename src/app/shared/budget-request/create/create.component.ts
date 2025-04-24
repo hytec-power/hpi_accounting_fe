@@ -14,6 +14,7 @@ import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls
 import {ModalsService} from "src/app/services/common/modals/modals.service";
 import { manpower } from 'src/app/interfaces/request-manpower';
 import { HpiUser } from 'src/app/interfaces/hpi-user';
+import {Client} from "src/app/interfaces/client";
 
 @Component({
   selector: 'create-budget-request',
@@ -39,7 +40,7 @@ export class CreateComponent {
   onCreate = output<void>()
   //UI
   steps: StepperItem[]=[];
-  page:WritableSignal<number> = signal(2);
+  page:WritableSignal<number> = signal(0);
   loading: boolean = false;
   //FORMS & DATA
   form_request_details!: FormGroup;
