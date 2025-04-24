@@ -13,7 +13,7 @@
   @if (query()) {
     <div class="message">
       <span class="count">{{ items_filtered().length }}</span>Items found.
-      <span> Search Results for "". </span>
+      <span> Search Results for "{{ query() }}". </span>
       <span  (click)="query.set('');page.set(1)" class="clear-search"> Clear </span>
     </div>
   }
