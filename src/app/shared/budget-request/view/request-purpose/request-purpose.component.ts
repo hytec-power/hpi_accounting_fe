@@ -46,6 +46,8 @@ export class RequestPurposeComponent {
   loadData(){
       this.type = this.data().type;
       this.purpose = this.data().purpose;
+      this.purpose.sort();
+      this.request_purpose.sort()
   }
   toggleEdit(){
       this.isEditable = !this.isEditable;
@@ -56,8 +58,10 @@ export class RequestPurposeComponent {
   }
   addPurpose(name: string){
     !this.purpose.includes(name) && this.purpose.push(name);
+    this.purpose.sort();
   }
   removePurpose(name: string){
     this.purpose.includes(name) && this.purpose.splice(this.purpose.indexOf(name),1);
+    this.purpose.sort();
   }
 }
