@@ -10,6 +10,7 @@ import {HpiUser} from "src/app/interfaces/hpi-user";
 })
 export class BudgetRequestService {
   api = `${environment.apiUrl}/employee/budget-requests`;
+  role: string= 'employee';
   constructor(private http: HttpClient) { }
   index(page:number,query: string,sort: string,type: string = '',status: string = ''){
     const params = new HttpParams().set("page", page)

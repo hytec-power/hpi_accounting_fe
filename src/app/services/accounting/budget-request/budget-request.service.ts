@@ -8,6 +8,7 @@ import {BudgetRequest} from "src/app/interfaces/budget-request";
 })
 export class BudgetRequestService {
   api = `${environment.apiUrl}/accounting/budget-requests`;
+  role: string= 'accounting';
   constructor(private http: HttpClient) { }
   index(page: number,query: string,sort:string = '',type: string='',status: string=''){
     const params = new HttpParams().append('page',page)
