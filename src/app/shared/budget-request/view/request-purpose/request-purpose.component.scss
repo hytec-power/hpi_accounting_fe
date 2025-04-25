@@ -39,10 +39,24 @@ input[readonly],select:disabled{
 }
 label{
   width: 100%;
-  input,select{
+  margin: 2px 0;
+  select{
     width: 100%;
   }
 }
 select{
   padding-left: 7px;
+}
+.options{
+  display: flex;
+  flex-direction: column;
+  input[type=checkbox]{
+    margin: 5px 5px;
+  }
+  label{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    cursor: pointer;
+  }
 }

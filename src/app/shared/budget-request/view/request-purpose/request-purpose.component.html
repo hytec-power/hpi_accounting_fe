@@ -17,11 +17,25 @@
         </label>
         <label>
             <div class="data-label">Purpose</div>
-            <ul>
-                @for (p of purpose;track $index){
-                    <li>{{ p }}</li>
-                }
-            </ul>
+            @if (!isEditable){
+                <ul>
+                    @for (p of purpose;track $index){
+                        <li>{{ p }}</li>
+                    }
+                </ul>
+            }
+            @if (isEditable){
+                <div class="options">
+                    @for (i of request_purpose;track $index){
+                        <label>
+                            <input type="checkbox"
+                                   [checked]="purpose.includes(i)"
+                                   (change)="onSelect(i,$event)">
+                            <div>{{ i }}</div>
+                        </label>
+                    }
+                </div>
+            }
         </label>
 
     </div>

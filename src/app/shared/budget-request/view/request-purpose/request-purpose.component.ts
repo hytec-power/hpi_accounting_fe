@@ -50,4 +50,14 @@ export class RequestPurposeComponent {
   toggleEdit(){
       this.isEditable = !this.isEditable;
   }
+  onSelect(name: string,event:any){
+      const checked = event.target.checked;
+      checked ? this.addPurpose(name): this.removePurpose(name);
+  }
+  addPurpose(name: string){
+    !this.purpose.includes(name) && this.purpose.push(name);
+  }
+  removePurpose(name: string){
+    this.purpose.includes(name) && this.purpose.splice(this.purpose.indexOf(name),1);
+  }
 }
