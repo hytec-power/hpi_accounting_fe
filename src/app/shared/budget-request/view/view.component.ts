@@ -10,6 +10,7 @@ import {BudgetRequest} from "src/app/interfaces/budget-request";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
 import { HpiUser } from 'src/app/interfaces/hpi-user';
+import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/budget-request.service";
 
 @Component({
     selector: 'budget-request-viewer',
@@ -36,7 +37,8 @@ export class BudgetRequestViewComponent {
   record= input.required<BudgetRequest>() ;
   manpower_list: HpiUser[] = [] ;
   constructor(private currencyPipe: CurrencyPipe,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private brApi: BudgetRequestService) {
     this.initSteps();
   }
   ngOnInit() {
