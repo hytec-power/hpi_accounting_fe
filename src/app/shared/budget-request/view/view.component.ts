@@ -84,5 +84,5 @@ export class BudgetRequestViewComponent {
       future_project: [this.record().future_project]
     })
   }
-  
+
 }
