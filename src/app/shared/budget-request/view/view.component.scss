@@ -1,3 +1,11 @@
 .heightfix{
     align-items: stretch;
 }
+.stepper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    &-container{
+        width: 696px;
+    }
+}

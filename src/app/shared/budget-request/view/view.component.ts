@@ -47,12 +47,10 @@ export class BudgetRequestViewComponent {
   }
   initSteps(){
     this.steps.push(...[
-      {name: 'Request Form' , bi_icon: 'bi-card-checklist'},
-      {name: 'Requirements Checking', bi_icon: 'bi-card-checklist'},
-      {name: 'Documents Validation', bi_icon: 'bi-card-checklist'},
-      {name: 'Approval', bi_icon: 'bi-card-checklist'},
-      {name: 'Receipt', bi_icon: 'bi-card-checklist'},
-      {name: 'Confirmation', bi_icon: 'bi-card-checklist'},
+      {name: 'Approval' , bi_icon: 'bi-ui-checks'},
+      {name: 'Releasing', bi_icon: 'bi-wallet2'},
+      {name: 'Liquidation', bi_icon: 'bi-droplet'},
+      {name: 'Completed', bi_icon: 'bi-check2-all'},
     ])
   }
   initForms(){
