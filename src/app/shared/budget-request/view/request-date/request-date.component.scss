@@ -1,8 +1,9 @@
 @use "colors";
+@use "forms";
 
 .root-container{
-  background-color: light-dark( colors.$light-bg-foreground,colors.$dark-bg-foreground);
-  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  background-color: colors.$bg-foreground;
+  color: colors.$text-normal;
   padding: 20px;
   box-sizing: border-box;
   border-radius: 20px;
@@ -12,17 +13,16 @@
   flex-grow: 1;
   flex-direction: column;
   display: flex;
-  flex-direction: column;
 }
 .section-title{
-  color: light-dark(colors.$primary-color,#FFF);
+  color: colors.$text-normal;
   font-weight: bold;
   margin-bottom: 5px;
   display: inline-block;
-  
+
 }
 .data{
-  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  color: colors.$text-normal;
   &-label{
     text-align: left;
   }
@@ -33,8 +33,8 @@
 }
 input[readonly]{
   outline: none;
-  box-shadow: none;
   border: none;
+  background-color: unset;
 }
 
 .inactiveEdit{

@@ -1,7 +1,7 @@
 <div>
   <stepper-component [items]="steps" [current_index]="3"/>
   <div class="row mb-4">
-    <div class="col" style="padding-left: 12x; margin-left: 10px; font-weight: 500;">
+    <div class="col" style="padding-left: 12px; margin-left: 10px; font-weight: 500;">
       <div style="color: #377161;">Request ID</div>
       <div style="font-size: 20px; ">20250121</div>
     </div>
@@ -12,22 +12,22 @@
       </div>
     </div>
   </div>
-  <div style="width: 100%;" class="row">
-    <div class="col">
-      <div class="row align-items-stretch">
-        <div class="col-7 d-flex">
-          <request-purpose class="flex-fill" [form]="purpose_form"></request-purpose>
-        </div>
-        <div class="col-5 d-flex">
-          <request-date class="flex-fill" [form]="date_form"></request-date>
-        </div>
-      </div>       
-      <app-budget [record]="record()"/>
-      <app-attachment [record]="record()"/>
+  <div class="row">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-6"><request-purpose class="flex-fill" [form]="purpose_form"/></div>
+        <div class="col-6"><request-date [(data)]="record" /></div>
+      </div>
+      <div class="row">
+        <div class="col-12"><app-budget [record]="record()"/></div>
+        <div class="col-12"> <app-attachment [record]="record()"/></div>
+      </div>
     </div>
-    <div class="col">
-      <app-chargingdetails [form]="charging_form"/>
-      <request-manpower />
+    <div class="col-6">
+      <div class="row">
+        <div class="col-12"><app-chargingdetails [form]="charging_form"/></div>
+        <div class="col-12"><request-manpower /> </div>
+      </div>
     </div>
   </div>
 </div>

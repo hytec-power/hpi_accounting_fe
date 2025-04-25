@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, input, model} from '@angular/core';
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
 import { RequestPurposeComponent } from "src/app/shared/budget-request/view/request-purpose/request-purpose.component";
 import {RequestDateComponent} from "src/app/shared/budget-request/view/request-date/request-date.component";
@@ -7,10 +7,9 @@ import { BudgetComponent } from "./budget/budget.component";
 import { AttachmentComponent } from "./attachment/attachment.component";
 import {RequestManpowerComponent} from './request-manpower/request-manpower.component'
 import {BudgetRequest} from "src/app/interfaces/budget-request";
-import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/budget-request.service";
-import {ActivatedRoute} from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
+import {reduce} from "rxjs";
 
 @Component({
     selector: 'budget-request-viewer',
@@ -34,15 +33,12 @@ export class BudgetRequestViewComponent {
   purpose_form!: FormGroup;
   date_form!: FormGroup;
   charging_form!: FormGroup;
-  record= input.required<BudgetRequest>() ;
+  record= model.required<BudgetRequest>() ;
   constructor(private currencyPipe: CurrencyPipe,
-              private fb: FormBuilder,
-              private brApi: BudgetRequestService,
-              private ar: ActivatedRoute) {
+              private fb: FormBuilder) {
     this.initSteps();
   }
   ngOnInit() {
-    console.log(this.record());
     this.initForms();
   }
   initSteps(){
@@ -56,16 +52,8 @@ export class BudgetRequestViewComponent {
     ])
   }
   initForms(){
-    this.initDateform();
     this.initPurposeform();
     this.initChargingform();
-  }
-  initDateform(){
-    this.date_form = this.fb.group({
-      view_date: [this.record().date_needed,Validators.required],
-      view_time: [this.record().time_needed,Validators.required],
-      view_util: [this.record().date_utilization,Validators.required]
-    })
   }
   initPurposeform(){
     this.purpose_form = this.fb.group({
@@ -85,4 +73,5 @@ export class BudgetRequestViewComponent {
     })
   }
 
+  protected readonly reduce = reduce;
 }
