@@ -42,7 +42,7 @@ export class BudgetRequestViewComponent {
     this.initSteps();
   }
   ngOnInit() {
-    console.log(this.record());
+    this.manpowerFetch();
     this.initForms();
   }
   initSteps(){
