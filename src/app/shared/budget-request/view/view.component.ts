@@ -36,7 +36,7 @@ export class BudgetRequestViewComponent {
   date_form!: FormGroup;
   charging_form!: FormGroup;
   record= input.required<BudgetRequest>() ;
-  manpower_list= input.required<HpiUser[]>() ;
+  manpower_list: HpiUser[] = [] ;
   constructor(private currencyPipe: CurrencyPipe,
               private fb: FormBuilder,
               private brApi: BudgetRequestService,
@@ -44,7 +44,7 @@ export class BudgetRequestViewComponent {
     this.initSteps();
   }
   ngOnInit() {
-    console.log(this.record());
+    this.manpowerFetch();
     this.initForms();
   }
   initSteps(){
@@ -87,6 +87,11 @@ export class BudgetRequestViewComponent {
       expected_qy: [`${this.record().expected_quarter} / ${this.record().expected_year}`,Validators.required],
       future_project: [this.record().future_project]
     })
+  }
+  manpowerFetch(){
+    this.brApi.manpower(this.record().uuid).subscribe({
+      next: data => this.manpower_list = data
+      })
   }
   
 }

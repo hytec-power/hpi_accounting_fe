@@ -22,7 +22,6 @@ export class ViewComponent {
   loading: boolean = true;
   //DATA
   br_uuid!: string;
-  manpower_list: HpiUser[] = [];
   record!: BudgetRequest;
   constructor(private brApi: BudgetRequestService,
               private ar: ActivatedRoute) {
@@ -30,7 +29,6 @@ export class ViewComponent {
   }
   ngOnInit() {
     this.apiFetch();
-    this.manpower();
   }
   apiFetch(){
     this.loading = true;
@@ -38,10 +36,5 @@ export class ViewComponent {
       next: data => this.record = data,
       complete: () => this.loading = false,
     });
-  }
-  manpower(){
-    this.brApi.manpower(this.br_uuid).subscribe({
-      next: data => this.manpower_list = data,
-      })
   }
 }
