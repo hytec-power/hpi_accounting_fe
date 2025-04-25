@@ -41,7 +41,6 @@ h6{
 .container {
   height: 220px auto;
   border-radius: 10px;
-  border: 1px solid #E6E6E7;
   background-color : colors.$bg-background;
   color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
   border-color:colors.$border-color;
@@ -61,4 +60,7 @@ p{
 }
 .inactiveEdit{
   border: none;
+}
+.table-bordered{
+  border-color:colors.$border-color;
 }
