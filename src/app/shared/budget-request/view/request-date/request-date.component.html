@@ -1,7 +1,9 @@
 <div class="root-container">
-    <div style="display: flex; justify-content: space-between; width: 100%;">
-        <div class="section-title"><i class="bi bi-calendar3 mx-1"></i>Date & Time</div>
-        <div><i (click)="toggleEdit()" class="bi bi-pencil-square"></i></div>
+    <div class="section-title" >
+        <i class="bi bi-calendar3"></i>
+        <div>Date & Time</div>
+        <div style="flex: 1;"></div>
+        <i class="bi bi-pencil-square edit" (click)="toggleEdit()"></i>
     </div>
     <form [formGroup]="form" class="my-2">
         <label>
