@@ -1,7 +1,7 @@
 @use "colors";
 
 .root-container{
-  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
+    background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
   color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
   padding: 20px;
   box-sizing: border-box;
