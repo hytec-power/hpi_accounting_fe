@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, input, model} from '@angular/core';
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
 import { RequestPurposeComponent } from "src/app/shared/budget-request/view/request-purpose/request-purpose.component";
 import {RequestDateComponent} from "src/app/shared/budget-request/view/request-date/request-date.component";
@@ -11,6 +11,7 @@ import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/bud
 import {ActivatedRoute} from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
+import { HpiUser } from 'src/app/interfaces/hpi-user';
 
 @Component({
     selector: 'budget-request-viewer',
@@ -35,6 +36,7 @@ export class BudgetRequestViewComponent {
   date_form!: FormGroup;
   charging_form!: FormGroup;
   record= input.required<BudgetRequest>() ;
+  manpower_list= input.required<HpiUser[]>() ;
   constructor(private currencyPipe: CurrencyPipe,
               private fb: FormBuilder,
               private brApi: BudgetRequestService,

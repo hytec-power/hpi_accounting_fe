@@ -35,4 +35,7 @@ export class BudgetRequestService {
   employees(){
     return this.http.get<HpiUser[]>(`${this.api}/employees`,{observe: 'body'});
   }
+  manpower(uuid:string){
+    return this.http.get<HpiUser[]>(`${this.api}/${uuid}/manpower`, {observe: 'body'});
+  }
 }

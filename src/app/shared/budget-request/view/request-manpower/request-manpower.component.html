@@ -7,19 +7,21 @@
         <table style="width: 100%;" [ngClass]="{'inactiveEdit':isEditable}">
             <thead>
                 <tr>
-                    <th style="border-top-left-radius: 15px;" class="data-label">Name/s</th>
-                    <th style="border-top-right-radius: 15px;" class="data-label">Role/s</th>
+                    <th style="border-top-left-radius: 15px;" class="data-label"></th>
+                    <th style="border-top-right-radius: 15px;" class="data-label">Name/s</th>
                 </tr>
             </thead>
             <tbody>
-                @for (i of manpowerList; track i.name) {
+                @for (i of manpowerList(); track i) {
                     <tr>
                         <td>
-                            <input style="text-align: center;" type="text" value={{i.name}} [readOnly]="!isEditable">
+                            <img style="text-align: center;" src={{i.image}} alt=" ">
                         </td>
                         <td>
                             <div style="display: flex; align-items: center;">
-                                <input style="flex:1; text-align: center;" type="text" value={{i.role}} [readOnly]="!isEditable">
+                                <input 
+                                    style="flex:1; text-align: center;" 
+                                    type="text" value={{i.firstname}} [readOnly]="!isEditable">
                                 @if (isEditable) {
                                         <i class="action-del bi bi-trash mx-2"></i>
                                 }
