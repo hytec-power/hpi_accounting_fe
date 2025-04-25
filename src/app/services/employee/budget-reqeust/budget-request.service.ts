@@ -28,7 +28,7 @@ export class BudgetRequestService {
     return this.http.post(`${this.api}`,payload,{observe: 'response'});
   }
   update(uuid: string, payload: any){
-    return this.http.patch(`${this.api}/${uuid}`,{observe: 'response'});
+    return this.http.patch(`${this.api}/${uuid}`,payload,{observe: 'response'});
   }
   delete(uuid: string){
 
