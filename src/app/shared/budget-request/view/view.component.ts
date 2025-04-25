@@ -1,4 +1,4 @@
-import {Component, input, model} from '@angular/core';
+import {Component, input} from '@angular/core';
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
 import { RequestPurposeComponent } from "src/app/shared/budget-request/view/request-purpose/request-purpose.component";
 import {RequestDateComponent} from "src/app/shared/budget-request/view/request-date/request-date.component";
@@ -9,7 +9,7 @@ import {RequestManpowerComponent} from './request-manpower/request-manpower.comp
 import {BudgetRequest} from "src/app/interfaces/budget-request";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
-import {reduce} from "rxjs";
+import { HpiUser } from 'src/app/interfaces/hpi-user';
 
 @Component({
     selector: 'budget-request-viewer',
@@ -33,12 +33,14 @@ export class BudgetRequestViewComponent {
   purpose_form!: FormGroup;
   date_form!: FormGroup;
   charging_form!: FormGroup;
-  record= model.required<BudgetRequest>() ;
+  record= input.required<BudgetRequest>() ;
+  manpower_list: HpiUser[] = [] ;
   constructor(private currencyPipe: CurrencyPipe,
               private fb: FormBuilder) {
     this.initSteps();
   }
   ngOnInit() {
+    console.log(this.record());
     this.initForms();
   }
   initSteps(){
@@ -66,12 +68,18 @@ export class BudgetRequestViewComponent {
       project_name: [this.record().project_name,Validators.required],
       quotation_ref: [this.record().quotation_reference,Validators.required],
       po_ref: [this.record().po_reference,Validators.required],
+      category:[this.record().client.category, Validators.required],
+      address: [this.record().client.address,Validators.required],
       po_amount: [this.currencyPipe.transform(this.record().po_amount, 'PHP'),Validators.required],
       confidence_level: [this.record().confidence_level,Validators.required],
       expected_qy: [`${this.record().expected_quarter} / ${this.record().expected_year}`,Validators.required],
       future_project: [this.record().future_project]
     })
   }
+  manpowerFetch(){
+    this.brApi.manpower(this.record().uuid).subscribe({
+      next: data => this.manpower_list = data
+      })
+  }
 
-  protected readonly reduce = reduce;
 }

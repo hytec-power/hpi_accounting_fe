@@ -5,6 +5,7 @@ import {ActivatedRoute} from "@angular/router";
 import {BudgetRequest} from "src/app/interfaces/budget-request";
 import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/budget-request.service";
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
+import { HpiUser } from 'src/app/interfaces/hpi-user';
 
 @Component({
     selector: 'app-view',
