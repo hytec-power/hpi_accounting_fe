@@ -9,47 +9,25 @@
   border-radius: 20px;
   margin: 10px;
   width: 100%;
-  height: 311px;
-  flex-grow: 1;
-  flex-direction: column;
-  display: flex;
 }
 .section-title{
   color: colors.$text-normal;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   display: inline-block;
-
 }
-.data{
-  color: colors.$text-normal;
-  &-label{
-    text-align: left;
-  }
-  &-value{
-    text-align: left;
-
-  }
+.data-label{
+  text-align: left;
+  padding-left: 7px;
+  color: colors.$primary-color;
 }
 input[readonly]{
   outline: none;
   border: none;
   background-color: unset;
 }
-
-.inactiveEdit{
-  border: none;
-}
-
-table{
-  margin-left: 15px;
-  th{
-    font-weight: 500;
-    color: colors.$primary-color;
-  }
-  td{
-    height: 30px;
-  }
+label{
+  width: 100%;
   input{
     width: 100%;
   }

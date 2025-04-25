@@ -20,12 +20,18 @@ export class RequestDateComponent {
     constructor(private fb: FormBuilder) {
       this.initForm();
     }
+    ngOnInit(){
+        this.loadData();
+    }
     initForm(){
       this.form = this.fb.group({
         date_needed: ['',Validators.required],
         time_needed: ['',Validators.required],
         date_utilization: ['',Validators.required]
       });
+    }
+    loadData(){
+        this.form.patchValue(this.data());
     }
     toggleEdit(){
         this.isEditable = !this.isEditable
