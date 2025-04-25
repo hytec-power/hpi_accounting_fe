@@ -1,61 +1,48 @@
 @use "colors";
-
+@use "forms";
 .root-container{
-    background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
-  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  background-color: colors.$bg-foreground;
+  color: colors.$text-normal;
   padding: 20px;
   box-sizing: border-box;
   border-radius: 20px;
   margin: 10px;
   width: 100%;
-  height: 311px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  height: 100%;
 }
 .section-title{
-  color: light-dark(colors.$primary-color,#FFF);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   font-weight: bold;
-  margin-bottom: 5px;
-}
-.title, i{
-  font-weight: 500;
-}
-.data{
-  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
-  &-label{
-    text-align: right;
-    opacity: 0.5;
+  color: colors.$text-bold;
+  margin-bottom: 10px;
+  .bi{
+    margin-right: 10px;
+    font-size: 18px;
   }
-  &-value{
-    text-align: left;
-
+  .edit{
+    color: gray;
+    cursor: pointer;
+    font-size: 15px;
   }
 }
-table{
-  table-layout: auto;
-  td{
-    padding: 5px;
-  }
+.data-label{
+  text-align: left;
+  padding-left: 7px;
+  color: colors.$primary-color;
 }
-.edit{
-  margin-left: auto;
-}
-
-h6{
-  font-size: 15px; color: #377161;
-}
-
-input[readonly]{
+input[readonly],select:disabled{
   outline: none;
-  box-shadow: none;
   border: none;
-  border-radius: 5px;
+  background-color: unset;
 }
-.inactiveEdit{
-  border: 1px solid #037354;
-  border-radius: 5px;
+label{
+  width: 100%;
+  input,select{
+    width: 100%;
+  }
 }
-.back{
-  background-color: light-dark(#FFF,colors.$dark-bg-foreground);
+select{
+  padding-left: 7px;
 }
