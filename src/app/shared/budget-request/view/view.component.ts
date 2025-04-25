@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, input, model} from '@angular/core';
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
 import { RequestPurposeComponent } from "src/app/shared/budget-request/view/request-purpose/request-purpose.component";
 import {RequestDateComponent} from "src/app/shared/budget-request/view/request-date/request-date.component";
@@ -34,7 +34,7 @@ export class BudgetRequestViewComponent {
   purpose_form!: FormGroup;
   date_form!: FormGroup;
   charging_form!: FormGroup;
-  record= input.required<BudgetRequest>() ;
+  record= model.required<BudgetRequest>() ;
   manpower_list: HpiUser[] = [] ;
   constructor(private currencyPipe: CurrencyPipe,
               private fb: FormBuilder,
