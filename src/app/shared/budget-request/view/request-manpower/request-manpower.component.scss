@@ -29,7 +29,10 @@
   height: 70%;
   overflow-y: auto;
 }
-
+.employee-image{
+  height: 80px;
+  width: 80px;
+}
 
 .table-container::-webkit-scrollbar{
   display: none;
