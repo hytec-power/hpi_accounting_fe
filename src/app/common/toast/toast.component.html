@@ -1,0 +1,33 @@
+<div class="root-container">
+  @for (i of items();track i){
+    <div [class]="['item',i.style]">
+      @switch (i.style){
+        @case ('success'){
+          <i class="bi bi-check-circle-fill type-icon"></i>
+        }
+        @case ('warning'){
+          <i class="bi bi-exclamation-triangle-fill type-icon"></i>
+        }
+        @case ('error'){
+          <i class="bi bi-x-circle-fill type-icon"></i>
+        }
+        @case ('info'){
+          <i class="bi bi-info-circle-fill type-icon"></i>
+        }
+        @case ('loading'){
+          <loader-spinner [size_px]="30" />
+        }
+      }
+      <div class="item-body">
+        <div class="item-style">{{ i.style | titlecase }}</div>
+        <div class="item-message">
+          {{ i.message }}
+          @if(i.type == 'timed'){
+            ({{ ((i.time - i.elapsed )/ 1000) }})
+          }
+        </div>
+      </div>
+      <i class="bi bi-x close" (click)="toast.removeToast(i)"></i>
+    </div>
+  }
+</div>
