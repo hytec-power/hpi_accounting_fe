@@ -8,6 +8,7 @@ import {BudgetRequestService as EmployeeBRService} from "src/app/services/employ
 import { BudgetRequestService as AccountingBRService } from "src/app/services/accounting/budget-request/budget-request.service";
 import {AuthService} from "src/app/services/auth/auth.service";
 import {ServiceRoleSelector} from "src/app/services/common/serviceRoleSelector/service-role-selector.service";
+import {ToastService} from "src/app/services/common/toast/toast.service";
 
 @Component({
     selector: 'request-date',
@@ -30,7 +31,8 @@ export class RequestDateComponent {
                 private auth: AuthService,
                 private employeeBr: EmployeeBRService,
                 private accountingBR: AccountingBRService,
-                private serviceSelector: ServiceRoleSelector) {
+                private serviceSelector: ServiceRoleSelector,
+                private toast: ToastService) {
       this.initForm();
       this.initService();
     }
@@ -68,5 +70,10 @@ export class RequestDateComponent {
     onSuccess(){
       this.loading = false;
       this.isEditable = false;
+      this.toast.makeToast('success',"Date & Time updated successfully!",5000);
+    }
+    onError(){
+      this.loading = false;
+      this.toast.makeToast('error',"Error updating record ",5000);
     }
 }
