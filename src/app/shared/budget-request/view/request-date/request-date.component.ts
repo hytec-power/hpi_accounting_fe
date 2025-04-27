@@ -52,6 +52,7 @@ export class RequestDateComponent {
         this.api.update(this.data().uuid,payload)
                 .subscribe({
                     next: res=> console.log(res),
+                    complete: () => this.onSuccess()
                 });
     }
     loadData(){
@@ -63,5 +64,9 @@ export class RequestDateComponent {
     }
     save(){
         this.apiSave(this.form.getRawValue());
+    }
+    onSuccess(){
+      this.loading = false;
+      this.isEditable = false;
     }
 }
