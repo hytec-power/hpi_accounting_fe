@@ -1,0 +1,35 @@
+<dialog class="root-container" #modal>
+    <div class="d-flex flex-row align-items-center justify-content-between">
+      <div class="title"> Change status</div>
+      <i  class="bi bi-x-lg close" (click)="close()"></i>
+    </div>
+    <p style="font-size: 15px;font-weight: 300;">Click the <i style="color: blue;" class="bi bi-question-circle-fill" (click)="opentags()"></i> to view the statuses or the reference.</p>
+    @if (loading){
+      <div class="text-center my-3"> <loader-spinner [size_px]="30"/> </div>
+    }
+    @if (!loading) {
+      <div>
+        <form >
+          <div class="d-flex flex-column">
+            <label>
+              <div>Status</div>
+              <select formControlName="category">
+                <option selected disabled>For Accounting Compliance</option>
+                @for (item of option; track $index) {
+                    <option value="">{{item}}</option>
+                }
+              </select>
+            </label>
+            <label>
+              <div>Remarks</div>
+              <input style="height:45px;" type="text"  maxlength="255" formControlName="name">
+            </label>
+          </div>
+        </form>
+        <div class="d-flex justify-content-center">
+          <button-component  text="Update" type="primary"/>
+        </div>
+      </div>
+    }
+  </dialog>
+  

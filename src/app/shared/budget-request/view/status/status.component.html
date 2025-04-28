@@ -1,0 +1,29 @@
+<div class="root-container row mb-4">
+    <div class="col-md-3" style="padding-left: 12px; margin-left: 10px; font-weight: 500;">
+      <div class="d-flex">
+        <div style="color: #377161;margin-right: 5px;">Status</div>
+        <div style="color: #1876D2; font-size: 18px;"><i class="bi bi-question-circle-fill" (click)="statusmodel.open()"></i></div>
+      </div>
+      <div class=" d-flex">
+        <div style="margin-right:5px; font-size: 20px; color: #EBA400;">{{record().status}} </div>
+        <i class="bi bi-pencil-square" style="cursor: pointer;font-size: 20px;" (click)="modal.open()"></i>
+      </div>
+    </div>
+    <div class="col" style="padding-left: 12px; margin-left: 10px; font-weight: 500;">
+      <div class="d-flex justify-content-end" style="color: #377161;">Request ID</div>
+      <div class="d-flex justify-content-end" style="font-size: 20px; ">{{record().request_reference}}</div>
+    </div>
+    <div class="col" style="padding-left: 12px; margin-left: 10px; font-weight: 500;">
+      <div style="color: #377161;">Requester</div>
+      <div style="font-size: 20px; ">{{record().user.firstname}}</div>
+    </div>
+    <div class="col" style="display: flex;">
+      <div style="width: 200px; margin-left: auto; font-weight: 500;">
+        <div class="d-flex justify-content-end" style="color: #377161;">Date Requested</div>
+        <div class="d-flex justify-content-end" style=" font-size: 20px;">{{ record().created_at | date:'short' }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-changestatus #modal/>
+  <app-statustag #statusmodel/>

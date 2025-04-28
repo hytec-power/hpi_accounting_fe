@@ -1,0 +1,33 @@
+<dialog class="root-container" #modalstatus>
+    <div class="header">
+        <div class="d-flex flex-row align-items-center justify-content-between">
+            <div class="title" style="font-size: 20px;">Status Tag</div>
+            <p></p>
+            <i  class="bi bi-x-lg close" style="cursor: pointer;" (click)="close()"></i>
+          </div>
+          <p style="font-size: 18px;font-weight: 300;">These are the statuses you may encounter when processing a budget request.</p>
+    </div>
+
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Tags</th>
+                    <th>Information</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of data; track $index) {
+                    <tr>
+                        <td>{{item.tags}}</td>
+                        <td>{{item.information}}</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+
+    
+  </dialog>
+  
