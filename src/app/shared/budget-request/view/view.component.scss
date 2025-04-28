@@ -1,3 +1,5 @@
+
+@use "colors";
 .heightfix{
     align-items: stretch;
 }
@@ -8,4 +10,14 @@
     &-container{
         width: 696px;
     }
+}
+.root-container{
+  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin: 10px;
+  width: 100%;
+  height: auto;
 }
