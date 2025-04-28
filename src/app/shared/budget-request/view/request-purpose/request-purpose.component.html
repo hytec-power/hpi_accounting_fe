@@ -3,46 +3,53 @@
         <i class="bi bi-card-checklist"></i>
         <div>Request Details</div>
         <div style="flex: 1;"></div>
-        <i class="bi bi-pencil-square edit" (click)="toggleEdit()"></i>
+        @if (!isEditable){
+          <i class="bi bi-pencil-square edit" (click)="toggleEdit()"></i>
+        }
     </div>
-    <div class="my-3">
+    @if (loading){
+      <div class="text-center my-3"> <loader-spinner [size_px]="30"/> </div>
+    }
+    @if (!loading){
+      <div class="my-3">
         <label>
-            <div class="data-label">Type of Request</div>
-            <select [disabled]="!isEditable">
-                <option value="" disabled>Select Type</option>
-                @for (p of request_types; track $index) {
-                    <option [value]="p">{{p}}</option>
-                }
-            </select>
+          <div class="data-label">Type of Request</div>
+          <select [(ngModel)]="type" [disabled]="!isEditable" >
+            <option value="" disabled>Select Type</option>
+            @for (p of request_types; track $index) {
+              <option [value]="p">{{p}}</option>
+            }
+          </select>
         </label>
         <label>
-            <div class="data-label">Purpose</div>
-            @if (!isEditable){
-                <ul>
-                    @for (p of purpose;track $index)
-                    {<li>{{ p }}</li>}
-                </ul>
-            }
-            @if (isEditable){
-                <div class="options">
-                    @for (i of request_purpose;track $index){
-                        <label>
-                            <input type="checkbox"
-                                   [checked]="purpose.includes(i)"
-                                   (change)="onSelect(i,$event)">
-                            <div>{{ i }}</div>
-                        </label>
-                    }
-                </div>
-            }
+          <div class="data-label">Purpose</div>
+          @if (!isEditable){
+            <ul>
+              @for (p of purpose;track $index)
+              {<li>{{ p }}</li>}
+            </ul>
+          }
+          @if (isEditable){
+            <div class="options">
+              @for (i of request_purpose;track $index){
+                <label>
+                  <input type="checkbox"
+                         [checked]="purpose.includes(i)"
+                         (change)="onSelect(i,$event)">
+                  <div>{{ i }}</div>
+                </label>
+              }
+            </div>
+          }
         </label>
 
-    </div>
-    @if (isEditable) {
+      </div>
+      @if (isEditable) {
         <div class="text-end">
-            <button-component text="Save" type="primary"/>
-            <button-component text="Cancel" type="secondary"/>
+          <button-component (click)="onSave()" [disabled]="!isValid()" text="Save" type="primary"/>
+          <button-component (click)="onCancel()" text="Cancel" type="secondary"/>
         </div>
+      }
     }
 </div>
 
