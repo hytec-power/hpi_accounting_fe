@@ -19,7 +19,7 @@
             <tbody>
                 @for (item of data; track $index) {
                     <tr>
-                        <td>{{item.tags}}</td>
+                        <td style="font-weight: 600;" [ngClass]="getTags(item.tags)">{{item.tags}}</td>
                         <td>{{item.information}}</td>
                     </tr>
                 }

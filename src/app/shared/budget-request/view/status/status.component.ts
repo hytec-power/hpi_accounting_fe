@@ -15,4 +15,24 @@ export class StatusComponent {
 
   modal = viewChild.required('editor',{read: ChangestatusComponent});
   modalstatus  = viewChild.required('modalstatus', {read: StatustagComponent})
+  tags(tag: string){
+    if(!tag) return'';
+    switch(true){
+      case tag.includes('Approved'):
+      return 'tag-aprroved';
+      case tag.includes('reviewal'):
+      return 'for-reviewal'
+      case tag.includes('Liquidation'):
+      return 'for-liquidation'
+      case tag.includes('Disapproved'):
+      return 'disaproved'
+      case tag.includes('Completed'):
+      return 'completed'
+      case tag.includes('Releasing'):
+      return 'for-release'
+      case tag.includes('Canceled'):
+      return 'cancel'
+    }
+    return ''
+  }
 } 
