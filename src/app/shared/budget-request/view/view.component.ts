@@ -11,6 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
 import { HpiUser } from 'src/app/interfaces/hpi-user';
 import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/budget-request.service";
+import { StatusComponent } from "./status/status.component";
 
 @Component({
     selector: 'budget-request-viewer',
@@ -22,7 +23,8 @@ import {BudgetRequestService} from "src/app/services/employee/budget-reqeust/bud
     BudgetComponent,
     AttachmentComponent,
     RequestManpowerComponent,
-  ],
+    StatusComponent
+],
     providers: [CurrencyPipe],
     templateUrl: './view.component.html',
     styleUrl: './view.component.scss'

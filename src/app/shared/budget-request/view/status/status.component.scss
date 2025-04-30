@@ -1,16 +1,6 @@
 
 @use "colors";
-.heightfix{
-    align-items: stretch;
-}
-.stepper{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    &-container{
-        width: 696px;
-    }
-}
+
 .root-container{
   background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
   color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
@@ -20,4 +10,25 @@
   margin: 10px;
   width: 100%;
   height: auto;
+}
+.tag-aprroved{
+  color: #259B50;
+}
+.for-reviewal{
+  color: #EBA400;
+}
+.for-liquidation{
+  color: #D7D700;
+}
+.disaproved{
+  color: #871217;
+}
+.for-release{
+  color: blue;
+}
+.completed{
+  color: #259B50;
+}
+.cancel{
+  color: red;
 }

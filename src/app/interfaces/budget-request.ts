@@ -9,6 +9,7 @@ export interface BudgetRequest {
   request_reference: string,
   user: User,
   client: any,
+  status: string,
   //REQUEST DETAIL
   type: string,
   purpose: string[],
