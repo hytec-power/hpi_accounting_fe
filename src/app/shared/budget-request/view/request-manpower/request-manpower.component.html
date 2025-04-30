@@ -6,7 +6,7 @@
         }
     </div>
     <div class="table-container">
-        <table style="width: 100%;" [ngClass]="{'inactiveEdit':isEditable}">
+        <table [ngClass]="{'inactiveEdit':isEditable}">
             <thead>
                 <tr>
                     <th colspan="2" style=" border-top-left-radius: 20px;">Name/s</th>
@@ -24,9 +24,9 @@
                             alt="employee image">
                         </td>
                         <td style="text-align: left;">
-                                {{i.firstname}} {{i.middlename}} {{i.lastname}}
+                                {{i.firstname}} {{i.middlename}} {{i.lastname}} 
                         </td>
-                        <td>
+                        <td >
                             @for (item of i.positions; track $index) {  
                             {{item.name}}
                         }</td>
