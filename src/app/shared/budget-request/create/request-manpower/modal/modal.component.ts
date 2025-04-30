@@ -56,7 +56,6 @@ export class ModalComponent {
   }
   clearSelected(){
     this.updatedManpower= []
-    console.log(this.updatedManpower);
   }
   onClear(event: Event){
   const input = event.target as HTMLInputElement;

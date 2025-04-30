@@ -24,6 +24,8 @@ export class RequestManpowerComponent {
   receivedEmployees: HpiUser[] = []
 
   constructor(public brApi: BudgetRequestService) {
+    this.fetchEmployees();
+    
   }
 
   fetchEmployees(){

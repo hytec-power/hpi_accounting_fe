@@ -9,8 +9,8 @@
         <table style="width: 100%;" [ngClass]="{'inactiveEdit':isEditable}">
             <thead>
                 <tr>
-                    <th  style=" border-top-left-radius: 20px;">Name/s</th>
-                    <th colspan="1" style="border-top-right-radius: 20px;"
+                    <th colspan="2" style=" border-top-left-radius: 20px;">Name/s</th>
+                    <th colspan="2" style="border-top-right-radius: 20px;"
                     class="data-label">Position/s</th>
                 </tr>
             </thead>
@@ -18,43 +18,36 @@
                 @for (i of manpowerList(); track i) {
                     <tr>
                         <td>
-                            <div class="row" style="width: 100%;">
-                                <div class="col-2 mx-4">
-                                    <img 
-                                    class="employee-image"
-                                    [src]="i.image ? i.image : 'assets/images/common/defaults/default_user.png' " 
-                                    alt="employee image">
-                                </div>
-                                <div class="col px-0" style="text-align: left;">
-                                    {{i.firstname}} {{i.middlename}} {{i.lastname}}
-                                </div>
-                            </div>
+                            <img 
+                            class="employee-image"
+                            [src]="i.image ? i.image : 'assets/images/common/defaults/default_user.png' " 
+                            alt="employee image">
+                        </td>
+                        <td style="text-align: left;">
+                                {{i.firstname}} {{i.middlename}} {{i.lastname}}
                         </td>
                         <td>
-                            <div class="row" style="width: 100%;">
-                                <div style="height: 40px;" class="col px-0"> 
-                                    @for (item of i.positions; track $index) {
-                                        {{item.name}}
-                                    }
+                            @for (item of i.positions; track $index) {  
+                            {{item.name}}
+                        }</td>
+                        <td>
+                            @if (isEditable) {
+                                <div>
+                                    <i (click)="removeEmployee(i.uuid)" class="action-del bi bi-trash mx-2"></i>
                                 </div>
-                                    @if (isEditable) {
-                                    <div class="col-2 px-0">
-                                        <i (click)="removeEmployee(i.uuid)" class="action-del bi bi-trash mx-2"></i>
-                                    </div>
-                                    }
-                            </div>
+                                }
                         </td>
                     </tr>
                 }
                 @if (manpowerList().length === 0) {
                     <tr>
-                        <td colspan="2">
+                        <td colspan="4">
                             No employees found
                         </td>
                     </tr>
                 }
                 @if (isEditable) {
-                    <td colspan="2">
+                    <td colspan="4">
                         <button (click)="showModal()" class="btn">Add Employee/s</button>
                     </td>
                 }
