@@ -1,53 +1,62 @@
 <div class="root-container">
     <div style="display: flex; justify-content: space-between; width: 100%;">
         <div class="section-title"><i class="bi bi-people mx-1"></i>Manpower</div>
-        <div><i style="cursor: pointer;" (click)="toggleEdit()" class="bi bi-pencil-square"></i></div>
+        @if (!isEditable) {
+            <div><i style="cursor: pointer;" (click)="toggleEdit()" class="bi bi-pencil-square"></i></div>
+        }
     </div>
     <div class="table-container">
         <table style="width: 100%;" [ngClass]="{'inactiveEdit':isEditable}">
             <thead>
                 <tr>
-                    <th style="border-top-left-radius: 15px;" class="data-label"></th>
-                    <th style="border-top-right-radius: 15px;" class="data-label">Name/s</th>
+                    <th  style=" border-top-left-radius: 20px;">Name/s</th>
+                    <th colspan="1" style="border-top-right-radius: 20px;"
+                    class="data-label">Position/s</th>
                 </tr>
             </thead>
             <tbody>
                 @for (i of manpowerList(); track i) {
                     <tr>
                         <td>
-                            <img 
-                            class="employee-image"
-                            [src]="i.image ? i.image : 'assets/images/common/defaults/default_user.png' " 
-                            alt="employee image">
+                            <div class="row" style="width: 100%;">
+                                <div class="col-2 mx-4">
+                                    <img 
+                                    class="employee-image"
+                                    [src]="i.image ? i.image : 'assets/images/common/defaults/default_user.png' " 
+                                    alt="employee image">
+                                </div>
+                                <div class="col px-0" style="text-align: left;">
+                                    {{i.firstname}} {{i.middlename}} {{i.lastname}}
+                                </div>
+                            </div>
                         </td>
                         <td>
-                            <div style="display: flex; align-items: center;">
-                                <input 
-                                    style="flex:1; text-align: left;" 
-                                    type="text" 
-                                    [value]="i.firstname + (i.middlename ? ' ' + i.middlename : ' ') + i.lastname" 
-                                    [readOnly]="!isEditable">
-                                @if (isEditable) {
-                                        <i class="action-del bi bi-trash mx-2"></i>
-                                }
+                            <div class="row" style="width: 100%;">
+                                <div style="height: 40px;" class="col px-0"> 
+                                    @for (item of i.positions; track $index) {
+                                        {{item.name}}
+                                    }
+                                </div>
+                                    @if (isEditable) {
+                                    <div class="col-2 px-0">
+                                        <i (click)="removeEmployee(i.uuid)" class="action-del bi bi-trash mx-2"></i>
+                                    </div>
+                                    }
                             </div>
                         </td>
                     </tr>
                 }
-                @if (isEditable) {
+                @if (manpowerList().length === 0) {
                     <tr>
-                        <td>
-                            <input style="text-align: center;" type="text" [readOnly]="!isEditable">
-                        </td>
-                        <td>
-                            <div style="display: flex; align-items: center;">
-                                <input style="flex:1; text-align: center;" type="text" [readOnly]="!isEditable">
-                                @if (isEditable) {
-                                    <i (click)="addManpower()" class="action-add bi bi-plus-square-fill mx-2"></i>
-                                }
-                            </div>
+                        <td colspan="2">
+                            No employees found
                         </td>
                     </tr>
+                }
+                @if (isEditable) {
+                    <td colspan="2">
+                        <button (click)="showModal()" class="btn">Add Employee/s</button>
+                    </td>
                 }
             </tbody>
         </table>
@@ -56,7 +65,9 @@
         @if (isEditable == true) {
             <div style="text-align: right; margin-top: 10px;" >  
                 <button-component (click)="addManpower()" text="Save" type="primary"></button-component>
+                <button-component (click)="toggleEdit()" text="Cancel" type="secondary"/>
             </div>
         }
     </div>
+    <app-modal-test (arrayEmitter)="receiveArray($event)" [(activeManpower)]="receivedEmployees" [(employeesList)]="linkedArray"></app-modal-test>
 </div>
