@@ -31,6 +31,6 @@ export class HeaderComponent {
     this.user_container.nativeElement.blur();
   }
   toggleTheme(dark: boolean){
-      this.themes.setRootTheme(dark? 'dark' : 'light');
+      this.themes.setTheme(dark? 'dark' : 'light');
   }
 }
