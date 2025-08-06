@@ -18,7 +18,6 @@ export class HeaderComponent {
     this.auth.logout();
   }
   test(){
-    console.log('wee');
     this.user_container.nativeElement.blur();
   }
 }
