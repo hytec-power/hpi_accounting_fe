@@ -9,7 +9,12 @@
         </div>
         <div class="user-menu" >
             <div class="item" (click)="test()">Profile Settings</div>
-            <div class="item"><input type="checkbox" name="" id=""> Enable Dark Mode </div>
+            <div class="item">
+                <label>
+                    <span>Enable Dark Mode</span>
+                    <input type="checkbox" [(ngModel)]="dark_mode" class="m-1">
+                </label>
+            </div>
             <div (click)="logout()" class="item">Logout</div>
         </div>
     </div>

@@ -14,6 +14,9 @@ export class ThemeService {
   setTheme(theme: string){
     this.color_scheme.set(theme);
   }
+  getTheme(){
+    return this.color_scheme;
+  }
   setRootTheme(theme: string){
     document.documentElement.style.setProperty('color-scheme', theme);
   }

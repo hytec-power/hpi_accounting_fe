@@ -1,18 +1,27 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, computed, effect, ElementRef, signal, untracked, ViewChild, WritableSignal} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 import {AuthService} from "src/app/services/auth/auth.service";
+import {ThemeService} from "src/app/services/theme/theme.service";
+import {FormsModule} from "@angular/forms";
 
 @Component({
     selector: 'common-header',
     imports: [
-        NgOptimizedImage
+        NgOptimizedImage,
+        FormsModule
     ],
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   @ViewChild('user_container',{ static: true}) user_container !: ElementRef;
-  constructor(private auth: AuthService) {
+  current_theme: WritableSignal<string>;
+  dark_mode: WritableSignal<boolean>;
+  constructor(private auth: AuthService,
+              private themes: ThemeService) {
+      this.current_theme = this.themes.getTheme();
+      this.dark_mode = signal(this.current_theme() === 'dark');
+      effect(() => { const dark = this.dark_mode(); this.toggleTheme(dark); });
   }
   logout(){
     this.auth.logout();
@@ -20,5 +29,8 @@ export class HeaderComponent {
   test(){
     console.log('wee');
     this.user_container.nativeElement.blur();
+  }
+  toggleTheme(dark: boolean){
+      this.themes.setRootTheme(dark? 'dark' : 'light');
   }
 }
