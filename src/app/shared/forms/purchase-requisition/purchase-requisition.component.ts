@@ -6,20 +6,24 @@ import {
 import {
   ClientDetailsComponent
 } from "src/app/shared/forms/purchase-requisition/client-details/client-details.component";
+import {
+  PrincipalDetailsComponent
+} from "src/app/shared/forms/purchase-requisition/principal-details/principal-details.component";
 
 @Component({
   selector: 'purchase-requisition-form',
   imports: [
     StepperComponent,
     RequestDetailsComponent,
-    ClientDetailsComponent
+    ClientDetailsComponent,
+    PrincipalDetailsComponent
   ],
   templateUrl: './purchase-requisition.component.html',
   styleUrl: './purchase-requisition.component.scss'
 })
 export class PurchaseRequisitionComponent {
   steps: StepperItem[]=[];
-  page: WritableSignal<number> = signal(0);
+  page: WritableSignal<number> = signal(2);
   constructor() {
     this.initSteps();
   }
