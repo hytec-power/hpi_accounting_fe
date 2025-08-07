@@ -9,6 +9,7 @@ import {
 import {
   PrincipalDetailsComponent
 } from "src/app/shared/forms/purchase-requisition/principal-details/principal-details.component";
+import {AttachmentsComponent} from "src/app/shared/forms/purchase-requisition/attachments/attachments.component";
 
 @Component({
   selector: 'purchase-requisition-form',
@@ -16,7 +17,8 @@ import {
     StepperComponent,
     RequestDetailsComponent,
     ClientDetailsComponent,
-    PrincipalDetailsComponent
+    PrincipalDetailsComponent,
+    AttachmentsComponent
   ],
   templateUrl: './purchase-requisition.component.html',
   styleUrl: './purchase-requisition.component.scss'

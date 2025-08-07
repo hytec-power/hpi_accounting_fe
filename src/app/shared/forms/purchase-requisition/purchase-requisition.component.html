@@ -3,9 +3,10 @@
     <stepper-component [items]="steps" [current_index]="page()"/>
     <div class="my-2">
       @switch (page()){
-        @case (0){<pr-request-details (next)="next()" (back)="back()"/>}
-        @case (1){<pr-client-details  (next)="next()" (back)="back()"/>}
+        @case (0){<pr-request-details    (next)="next()" (back)="back()"/>}
+        @case (1){<pr-client-details     (next)="next()" (back)="back()"/>}
         @case (2){<pr-principal-details  (next)="next()" (back)="back()"/>}
+        @case (3){<pr-attachments        (next)="next()" (back)="back()"/> }
       }
     </div>
 </div>
