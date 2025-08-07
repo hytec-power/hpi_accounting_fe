@@ -6,6 +6,7 @@
   width: 100vw;
   background-color: colors.$bg-background;
   transition: all 1s;
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
 }
 .content{
   display: flex;
