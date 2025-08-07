@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import {Component, signal, WritableSignal} from '@angular/core';
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
+import {
+  RequestDetailsComponent
+} from "src/app/shared/forms/purchase-requisition/request-details/request-details.component";
 
 @Component({
   selector: 'purchase-requisition-form',
   imports: [
-    StepperComponent
+    StepperComponent,
+    RequestDetailsComponent
   ],
   templateUrl: './purchase-requisition.component.html',
   styleUrl: './purchase-requisition.component.scss'
 })
 export class PurchaseRequisitionComponent {
   steps: StepperItem[]=[];
+  page: WritableSignal<number> = signal(0);
   constructor() {
     this.initSteps();
   }
