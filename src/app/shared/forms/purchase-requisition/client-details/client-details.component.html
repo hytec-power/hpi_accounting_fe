@@ -1,1 +1,42 @@
-<p>client-details works!</p>
+<div class="root-container">
+  <form>
+    <label>
+      <div>Company Name</div>
+      <select>
+        <option></option>
+      </select>
+    </label>
+    <label>
+      <div>Address</div>
+      <textarea cols="65"></textarea>
+    </label>
+    <label>
+      <div>Contact Person</div>
+      <input type="text"/>
+    </label>
+    <label>
+      <div>Position</div>
+      <input type="text"/>
+    </label>
+    <label>
+      <div>Position</div>
+      <input type="text"/>
+    </label>
+    <label>
+      <div>Contact Number</div>
+      <input type="text"/>
+    </label>
+    <label>
+      <div>Email</div>
+      <input type="email"/>
+    </label>
+    <label>
+      <div>Terms Of payment</div>
+      <input type="text"/>
+    </label>
+  </form>
+  <div class="d-flex justify-content-between my-2">
+    <button-component text="Back" type="default" (click)="back.emit()"/>
+    <button-component text="Next" type="primary" (click)="next.emit()"/>
+  </div>
+</div>
