@@ -10,6 +10,7 @@ import {
   PrincipalDetailsComponent
 } from "src/app/shared/forms/purchase-requisition/principal-details/principal-details.component";
 import {AttachmentsComponent} from "src/app/shared/forms/purchase-requisition/attachments/attachments.component";
+import {ItemsComponent} from "src/app/shared/forms/purchase-requisition/items/items.component";
 
 @Component({
   selector: 'purchase-requisition-form',
@@ -18,7 +19,8 @@ import {AttachmentsComponent} from "src/app/shared/forms/purchase-requisition/at
     RequestDetailsComponent,
     ClientDetailsComponent,
     PrincipalDetailsComponent,
-    AttachmentsComponent
+    AttachmentsComponent,
+    ItemsComponent
   ],
   templateUrl: './purchase-requisition.component.html',
   styleUrl: './purchase-requisition.component.scss'
