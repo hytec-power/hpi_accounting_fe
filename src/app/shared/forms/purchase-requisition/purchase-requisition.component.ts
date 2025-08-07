@@ -3,12 +3,16 @@ import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.comp
 import {
   RequestDetailsComponent
 } from "src/app/shared/forms/purchase-requisition/request-details/request-details.component";
+import {
+  ClientDetailsComponent
+} from "src/app/shared/forms/purchase-requisition/client-details/client-details.component";
 
 @Component({
   selector: 'purchase-requisition-form',
   imports: [
     StepperComponent,
-    RequestDetailsComponent
+    RequestDetailsComponent,
+    ClientDetailsComponent
   ],
   templateUrl: './purchase-requisition.component.html',
   styleUrl: './purchase-requisition.component.scss'
@@ -29,5 +33,11 @@ export class PurchaseRequisitionComponent {
         {name: 'Summary', bi_icon: 'bi-list-check'},
 
     );
+  }
+  next(){
+    this.page() < this.steps.length && this.page.update(x=> x+1) ;
+  }
+  back(){
+    this.page() > 0 && this.page.update(x=> x-1) ;
   }
 }
