@@ -27,7 +27,7 @@ import {ItemsComponent} from "src/app/shared/forms/purchase-requisition/items/it
 })
 export class PurchaseRequisitionComponent {
   steps: StepperItem[]=[];
-  page: WritableSignal<number> = signal(2);
+  page: WritableSignal<number> = signal(4);
   constructor() {
     this.initSteps();
   }
@@ -38,7 +38,7 @@ export class PurchaseRequisitionComponent {
         {name: 'Principal Details', bi_icon: 'bi-person-vcard'},
         {name: 'Attachments', bi_icon: 'bi-paperclip'},
         {name: 'Items', bi_icon: 'bi-box-seam'},
-        {name: 'Summary', bi_icon: 'bi-list-check'},
+        {name: 'Complete', bi_icon: 'bi-list-check'},
 
     );
   }
