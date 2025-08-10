@@ -11,7 +11,9 @@ import {ButtonComponent} from "src/app/common/button/button.component";
   styleUrl: './request-details.component.scss'
 })
 export class RequestDetailsComponent {
+
   next = output<void>();
   back = output<void>();
   form = input<FormGroup>();
+
 }

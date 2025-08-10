@@ -1,11 +1,13 @@
-@import "colors";
-@import "tables";
-@import "forms";
+@use "colors";
+@use "tables";
+@use "forms";
 
 .root-container{
   width: 100%;
 }
-
+tr{
+  cursor: pointer;
+}
 table{
   user-select: none;
 }
