@@ -25,11 +25,18 @@ export class AccountingTemplateComponent {
                                  bi_icon_active: 'bi-house-door-fill',
                                  exact: true });
 
+        this.sidebar_items.push({name: 'Purchase Requests',
+                                 link: '/accounting/purchase-requests' ,
+                                 bi_icon: 'bi-clipboard-minus',
+                                 bi_icon_active: 'bi-clipboard-minus-fill',
+                                 exact: false });
+
         this.sidebar_items.push({name: 'Budget Request',
                                  link: '/accounting/budget-requests' ,
                                  bi_icon: 'bi-wallet2',
                                  bi_icon_active: 'bi-wallet-fill',
                                  exact: false });
+
       this.sidebar_items.push({name: 'Clients',
                                link: '/accounting/clients' ,
                                bi_icon: 'bi-building',
