@@ -1,0 +1,26 @@
+@use "colors";
+@use "forms";
+
+.root-container{
+  display: block;
+  background-color: colors.$bg-foreground;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 3px;
+}
+.section-title{
+  font-weight: bold;
+}
+.data{
+  text-align: left;
+  padding: 5px 0;
+  &-label{
+    color: colors.$text-inactive;
+
+    font-size: 10px;
+  }
+  &-value{
+    color: colors.$text-active;
+
+  }
+}
