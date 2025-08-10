@@ -26,7 +26,11 @@ export class FaeTemplateComponent {
                              bi_icon_active: 'bi-house-door-fill',
                              exact: true });
 
-
+    this.sidebar_items.push({name: 'Purchase Requests',
+                             link: '/fae/purchase-request' ,
+                             bi_icon: 'bi-clipboard-minus',
+                             bi_icon_active: 'bi-clipboard-minus-fill',
+                             exact: false });
 
     this.sidebar_items.push({name: 'Purchase Orders',
                              link: '/fae/purchase-orders' ,
