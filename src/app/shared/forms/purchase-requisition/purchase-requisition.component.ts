@@ -11,6 +11,7 @@ import {
 } from "src/app/shared/forms/purchase-requisition/principal-details/principal-details.component";
 import {AttachmentsComponent} from "src/app/shared/forms/purchase-requisition/attachments/attachments.component";
 import {ItemsComponent} from "src/app/shared/forms/purchase-requisition/items/items.component";
+import {CompleteComponent} from "src/app/shared/forms/purchase-requisition/complete/complete.component";
 
 @Component({
   selector: 'purchase-requisition-form',
@@ -20,14 +21,15 @@ import {ItemsComponent} from "src/app/shared/forms/purchase-requisition/items/it
     ClientDetailsComponent,
     PrincipalDetailsComponent,
     AttachmentsComponent,
-    ItemsComponent
+    ItemsComponent,
+    CompleteComponent
   ],
   templateUrl: './purchase-requisition.component.html',
   styleUrl: './purchase-requisition.component.scss'
 })
 export class PurchaseRequisitionComponent {
   steps: StepperItem[]=[];
-  page: WritableSignal<number> = signal(4);
+  page: WritableSignal<number> = signal(0);
   constructor() {
     this.initSteps();
   }
