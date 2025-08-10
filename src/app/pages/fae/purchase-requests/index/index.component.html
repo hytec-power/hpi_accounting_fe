@@ -15,12 +15,17 @@
       </thead>
       <tbody>
       <tr>
-        <td>asd</td>
-        <td>asd</td>
-        <td>asd</td>
-        <td>asd</td>
+        <td>Hytec Power Inc</td>
+        <td>{{ 100000 | currency: 'PHP':'symbol' }}</td>
+        <td>Pending</td>
+        <td>{{ today | date: 'longDate' }}</td>
       </tr>
       </tbody>
     </table>
+  </div>
+  <div class="my-2">
+    <paginator [pageSize]="10"
+               [currentPage]="1"
+               [itemCount]="100"/>
   </div>
 </div>
