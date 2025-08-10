@@ -4,6 +4,8 @@ import {FaeComponent} from "src/app/shared/purchase-request/view/fae/fae.compone
 import {ProjectDetailsComponent} from "src/app/shared/purchase-request/view/project-details/project-details.component";
 import {ItemsComponent} from "src/app/shared/purchase-request/view/items/items.component";
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
+import {CommentsComponent} from "src/app/shared/purchase-request/view/comments/comments.component";
+import {AttachmentsComponent} from "src/app/shared/purchase-request/view/attachments/attachments.component";
 
 @Component({
   selector: 'pr-view',
@@ -12,7 +14,9 @@ import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.comp
     FaeComponent,
     ProjectDetailsComponent,
     ItemsComponent,
-    StepperComponent
+    StepperComponent,
+    CommentsComponent,
+    AttachmentsComponent
   ],
   templateUrl: './view.component.html',
   styleUrl: './view.component.scss'
