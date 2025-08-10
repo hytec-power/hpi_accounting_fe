@@ -1,3 +1,7 @@
 @use "colors";
 @use "forms";
 
+.root-container{
+  display: flex;
+  flex-direction: column;
+}
