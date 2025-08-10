@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, output} from '@angular/core';
 
 @Component({
   selector: 'pr-complete',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './complete.component.scss'
 })
 export class CompleteComponent {
-
+  onComplete = output<void>();
 }

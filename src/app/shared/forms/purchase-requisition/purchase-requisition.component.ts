@@ -1,4 +1,4 @@
-import {Component, signal, WritableSignal} from '@angular/core';
+import {Component, output, signal, WritableSignal} from '@angular/core';
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
 import {
   RequestDetailsComponent
@@ -30,6 +30,7 @@ import {CompleteComponent} from "src/app/shared/forms/purchase-requisition/compl
 export class PurchaseRequisitionComponent {
   steps: StepperItem[]=[];
   page: WritableSignal<number> = signal(0);
+  onComplete = output<void>();
   constructor() {
     this.initSteps();
   }
@@ -49,5 +50,8 @@ export class PurchaseRequisitionComponent {
   }
   back(){
     this.page() > 0 && this.page.update(x=> x-1) ;
+  }
+  complete(){
+    this.onComplete.emit();
   }
 }
