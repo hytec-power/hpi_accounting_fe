@@ -1,1 +1,56 @@
-<p>index works!</p>
+<div class="root-container">
+    <page-title text="Purchase Requests" bi_icon="bi-clipboard-minus-fill" />
+    <div class="d-flex flex-row justify-content-start align-items-end my-2">
+        <label>
+            <div>Search</div>
+            <input type="text" style="width: 400px;" placeholder="Search items">
+        </label>
+        <button-component type="primary" text="Search"/>
+        <div style="width: 30px"></div>
+        <label>
+            <div>Sort by : </div>
+            <select>
+                <option>All</option>
+                <option>Client</option>
+                <option>Amount</option>
+                <option>Status</option>
+                <option>Newest First</option>
+                <option>Oldest First</option>
+            </select>
+        </label>
+        <label>
+            <div>Status: </div>
+            <select>
+                <option>All</option>
+                <option>Pending</option>
+                <option>Closed</option>
+            </select>
+        </label>
+        <div style="flex:1;"></div>
+    </div>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+            <tr>
+                <th>Client</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Date Created</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr routerLink="/accounting/purchase-request/view" >
+                <td>Hytec Power Inc</td>
+                <td>{{ 100000 | currency: 'PHP':'symbol' }}</td>
+                <td>Pending</td>
+                <td>{{ today | date: 'longDate' }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="my-2">
+        <paginator [pageSize]="10"
+                   [currentPage]="1"
+                   [itemCount]="100"/>
+    </div>
+</div>
