@@ -14,7 +14,7 @@ import {Router} from "@angular/router";
 })
 export class CreateComponent {
   constructor(private router: Router) {}
-  onComplete(){
+  back(){
     this.router.navigate(['/fae/purchase-request']);
   }
 }

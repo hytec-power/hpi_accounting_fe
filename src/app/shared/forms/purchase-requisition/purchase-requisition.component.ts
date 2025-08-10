@@ -31,6 +31,7 @@ export class PurchaseRequisitionComponent {
   steps: StepperItem[]=[];
   page: WritableSignal<number> = signal(0);
   onComplete = output<void>();
+  onCancel = output<void>();
   constructor() {
     this.initSteps();
   }
