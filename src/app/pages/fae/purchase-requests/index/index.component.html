@@ -1,6 +1,26 @@
 <div class="root-container">
   <page-title text="Purchase Requests" bi_icon="bi-clipboard-minus-fill" />
-  <div class="text-end my-2">
+  <div class="d-flex flex-row justify-content-start align-items-end my-2">
+    <label>
+      <div>Sort by : </div>
+      <select>
+        <option>All</option>
+        <option>Client</option>
+        <option>Amount</option>
+        <option>Status</option>
+        <option>Newest First</option>
+        <option>Oldest First</option>
+      </select>
+    </label>
+    <label>
+      <div>Status: </div>
+      <select>
+        <option>All</option>
+        <option>Pending</option>
+        <option>Closed</option>
+      </select>
+    </label>
+    <div style="flex:1;"></div>
     <button-component routerLink="/fae/purchase-request/create" text="Create Purchase Requesition" type="primary" />
   </div>
   <div class="table-wrapper">

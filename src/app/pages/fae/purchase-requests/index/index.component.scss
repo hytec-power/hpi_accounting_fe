@@ -1,14 +1,17 @@
 @import "colors";
 @import "tables";
+@import "forms";
 
 .root-container{
   width: 100%;
-
 }
-
 
 table{
   user-select: none;
+}
+label{
+  margin: 2px;
+  div{ font-size: 12px; margin: 2px; }
 }
 
 
