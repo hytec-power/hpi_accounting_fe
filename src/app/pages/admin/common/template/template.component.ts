@@ -20,19 +20,19 @@ export class AdminTemplateComponent {
   }
   initSidebar() {
     const po_items: SidebarItem[] = [
-      {name: 'Purchase Requests', link: '/fae/purchase-orders/pr' , bi_icon: 'bi-building', bi_icon_active: 'bi-building-fill', exact: false },
-      {name: 'Purchase Orders', link: '/fae/purchase-orders/po' , bi_icon: 'bi-building', bi_icon_active: 'bi-building-fill', exact: false },
+      {name: 'Users', link: '/admin/users' , bi_icon: 'bi-building', bi_icon_active: 'bi-building-fill', exact: false },
+      {name: 'User Roles', link: '/admin/users/roles' , bi_icon: 'bi-building', bi_icon_active: 'bi-building-fill', exact: false },
     ];
     this.sidebar_items.push({name: 'Dashboard',
-      link: '/fae',
+      link: '/admin',
       bi_icon: 'bi-house',
       bi_icon_active: 'bi-house-door-fill',
       exact: true });
 
-    this.sidebar_items.push({name: 'Purchase Orders',
-      link: '/fae/purchase-orders' ,
-      bi_icon: 'bi-clipboard-minus',
-      bi_icon_active: 'bi-clipboard-minus-fill',
+    this.sidebar_items.push({name: 'Users',
+      link: '/admin/users' ,
+      bi_icon: 'bi-people',
+      bi_icon_active: 'bi-people-fill',
       exact: false,
       items: po_items});
 
