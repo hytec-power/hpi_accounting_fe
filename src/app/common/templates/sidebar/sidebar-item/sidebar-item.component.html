@@ -14,7 +14,7 @@
        [routerLink]="item().link"
        routerLinkActive="active"
        [routerLinkActiveOptions]="{exact: item().exact}">
-    <div class="header item"  (click)="preventDefault($event)">
+    <div class="item header"  (click)="preventDefault($event)">
       @if (item().bi_icon) { <i [class]="['bi',item().bi_icon,'icon']"  ></i>  }
       @if (item().bi_icon_active) { <i [class]="['bi',item().bi_icon_active,'icon-active']"></i>  }
       <span>{{ item().name }}</span>

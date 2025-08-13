@@ -44,4 +44,13 @@
   .sub-item {
     font-size: 10px;
   }
+  &.active .item.header,
+  &:focus-within .item.header{
+    .icon{
+      display: none;
+    }
+    .icon-active{
+      display: inline-block;
+    }
+  }
 }
