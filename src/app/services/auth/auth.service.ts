@@ -34,11 +34,7 @@ export class AuthService {
     url+=`&prompt=select_account`;
     url+=`&response_type=token`;
     url+=`&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile`;
-
-    return encodeURI(url)
-  }
-  getOauthKey(){
-    return environment.oauth_client_key
+    return encodeURI(url);
   }
   logout(){
     this.http.get(`${this.api}/logout`,{observe: 'response'}).subscribe();
