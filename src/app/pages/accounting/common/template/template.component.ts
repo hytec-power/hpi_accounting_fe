@@ -19,43 +19,34 @@ export class AccountingTemplateComponent {
         this.initSidebar();
     }
     initSidebar(){
+      const po_items: SidebarItem[] = [
+          {name: 'Purchase Requests',
+            link: '/accounting/purchase-requests' ,
+            bi_icon: 'bi-building',
+            bi_icon_active: 'bi-building-fill',
+            exact: false },
+          { name: 'Purchase Orders',
+            link: '/accounting/purchase-orders' ,
+            bi_icon: 'bi-building',
+            bi_icon_active: 'bi-building-fill',
+            exact: false },
+
+      ];
         this.sidebar_items.push({name: 'Dashboard',
                                  link: '/accounting',
                                  bi_icon: 'bi-house',
                                  bi_icon_active: 'bi-house-door-fill',
                                  exact: true });
-
-        this.sidebar_items.push({name: 'Purchase Requests',
-                                 link: '/accounting/purchase-requests' ,
-                                 bi_icon: 'bi-clipboard-minus',
-                                 bi_icon_active: 'bi-clipboard-minus-fill',
-                                 exact: false });
-
-        this.sidebar_items.push({name: 'Budget Request',
-                                 link: '/accounting/budget-requests' ,
-                                 bi_icon: 'bi-wallet2',
-                                 bi_icon_active: 'bi-wallet-fill',
-                                 exact: false });
-
+      this.sidebar_items.push({name: 'Purchase Requests',
+                               link: '/accounting/purchase-requests' ,
+                               bi_icon: 'bi-clipboard-minus',
+                               bi_icon_active: 'bi-clipboard-minus-fill',
+                               exact: false,
+                               items: po_items});
       this.sidebar_items.push({name: 'Clients',
                                link: '/accounting/clients' ,
                                bi_icon: 'bi-building',
                                bi_icon_active: 'bi-building-fill',
                                exact: false });
-
-      const po_items: SidebarItem[] = [
-        {name: 'Sub item',
-         link: '/accounting/clients' ,
-         bi_icon: 'bi-building',
-         bi_icon_active: 'bi-building-fill',
-         exact: false }
-      ];
-
-      this.sidebar_items.push({name: 'Clients',
-                               link: '/accounting/clients' ,
-                               bi_icon: 'bi-building',
-                               bi_icon_active: 'bi-building-fill',
-                               exact: false,
-                               items: po_items});
     }
 }
