@@ -1,1 +1,32 @@
-<p>sidebar-item works!</p>
+@if (!item().items){
+  <a class="item"
+     [routerLink]="item().link"
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{exact: item().exact}"  >
+    @if (item().bi_icon) { <i [class]="['bi',item().bi_icon,'icon']"  ></i>  }
+    @if (item().bi_icon_active) { <i [class]="['bi',item().bi_icon_active,'icon-active']"></i>  }
+    <span>{{ item().name }}</span>
+  </a>
+}
+@if (item().items){
+  <div class="item-group">
+    <div class="header item">
+      @if (item().bi_icon) { <i [class]="['bi',item().bi_icon,'icon']"  ></i>  }
+      @if (item().bi_icon_active) { <i [class]="['bi',item().bi_icon_active,'icon-active']"></i>  }
+      <span>{{ item().name }}</span>
+    </div>
+    <div class="links">
+      @for (i of item().items;track $index){
+        <a class="item sub-item"
+           [routerLink]="item().link"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: item().exact}"  >
+          @if (item().bi_icon) { <i [class]="['bi',item().bi_icon,'icon']"  ></i>  }
+          @if (item().bi_icon_active) { <i [class]="['bi',item().bi_icon_active,'icon-active']"></i>  }
+          <span>{{ item().name }}</span>
+        </a>
+      }
+    </div>
+  </div>
+}
+

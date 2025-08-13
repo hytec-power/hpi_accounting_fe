@@ -10,35 +10,5 @@
   padding: 20px 3px 2px 3px;
   z-index: 5;
   transition: all 1s;
-}
-a.item{
-  padding: 10px 15px;
-  box-sizing: border-box;
-  color: colors.$text-normal;
-  text-decoration: none;
-  font-size: 14px;
-  margin: 2px;
-  border-radius: 10px;
-  .bi{
-    margin-right: 20px;
-  }
-  &.active{
-    color: colors.$text-bold;
-  }
-  &.active, &:hover{
-    background-color: colors.$bg-foreground;
-  }
-  &.active .icon-active{
-    display: inline-block;
-  }
-  &.active .icon{
-    display: none;
-  }
-  .icon{
-    display: inline-block;
-  }
-  .icon-active{
-    display: none;
-  }
-
+  justify-content: stretch;
 }
