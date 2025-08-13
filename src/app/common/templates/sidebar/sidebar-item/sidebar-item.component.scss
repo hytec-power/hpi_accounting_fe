@@ -32,7 +32,9 @@
   }
 }
 .item-group{
-  &.active .links{
+  &.active .links,
+  &:focus .links,
+  &:focus-within .links{
     display: block;
   }
   .links{
