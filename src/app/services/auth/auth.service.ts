@@ -28,7 +28,14 @@ export class AuthService {
       return this.http.get(`${this.api}/validate`,{observe: 'response'});
   }
   getOauthUrl(){
-    return `${environment.oauth_login_url}?client_key=${this.getOauthKey()}`
+    let url = `${environment.oauth_login_url}?`;
+    url+=`client_id=${environment.oauth_client_id}`;
+    url+=`&redirect_uri=${environment.oauth_redirect_url}`;
+    url+=`&prompt=select_account`;
+    url+=`&response_type=token`;
+    url+=`&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile`;
+
+    return encodeURI(url)
   }
   getOauthKey(){
     return environment.oauth_client_key
