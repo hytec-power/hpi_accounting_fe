@@ -19,24 +19,22 @@ export class FaeTemplateComponent {
     this.initSidebar();
   }
   initSidebar() {
-
+    const po_items: SidebarItem[] = [
+      {name: 'Purchase Requests', link: '/fae/purchase-orders/pr' , bi_icon: 'bi-building', bi_icon_active: 'bi-building-fill', exact: false },
+      {name: 'Purchase Orders', link: '/fae/purchase-orders/po' , bi_icon: 'bi-building', bi_icon_active: 'bi-building-fill', exact: false },
+    ];
     this.sidebar_items.push({name: 'Dashboard',
                              link: '/fae',
                              bi_icon: 'bi-house',
                              bi_icon_active: 'bi-house-door-fill',
                              exact: true });
 
-    this.sidebar_items.push({name: 'Purchase Requests',
-                             link: '/fae/purchase-request' ,
-                             bi_icon: 'bi-clipboard-minus',
-                             bi_icon_active: 'bi-clipboard-minus-fill',
-                             exact: false });
-
     this.sidebar_items.push({name: 'Purchase Orders',
                              link: '/fae/purchase-orders' ,
                              bi_icon: 'bi-clipboard-minus',
                              bi_icon_active: 'bi-clipboard-minus-fill',
-                             exact: false });
+                             exact: false,
+                             items: po_items});
 
 
   }

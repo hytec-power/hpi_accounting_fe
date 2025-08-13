@@ -1,15 +1,10 @@
 import {Component, input} from '@angular/core';
 import {ThemeService} from "src/app/services/theme/theme.service";
-import {RouterLink, RouterLinkActive} from "@angular/router";
 import {SidebarItemComponent} from "src/app/common/templates/sidebar/sidebar-item/sidebar-item.component";
 
 @Component({
     selector: 'common-sidebar',
-  imports: [
-    RouterLinkActive,
-    RouterLink,
-    SidebarItemComponent
-  ],
+  imports: [SidebarItemComponent],
     templateUrl: './sidebar.component.html',
     styleUrl: './sidebar.component.scss'
 })

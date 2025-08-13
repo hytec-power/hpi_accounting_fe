@@ -3,9 +3,7 @@ import {CurrencyPipe} from "@angular/common";
 
 @Component({
   selector: 'pr-fae',
-  imports: [
-    CurrencyPipe
-  ],
+  imports: [],
   templateUrl: './fae.component.html',
   styleUrl: './fae.component.scss'
 })

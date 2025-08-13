@@ -7,20 +7,20 @@ import { ViewComponent as ViewPR } from "src/app/pages/fae/purchase-requests/vie
 
 export const FaeRoutes: Route[] = [
   {
-    path: 'purchase-request',
+    path: 'purchase-orders/pr',
     component: PrIndex,
     title: 'Purchase Requests',
   },{
-    path: 'purchase-request/create',
+    path: 'purchase-orders/pr/create',
     component: CreatePR,
     title: 'Create PR',
   },{
-    path: 'purchase-request/view',
+    path: 'purchase-orders/pr/:uuid',
     component: ViewPR,
     title: 'View PR',
-  },
-  {
-    path: 'purchase-orders',
+  }
+  ,{
+    path: 'purchase-orders/po',
     component: POIndexComponent,
     title: 'Purchase Orders',
   }
