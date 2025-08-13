@@ -27,5 +27,5 @@ export interface SidebarItem {
   bi_icon?: string ,
   bi_icon_active?: string ;
   exact: boolean;
-  items: SidebarItem[];
+  items?: SidebarItem[];
 }
