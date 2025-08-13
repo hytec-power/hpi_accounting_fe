@@ -24,6 +24,7 @@
         <a class="item sub-item"
            [routerLink]="i.link"
            routerLinkActive="active"
+           (click)="$event.stopPropagation()"
            [routerLinkActiveOptions]="{exact: i.exact}"  >
           @if (i.bi_icon) { <i [class]="['bi',i.bi_icon,'icon']"  ></i>  }
           @if (i.bi_icon_active) { <i [class]="['bi',i.bi_icon_active,'icon-active']"></i>  }
