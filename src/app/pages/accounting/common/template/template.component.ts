@@ -44,7 +44,7 @@ export class AccountingTemplateComponent {
                                exact: false });
 
       const po_items: SidebarItem[] = [
-        {name: 'Clients',
+        {name: 'Sub item',
          link: '/accounting/clients' ,
          bi_icon: 'bi-building',
          bi_icon_active: 'bi-building-fill',

@@ -13,4 +13,9 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
 })
 export class SidebarItemComponent {
   item = input.required<SidebarItem>();
+  preventDefault(event: any) {
+    event.preventDefault();
+    event.stopPropagation();
+    console.log('wee');
+  }
 }

@@ -9,8 +9,11 @@
   </a>
 }
 @if (item().items){
-  <div class="item-group">
-    <div class="header item">
+  <div class="item-group"
+       [routerLink]="item().link"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: item().exact}">
+    <div class="header item"  (click)="preventDefault($event)">
       @if (item().bi_icon) { <i [class]="['bi',item().bi_icon,'icon']"  ></i>  }
       @if (item().bi_icon_active) { <i [class]="['bi',item().bi_icon_active,'icon-active']"></i>  }
       <span>{{ item().name }}</span>
@@ -18,12 +21,12 @@
     <div class="links">
       @for (i of item().items;track $index){
         <a class="item sub-item"
-           [routerLink]="item().link"
+           [routerLink]="i.link"
            routerLinkActive="active"
-           [routerLinkActiveOptions]="{exact: item().exact}"  >
-          @if (item().bi_icon) { <i [class]="['bi',item().bi_icon,'icon']"  ></i>  }
-          @if (item().bi_icon_active) { <i [class]="['bi',item().bi_icon_active,'icon-active']"></i>  }
-          <span>{{ item().name }}</span>
+           [routerLinkActiveOptions]="{exact: i.exact}"  >
+          @if (i.bi_icon) { <i [class]="['bi',i.bi_icon,'icon']"  ></i>  }
+          @if (i.bi_icon_active) { <i [class]="['bi',i.bi_icon_active,'icon-active']"></i>  }
+          <span>{{ i.name }}</span>
         </a>
       }
     </div>
