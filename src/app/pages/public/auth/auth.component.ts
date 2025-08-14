@@ -9,12 +9,8 @@ import {AuthService} from "src/app/services/auth/auth.service";
 })
 export class AuthComponent {
 
-  constructor(private auth: AuthService) {
-    console.log(this.auth.getOauthUrl());
-  }
-  ngOnInit(){
-
-  }
+  constructor(private auth: AuthService) {}
+  ngOnInit(){}
   oauthLogin(){
     window.location.href = this.auth.getOauthUrl();
   }
