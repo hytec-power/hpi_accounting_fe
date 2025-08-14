@@ -45,6 +45,7 @@ export class AuthService {
   }
   logout(){
     this.http.get(`${this.api}/logout`,{observe: 'response'}).subscribe();
+    this.current_user.set(null);
     localStorage.clear();
     this.router.navigate(['/login']);
   }

@@ -19,6 +19,10 @@ export class AuthComponent {
     this.apiValidate();
   }
   apiValidate(){
+    if(!this.auth.isAuthenticated()){
+      this.loading = false;
+      return;
+    }
     this.loading = true;
     this.auth.validateSession()
         .subscribe({
