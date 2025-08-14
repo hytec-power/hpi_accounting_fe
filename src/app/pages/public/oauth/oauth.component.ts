@@ -25,19 +25,27 @@ export class OauthComponent {
 
   }
   ngOnInit() {
+    this.start();
+  }
+  start(){
     if(this.hasError()){
       this.router.navigateByUrl('/login');
       console.error('Oauth Error');
       return;
     }
-    console.log(this.oauth_response);
+    this.apiOauthLogin(this.oauth_response.access_token)
+  }
+  apiOauthLogin(token: string){
+    this.auth
+        .oauthLogin(token)
+        .subscribe(res=>console.log(res));
   }
   apiLogin(token: string){
-    this.auth.oauthLogin(token).subscribe({
-      next: data => console.log(data),
-      error: error => console.log(error),
-      complete: () => this.redirect()
-    });
+    // this.auth.oauthLogin(token).subscribe({
+    //   next: data => console.log(data),
+    //   error: error => console.log(error),
+    //   complete: () => this.redirect()
+    // });
   }
   redirect(){
     this.router.navigate([this.auth.getRedirectUrl()]);
