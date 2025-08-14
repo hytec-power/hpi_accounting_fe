@@ -1,10 +1,20 @@
 <div class="root-container">
-  <div class="section">
-    <img class="hero-logo" src="assets/images/common/logos/hytec_power.png"/>
-    <div class="title">HPI Accounting Login</div>
-    <div (click)="oauthLogin()" class="button-hpi-connect">
-      <div class="text">Login with</div>
-      <img src="assets/images/common/logos/hpi_connect.png">
-    </div>
+  <div class="content">
+
+  </div>
+  <div class="login">
+    @if (loading){
+      <loader-bouncing-balls/>
+    }
+    @if (!loading) {
+      <div>
+        <img src="assets/images/common/logos/hytec_power.png" alt="" class="hero-logo">
+        <div class="title">Welcome to HPI Accounting</div>
+        <div class="google-login" (click)="oauthLogin()">
+          <img src="assets/images/common/logos/google.svg">
+          <span>Sign in with Google</span>
+        </div>
+      </div>
+    }
   </div>
 </div>

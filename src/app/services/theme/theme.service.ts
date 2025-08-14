@@ -7,7 +7,7 @@ import {AppStateService} from "src/app/services/app-state/app-state.service";
 export class ThemeService {
   color_scheme: WritableSignal<string>  = signal('light');
   constructor(private appState: AppStateService) {
-    this.appState.registerState('theme',this.color_scheme,'light')
+    this.appState.registerState('theme',this.color_scheme,'dark')
     effect(() => this.setRootTheme(this.color_scheme()));
     effect(() => this.appState.storeKey('theme',this.color_scheme));
   }

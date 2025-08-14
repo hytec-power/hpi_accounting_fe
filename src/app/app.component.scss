@@ -1,0 +1,6 @@
+@use "colors";
+.root-container{
+  width: 100vw;
+  height: 100vh;
+  background-color: colors.$bg-background;
+}
