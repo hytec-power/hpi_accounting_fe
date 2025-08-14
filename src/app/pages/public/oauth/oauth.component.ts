@@ -30,6 +30,7 @@ export class OauthComponent {
       console.error('Oauth Error');
       return;
     }
+    console.log(this.oauth_response);
   }
   apiLogin(token: string){
     this.auth.oauthLogin(token).subscribe({

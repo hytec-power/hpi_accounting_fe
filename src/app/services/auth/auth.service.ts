@@ -27,6 +27,9 @@ export class AuthService {
   validateSession(){
       return this.http.get(`${this.api}/validate`,{observe: 'response'});
   }
+  validateOauth(){
+    return this.http.post(`https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=accessToken`,{observe: 'response'});
+  }
   getOauthUrl(){
     let url = `${environment.oauth_login_url}?`;
     url+=`client_id=${environment.oauth_client_id}`;
