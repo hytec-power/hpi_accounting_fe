@@ -36,7 +36,7 @@ export const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./pages/admin/admin.module').then(m=>m.AdminModule),
     component: AdminTemplateComponent,
-    data: { roles: ['admin'] }
-
+    data: { roles: ['system_admin'] },
+    canActivate: [ authGuard , sessionGuard , roleGuard ]
   }
 ];
