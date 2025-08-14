@@ -23,7 +23,7 @@ export class AuthService {
     effect(() => this.appState.storeKey('auth_current_user',this.current_user));
   }
   oauthLogin(token: string){
-    return this.http.post(`${this.api}/oauth`,{token:token},{observe: 'response'});
+    return this.http.post<CurrentUser>(`${this.api}/oauth`,{token:token},{observe: 'body'});
   }
   validateSession(){
       return this.http.get(`${this.api}/validate`,{observe: 'response'});
@@ -61,6 +61,7 @@ export class AuthService {
     switch(this.current_user()?.role.name){
       case 'employee': return '/employee';
       case 'accountant': return '/accounting/budget-requests';
+      case 'system_admin': return '/admin';
       default: return '/login';
     }
   }

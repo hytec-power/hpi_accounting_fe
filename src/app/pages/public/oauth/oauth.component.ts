@@ -4,6 +4,8 @@ import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls
 import {AuthService} from "src/app/services/auth/auth.service";
 import * as qs from "qs";
 import {OauthResponse} from "src/app/interfaces/oauth-response";
+import {User} from "src/app/interfaces/user";
+import {Role} from "src/app/interfaces/role";
 
 @Component({
   selector: 'app-oauth',
@@ -38,7 +40,11 @@ export class OauthComponent {
   apiOauthLogin(token: string){
     this.auth
         .oauthLogin(token)
-        .subscribe(res=>console.log(res));
+        .subscribe({
+          next: (result) => this.auth.setCurrentUser(result),
+          error: (error) => {},
+          complete: () => this.redirect()
+        });
   }
   apiLogin(token: string){
     // this.auth.oauthLogin(token).subscribe({
@@ -55,3 +61,4 @@ export class OauthComponent {
 
   }
 }
+
