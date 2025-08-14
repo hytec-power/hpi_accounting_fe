@@ -1,0 +1,71 @@
+@use "colors";
+
+.root-container{
+  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin: 10px;
+  height: auto ;
+  width: 100%;
+}
+.section-title{
+  color: light-dark(colors.$primary-color,#FFF);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.data{
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  &-label{
+    text-align: right;
+    opacity: 0.5;
+  }
+  &-value{
+    text-align: left;
+
+  }
+}
+.edit{
+  margin-left: auto;
+}
+h6{
+  font-size: 15px; color: #377161;
+}
+
+tr, th, td{
+  background-color : light-dark(#E6E6E7,#212121);
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  border-bottom: none;
+}
+th{
+    color: #377161;
+}
+input{
+  width: 100%;
+  
+}
+input[readonly]{
+  outline: none;
+  box-shadow: none;
+  border: none;
+  border-radius: 5px;
+}
+.inactiveEdit{
+  border: 1px solid #037354;
+  border-radius: 5px;
+}
+.tab{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  th{
+      width: 50%;
+      background-color: #A0CBB0;
+      border-color: rgba(255, 255, 255, 0.5)
+  }
+}
+.insrtuc{
+  background-color: light-dark(#FFF,colors.$dark-bg-foreground);
+}.color{
+  background-color: light-dark(#E6E6E7,#212121);
+}

@@ -1,0 +1,34 @@
+
+@use "colors";
+
+.root-container{
+  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin: 10px;
+  width: 100%;
+  height: auto;
+}
+.tag-aprroved{
+  color: #259B50;
+}
+.for-reviewal{
+  color: #EBA400;
+}
+.for-liquidation{
+  color: #D7D700;
+}
+.disaproved{
+  color: #871217;
+}
+.for-release{
+  color: blue;
+}
+.completed{
+  color: #259B50;
+}
+.cancel{
+  color: red;
+}

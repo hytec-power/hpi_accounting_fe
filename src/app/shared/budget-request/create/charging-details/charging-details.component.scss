@@ -1,0 +1,42 @@
+@use "colors";
+@use "forms";
+
+.root-container{
+  display: inline-block;
+  margin: 20px 0;
+  color: colors.$text-normal;
+  background-color: colors.$bg-foreground;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+}
+.title{
+  font-weight: bold;
+  font-size: 18px;
+  color: colors.$text-bold;
+  margin-bottom: 20px;
+}
+.group{
+  display: flex;
+  flex-direction: column;
+  margin: 10px 30px;
+  padding: 60px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid colors.$border-color;
+  border-radius: 20px;
+}
+.data-item{
+  margin:10px 0;
+}
+input[type=text],input[type=number]{
+  width: 400px;
+}
+input[type=checkbox]{
+  margin: 5px;
+}
+label,select{
+  width: 100%;
+}
+
+

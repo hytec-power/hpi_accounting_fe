@@ -1,0 +1,54 @@
+<div class="root-container">
+  <page-title text="Budget Requests" bi_icon="bi-wallet-fill"  />
+  <div class="d-flex flex-row my-2">
+    <search-component (onSearch)="query.set($event)" />
+    <dropdown [items]="dropdown_types"  placeholder="Request Types"  [(selection)]="type"    width="200px"/>
+    <dropdown [items]="dropdown_status" placeholder="Status" [(selection)]="status"  width="200px"/>
+    <dropdown [items]="dropdown_sort"   placeholder="Sort By"   [(selection)]="sort"    width="200px"/>
+  </div>
+  <div class="table-wrapper">
+        <table>
+            <thead>
+            <tr>
+                <th>Request ID</th>
+                <th>Requester</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Date Needed</th>
+                <th>Date Submitted</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+              @if (loading) {
+                <tr>
+                  <td colspan="7" class="text-center"> <loader-bouncing-balls/> </td>
+                </tr>
+              }
+              @if (!loading){
+                @for (i of items;track i.uuid){
+                  <tr [routerLink]="'/accounting/budget-requests/'+i.uuid">
+                    <td><a [routerLink]="'/accounting/budget-requests/'+i.uuid">{{ i.request_reference }}</a></td>
+                    <td>{{ i.user.firstname | titlecase }} {{ i.user.lastname | titlecase }}</td>
+                    <td> {{ i.budget_total | currency : 'PHP':'symbol' }} </td>
+                    <td>Pending</td>
+                    <td>{{ i.date_needed | date: 'MMM d, Y' }}</td>
+                    <td>{{ i.created_at | date : 'medium' }} </td>
+                    <td>
+                      <div class="row-controls">
+                        <i class="bi bi-pencil-fill"></i>
+                        <i class="bi bi-trash3-fill"></i>
+                      </div>
+                    </td>
+                  </tr>
+                } @empty {
+                  <td colspan="7" class="text-center"> No items </td>
+                }
+              }
+            </tbody>
+        </table>
+    </div>
+  <div class="text-center my-2">
+    <paginator [(currentPage)]="page" [itemCount]="count" [pageSize]="10"/>
+  </div>
+</div>

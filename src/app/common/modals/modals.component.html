@@ -1,0 +1,19 @@
+<dialog #modal class="root-container">
+    <i class="bi bi-x-lg close-button" (click)="onDismiss()"></i>
+    <div class="title">{{ title }}</div>
+    <div class="message">{{ message }}</div>
+    <div class="button-container">
+        <button-component [text]="positive_text"
+                          *ngIf="type == 'info' || type == 'confirm'"
+                          type="primary"
+                          (click)="positiveAction()"/>
+        <button-component [text]="positive_text"
+                          type="warning"
+                          *ngIf="type == 'confirm-warning'"
+                          (click)="positiveAction()"/>
+        <button-component [text]="negative_text"
+                          *ngIf="type == 'confirm' || type == 'confirm-warning'"
+                          type="default"
+                          (click)="negativeAction()"/>
+    </div>
+</dialog>

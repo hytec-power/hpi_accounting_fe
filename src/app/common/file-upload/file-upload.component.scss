@@ -1,0 +1,60 @@
+@use "colors";
+.root-container{
+  border: 2px dashed colors.$primary-disabled;
+  padding: 10px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.text{
+  opacity: 0.5;
+}
+.bi{
+  cursor: pointer;
+  font-size: 20px;
+  color:  colors.$primary-disabled;;
+}
+.text-button{
+  opacity: 1;
+  color: colors.$primary-active;
+  cursor: pointer;
+}
+.pointer{
+  cursor: pointer;
+}
+.selection{
+  border: 1px solid colors.$border-color;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  .file-icon{
+    color: colors.$primary-active;
+    margin: 0 10px;
+  }
+  .remove{
+    color: colors.$text-normal;
+    margin: 0 10px;
+    &:hover{
+      color: indianred;
+    }
+  }
+  .name{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.success{
+  color:#4CAF50;
+  font-size: 11px;
+}
+.error{
+  color:#EF5350;
+  font-size: 11px;
+}

@@ -1,0 +1,34 @@
+import { Component } from '@angular/core';
+import {SidebarComponent, SidebarItem} from "src/app/common/templates/sidebar/sidebar.component";
+import {RouterOutlet} from "@angular/router";
+import { HeaderComponent } from "src/app/pages/employee/common/header/header.component";
+
+@Component({
+    selector: 'employee-template',
+    imports: [
+        RouterOutlet,
+        SidebarComponent,
+        HeaderComponent
+    ],
+    templateUrl: './template.component.html',
+    styleUrl: './template.component.scss'
+})
+export class EmployeeTemplateComponent {
+  sidebar_items: SidebarItem[]=[];
+  constructor() {
+    this.initSidebar();
+  }
+  initSidebar(){
+    this.sidebar_items.push({name: 'Dashboard',
+      link: '/employee',
+      bi_icon: 'bi-house',
+      bi_icon_active: 'bi-house-door-fill',
+      exact: true });
+
+    this.sidebar_items.push({name: 'Budget Request',
+      link: '/employee/budget-requests' ,
+      bi_icon: 'bi-wallet2',
+      bi_icon_active: 'bi-wallet-fill',
+      exact: false });
+  }
+}

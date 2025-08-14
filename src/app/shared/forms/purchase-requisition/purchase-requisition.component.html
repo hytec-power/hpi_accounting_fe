@@ -1,0 +1,14 @@
+<div class="root-container">
+    <div class="d-flex justify-content-center"></div>
+    <stepper-component [items]="steps" [current_index]="page()"/>
+    <div class="my-2">
+      @switch (page()){
+        @case (0){<pr-request-details    (next)="next()" (back)="onCancel.emit()"/>}
+        @case (1){<pr-client-details     (next)="next()" (back)="back()"/>}
+        @case (2){<pr-principal-details  (next)="next()" (back)="back()"/>}
+        @case (3){<pr-attachments        (next)="next()" (back)="back()"/> }
+        @case (4){<pr-items              (next)="next()" (back)="back()"/> }
+        @case (5){<pr-complete           (onComplete)="complete()"      /> }
+      }
+    </div>
+</div>

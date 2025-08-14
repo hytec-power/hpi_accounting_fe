@@ -1,0 +1,30 @@
+@use "colors";
+@use "forms";
+@use "tables";
+
+.root-container{
+  display: inline-block;
+  padding: 30px 40px;
+  border-radius: 20px;
+  background-color: colors.$bg-foreground
+}
+.table-wrapper{
+  border: 1px solid rgba(0,0,0,.2);
+}
+form{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  label{
+    margin: 2px 0;
+  }
+  input[type=text],input[type=date]{
+    width: 100%;
+  }
+}
+.agreement{
+  padding: 10px;
+  border-radius: 15px;
+  margin: 10px 0;
+  border: 1px solid colors.$border-color;
+}

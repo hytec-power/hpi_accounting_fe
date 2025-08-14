@@ -1,0 +1,69 @@
+@use "colors";
+
+.root-container{
+  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin: 10px;
+  width: 100%;
+  height: auto;
+
+}
+.section-title{
+  color: light-dark(colors.$primary-color,#FFF);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.data{
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  &-label{
+    text-align: right;
+    opacity: 0.5;
+  }
+  &-value{
+    text-align: left;
+  }
+}
+.container{
+    background-color: light-dark(#E6E6E7,#212121);
+    height: auto;
+    border-radius: 10px;
+    padding: 20px;
+}
+.edit{
+    margin-left: auto;
+  }
+  h6{
+    font-size: 15px; color: #377161;
+  }
+  .future{
+    margin-left: 10px;
+  }
+  input{
+  width: 100%;
+  height: auto;
+  padding: 4px;
+  
+}
+input[readonly]{
+  outline: none;
+  box-shadow: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  
+}
+.inactiveEdit{
+  border: 1px solid #037354;
+  border-radius: 5px;
+  font-size: 18px;
+}
+.back{
+  background-color: light-dark(#E6E6E7,#212121);
+}
+.back2{
+ 
+  background-color: light-dark(#FFF,colors.$dark-bg-foreground);
+}

@@ -1,0 +1,33 @@
+@use "colors";
+table{
+  table-layout: fixed;
+  width: 100%;
+  caption-side: top;
+  padding: 10px;
+  transition: all 1s;
+}
+caption{
+  font-size: 20px;
+  font-weight: bold;
+  color: colors.$text-normal;
+  padding: 20px 5px;
+}
+th{
+  padding: 10px 20px;
+  font-weight: normal;
+  font-size: 18px;
+  background-color: colors.$primary-color !important;
+  color: #FFF;
+}
+td{
+  padding: 15px 20px;
+  color: colors.$text-normal;
+}
+tbody tr:hover{
+  background-color: rgba(0,0,0,.05);
+}
+.table-wrapper{
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: colors.$bg-foreground;
+}

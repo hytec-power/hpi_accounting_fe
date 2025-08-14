@@ -1,0 +1,20 @@
+@use "colors";
+@use "forms";
+
+.root-container{
+  display: inline-block;
+  padding: 30px 40px;
+  border-radius: 20px;
+  background-color: colors.$bg-foreground
+}
+form{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  label{
+    margin: 2px 0;
+  }
+  input[type=text],input[type=date]{
+    width: 100%;
+  }
+}

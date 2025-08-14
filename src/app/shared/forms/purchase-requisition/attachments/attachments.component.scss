@@ -1,0 +1,27 @@
+@use "colors";
+@use "forms";
+@use "tables";
+
+.root-container{
+  display: inline-block;
+  padding: 30px 40px;
+  border-radius: 20px;
+  background-color: colors.$bg-foreground
+}
+.table-wrapper{
+  border: 1px solid rgba(0,0,0,.2);
+  margin: 10px 0;
+}
+form{
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+  align-items: end;
+  border: 1px solid colors.$border-color;
+  padding: 10px 0;
+  border-radius: 10px;
+  label{
+    margin: 0 10px
+  }
+
+}

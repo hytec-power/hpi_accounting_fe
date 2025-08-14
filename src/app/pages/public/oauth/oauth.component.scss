@@ -1,0 +1,12 @@
+@use "colors";
+
+.root-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: colors.$bg-background;
+  color: colors.$text-normal;
+}

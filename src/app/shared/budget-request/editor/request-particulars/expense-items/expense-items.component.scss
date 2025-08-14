@@ -1,0 +1,47 @@
+@use "colors";
+@use "forms";
+
+.root-container{
+  margin: 20px 0;
+}
+.group{
+  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 10px;
+  width: 500px;
+}
+.group-title{
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.total{
+  margin-top: 10px;
+  border-top: 1px solid gray;
+  text-align: end;
+  font-weight: bold;
+  color: colors.$primary-color;
+  font-size: 30px;
+}
+.item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  div{
+    padding: 10px;
+    flex: 1;
+  }
+  .amount{
+    text-align: end;
+  }
+  .bi{
+    margin: 5px;
+    &:hover{
+      color:indianred;
+    }
+  }
+}
+label,input[type=text]{
+
+  width: 100%;
+}

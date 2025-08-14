@@ -1,0 +1,14 @@
+<div class="root-container">
+    <div class="steps-container">
+        @for (i of items();track $index){
+            <div class="node" [ngClass]="{'active':$index < current_index(),
+                                          'current':$index == current_index()}">
+                <i [class]="['bi',i.bi_icon]"></i>
+                <div class="node-title">{{ i.name }}</div>
+            </div>
+            @if (!$last){
+                <div class="connector" [ngClass]="{'active':$index < current_index()}"></div>
+            }
+        }
+    </div>
+</div>

@@ -1,0 +1,37 @@
+@if (!item().items){
+  <a class="item"
+     [routerLink]="item().link"
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{exact: item().exact}"  >
+    @if (item().bi_icon) { <i [class]="['bi',item().bi_icon,'icon']"  ></i>  }
+    @if (item().bi_icon_active) { <i [class]="['bi',item().bi_icon_active,'icon-active']"></i>  }
+    <span>{{ item().name }}</span>
+  </a>
+}
+@if (item().items){
+  <div class="item-group"
+       tabindex="1"
+       [routerLink]="item().link"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: item().exact}">
+    <div class="item header"  (click)="preventDefault($event)">
+      @if (item().bi_icon) { <i [class]="['bi',item().bi_icon,'icon']"  ></i>  }
+      @if (item().bi_icon_active) { <i [class]="['bi',item().bi_icon_active,'icon-active']"></i>  }
+      <span>{{ item().name }}</span>
+    </div>
+    <div class="links">
+      @for (i of item().items;track $index){
+        <a class="item sub-item"
+           [routerLink]="i.link"
+           routerLinkActive="active"
+           (click)="$event.stopPropagation()"
+           [routerLinkActiveOptions]="{exact: i.exact}"  >
+          @if (i.bi_icon) { <i [class]="['bi',i.bi_icon,'icon']"  ></i>  }
+          @if (i.bi_icon_active) { <i [class]="['bi',i.bi_icon_active,'icon-active']"></i>  }
+          <span>{{ i.name }}</span>
+        </a>
+      }
+    </div>
+  </div>
+}
+

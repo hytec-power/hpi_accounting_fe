@@ -1,0 +1,9 @@
+<div>
+    <page-title text="View Budget Requests" bi_icon="bi-wallet-fill"  />
+     @if (loading){
+        <div class="text-center my-5"><loader-bouncing-balls/></div>
+     }
+     @if (!loading){
+       <budget-request-viewer [record]="record"/>
+     }
+</div>

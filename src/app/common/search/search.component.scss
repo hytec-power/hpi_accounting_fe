@@ -1,0 +1,16 @@
+@use "colors";
+
+.root-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+input[type=text]{
+  outline: none;
+  border: none;
+  height: 38px;
+  box-sizing: border-box;
+  padding: 3px 15px;
+  font-size: 12px;
+  border-radius: 99px;
+}

@@ -1,0 +1,63 @@
+@use "colors";
+.root-container{
+  background-color: colors.$bg-foreground;
+  padding: 30px;
+  border-radius: 20px;
+}
+.page{
+    display: block;
+    margin: 20px 0;
+    color: colors.$text-normal;
+    border-radius: 20px;
+    width: 1000px;
+    height: auto;
+    overflow: hidden;
+}
+.title{
+  font-weight: bold;
+  font-size: 20px;
+  color: colors.$text-normal;
+  margin-bottom: 20px;
+}
+
+
+table{
+  width: 100%;
+  table-layout: auto;
+  white-space: nowrap;
+
+  caption{
+    caption-side: top;
+  }
+  td{
+    padding: 0 30px;
+    color: black;
+    background-color: #eeeeee;
+  }
+  th{
+    padding: 0 30px;
+
+  }
+  .section-header{
+    height: 20px;
+    padding: 0;
+    background-color: #358f76;
+    border: 2px solid #358f76;
+  }
+  .section-title{
+    font-size: 18px;
+    font-weight: bold;
+    color: #358f76;
+    padding: 10px 0px;
+    background-color: colors.$bg-foreground;
+    .bi{
+      margin-right: 15px;
+    }
+  }
+  .data-label{
+    color: gray;
+    background-color: #d0e5d7;
+    color:#424242;
+    font-weight: normal;
+  }
+}

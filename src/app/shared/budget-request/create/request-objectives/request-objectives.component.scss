@@ -1,0 +1,20 @@
+@use "colors";
+.root-container{
+  margin: 20px 0;
+}
+.group{
+  background-color: colors.colors.$bg-foreground;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 10px;
+}
+.group-title{
+    margin-bottom: 20px;
+  font-weight: bold;
+}
+label{
+  margin: 5px 10px;
+}
+input[type=checkbox]{
+  margin: 5px;
+}

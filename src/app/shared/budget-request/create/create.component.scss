@@ -1,0 +1,6 @@
+@use "colors";
+
+.root-container{
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  transition: all 1s;
+}

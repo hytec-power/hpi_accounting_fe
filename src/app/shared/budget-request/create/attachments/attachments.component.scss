@@ -1,0 +1,82 @@
+@use "colors";
+@use "forms";
+
+.root-container{
+  display: flex;
+  flex-direction: column;
+  color: colors.$text-normal;
+  box-sizing: border-box;
+  background-color: colors.$bg-foreground;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+  height: 557px;
+  margin-left: 125px;
+}
+
+.title{
+  font-weight: bold;
+  font-size: 18px;
+  color: colors.$text-bold
+}
+.table-container{
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid colors.$border-color;
+  flex: 1;
+  overflow-y: auto;
+}
+table{
+  border-radius: 10px;
+  width: 100%;
+  td,th{
+    width: 100%;
+  }
+  th{
+    background-color: colors.$primary-color;
+    text-align: center;
+    color: colors.$text-bold;
+    padding: 10px 0;
+  }
+  td{
+    padding: 10px;
+  }
+}
+.requirement{
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  background-color: colors.$bg-background;
+  border-radius: 10px;
+  width: 427px;
+  height: 81px;
+  &-details{
+    padding: 0 20px;
+  }
+  &-icon{
+    padding: 10px;
+    background-color: colors.$bg-foreground;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    color: colors.$primary-disabled;
+  }
+  &-name{
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .format{
+    font-size: 12px;
+    .label{
+      color: colors.$primary-color;
+    }
+    .items{
+      color: gray;
+    }
+  }
+}

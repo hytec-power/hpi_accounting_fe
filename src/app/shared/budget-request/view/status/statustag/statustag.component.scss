@@ -1,0 +1,68 @@
+@use "forms";
+@use "colors";
+.root-container{
+  border:none;
+  outline: none;
+  border-radius: 20px;
+  width: 862px;
+  height: 462px;
+  .title{
+    font-weight: bold;
+  }
+  &::backdrop{
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  color: white;
+  background-color: colors.$bg-foreground;
+  
+}
+.header{
+    background-color: #037354;
+    padding: 18px;
+    position: sticky;
+    top: 0;
+    padding-bottom:10px;
+}
+
+dialog{
+    padding: 0;
+
+}
+.table-bordered{
+border: light-dark(#EEEEEE, black)
+}
+.root-container::-webkit-scrollbar{
+    display: none;
+  }
+  thead th {
+    position: sticky;
+    top: 6.3rem;
+  }
+table, td,th{
+    background-color: colors.$bg-foreground;
+    padding-left: 25px;
+    color: colors.$text-bold;
+    font-size: 18px;
+}
+.tag-aprroved{
+  color: #259B50;
+}
+.for-reviewal{
+  color: #EBA400;
+}
+.for-liquidation{
+  color: #D7D700;
+}
+.disaproved{
+  color: #871217;
+}
+.for-release{
+  color: blue;
+}
+.completed{
+  color: #259B50;
+}
+.cancel{
+  color: red;
+}
+

@@ -1,0 +1,68 @@
+@use "colors";
+
+
+.root-container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: colors.$text-normal;
+  background-color: colors.$bg-background;
+}
+.content{
+  flex: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/assets/images/pages/auth/bg.jpg");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.login{
+  padding: 30px 50px;
+  height: 100%;
+  width: 500px;
+  background-color: colors.$bg-foreground;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+.hero-logo{
+  width: 200px;
+  height: 100px;
+  object-fit: contain;
+  object-position: center;
+  margin: 10px;
+}
+.title{
+  color: colors.$text-active;
+  font-size: 20px;
+  margin: 20px 0;
+}
+.google-login{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 10px 20px;
+  background-color: #D32F2F;
+  margin: 5px;
+  color: white;
+  cursor: pointer;
+  img{
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+  }
+  span{
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,23 @@
+@use "colors";
+.root-container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: light-dark(colors.$light-bg-background,colors.$dark-bg-background);
+  transition: all 1s;
+}
+.content{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  flex:1;
+  overflow: hidden;
+}
+.main{
+  flex: 1;
+  height: 100%;
+  padding: 20px 0;
+  overflow-y: auto;
+
+}

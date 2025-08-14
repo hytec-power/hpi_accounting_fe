@@ -1,0 +1,35 @@
+<div class="root-container">
+    <div class="section-title" >
+        <i class="bi bi-calendar3"></i>
+        <div>Date & Time</div>
+        <div style="flex: 1;"></div>
+        @if (!isEditable){
+            <i class="bi bi-pencil-square edit" (click)="isEditable = true;"></i>
+        }
+    </div>
+    @if (!loading){
+        <form [formGroup]="form" class="my-2">
+            <label>
+                <div class="data-label">Date Needed</div>
+                <input formControlName="date_needed" type="date" [readOnly]="!isEditable">
+            </label>
+            <label>
+                <div class="data-label">Time Needed</div>
+                <div> <input formControlName="time_needed" type="time" [readOnly]="!isEditable" ></div>
+            </label>
+            <label class="data-label">
+                <div class="data-label">Expected Utilization</div>
+                <div><input formControlName="date_utilization" type="date" [readOnly]="!isEditable"></div>
+            </label>
+        </form>
+        @if (isEditable) {
+            <div class="text-end">
+                <button-component (click)="save()" [disabled]="form.invalid" text="Save" type="primary"/>
+                <button-component (click)="cancel()"     [disabled]="form.invalid" text="Cancel" type="secondary"/>
+            </div>
+        }
+    }
+    @if (loading){
+        <div class="text-center my-5"><loader-spinner /></div>
+    }
+</div>

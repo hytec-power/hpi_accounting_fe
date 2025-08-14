@@ -1,0 +1,19 @@
+<div class="root-container">
+  <div (click)="back()"
+       [ngClass]="{'inactive': currentPage() == 1 }"
+       class="nav"><i class="bi bi-arrow-left"></i>Previous</div>
+  @for (p of pageList(); track p) {
+    <div class="page-number"
+         (click)="currentPage.set(p)"
+         [ngClass]="{'active':p == currentPage() }">{{ p }}</div>
+  }
+  @if (lastPages().length > 0){
+    <div class="page-number">...</div>
+    @for (p of lastPages();track p){
+      <div class="page-number">{{ p }}</div>
+    }
+  }
+  <div (click)="next()"
+       [ngClass]="{'inactive': currentPage() == pageCount() }"
+       class="nav">Next<i class="bi bi-arrow-right"></i></div>
+</div>

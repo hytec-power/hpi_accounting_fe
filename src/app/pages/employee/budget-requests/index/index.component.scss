@@ -1,0 +1,38 @@
+@use "tables";
+@use "colors";
+
+
+.root-container{
+  color: colors.$text-normal;
+}
+.row-controls{
+  color: #BDBDBD;
+  .bi{
+    margin: 2px 5px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+}
+tbody tr{
+  cursor: pointer;
+}
+a{
+  text-decoration: none;
+  color: royalblue;
+}
+.link{
+  color: colors.$primary-active;
+}
+.message{
+  margin: 10px 10px;
+  font-size: 13px;
+  color: gray;
+  .count{
+    margin: 0 5px;
+    color: colors.$primary-active;
+  }
+  .clear-search{
+    cursor: pointer;
+    color: royalblue;
+  }
+}

@@ -1,0 +1,67 @@
+@use "colors";
+
+.root-container{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  height: 100px;
+}
+.steps-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.node{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+
+  &.active{
+    border-color: colors.$primary-color;
+    background-color:  colors.$primary-color;
+    border-color: colors.$primary-color;
+    color: #FFF;
+    opacity: 1;
+  }
+  &.current{
+    border-color: colors.$primary-active;
+    color: colors.$primary-active;
+    opacity: 1;
+  }
+  &-title{
+    white-space: nowrap;
+    position: absolute;
+    bottom: -40px;
+    color:light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+    font-weight: bold;
+
+  }
+  &.active &-title{
+    opacity: 1;
+    color: light-dark(colors.$primary-color,#FFF);
+  }
+  &.current &-title{
+    opacity: 1;
+    color: colors.$primary-active;
+  }
+  .bi{
+    font-size: 20px;
+  }
+}
+.connector{
+  flex: 1;
+  height: 4px;
+  background-color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  opacity: 0.5;
+  &.active{
+    background-color: colors.$primary-color;
+    opacity: 1;
+  }
+}

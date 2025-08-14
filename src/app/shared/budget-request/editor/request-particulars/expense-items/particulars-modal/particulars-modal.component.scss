@@ -1,0 +1,25 @@
+@use "colors";
+@use "forms";
+.root-container{
+  border: none;
+  padding: 20px;
+  background-color: light-dark(colors.$light-bg-foreground,colors.$dark-bg-foreground);
+  color: light-dark(colors.$light-text-normal-color,colors.$dark-text-normal-color);
+  border-radius: 20px;
+  box-sizing: border-box;
+  outline: none;
+  width: 500px;
+  &::backdrop{
+    background-color: rgba(0,0,0,.6);
+  }
+}
+.title{
+  color: light-dark(colors.$light-text-bold-color,colors.$dark-text-bold-color);
+  font-weight: bold;
+}
+label{
+  margin: 5px 0;
+}
+select,label,input{
+  width: 100%;
+}

@@ -1,0 +1,25 @@
+
+$light-text-bold-color:#212121;
+$light-text-normal-color:#424242;
+
+$light-bg-foreground: #FFF;
+$light-bg-background: #EEEEEE;
+
+
+$dark-text-bold-color:#010101;
+$dark-text-normal-color:#9E9E9E;
+
+$dark-bg-foreground: #424242;
+$dark-bg-background: #212121;
+
+$primary-color: #037354;
+$primary-active:#259B50;
+$primary-disabled:#A0CBB0;
+
+$border-color: light-dark(rgba(0,0,0,0.1),rgba(255,255,255,0.1));
+$bg-background : light-dark(#EEEEEE,#212121);
+$bg-foreground : light-dark(#FFF,#424242);
+$text-normal : light-dark(#424242,#9E9E9E);
+$text-bold : light-dark(#212121,#F5F5F5);
+$text-inactive: #757575;
+$text-active: light-dark(#424242,#9E9E9E);

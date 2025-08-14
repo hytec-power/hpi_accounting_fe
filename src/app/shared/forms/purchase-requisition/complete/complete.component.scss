@@ -1,0 +1,23 @@
+@use "colors";
+@use "forms";
+
+.root-container{
+  display: inline-block;
+  padding: 30px 40px;
+  border-radius: 20px;
+  background-color: colors.$bg-foreground;
+  text-align: center;
+  width: 400px;
+}
+.message{
+  font-size: 20px;
+  margin: 20px 0;
+  .bi{
+    color:green;
+    margin: 10px;
+  }
+}
+.redirect{
+  color:royalblue;
+  cursor: pointer;
+}

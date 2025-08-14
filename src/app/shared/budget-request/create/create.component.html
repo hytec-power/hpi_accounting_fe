@@ -1,0 +1,31 @@
+<div class="root-container">
+  <stepper-component [items]="steps" [current_index]="page()"/>
+  @if (loading) {
+    <div class="d-flex flex-column align-items-center justify-content-center my-5">
+      <loader-bouncing-balls />
+      <div>Loading</div>
+    </div>
+  }
+  @if (!loading){
+    <div class="d-flex justify-content-center my-4">
+      @switch (page()){
+        @case(0) {  <request-details      [form]="form_request_details" (onNext)="next()" [(purpose)]="purpose"/>  }
+        @case(1) {  <request-date-time    [form]="form_date_time" (onNext)="next()" (onBack)="back()" />  }
+        @case(2) {  <charging-details     [form]="form_project_details"
+                                          (onNext)="next()"
+                                          (onBack)="back()" />  }
+        @case(3) {  <request-budget       [form_budget]="form_request_allocation"
+                                          [form_release]="form_release_details"
+                                          [(total)]="budget_total"
+                                          (onNext)="next()"
+                                          (onBack)="back()"/>  }
+        @case(4) {  <request-manpower     (onNext)="next()" (onBack)="back()" [(receivedUsers)]="manpower" />  }
+        @case(5) {  <request-attachments  [request_type]="getRequestType()"
+                                          [(attachments)]="attachments"
+                                          (onNext)="showPreview()"
+                                          (onBack)="back()" />  }
+        @case(6) {  <request-review       [data]="preview" (onSubmit)="submit()" (onBack)="back()" />  }
+      }
+    </div>
+  }
+</div>

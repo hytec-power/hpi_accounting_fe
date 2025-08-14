@@ -1,0 +1,28 @@
+import {Component, input} from '@angular/core';
+import {ThemeService} from "src/app/services/theme/theme.service";
+import {SidebarItemComponent} from "src/app/common/templates/sidebar/sidebar-item/sidebar-item.component";
+
+@Component({
+    selector: 'common-sidebar',
+  imports: [SidebarItemComponent],
+    templateUrl: './sidebar.component.html',
+    styleUrl: './sidebar.component.scss'
+})
+export class SidebarComponent {
+  items = input<SidebarItem[]>([]);
+  toggle_temp: boolean = true;
+  constructor(private theme: ThemeService) {
+  }
+  test(){
+    this.toggle_temp = !this.toggle_temp;
+    this.theme.setTheme(this.toggle_temp?'light':'dark');
+  }
+}
+export interface SidebarItem {
+  name: string,
+  link: string,
+  bi_icon?: string ,
+  bi_icon_active?: string ;
+  exact: boolean;
+  items?: SidebarItem[];
+}

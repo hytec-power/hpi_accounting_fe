@@ -1,0 +1,36 @@
+<dialog class="root-container" #modal>
+  <div class="d-flex flex-row align-items-center justify-content-between">
+    <div class="title">{{ mode == "add" ? "Add" : "Edit" }} School/Company</div>
+    <i (click)="close()" class="bi bi-x-lg close"></i>
+  </div>
+  @if (loading){
+    <div class="text-center my-3"> <loader-spinner [size_px]="30"/> </div>
+  }
+  @if (!loading) {
+    <div>
+      <form [formGroup]="form">
+        <div class="d-flex flex-column">
+          <label>
+            <div>Category</div>
+            <select formControlName="category">
+              <option selected disabled>Select category</option>
+              <option value="school">School</option>
+              <option value="company">Company</option>
+            </select>
+          </label>
+          <label>
+            <div>Name</div>
+            <input type="text" placeholder="Name" maxlength="255" formControlName="name">
+          </label>
+          <label>
+            <div>Address</div>
+            <textarea placeholder="Address" maxlength="512" formControlName="address"></textarea>
+          </label>
+        </div>
+      </form>
+      <div class="text-end">
+        <button-component (click)="save()" text="Save" type="primary" [disabled]="form.invalid"/>
+      </div>
+    </div>
+  }
+</dialog>

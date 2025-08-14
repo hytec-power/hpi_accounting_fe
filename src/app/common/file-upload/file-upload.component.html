@@ -1,0 +1,36 @@
+<div class="root-container"
+     [style.height.px]="height_px()"
+     [style.width.px]="width_px()">
+  @if (!file){
+    <i (click)="file_input.click()" class="bi bi-cloud-upload-fill"></i>
+    <div (click)="file_input.click()" class="pointer"><span class="text">Drag and drop to upload or </span> <span class="text-button">Browse Files</span></div>
+    <input type="file"
+           style="display: none"
+           #file_input
+           (change)="onFileSelected($event)"
+           [accept]="accept()">
+  }
+  @if (file){
+    <div class="selection">
+      <i class="file-icon bi bi-filetype-pdf"></i>
+      <div>
+        <div class="name">{{ file.name }}</div>
+        @if (loading){
+          <div><loader-spinner [size_px]="20"/> Uploading </div>
+        }
+        @if (!loading && !error) {
+          <div class="d-flex align-items-center"><i class="success bi bi-check-circle-fill mx-1"></i>Upload Complete</div>
+        }
+        @if (!loading && error){
+          <div class="d-flex align-items-center"><i class="error bi bi-x-circle-fill mx-1"></i>Error</div>
+        }
+      </div>
+      @if (!loading && !error){
+        <i (click)="clear()" class="remove bi bi-x mx-3"></i>
+      }
+      @if (!loading && error) {
+        <i (click)="retryUpload()" class="remove bi bi-arrow-clockwise"></i>
+      }
+    </div>
+  }
+</div>

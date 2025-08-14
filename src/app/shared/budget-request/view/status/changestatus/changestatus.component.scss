@@ -1,0 +1,48 @@
+@use "forms";
+@use "colors";
+.root-container{
+  border:none;
+  outline: none;
+  border-radius: 20px;
+  padding: 30px;
+  width: 512px;
+  .title{
+    font-weight: bold;
+  }
+  &::backdrop{
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+label{
+  margin: 10px 0;
+  div{
+    margin: 2px 0;
+  }
+}
+select,input[type=text]{
+  width: 100%;
+}
+.close{
+  cursor: pointer;
+}
+.tag-aprroved{
+  color: #259B50;
+}
+.for-reviewal{
+  color: #EBA400;
+}
+.for-liquidation{
+  color: #D7D700;
+}
+.disaproved{
+  color: #871217;
+}
+.for-release{
+  color: blue;
+}
+.completed{
+  color: #259B50;
+}
+.cancel{
+  color: red;
+}

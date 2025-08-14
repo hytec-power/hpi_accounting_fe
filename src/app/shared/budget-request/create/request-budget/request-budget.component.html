@@ -1,0 +1,108 @@
+<div class="root-container">
+  <div class="d-flex flex-row justify-content-between align-items-center" style="margin-bottom: 20px;">
+    <div>
+      <div class="title">Request Allocation</div>
+      <div class="step">Step {{ page()+1 }} of 2</div>
+    </div>
+  </div>
+  <div>
+    @if (page()==0){
+      <table>
+        <thead>
+        <tr>
+          <th>Particulars</th>
+          <th>Budget per day</th>
+          <th>Qty</th>
+          <th>Days</th>
+          <th>Amount</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+          @for (i of particulars.controls;track $index){
+            <tr>
+              <td>
+                  <select [formControl]="getFormControlByName(i,'name')">
+                    <option value="" disabled selected>Select Particular</option>
+                    @for (p of particular_names;track $index){
+                      <option [value]="p">{{ p }}</option>
+                    }
+                  </select>
+              </td>
+              <td><input type="number" [formControl]="getFormControlByName(i,'budget_daily')"></td>
+              <td><input type="number" [formControl]="getFormControlByName(i,'qty')"></td>
+              <td><input type="number" [formControl]="getFormControlByName(i,'days')"></td>
+              <td><input type="number" [formControl]="getFormControlByName(i,'total')"></td>
+              <td class="row-controls"><i (click)="removeParticular($index)" class="bi bi-x-lg remove"></i></td>
+            </tr>
+          }
+        <tr>
+          <td class="add" colspan="5"><div (click)="addParticular()" class="add-button"><i class="bi bi-plus-lg"></i> Add Item</div></td>
+        </tr>
+        <tr>
+          <th colspan="4">Others</th>
+          <th>Amount</th>
+          <th></th>
+        </tr>
+          @for (o of others.controls;track $index){
+            <tr>
+              <td class="name" colspan="4"><input class="text-start" type="text" [formControl]="getFormControlByName(o,'name')"></td>
+              <td><input type="number" [formControl]="getFormControlByName(o,'total')"></td>
+              <td class="row-controls"><i (click)="removeOthers($index)" class="bi bi-x-lg remove"></i></td>
+            </tr>
+          }
+        <tr>
+          <td class="add" colspan="5"><div (click)="addOthers()" class="add-button"><i class="bi bi-plus-lg"></i> Add Item</div></td>
+        </tr>
+        <tr>
+          <td colspan="4" class="total-text">TOTAL BUDGET</td>
+          <td class="total-number">{{ total()  |  currency: 'PHP':'symbol'}}</td>
+        </tr>
+
+        </tbody>
+      </table>
+      <div class="d-flex flex-row justify-content-end">
+        <button-component (click)="onBack.emit()" text="Back" type="default" />
+        <button-component (click)="page.set(1)" [disabled]="!isPageValid()" text="Next" type="primary" />
+      </div>
+    }
+    @if (page()==1) {
+      <div class="release-details">
+        <div class="section-title">Releasing Instructions</div>
+        <form [formGroup]="form_release()">
+          <div class="my-2">
+            <label><input type="radio" formControlName="release_type" value="cash"> Cash </label>
+            <label><input type="radio" formControlName="release_type" value="deposit_to_client"> Deposit to Client </label>
+            <label><input type="radio" formControlName="release_type" value="deposit_to_self"> Deposit to my Bank Account </label>
+          </div>
+          @if (( form_release().get('release_type')?.value ?? '' )!='cash'){
+            <div class="my-2">
+              <label>
+                <div>Bank</div>
+                <select formControlName="release_bank">
+                  <option>aaa</option>
+                </select>
+              </label>
+              <label>
+                <div>Account Name</div>
+                <input type="text"
+                       formControlName="release_account_name">
+              </label>
+              <label>
+                <div>Account Number</div>
+                <input type="text"
+                       formControlName="release_account_number">
+              </label>
+            </div>
+          }
+
+        </form>
+      </div>
+      <div class="d-flex flex-row justify-content-end">
+        <button-component (click)="page.set(0)" text="Back" type="default" />
+        <button-component (click)="onNext.emit()" [disabled]="!isPageValid()" text="Next" type="primary" />
+      </div>
+    }
+  </div>
+
+</div>

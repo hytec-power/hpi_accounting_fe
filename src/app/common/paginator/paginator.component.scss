@@ -1,0 +1,33 @@
+@use "colors";
+.root-container{
+  display: inline-flex;
+  flex-direction: row;
+  color: colors.$primary-color;
+  align-items: center;
+  font-size: 12px;
+  user-select: none;
+}
+.nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 15px;
+  cursor: pointer;
+  &.inactive{
+    color : #BDBDBD;
+  }
+  .bi{
+   margin: 0 10px;
+  }
+}
+.page-number{
+  padding: 7px 14px;
+  margin: 2px;
+  border-radius: 10px;
+  color: colors.$text-normal;
+  cursor: pointer;
+  &.active{
+    color:#FFF;
+    background-color: colors.$primary-color;
+  }
+}

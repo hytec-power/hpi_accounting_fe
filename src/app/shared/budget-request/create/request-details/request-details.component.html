@@ -1,0 +1,49 @@
+<div class="root-container">
+  <div class="title">Request Details</div>
+  <div class=" row d-flex">
+    <div class="col-md-6">
+      <label>Type of Budget Request</label>
+    </div>
+    <div  class="col-md-6">
+      <form [formGroup]="form()">
+        <select formControlName="type" style="width: 100%">
+          <option value="" disabled selected>Select type of request</option>
+          @for (type of request_types; track $index) {
+            <option [value]="type">{{ type }}</option>
+          }
+        </select>
+      </form>
+    </div>
+  </div>
+  <div>
+    <label>Purpose of Budget Request</label>
+    <p class="text-muted">Select one or more</p>
+    <div class="row justify-content-start">
+      <div class="flex flex-column col-md-6">
+        @for (item of request_purpose.slice(0,request_purpose.length/2); track $index) {
+          <div>
+            <label>
+              <input type="checkbox"
+                     [checked]="purpose().includes(item)"
+                     (click)="toggleSelection($event,item)">
+              {{ item }}
+            </label>
+          </div>
+        }
+      </div>
+      <div class="col-md-6">
+        @for (item of request_purpose.slice(request_purpose.length/2); track $index) {
+          <div><label><input type="checkbox"
+                             [checked]="purpose().includes(item)"
+                             (click)="toggleSelection($event,item)">{{ item }}</label></div>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-row justify-content-end my-3">
+    <button-component text="Next"
+                      type="primary"
+                      (click)="onNext.emit()"
+                      [disabled]="!isComplete()"></button-component>
+  </div>
+</div>

@@ -1,0 +1,116 @@
+@use "colors";
+.root-container{
+  display: inline-block;
+  margin: 20px 0;
+  color: colors.$text-normal;
+  background-color: colors.$bg-foreground;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+}
+.title{
+  font-weight: bold;
+  font-size: 18px;
+  color: colors.$text-bold;
+}
+.step{
+  font-size: 16px;
+  color:gray;
+}
+table{
+  table-layout: auto;
+  border-collapse: separate;
+  border-spacing: 10px;
+  width: 900px;
+  th{
+    font-weight: normal;
+  }
+  td{
+    text-align: end;
+    margin: 2px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #E6E6E6;
+    color: colors.$primary-color;
+  }
+  td.name{
+    text-align: start;
+  }
+  .row-controls{
+    background-color: unset;
+    color: colors.$text-normal;
+    .bi{
+      cursor: pointer;
+    }
+    .remove:hover{
+      color: indianred;
+    }
+  }
+}
+.total-text{
+  background-color: unset !important;
+  text-align: end;
+  color: inherit !important;
+  font-weight: bold;
+}
+.total-number{
+  background-color: unset !important;
+  font-weight: bold;
+  color: colors.$primary-color;
+}
+.add{
+  background-color: unset !important;
+  font-size: 12px;
+  color: colors.$primary-active;
+  &-button{
+    cursor: pointer;
+    text-align: center;
+    color: colors.$primary-active;
+  }
+}
+input[type=text],input[type=number]{
+  text-align: end;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  color: inherit !important;
+  &:focus{
+    outline: none;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+select{
+  border: none;
+  background-color: transparent;
+  color: inherit !important;
+  &:focus{
+    outline: none;
+  }
+}
+.release-details{
+  width: 440px;
+  margin: 5px 0;
+  label{
+    width: 100%;
+    margin: 5px 0;
+    div{
+      margin: 2px 0;
+    }
+  }
+  select,input[type=text]{
+    width: 100%;
+    outline: 1px solid colors.$border-color;
+    padding: 10px 15px;
+    border-radius:10px;
+  }
+}

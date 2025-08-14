@@ -1,0 +1,65 @@
+<div class="root-container">
+    <page-title text="Budget Requests" bi_icon="bi-wallet-fill"  />
+    <div class="d-flex flex-row">
+      <search-component width="322px"
+                        placeholder="Search project name / Request Number"
+                        (onSearch)="onSearch($event)"/>
+      <dropdown placeholder="Request Type"   [items]="filter_types"  [(selection)]="type"   width="200px"/>
+      <dropdown placeholder="Request Status" [items]="filter_status" [(selection)]="status" width="200px"/>
+      <dropdown placeholder="Sort By"        [items]="sort_types"    [(selection)]="sort"   width="200px"  />
+      <div style="flex:1;"></div>
+      <button-component routerLink="/employee/budget-requests/create" text="Add" type="primary" bi_icon="bi-plus-lg" />
+    </div>
+    <div class="message ">
+      <span class="count">{{ items_count }}</span>Items found.
+      @if (query()) {
+        <span> Search Results for "{{query()}}". </span>
+        <span (click)="query.set('')" class="clear-search"> Clear </span>
+      }
+    </div>
+    <div class="table-wrapper my-2">
+        <table>
+            <thead>
+            <tr>
+                <th>Request ID</th>
+                <th>Project Name</th>
+                <th>Type</th>
+                <th>Date Request</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+              @if (loading){
+                <tr>
+                  <td colspan="6"><div class="text-center m-3"><loader-bouncing-balls/></div> </td>
+                </tr>
+              }
+              @if (!loading) {
+                @for (i of items;track i.uuid){
+                  <tr [routerLink]="'/employee/budget-requests/'+i.uuid">
+                    <td><a class="link" [routerLink]="'/employee/budget-requests/'+i.uuid">{{ i.request_reference }}</a></td>
+                    <td>{{ i.project_name }}</td>
+                    <td>{{ i.type }}</td>
+                    <td>{{ i.created_at | date: 'mediumDate' }}</td>
+                    <td>Pending</td>
+                    <td>
+                      <div class="row-controls">
+                        <i class="bi bi-trash3-fill"></i>
+                      </div>
+                    </td>
+                  </tr>
+                } @empty {
+                  <tr>
+                    <td colspan="6"><div class="text-center">No items</div></td>
+                  </tr>
+                }
+              }
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center"><paginator [(currentPage)]="page"
+                                        [itemCount]="items_count"
+                                        [pageSize]="10" /></div>
+
+</div>

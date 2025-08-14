@@ -1,0 +1,66 @@
+<div class="root-container">
+    <div style="display: flex; justify-content: space-between; width: 100%;">
+        <div class="section-title"><i class="bi bi-people mx-1"></i>Manpower</div>
+        @if (!isEditable) {
+            <div><i style="cursor: pointer;" (click)="toggleEdit()" class="bi bi-pencil-square"></i></div>
+        }
+    </div>
+    <div class="table-container">
+        <table [ngClass]="{'inactiveEdit':isEditable}">
+            <thead>
+                <tr>
+                    <th colspan="2" style=" border-top-left-radius: 20px;">Name/s</th>
+                    <th colspan="2" style="border-top-right-radius: 20px;"
+                    class="data-label">Position/s</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (i of manpowerList(); track i) {
+                    <tr>
+                        <td>
+                            <img 
+                            class="employee-image"
+                            [src]="i.image ? i.image : 'assets/images/common/defaults/default_user.png' " 
+                            alt="employee image">
+                        </td>
+                        <td style="text-align: left;">
+                                {{i.firstname}} {{i.middlename}} {{i.lastname}} 
+                        </td>
+                        <td >
+                            @for (item of i.positions; track $index) {  
+                            {{item.name}}
+                        }</td>
+                        <td>
+                            @if (isEditable) {
+                                <div>
+                                    <i (click)="removeEmployee(i.uuid)" class="action-del bi bi-trash mx-2"></i>
+                                </div>
+                                }
+                        </td>
+                    </tr>
+                }
+                @if (manpowerList().length === 0) {
+                    <tr>
+                        <td colspan="4">
+                            No employees found
+                        </td>
+                    </tr>
+                }
+                @if (isEditable) {
+                    <td colspan="4">
+                        <button (click)="showModal()" class="btn">Add Employee/s</button>
+                    </td>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div>
+        @if (isEditable == true) {
+            <div style="text-align: right; margin-top: 10px;" >  
+                <button-component (click)="addManpower()" text="Save" type="primary"></button-component>
+                <button-component (click)="toggleEdit()" text="Cancel" type="secondary"/>
+            </div>
+        }
+    </div>
+    <app-modal-test (arrayEmitter)="receiveArray($event)" [(activeManpower)]="receivedEmployees" [(employeesList)]="linkedArray"></app-modal-test>
+</div>

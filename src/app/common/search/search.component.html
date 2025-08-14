@@ -1,0 +1,8 @@
+<div class="root-container">
+  <input type="text"
+         [(ngModel)]="value"
+         [style.width]="width()"
+         (keydown.enter)="onSearch.emit(value());this.onChange.emit()"
+         [placeholder]="placeholder()">
+  <button-component (click)="onSearch.emit(value());this.onChange.emit()" type="primary" text="Search"/>
+</div>
