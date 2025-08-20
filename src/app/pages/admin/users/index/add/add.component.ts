@@ -14,10 +14,12 @@ export class AddComponent {
   constructor() {
   }
   ngOnInit() {
-    this.open();
-  }
-  open(){
-    this.modal()?.nativeElement.showModal();
 
+  }
+  public open(){
+    this.modal()?.nativeElement.showModal();
+  }
+  dismiss(){
+    this.modal()?.nativeElement.close();
   }
 }

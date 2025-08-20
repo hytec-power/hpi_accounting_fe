@@ -3,6 +3,7 @@
   <div class="d-flex flex-row justify-content-end">
       <button-component text="Add User"
                         bi_icon="bi-plus-lg"
+                        (click)="add_user.open()"
                         type="primary"/>
   </div>
   <div class="table-wrapper my-3" >
@@ -21,5 +22,5 @@
       </tbody>
     </table>
   </div>
-  <add-user/>
+  <add-user #add_user/>
 </div>
