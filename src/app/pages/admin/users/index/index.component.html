@@ -33,13 +33,14 @@
           <th>Email</th>
           <th>Name</th>
           <th>Role</th>
+          <th>Created at</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
       @if (accounts_resource.isLoading()){
           <tr>
-              <td colspan="3" class="text-center"> <loader-bouncing-balls/> </td>
+              <td colspan="5" class="text-center"> <loader-bouncing-balls/> </td>
           </tr>
       }
       @else{
@@ -49,9 +50,10 @@
                   <td>{{i.firstname | titlecase}} {{ i.lastname | titlecase }}</td>
                   <td>{{ i.role?.title }}</td>
                   <td>{{ i.created_at | date: 'shortDate' }}</td>
+                  <td><i class="bi bi-archive"></i></td>
               </tr>
           } @empty {
-              <tr><td colspan="4" class="text-center">No records found</td></tr>
+              <tr><td colspan="5" class="text-center">No records found</td></tr>
           }
       }
       </tbody>
