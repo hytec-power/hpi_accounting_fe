@@ -16,11 +16,22 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td colspan="3" class="text-center">No records found</td>
-        </tr>
+      @if (accounts_resource.isLoading()){
+          <tr>
+              <td colspan="3" class="text-center"> <loader-bouncing-balls/> </td>
+          </tr>
+      }
+      @else{
+          @for (i of accounts_resource.value();track $index){
+              <tr>
+                  <td colspan="3" class="text-center">No records found</td>
+              </tr>
+          } @empty {
+              <tr><td colspan="3" class="text-center">No records found</td></tr>
+          }
+      }
       </tbody>
     </table>
   </div>
-  <add-user #add_user/>
+  <add-user #add_user (addUser)="onAdd($event)"/>
 </div>

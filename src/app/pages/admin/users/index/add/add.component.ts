@@ -22,7 +22,7 @@ export class AddComponent {
   }
   initForm(){
     this.form = this.formBuilder.group({
-      email: ['',[Validators.required]],
+      email: ['',[Validators.required,Validators.pattern('^.+@hytecpower\\.com$')]],
       role: ['',[Validators.required]],
     });
   }
