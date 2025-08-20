@@ -1,13 +1,16 @@
 <dialog class="root-container" #modal >
     <div class="title">Add User</div>
-    <form>
+    <form [formGroup]="form">
         <label>
             <div>Company email</div>
-            <input type="email" maxlength="50" placeholder="employee@hytecpower.com"/>
+            <input type="email"
+                   maxlength="50"
+                   formControlName="email"
+                   placeholder="employee@hytecpower.com"/>
         </label>
         <label>
             <div>Role</div>
-            <select>
+            <select formControlName="role">
                 <option>System Admin</option>
                 <option>Admin</option>
                 <option>Accounting</option>
@@ -17,7 +20,9 @@
         </label>
     </form>
     <div class="d-flex justify-content-end">
-        <button-component text="Save" type="primary" />
+        <button-component text="Save"
+                          [disabled]="form.invalid"
+                          type="primary" />
         <button-component text="Cancel" type="secondary" (click)="dismiss()"/>
     </div>
 </dialog>
