@@ -7,6 +7,7 @@ import { User } from "src/app/interfaces/user";
 import {AccountsService} from "src/app/services/sysad/accounts.service";
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
 import {DatePipe, TitleCasePipe} from "@angular/common";
+import {PaginatorComponent} from "src/app/common/paginator/paginator.component";
 
 @Component({
   selector: 'app-index',
@@ -16,7 +17,8 @@ import {DatePipe, TitleCasePipe} from "@angular/common";
     ButtonComponent,
     LoaderBouncingBallsComponent,
     TitleCasePipe,
-    DatePipe
+    DatePipe,
+    PaginatorComponent
   ],
   templateUrl: './index.component.html',
   styleUrl: './index.component.scss'

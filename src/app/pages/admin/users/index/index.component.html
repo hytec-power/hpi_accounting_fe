@@ -1,6 +1,24 @@
 <div class="root-container">
   <page-title text="Users" bi_icon="bi-people"/>
-  <div class="d-flex flex-row justify-content-end">
+  <div class="d-flex flex-row align-items-end">
+      <label>
+          <div>Search</div>
+          <input type="search"
+                 placeholder="Search by name or email"
+                 style="width: 400px;"
+                 maxlength="50"/>
+      </label>
+      <label>
+          <div>Sort</div>
+          <select>
+              <option>Email(A-Z)</option>
+              <option>Name(A-Z)</option>
+              <option>Name(Z-A)</option>
+              <option>Newest first</option>
+              <option>Oldest first</option>
+          </select>
+      </label>
+      <div style="flex: 1;"></div>
       <button-component text="Add User"
                         bi_icon="bi-plus-lg"
                         (click)="add_user.open()"
@@ -37,5 +55,6 @@
       </tbody>
     </table>
   </div>
+  <paginator [itemCount]="100" [pageSize]="20" [currentPage]="0"/>
   <add-user #add_user (addUser)="onAdd($event)"/>
 </div>
