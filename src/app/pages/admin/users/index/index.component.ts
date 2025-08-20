@@ -1,4 +1,4 @@
-import {Component, computed, ResourceRef, Signal, signal, WritableSignal} from '@angular/core';
+import {Component, computed, linkedSignal, ResourceRef, Signal, signal, WritableSignal} from '@angular/core';
 import {PageTitleComponent} from "src/app/common/page-title/page-title.component";
 import {AddComponent} from "src/app/pages/admin/users/index/add/add.component";
 import {ButtonComponent} from "src/app/common/button/button.component";
@@ -31,7 +31,7 @@ export class IndexComponent {
   params = computed(()=> ({ query: this.query() ,
                                                                                               page: this.current_page(),
                                                                                               sort: this.sort()}) );
-  current_page: WritableSignal<number> = signal(1);
+  current_page: WritableSignal<number> = linkedSignal({ source: ()=> this.query(), computation: ()=> 1 });
   sort: WritableSignal<string> = signal('date_desc');
 
   constructor(private accounts: AccountsService) {

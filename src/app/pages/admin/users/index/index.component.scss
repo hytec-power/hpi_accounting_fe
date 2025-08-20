@@ -5,9 +5,15 @@
 .root-container{
 
 }
+table{
+  table-layout: auto;
+}
 label{
   margin: 2px;
 }
 .bi{
+  cursor: pointer;
+}
+td{
   cursor: pointer;
 }
