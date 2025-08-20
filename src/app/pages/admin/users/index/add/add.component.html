@@ -21,6 +21,7 @@
     </form>
     <div class="d-flex justify-content-end">
         <button-component text="Save"
+                          (click)="save()"
                           [disabled]="form.invalid"
                           type="primary" />
         <button-component text="Cancel" type="secondary" (click)="dismiss()"/>

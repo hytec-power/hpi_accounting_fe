@@ -16,3 +16,7 @@ import {ButtonComponent} from "src/app/common/button/button.component";
 export class IndexComponent {
 
 }
+export interface NewUser{
+  email: string,
+  role: string
+}
