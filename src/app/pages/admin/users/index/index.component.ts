@@ -8,6 +8,7 @@ import {AccountsService} from "src/app/services/sysad/accounts.service";
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
 import {DatePipe, TitleCasePipe} from "@angular/common";
 import {PaginatorComponent} from "src/app/common/paginator/paginator.component";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-index',
@@ -18,7 +19,8 @@ import {PaginatorComponent} from "src/app/common/paginator/paginator.component";
     LoaderBouncingBallsComponent,
     TitleCasePipe,
     DatePipe,
-    PaginatorComponent
+    PaginatorComponent,
+    FormsModule
   ],
   templateUrl: './index.component.html',
   styleUrl: './index.component.scss'
@@ -26,8 +28,11 @@ import {PaginatorComponent} from "src/app/common/paginator/paginator.component";
 export class IndexComponent {
   accounts_resource!: ResourceRef<{ count: number, items: User[]}| undefined>;
   query: WritableSignal<string> = signal('');
-  params = computed(()=> ({ query: this.query() }) );
+  params = computed(()=> ({ query: this.query() ,
+                                                                                              page: this.current_page(),
+                                                                                              sort: this.sort()}) );
   current_page: WritableSignal<number> = signal(1);
+  sort: WritableSignal<string> = signal('date_desc');
 
   constructor(private accounts: AccountsService) {
     this.initResource();
@@ -35,7 +40,7 @@ export class IndexComponent {
   initResource(){
     this.accounts_resource = rxResource({
       request: () => this.params(),
-      loader: ({request}) => this.accounts.list()
+      loader: ({request}) => this.accounts.list(request)
     });
   }
   onAdd($event: NewUser) {

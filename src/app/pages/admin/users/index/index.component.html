@@ -5,17 +5,19 @@
           <div>Search</div>
           <input type="search"
                  placeholder="Search by name or email"
+                 [(ngModel)]="query"
                  style="width: 400px;"
                  maxlength="50"/>
       </label>
       <label>
           <div>Sort</div>
-          <select>
-              <option>Email(A-Z)</option>
-              <option>Name(A-Z)</option>
-              <option>Name(Z-A)</option>
-              <option>Newest first</option>
-              <option>Oldest first</option>
+          <select [(ngModel)]="sort">
+              <option value="email_asc">Email(A-Z)</option>
+              <option value="email_desc">Email(Z-A)</option>
+              <option value="name_asc">Name(A-Z)</option>
+              <option value="name_desc">Name(Z-A)</option>
+              <option value="date_asc">Newest first</option>
+              <option value="date_desc">Oldest first</option>
           </select>
       </label>
       <div style="flex: 1;"></div>

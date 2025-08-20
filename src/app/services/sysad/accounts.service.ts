@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from "src/environments/environment";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {User} from "src/app/interfaces/user";
 
 @Injectable({
@@ -9,8 +9,9 @@ import {User} from "src/app/interfaces/user";
 export class AccountsService {
   api = `${environment.apiUrl}/sysad/accounts`;
   constructor(private http: HttpClient) { }
-  list(){
-    return this.http.get<{ count: number, items: User[]}>(`${this.api}`,  { observe: 'body' } );
+  list(x: {query: string, page: number }) {
+    const params = new HttpParams().appendAll(x);
+    return this.http.get<{ count: number, items: User[]}>(`${this.api}`,  { params: params, observe: 'body' } );
   }
 
 }
