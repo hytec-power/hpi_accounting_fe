@@ -13,5 +13,8 @@ export class AccountsService {
     const params = new HttpParams().appendAll(x);
     return this.http.get<{ count: number, items: User[]}>(`${this.api}`,  { params: params, observe: 'body' } );
   }
-
+  create(email: string, role: string) {
+    const payload = { email: email, role: role };
+    return this.http.post(`${this.api}`, payload , { observe: 'response' } );
+  }
 }

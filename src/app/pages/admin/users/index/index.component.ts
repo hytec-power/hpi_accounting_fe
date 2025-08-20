@@ -43,8 +43,8 @@ export class IndexComponent {
       loader: ({request}) => this.accounts.list(request)
     });
   }
-  onAdd($event: NewUser) {
-
+  onAdd(data: NewUser) {
+    this.accounts.create(data.email,data.role).subscribe(i=> this.accounts_resource.reload());
   }
 }
 export interface NewUser{
