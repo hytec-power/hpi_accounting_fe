@@ -16,6 +16,5 @@ export class SidebarItemComponent {
   preventDefault(event: any) {
     event.preventDefault();
     event.stopPropagation();
-    console.log('wee');
   }
 }

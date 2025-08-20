@@ -10,13 +10,7 @@ import {SidebarItemComponent} from "src/app/common/templates/sidebar/sidebar-ite
 })
 export class SidebarComponent {
   items = input<SidebarItem[]>([]);
-  toggle_temp: boolean = true;
-  constructor(private theme: ThemeService) {
-  }
-  test(){
-    this.toggle_temp = !this.toggle_temp;
-    this.theme.setTheme(this.toggle_temp?'light':'dark');
-  }
+  constructor(private theme: ThemeService) {}
 }
 export interface SidebarItem {
   name: string,
