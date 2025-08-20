@@ -12,6 +12,7 @@
         <tr>
           <th>Email</th>
           <th>Name</th>
+          <th>Role</th>
           <th></th>
         </tr>
       </thead>
@@ -24,10 +25,13 @@
       @else{
           @for (i of accounts_resource.value();track $index){
               <tr>
-                  <td colspan="3" class="text-center">No records found</td>
+                  <td>{{ i.email }}</td>
+                  <td>{{i.firstname | titlecase}} {{ i.lastname | titlecase }}</td>
+                  <td>{{ i.role?.title }}</td>
+                  <td>{{ i.created_at | date: 'shortDate' }}</td>
               </tr>
           } @empty {
-              <tr><td colspan="3" class="text-center">No records found</td></tr>
+              <tr><td colspan="4" class="text-center">No records found</td></tr>
           }
       }
       </tbody>

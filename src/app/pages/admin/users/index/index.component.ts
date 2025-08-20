@@ -6,6 +6,7 @@ import {rxResource} from "@angular/core/rxjs-interop";
 import { User } from "src/app/interfaces/user";
 import {AccountsService} from "src/app/services/sysad/accounts.service";
 import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls/loader-bouncing-balls.component";
+import {DatePipe, TitleCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-index',
@@ -13,7 +14,9 @@ import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls
     PageTitleComponent,
     AddComponent,
     ButtonComponent,
-    LoaderBouncingBallsComponent
+    LoaderBouncingBallsComponent,
+    TitleCasePipe,
+    DatePipe
   ],
   templateUrl: './index.component.html',
   styleUrl: './index.component.scss'

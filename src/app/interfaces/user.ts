@@ -5,6 +5,8 @@ export interface User {
   middlename: string;
   lastname: string;
   image: string;
+  created_at: string;
+  role?: UserRole;
 }
 
 export interface UserRole {
