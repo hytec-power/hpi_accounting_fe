@@ -1,0 +1,23 @@
+<dialog class="root-container" #modal >
+    <div class="title">Add User</div>
+    <form>
+        <label>
+            <div>Company email</div>
+            <input type="email" maxlength="50" placeholder="employee@hytecpower.com"/>
+        </label>
+        <label>
+            <div>Role</div>
+            <select>
+                <option>System Admin</option>
+                <option>Admin</option>
+                <option>Accounting</option>
+                <option>FAE</option>
+                <option>TSM</option>
+            </select>
+        </label>
+    </form>
+    <div class="d-flex justify-content-end">
+        <button-component text="Save" type="primary"/>
+        <button-component text="Cancel" type="secondary"/>
+    </div>
+</dialog>

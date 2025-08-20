@@ -1,0 +1,21 @@
+@use "colors";
+@use "forms";
+
+.root-container{
+  width: 400px;
+  padding: 20px 30px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+}
+.title{
+  font-weight: bold;
+  margin: 10px 0;
+}
+label{
+  display: block;
+  margin: 10px 0;
+}
+input[type=email],select{
+  width: 100%;
+}
