@@ -1,0 +1,29 @@
+<dialog class="root-container" #modal >
+    <div class="title">Add User</div>
+    <form [formGroup]="form">
+        <label>
+            <div>Company email</div>
+            <input type="email"
+                   maxlength="50"
+                   formControlName="email"
+                   placeholder="employee@hytecpower.com"/>
+        </label>
+        <label>
+            <div>Role</div>
+            <select formControlName="role">
+                <option value="system_admin">System Admin</option>
+                <option value="admin">Admin</option>
+                <option value="accounting">Accounting</option>
+                <option value="fae">FAE</option>
+                <option value="tsm">TSM</option>
+            </select>
+        </label>
+    </form>
+    <div class="d-flex justify-content-end">
+        <button-component text="Save"
+                          (click)="save()"
+                          [disabled]="form.invalid"
+                          type="primary" />
+        <button-component text="Cancel" type="secondary" (click)="dismiss()"/>
+    </div>
+</dialog>
