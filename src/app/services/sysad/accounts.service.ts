@@ -10,7 +10,7 @@ export class AccountsService {
   api = `${environment.apiUrl}/sysad/accounts`;
   constructor(private http: HttpClient) { }
   list(){
-    return this.http.get<User[]>(`${this.api}`,  { observe: 'body' } );
+    return this.http.get<{ count: number, items: User[]}>(`${this.api}`,  { observe: 'body' } );
   }
 
 }

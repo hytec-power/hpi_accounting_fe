@@ -41,7 +41,7 @@
           </tr>
       }
       @else{
-          @for (i of accounts_resource.value();track $index){
+          @for (i of accounts_resource.value()?.items;track $index){
               <tr>
                   <td>{{ i.email }}</td>
                   <td>{{i.firstname | titlecase}} {{ i.lastname | titlecase }}</td>
@@ -55,6 +55,8 @@
       </tbody>
     </table>
   </div>
-  <paginator [itemCount]="100" [pageSize]="20" [currentPage]="0"/>
+  <paginator [itemCount]="accounts_resource.value()?.count??0"
+             [pageSize]="20"
+             [(currentPage)]="current_page" />
   <add-user #add_user (addUser)="onAdd($event)"/>
 </div>

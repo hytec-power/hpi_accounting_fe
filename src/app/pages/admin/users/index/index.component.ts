@@ -24,9 +24,11 @@ import {PaginatorComponent} from "src/app/common/paginator/paginator.component";
   styleUrl: './index.component.scss'
 })
 export class IndexComponent {
-  accounts_resource!: ResourceRef<User[]| undefined>;
+  accounts_resource!: ResourceRef<{ count: number, items: User[]}| undefined>;
   query: WritableSignal<string> = signal('');
   params = computed(()=> ({ query: this.query() }) );
+  current_page: WritableSignal<number> = signal(1);
+
   constructor(private accounts: AccountsService) {
     this.initResource();
   }
