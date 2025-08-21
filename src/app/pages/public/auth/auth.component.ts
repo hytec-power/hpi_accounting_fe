@@ -34,6 +34,7 @@ export class AuthComponent {
     window.location.href = this.auth.getOauthUrl();
   }
   redirect(){
+    console.log('wee');
       this.router.navigate([this.auth.getRedirectUrl()]);
   }
 }
