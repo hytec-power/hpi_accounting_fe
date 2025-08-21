@@ -24,9 +24,16 @@ export class RequestDetailsComponent {
   }
   initForm(){
     this.form.set(this.formBuilder.group({
-      project_name: ['',[Validators.required,Validators.maxLength(100)]],
+      project_name      : ['',[Validators.required,Validators.maxLength(100)]],
+      order_type        : ['regular',[Validators.required,Validators.maxLength(50)]],
+      po_received_date  : ['',[Validators.required]],
+      customer_po_ref   : ['',[Validators.required]],
+      customer_po_amount: ['',[Validators.required]],
+      quotation_ref     : ['',[Validators.required]],
+      advance_pr_date   : ['',[Validators.required]],
+      after_sales_date  : ['',[Validators.required]],
+      inspection_days   : ['',[Validators.required]],
     }));
-    console.log(this.form());
   }
 
 }

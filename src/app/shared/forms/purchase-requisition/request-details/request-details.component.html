@@ -2,52 +2,57 @@
     <form [formGroup]="form()!">
     <label>
       <div>Project name / title </div>
-      <input type="text" maxlength="100">
+      <input type="text" maxlength="100" formControlName="project_name">
     </label>
     <div>
       <div class="my-2">Order Type</div>
       <div class="radio-container">
         <label>
-          <input type="radio" />
+          <input type="radio" value="regular" formControlName="order_type" />
           <span>Regular Order</span>
         </label>
         <label>
-          <input type="radio" />
+          <input type="radio" value="advanced" formControlName="order_type" />
           <span>Advanced Order</span>
         </label>
       </div>
     </div>
     <label>
       <div>PO Date Received</div>
-      <input type="date" name="" id="">
+      <input type="date" formControlName="po_received_date">
     </label>
     <label>
       <div>Customer PO Ref# / NOA / NTP</div>
-      <input type="text" maxlength="100">
+      <input type="text" maxlength="100" formControlName="customer_po_ref">
     </label>
     <label>
       <div>Client PO Amount</div>
-      <input type="number" max="999999999" step="1">
+      <input type="number" max="999999999" step="1" formControlName="customer_po_amount">
     </label>
     <label>
       <div>Quotation Ref No.</div>
-      <input type="text">
+      <input type="text" formControlName="quotation_ref">
     </label>
     <label>
       <div>Advance PR (Expected date of release)</div>
-      <input type="date">
+      <input type="date" formControlName="advance_pr_date">
     </label>
     <label>
       <div>After Sales Date Projected</div>
-      <input type="date">
+      <input type="date" formControlName="after_sales_date">
     </label>
     <label>
       <div>Commited # of days for inspection(ps)</div>
-      <input type="date">
+      <input type="date" formControlName="inspection_days">
     </label>
   </form>
     <div class="d-flex justify-content-between my-2">
-      <button-component text="Back" type="default" (click)="back.emit()"/>
-      <button-component text="Next" type="primary" (click)="next.emit()"/>
+      <button-component text="Back"
+                        type="default"
+                        (click)="back.emit()"/>
+      <button-component text="Next"
+                        type="primary"
+                        [disabled]="form()?.invalid??false"
+                        (click)="next.emit()"/>
     </div>
 </div>
