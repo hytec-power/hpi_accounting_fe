@@ -9,6 +9,7 @@ import {LoaderBouncingBallsComponent} from "src/app/common/loader-bouncing-balls
 import {DatePipe, TitleCasePipe} from "@angular/common";
 import {PaginatorComponent} from "src/app/common/paginator/paginator.component";
 import {FormsModule} from "@angular/forms";
+import {EditComponent} from "src/app/pages/admin/users/index/edit/edit.component";
 
 @Component({
   selector: 'app-index',
@@ -20,7 +21,8 @@ import {FormsModule} from "@angular/forms";
     TitleCasePipe,
     DatePipe,
     PaginatorComponent,
-    FormsModule
+    FormsModule,
+    EditComponent
   ],
   templateUrl: './index.component.html',
   styleUrl: './index.component.scss'
@@ -45,6 +47,9 @@ export class IndexComponent {
   }
   onAdd(data: NewUser) {
     this.accounts.create(data.email,data.role).subscribe(i=> this.accounts_resource.reload());
+  }
+  onUpdate(role: string){
+
   }
 }
 export interface NewUser{

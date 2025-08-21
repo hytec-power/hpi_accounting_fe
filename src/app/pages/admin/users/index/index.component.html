@@ -51,7 +51,7 @@
                   <td>{{ i.role?.title }}</td>
                   <td>{{ i.created_at | date: 'shortDate' }}</td>
                   <td>
-                      <i class="bi bi-pencil"></i>
+                      <i class="bi bi-pencil" (click)="edit_user.edit(i)"></i>
                       <i class="bi bi-archive"></i>
                   </td>
               </tr>
@@ -66,4 +66,5 @@
              [pageSize]="20"
              [(currentPage)]="current_page" />
   <add-user #add_user (addUser)="onAdd($event)"/>
+  <edit-user #edit_user />
 </div>
