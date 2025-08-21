@@ -1,5 +1,5 @@
 <div class="root-container">
-  <form>
+  <form [formGroup]="form()!">
     <label>
       <div>Company Name</div>
       <select>
@@ -8,15 +8,15 @@
     </label>
     <label>
       <div>Address</div>
-      <textarea cols="65"></textarea>
+      <textarea cols="65" formControlName="client_address"></textarea>
     </label>
     <label>
       <div>Contact Person</div>
-      <input type="text"/>
+      <input type="text" formControlName="client_address"/>
     </label>
     <label>
       <div>Position</div>
-      <input type="text"/>
+      <input type="text" formControlName="client_position"/>
     </label>
     <label>
       <div>Position</div>

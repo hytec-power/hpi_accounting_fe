@@ -34,6 +34,7 @@ export class PurchaseRequisitionComponent {
   onComplete = output<void>();
   onCancel = output<void>();
   form_request_details: WritableSignal<FormGroup|null> = signal(null);
+  form_client_details: WritableSignal<FormGroup|null> = signal(null);
 
   constructor(private cd: ChangeDetectorRef) {
     this.initSteps();
