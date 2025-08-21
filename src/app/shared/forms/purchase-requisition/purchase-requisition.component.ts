@@ -1,4 +1,4 @@
-import {Component, output, signal, WritableSignal} from '@angular/core';
+import {ChangeDetectorRef, Component, output, signal, WritableSignal} from '@angular/core';
 import {StepperComponent, StepperItem} from "src/app/common/stepper/stepper.component";
 import {
   RequestDetailsComponent
@@ -12,6 +12,7 @@ import {
 import {AttachmentsComponent} from "src/app/shared/forms/purchase-requisition/attachments/attachments.component";
 import {ItemsComponent} from "src/app/shared/forms/purchase-requisition/items/items.component";
 import {CompleteComponent} from "src/app/shared/forms/purchase-requisition/complete/complete.component";
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'purchase-requisition-form',
@@ -32,8 +33,12 @@ export class PurchaseRequisitionComponent {
   page: WritableSignal<number> = signal(0);
   onComplete = output<void>();
   onCancel = output<void>();
-  constructor() {
+  form_request_details: FormGroup | null = null;
+  constructor(private cd: ChangeDetectorRef) {
     this.initSteps();
+  }
+  ngOnInit() {
+    this.cd.detectChanges();
   }
   initSteps(){
     this.steps.push(

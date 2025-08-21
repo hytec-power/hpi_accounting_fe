@@ -3,7 +3,7 @@
     <stepper-component [items]="steps" [current_index]="page()"/>
     <div class="my-2">
       @switch (page()){
-        @case (0){<pr-request-details    (next)="next()" (back)="onCancel.emit()"/>}
+        @case (0){<pr-request-details    (next)="next()" (back)="onCancel.emit()" [(form)]="form_request_details" />}
         @case (1){<pr-client-details     (next)="next()" (back)="back()"/>}
         @case (2){<pr-principal-details  (next)="next()" (back)="back()"/>}
         @case (3){<pr-attachments        (next)="next()" (back)="back()"/> }

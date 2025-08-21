@@ -14,7 +14,16 @@ form{
   label{
     margin: 2px 0;
   }
-  input[type=text],input[type=date]{
+  input[type=text],input[type=date],input[type=number]{
     width: 100%;
+  }
+}
+.radio-container{
+  margin: 5px 0;
+  label{
+    margin: 0 2px;
+    span{
+      margin: 0 5px;
+    }
   }
 }
