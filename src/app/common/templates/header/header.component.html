@@ -4,7 +4,7 @@
     <div class="user-container" tabindex="1" #user_container>
         <div class="user">
             <img class="user-image" ngSrc="/assets/images/common/defaults/default_user.png" width="40" height="40" alt="user_image">
-            <div class="user-name">John Smith</div>
+            <div class="user-name"> {{ current_user?.user?.firstname | titlecase }} {{ current_user?.user?.lastname | titlecase }} </div>
             <i class="bi bi-caret-down-fill"></i>
         </div>
         <div class="user-menu" >
