@@ -17,4 +17,7 @@ export class AccountsService {
     const payload = { email: email, role: role };
     return this.http.post(`${this.api}`, payload , { observe: 'response' } );
   }
+  update(uuid: string,role: string) {
+    return this.http.patch(`${this.api}/${uuid}`, { role: role  }, { observe: 'response' } );
+  }
 }

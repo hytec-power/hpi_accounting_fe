@@ -48,8 +48,8 @@ export class IndexComponent {
   onAdd(data: NewUser) {
     this.accounts.create(data.email,data.role).subscribe(i=> this.accounts_resource.reload());
   }
-  onUpdate(role: string){
-
+  onUpdate(){
+    this.accounts_resource.reload();
   }
 }
 export interface NewUser{

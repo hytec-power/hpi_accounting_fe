@@ -66,5 +66,5 @@
              [pageSize]="20"
              [(currentPage)]="current_page" />
   <add-user #add_user (addUser)="onAdd($event)"/>
-  <edit-user #edit_user />
+  <edit-user #edit_user (onUpdate)="onUpdate()" />
 </div>
