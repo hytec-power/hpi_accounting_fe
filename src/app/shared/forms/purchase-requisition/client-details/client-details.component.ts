@@ -1,5 +1,5 @@
-import {Component, input, output} from '@angular/core';
-import {FormGroup} from "@angular/forms";
+import {Component, input, model, output} from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
 import {ButtonComponent} from "src/app/common/button/button.component";
 
 @Component({
@@ -13,5 +13,14 @@ import {ButtonComponent} from "src/app/common/button/button.component";
 export class ClientDetailsComponent {
   next = output<void>();
   back = output<void>();
-  form = input<FormGroup>();
+  form = model<FormGroup|null>();
+  constructor(private fb: FormBuilder) {
+
+  }
+  ngOnInit(){
+    !this.form() && this.initForm()
+  }
+  initForm(){
+
+  }
 }

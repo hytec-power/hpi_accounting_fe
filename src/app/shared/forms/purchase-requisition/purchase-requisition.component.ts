@@ -30,7 +30,7 @@ import {FormGroup} from "@angular/forms";
 })
 export class PurchaseRequisitionComponent {
   steps: StepperItem[]=[];
-  page: WritableSignal<number> = signal(0);
+  page: WritableSignal<number> = signal(1);
   onComplete = output<void>();
   onCancel = output<void>();
   form_request_details: FormGroup | null = null;
