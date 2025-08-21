@@ -33,12 +33,12 @@ export class PurchaseRequisitionComponent {
   page: WritableSignal<number> = signal(1);
   onComplete = output<void>();
   onCancel = output<void>();
-  form_request_details: FormGroup | null = null;
+  form_request_details: WritableSignal<FormGroup|null> = signal(null);
+
   constructor(private cd: ChangeDetectorRef) {
     this.initSteps();
   }
   ngOnInit() {
-    this.cd.detectChanges();
   }
   initSteps(){
     this.steps.push(
